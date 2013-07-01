@@ -33,8 +33,6 @@ if ($this->params['controller'] == 'incidents') {
 	}
 }
 ?>
-
-<div class="container">
 	<div class="row">
 		<div class="span9">
 			<?php echo $this->Session->flash(); ?>
@@ -44,6 +42,6 @@ if ($this->params['controller'] == 'incidents') {
 		<div class="span3">
 			<?php echo $this->element('newmenu'); ?>
 		</div>
+
 <?php 
 echo $this->element('footer');
-?>

@@ -143,8 +143,6 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
-CakePlugin::load('EsherSpecific');
-
 /**
  * You can attach event listeners to the request lifecyle as Dispatcher Filter . By Default CakePHP bundles two filters:
  *
@@ -165,5 +163,5 @@ CakePlugin::load('EsherSpecific');
 App::uses('Authentication', 'Lib');
 App::uses('CakeEmail', 'Network/Email');
  
-require('D:/web.esherhigh.surrey.sch.uk/cake/App/Lib/Authentication.php');
-require('D:/web.esherhigh.surrey.sch.uk/cake/App/Lib/Theme.php');
+require('../Lib/Authentication.php');
+require('../Lib/Theme.php');
