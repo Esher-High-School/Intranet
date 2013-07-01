@@ -254,7 +254,7 @@ class IncidentsController extends AppController {
 		$this->set('days', $day);
 	}
 	
-	public function learningMentorHome() {
+	public function learningmentorhome() {
 		$Authentication = new Authentication;
 		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
 		if ($learningmentor == null) {
