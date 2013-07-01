@@ -1,0 +1,136 @@
+/* Variables */
+@container-width: 780px;
+@main-padding: 20px;
+@main-shadow: 0px 0px 12px 4px #bbb;
+@primary-font: 'Open Sans';
+
+/* Mixins */
+.main-shadow {
+  -webkit-box-shadow: @main-shadow;
+  -moz-box-shadow: @main-shadow;
+  box-shadow: @main-shadow;
+}
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+  i {
+	text-align: center;
+	margin-left: 10px;
+  }
+}
+.right {
+  text-align: right;
+}
+
+/* Primary Elements */
+body {
+  background-color: #fff;
+  font-family: @primary-font, sans-serif;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 8pt;
+}
+
+a, a:visited, :hover {
+	i {
+		color: #000;
+	}
+}
+
+h1 {
+
+}
+
+/* Primary Classes */
+.main-container {
+  .main-shadow;
+  width: (@container-width + (@main-padding * 2));
+  padding-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+}
+
+.content {
+  width: (@container-width + (@main-padding * 2));
+  padding: @main-padding;
+  padding-top: 0;
+}
+
+.navbar.nav-top {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  margin: 0;
+  border: 0;
+  ul.nav {
+    text-align: center;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    li {
+      text-align: center;
+    }
+  }
+}
+
+.header {
+  background-image: url('../img/shade.gif'); 
+	height: 90px;
+	padding: 0;
+	margin: 0;
+	table {
+	  padding: 0;
+	  margin: 0;
+	  cellpadding: 0;
+	  cellspacing: 0;
+	  border: 0;
+	  tr {
+	    padding: 0;
+	    margin: 0;
+	  }
+	  td {
+	    padding: 0;
+	    margin: 0; 
+	  }
+	}
+}
+
+.table-header {
+  padding: 0;
+  margin: 0;
+  tr {
+    padding: 0;
+  }
+}
+
+.table-students {
+	text-align: center;
+}
+
+
+/* Misc Classes */
+.error-message {
+	width: 97s%;
+	margin: 4px;
+	margin-top: 0;
+	margin-left: auto;
+	background-color: #ffcccc;
+	padding: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #aa8888;
+	-webkit-box-shadow:	0px 0px 4px 2px #ccc;
+	-moz-box-shadow:	0px 0px 4px 2px #ccc;
+	box-shadow:			0px 0px 4px 2px #ccc;
+}
+
+.mi {
+	font-size: 14pt;
+}
