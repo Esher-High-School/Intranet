@@ -1,3 +1,11 @@
+<?php
+if (isset($title)) {
+	$showTitle = ($title . ' - Staff Intranet');
+} else {
+	$showTitle = 'Staff Intranet';
+}
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,7 +35,7 @@
 				<div class="container">
 					<div class="span1">
 						<a href="/">
-							<img src="/cake/img/ehs.png" alt="Esher C of E High School">
+							<img src="/img/ehs.png" alt="Esher C of E High School">
 						</a>
 					</div>
 					<div class="span9">
@@ -37,8 +45,19 @@
 						</a>
 					</div>
 					<div class="span1 right">
-						<img src="/cake/img/ac.png" alt="Arts Colleges">
+						<img src="/img/ac.png" alt="Arts Colleges">
 					</div>
 				</div>
 			</div>
+			<?php
+			echo $this->element('topmenu', array('user' => $username));
+			if ($this->params['controller'] == 'incidents') {
+				if (isset($smt['Smt'])) {
+					echo $this->element('smtmenu', array('user' => $username));
+				}
+				if (isset($learningmentor['LearningMentor'])) {
+					echo $this->element('learningmentormenu', array('user' => $username));
+				}
+			}
+			?>
 			<div class="container">
