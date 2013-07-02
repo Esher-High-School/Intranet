@@ -32,6 +32,22 @@
  
 class AppController extends Controller {
 	var $uses = array('CmsUser');
+
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			'authError' => 'You do not have permission to access this resource. If you believe this to be in error, please contact ICT Support.'
+		)
+	);
+
+	public function isAuthorised() {
+		return true;
+	}
+
+	public function beforeFilter() {
+		$Authentication = new Authentication;
+		$this->Session->write('User', $Authentication->Username());
+	}
 	
 	public function beforeRender() {
 		$this->loadModel('LearningMentor');
