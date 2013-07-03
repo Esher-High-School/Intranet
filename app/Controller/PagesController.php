@@ -3,7 +3,7 @@ class PagesController extends AppController {
 	public $helpers = array('Html', 'Form', 'Fck');
 	public $components = array('Session');
 	
-	var $uses = array('Page', 'CmsUser');
+	var $uses = array('Page', 'Document', 'CmsUser');
 	
 	public function index() {
 		$Authentication = new Authentication;
