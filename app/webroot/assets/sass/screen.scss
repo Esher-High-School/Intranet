@@ -275,6 +275,7 @@ footer {
 		padding: 0px;
 	}
 	.well {
+		@include border-radius(0px);
 		padding: 8px 0;
 	}
 }
@@ -413,6 +414,10 @@ a:hover.button-primary {
 a.button-nav, a:hover.button-nav, a.button-secondary-nav, a:hover.button-secondary-nav {
 	font-weight: 700;
 	color: #fff;
+}
+
+.btn {
+	@include border-radius(0px);
 }
 
 /* Pagination */
