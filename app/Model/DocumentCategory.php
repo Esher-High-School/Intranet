@@ -9,6 +9,12 @@ class DocumentCategory extends AppModel {
 			'foreignKey' => 'category_id'
 		)
 	);
+
+	public $validate = array(
+		'name' => array(
+			'rule' => 'notEmpty'
+		)
+	);
 	
 	function getCategories() {
 		return $this->find('all', array('order' => array('name' => 'ASC')));
