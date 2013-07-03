@@ -5,15 +5,6 @@ class PagesController extends AppController {
 	
 	var $uses = array('Page', 'CmsUser');
 	
-	var $paginate = array(
-		'fields' => array('Page.id', 'Page.name'),
-		'maxLimit' => 2000,
-		'limit' => 2000,
-		'order' => array(
-			'Page.name' => 'asc'
-		)
-	);
-	
 	public function index() {
 		$Authentication = new Authentication;
 		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
