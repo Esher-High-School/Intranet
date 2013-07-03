@@ -21,7 +21,7 @@ class DocumentCategoriesController extends AppController {
 		if ($this->request->is('post')) {
 			if($this->DocumentCategory->save($this->request->data)) {
 				$this->Session->setFlash('
-					<div alert="alert alert-success">
+					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
 						Your category has been added successfully.
 					</div>
