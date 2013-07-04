@@ -30,33 +30,37 @@ if (isset($title)) {
 		<div class="navigation-bg">
 			&nbsp;
 		</div>
-		<div class="main-container">
-			<div class="header">
-				<div class="container">
-					<div class="span1">
-						<a href="/">
-							<img src="/img/ehs.png" alt="Esher C of E High School">
-						</a>
-					</div>
-					<div class="span9">
-						<a href="/">
-							<h1>Esher C of E High School</h1>
-							<h2>Staff Intranet</h2>
-						</a>
-					</div>
-					<div class="span1 right">
-						<img src="/img/ac.png" alt="Arts Colleges">
-					</div>
+		<div class="header">
+			<div class="container">
+				<div class="span1">
+					<a href="/">
+						<img src="/img/ehs.png" alt="Esher C of E High School">
+					</a>
+				</div>
+				<div class="span9">
+					<a href="/">
+						<h1>Esher C of E High School</h1>
+						<h2>Staff Intranet</h2>
+					</a>
+				</div>
+				<div class="span1 right">
+					<img src="/img/ac.png" alt="Arts Colleges">
 				</div>
 			</div>
+		</div>
+		<?php
+		echo $this->element('topmenu', array('user' => $username));
+		?>
+		<div class="main-container">
 			<?php
-			echo $this->element('topmenu', array('user' => $username));
 			if ($this->params['controller'] == 'incidents') {
-				if (isset($smt['Smt'])) {
-					echo $this->element('smtmenu', array('user' => $username));
-				}
-				if (isset($learningmentor['LearningMentor'])) {
-					echo $this->element('learningmentormenu', array('user' => $username));
+				if ($this->params['action'] !== 'report') {
+					if (isset($smt['Smt'])) {
+						echo $this->element('smtmenu', array('user' => $username));
+					}
+					if (isset($learningmentor['LearningMentor'])) {
+						echo $this->element('learningmentormenu', array('user' => $username));
+					}
 				}
 			}
 			?>

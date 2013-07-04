@@ -1,16 +1,38 @@
 				</div>
 			</div>
 			<hr>
-			<footer>
-				<p>
-					<a href="http://web.esherhigh.surrey.sch.uk">Home</a> | 
-					<a href="http://www.esherhigh.surrey.sch.uk">Website</a> | 
-					<a href="http://webmail.esherhigh.surrey.sch.uk">Email</a>
-				</p>
-				<p>
-					Copyright &copy; <?php echo date("Y"); ?> Esher C of E High School :: ICT Support Department
-				</p>
-			</footer>
 		</div>
+		<footer>
+			<div class="container">	
+				<div class="row">
+					<div class="span12 right">
+						<h1>
+							<?php echo $this->Html->Link('Esher C of E High School', '/'); ?>
+						</h1>
+						<h2>
+							<?php echo $this->Html->Link('Staff Intranet', '/'); ?>
+						</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span6 left">
+						<p>&copy; Esher C of E High School <?php echo date('Y'); ?></p>
+					</div>
+					<div class="span6 right">
+						<ul class="footer-nav">
+							<li>
+								<?php echo $this->Html->Link('Home', array('controller' => 'staffbulletins', 'action' => 'display')); ?>
+							</li>
+							<li>
+								<?php echo $this->Html->Link('Website', 'http://www.esherhigh.surrey.sch.uk'); ?>
+							</li>
+							<li>
+								<?php echo $this->Html->Link('Webmail', 'https://webmail.esherhigh.surrey.sch.uk'); ?>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

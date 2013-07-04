@@ -1,4 +1,3 @@
-<p>&nbsp;</p>
 <div class="navigation nav-smt">
 	<div class="container condensed">
 		<?php 

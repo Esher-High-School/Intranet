@@ -81,6 +81,11 @@ class StudentsController extends AppController {
 	}
 	
 	public function add() {
+		$Authentication = new Authentication;
+		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		if (!isset($cmsuser['CmsUser'])) {
+			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		}
 		$this->set('title', 'Add New Student');
 		if ($this->request->is('post')) {
 			if ($this->Student->save($this->request->data)) {
@@ -101,6 +106,11 @@ class StudentsController extends AppController {
 	}
 	
 	public function edit($upn) {
+		$Authentication = new Authentication;
+		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		if (!isset($cmsuser['CmsUser'])) {
+			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		}
 		$this->set('title', 'Edit Student');
 		$this->Student->id = $upn;
 		if ($this->request->is('get')) {

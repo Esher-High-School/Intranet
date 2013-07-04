@@ -8,7 +8,7 @@
 @import "sassy-buttons";
 @import 'bootstrap.scss';
 @import 'font-awesome.scss';
-@import url('https://fonts.googleapis.com/css?family=Handlee|Open+Sans|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Handlee|Open+Sans:300,400,700|Roboto+Slab');
 
 /* Variables */
 $primary-font: 'Open Sans';
@@ -72,6 +72,7 @@ h3 {
 	margin-top: 0.2em;
 	margin-bottom: 0.2em;
 	font-size: 2.25em;
+	font-weight: 400;
 	border-bottom: 1px #dfdfdf solid;
 	margin-bottom: 12px;
 	line-height: 1em;
@@ -81,8 +82,9 @@ h3 {
 }
 
 h4 {
-	font-size: 1.5em;
+	font-size: 1.6em;
 	line-height: 1em;
+	font-weight: 400;
 }
 
 a:hover {
@@ -103,13 +105,14 @@ a, a:hover, a:visited, a:link, a:active {
 	}
 }
 
+/* Tables */
 table {
 	font-size: 0.9em;
 	line-height: 0.9em;
 }
 /* Primary Elements */
 body {
-	background-color: #eee;
+	background-color: #fdfdfd;
 }
 
 footer {
@@ -117,20 +120,89 @@ footer {
 	font-size: 0.8em;
 	line-height: 1em;
 	width: 100%; 
+	min-height: 200px;
 	margin: 0;
-	margin-top: 10px;
+	margin-top: 32px;
 	padding-top: 16px;
 	padding-bottom: 16px;
+	font-weight: 400;
+	color: #fff;
+	p {
+		color: #fff;
+		font-weight: 400;
+		a, a:link, a:visited, a:active, a:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #C5D60B;
+		}
+		text-shadow: 0 0 4px #000;
+	}
+	background-color: #003A70;
+	.footer-nav {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		li {
+			display: inline;
+			font-size: 14px;
+			font-weight: 400;
+			margin-left: 12px;
+			a, a:link, a:visited, a:active, a:hover {
+				font-weight: 400;
+				font-size: 14px;
+				color: #fff;
+				text-shadow: 0 0 4px #000;
+				text-decoration: none;
+			}
+			a:hover {
+				color: #C5D60B;
+			}
+		}
+	}
+	h1 {
+		text-shadow: 0 0 4px #000;
+		margin: 0;
+		margin-top: 16px;
+		padding: 0;
+		font-size: 32px;
+		line-height: 1em;
+		font-weight: 400;
+		margin-bottom: 8px;
+		a, a:link, a:active, a:visited, a:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+	h2 {
+		text-shadow: 0 0 4px #000;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 16px;
+		position: relative;
+		right: 20px;
+		line-height: 1em;
+		font-family: $primary-font, serif;
+		font-weight: 400;
+		font-size: 24px;
+		color: #ddd;
+		a, a:link, a:active, a:visited, a:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
 }
 
 /* Primary Classes */
 .main-container {
-	@include box-shadow(0 0 48px 1px #222); 
+	@include box-shadow(0 0 2px 1px #888); 
 	@include left;
 	width: ($container-width + ($container-padding *2));
 	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 16px;
 	padding: 0;
 	border: 0px solid $border-color;
 	background: #fff;
@@ -160,6 +232,8 @@ footer {
 /* Header Navigation */
 .header {
 	background-color: #fff;
+	background-image: url('../images/header-bg.png');
+	background-repeat: repeat-x;
 	height: 72px;
 	width: 100%;
 	padding-top: 8px;
@@ -181,6 +255,7 @@ footer {
 		padding: 0;
 		font-size: 32px;
 		line-height: 1em;
+		font-weight: 400;
 	}
 	h2 {
 		margin: 0;
@@ -188,17 +263,21 @@ footer {
 		position: relative;
 		left: 20px;
 		line-height: 1em;
-		font-family: 'Roboto Slab', serif;
+		font-family: $primary-font, serif;
+		font-weight: 400;
 		font-size: 24px;
 		color: #6e6e6e;
 	}
 }
 .navigation {
 	@include center;
-	width: 100%;
+	width: 980px;
 	height: auto;
 	padding: 0px;
-	margin-bottom: 0;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 8px;
 	background-color: #0059ac;
 	z-index: 10000;
 }
@@ -348,7 +427,7 @@ table.sbCarousel-table {
 
 }
 .note {
-	background-image: url('http://web.esherhigh.surrey.sch.uk/images/note.jpg');
+	background-image: url('../images/note.jpg');
 	height: 275px;
 	margin: 0;
 	padding: 0;
@@ -420,6 +499,18 @@ a.button-nav, a:hover.button-nav, a.button-secondary-nav, a:hover.button-seconda
 	@include border-radius(0px);
 }
 
+/* Form Elements */
+input, input[type="text"], textarea, select {
+	@include border-radius(0px);
+}
+input[type="text"] {
+	font-size: 1.5em;
+	height: auto;
+}
+input[type="text"].input-block-level {
+	font-size: 1.5em;
+	height: auto;
+}
 /* Pagination */
 a.pagination-text {
 	color: #000;

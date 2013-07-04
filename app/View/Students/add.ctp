@@ -1,43 +1,110 @@
-<?php
-$Authentication = new Authentication;
-if (!$Authentication->isAdmin()) {
-	echo ("<h2>Access Denied.</h2>
-	<p>You do not have permission to access this resource. If you believe this is in error, please contact ICT support.</p>
-	<p>Your username is <strong>" . $Authentication->Username() . "</strong>.</p>");
-} else {
-?>
 <h3>Add Student</h3>
-<div class="row">
-	<div class="span4">
-		<?php
-		echo $this->Form->create('Student', array('inputDefaults' => array('class' => 'span4', 'error' => array('wrap' => 'div', 'class' => 'inputError'))));
-		echo $this->Form->input('surname', array('placeholder' => 'Surname', 'label' => false));
-		echo $this->Form->input('forename', array('placeholder' => 'Forename', 'label' => false));
-		echo $this->Form->input('DOB', array('placeholder' => 'Date of Birth', 'label' => false));
-		echo $this->Form->input('sex', array('placeholder' => 'Sex', 'label' => false));
-		echo $this->Form->input('adno', array('placeholder' => 'Admission Number', 'label' => false));
-		echo $this->Form->input('upn', array('placeholder' => 'UPN', 'label' => false, 'type' => 'text'));
-		echo $this->Form->input('year', array('placeholder' => 'Year', 'label' => false));
-		echo $this->Form->input('form', array('placeholder' => 'Form', 'label' => false));
-		echo $this->Form->input('postcode', array('placeholder' => 'Postcode', 'label' => false));
-		echo $this->Form->input('sen', array('placeholder' => 'SEN', 'label' => false));
-		echo $this->Form->input('onroll', array('placeholder' => 'On roll?', 'label' => false));
-		echo $this->Form->button('Save Student', array('type' => 'submit', 'class' => 'btn btn-primary'));
-		echo $this->Form->end();
-		?>
+<?php echo $this->Form->create('Student', array('class' => 'form-horizontal', 'inputDefaults' => array('class' => 'form-horizontal', 'error' => array('wrap' => 'div', 'class' => 'inputError')))); ?>
+	<div class="control-group">
+		<label class="control-label" for="forenameInput">Forename</label>
+		<div class="controls">
+			<?php echo $this->Form->input('forename', array('label' => false, 'id' => 'forenameInput')); ?>
+		</div>
 	</div>
-	<div class="span3">
-		<p style="padding-top: 4px;">The student's surname</p>
-		<p style="padding-top: 10px;">The student's forename</p>
-		<p style="padding-top: 10px;">Date of birth ie 16-Jun-1999</p>
-		<p style="padding-top: 10px;">Sex - Type either M or F</p>
-		<p style="padding-top: 10px;">Admission number - from SIMS</p>
-		<p style="padding-top: 10px;">UPN - This cannot be edited</p>
-		<p style="padding-top: 10px;">School year: For example: 8</p>
-		<p style="padding-top: 10px;">Form group: Example 8AZ</p>
-		<p style="padding-top: 10px;">Student's postcode</p>
-		<p style="padding-top: 10px;">Special Educational Needs</p>
-		<p style="padding-top: 10px;">On roll - Type Y or N</p>
+
+	<div class="control-group">
+		<label class="control-label" for="surnameInput">Surname</label>
+		<div class="controls">
+			<?php echo $this->Form->input('surname', array('label' => false, 'id' => 'surnameInput')); ?>
+		</div>
 	</div>
-</div>
-<?php } ?>
+
+	<div class="control-group">
+		<label class="control-label" for="dobInput">
+			Date of Birth<br>
+			<small>(example: 16-Jun-1999)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('dob', array('label' => false, 'id' => 'dobInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="sexInput">
+			Sex<br>
+			<small>(example: M or F)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('sex', array('label' => false, 'id' => 'sexInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="adnoInput">
+			Admission Number<br>
+			<small>(From SIMS)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('adno', array('label' => false, 'id' => 'adnoInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="upnInput">
+			UPN<br>
+			<small>(cannot be changed)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('upn', array('label' => false, 'id' => 'upnInput', 'type' => 'text')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="yearInput">
+			School Year<br>
+			<small>(example: 8)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('year', array('label' => false, 'id' => 'yearInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="formInput">
+			Tutor Group<br>
+			<small>(example: 8AZ)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('form', array('label' => false, 'id' => 'formInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="postcodeInput">
+			Postcode
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('postcode', array('label' => false, 'id' => 'postcodeInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="senInput">
+			Special Educational Needs
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('sen', array('label' => false, 'id' => 'senInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="onrollInput">
+			On Roll<br>
+			<small>(example: Y or N)</small>
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('onroll', array('label' => false, 'id' => 'onrollInput')); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<?php echo $this->Form->button('Add Student', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
+		</div>
+	</div>
+<?php echo $this->Form->end();
