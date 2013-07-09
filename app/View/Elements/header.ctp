@@ -27,6 +27,7 @@ if (isset($title)) {
 		<script src="http://web.esherhigh.surrey.sch.uk/static/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="http://web.esherhigh.surrey.sch.uk/static/js/ckeditor/ckeditor.js" type="text/javascript"></script>
 		<script src="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
+		<?php echo $this->element('top-navbar'); ?>
 		<div class="navigation-bg">
 			&nbsp;
 		</div>

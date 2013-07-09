@@ -112,6 +112,7 @@ table {
 /* Primary Elements */
 body {
 	background-color: #fdfdfd;
+	margin-top: 40px;
 }
 
 footer {
@@ -292,7 +293,7 @@ footer {
 	position: absolute;
 	z-index: -1000;
 	background-color: #00478a;
-	top: 80px;
+	top: 120px;
 }
 
 .nav-smt {
@@ -355,6 +356,19 @@ footer {
 	.well {
 		@include border-radius(0px);
 		padding: 8px 0;
+	}
+}
+
+/* More Navigation */
+.navbar-inner {
+	height: 20px;
+}
+ul.dropdown-menu {
+	@include border-radius(0px);
+	li {
+		a:hover {
+			background-color: #0059ac;
+		}
 	}
 }
 
