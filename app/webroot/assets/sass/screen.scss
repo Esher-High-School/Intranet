@@ -200,7 +200,7 @@ footer {
 .main-container {
 	@include box-shadow(0 0 2px 1px #888); 
 	@include left;
-	width: ($container-width);
+	width: ($container-width + ($container-padding * 2));
 	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
@@ -304,9 +304,6 @@ footer {
 
 /* Sidebar Navigation */
 .side-nav {
-	border-left: 1px solid #dfdfdf; 
-	background-color: #003A70;
-	color: #fff;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	p {
@@ -316,36 +313,7 @@ footer {
 		margin-top: 3px;
 		margin-bottom: 3px;
 	}
-	ul {
-		font-size: 13px;
-		line-height: 1em;
-		list-style-type: none;
-		li {
-			font-size: 14px;
-			font-weight: 400;
-			a, a:link, a:visited, a:active, a:hover {
-				font-weight: 400;
-				font-size: 14px;
-				text-decoration: none;
-				color: #fff;
-			}
-			a:hover {
-				background-color: #0059ac;
-			}
-		}
-		li.divider {
-			border: 0;
-			border-top: 0;
-			border-bottom: 1px solid #0059ac;
-		}
-		li.nav-header {
-			font-size: 1.1em;
-			line-height: 1em;
-			font-weight: 300;
-			text-align: center;
-			color: #fff;
-		}
-	}
+
 	/*
 	ul {
 		font-size: 8pt;
