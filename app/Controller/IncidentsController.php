@@ -627,7 +627,7 @@ class IncidentsController extends AppController {
 		$this->set('smt', $smt);
 	}
 
-	public function printAllIncidents($upn) {
+	public function printIncidents($upn) {
 		$this->set('title', 'Print Incidents');
 		$this->layout = 'print';
 		$incidents = $this->Incident->getStudentIncidents($upn);

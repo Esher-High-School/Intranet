@@ -40,7 +40,7 @@
 	Router::connect('/incidentform/email/*', array('controller' => 'incidents', 'action' => 'reportEmail'));
 
 	/* Incident Printing */
-	Router::connect('/incidents/print-incidents/*', array('controller' => 'incidents', 'action' => 'printAllIncidents')); 
+	Router::connect('/incidents/print-incidents/*', array('controller' => 'incidents', 'action' => 'printIncidents')); 
 	
 	/* Incident Monitoring */
 	Router::connect('/incidentmonitoring/select/*', array('controller' => 'students', 'action' => 'incidentMonitoringList'));

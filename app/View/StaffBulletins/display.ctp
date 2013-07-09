@@ -37,16 +37,19 @@
 
 <h3>Searches</h3>
 <div class="searches">
-	<form action="http://www.google.co.uk/search?" method="get" class="search">
+	<form action="" method="post" class="search">
 		<input name="q" type="text">
 		<br>
-		<input class="btn btn-primary btn-large" type="submit" value="Google Search">
-	</form>
-
-	<form action="http://www.wolframalpha.com/input/?" method="get" class="search">
-		<input name="i" type="text">
+		<label for="googleSearch" class="searchProvider">
+			<input type="radio" name="sp" value="google" id="googleSearch" checked>
+			Google
+		</label>
+		<label for "wolframSearch" class="searchProvider">
+			<input type="radio" name="sp" value="wolfram" id="wolframSearch">
+			Wolfram Alpha
+		</label>
 		<br>
-		<input class="btn btn-primary btn-large" type="submit" value="Wolfram Alpha">
+		<input class="btn btn-primary btn-large" type="submit" value="Search">
 	</form>
 </div>
 	
