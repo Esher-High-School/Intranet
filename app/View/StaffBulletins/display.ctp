@@ -35,13 +35,18 @@
 </div>
 <h2 class="center"><small>(to post a message here, please email ICT support)</small></h2>
 
-<h3>EHS Google Search</h3>
-<div class="center">
-	<p>&nbsp;</p>
-	<form action="http://www.google.co.uk/search?" method="get">
-		<input name="q" style="font-size: 12pt; width: 90%; height: 22px;" type="text">
+<h3>Searches</h3>
+<div class="searches">
+	<form action="http://www.google.co.uk/search?" method="get" class="search">
+		<input name="q" type="text">
 		<br>
 		<input class="btn btn-primary btn-large" type="submit" value="Google Search">
+	</form>
+
+	<form action="http://www.wolframalpha.com/input/?" method="get" class="search">
+		<input name="i" type="text">
+		<br>
+		<input class="btn btn-primary btn-large" type="submit" value="Wolfram Alpha">
 	</form>
 </div>
 	

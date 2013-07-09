@@ -19,6 +19,16 @@ if (isset($title)) {
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
+		<?php if (isset($cmsuser)): ?>
+			<style type="text/css">
+				body {
+					margin-top: 40px;
+				}
+				.navigation-bg {
+					top: 120px;
+				}
+			</style>
+		<?php endif; ?>
 	</head>
 	<body>
 		<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
@@ -27,7 +37,11 @@ if (isset($title)) {
 		<script src="http://web.esherhigh.surrey.sch.uk/static/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="http://web.esherhigh.surrey.sch.uk/static/js/ckeditor/ckeditor.js" type="text/javascript"></script>
 		<script src="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
-		<?php echo $this->element('top-navbar'); ?>
+		<?php 
+		if (isset($cmsuser)) {
+			echo $this->element('top-navbar'); 
+		}
+		?>
 		<div class="navigation-bg">
 			&nbsp;
 		</div>
