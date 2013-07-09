@@ -1,6 +1,4 @@
-				</div>
 			</div>
-			<hr>
 		</div>
 		<footer>
 			<div class="container">	
@@ -14,7 +12,7 @@
 						</h2>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row lower">
 					<div class="span6 left">
 						<p>&copy; Esher C of E High School <?php echo date('Y'); ?></p>
 					</div>

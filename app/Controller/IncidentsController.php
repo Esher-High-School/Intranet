@@ -110,7 +110,7 @@ class IncidentsController extends AppController {
 		);
 		
 		// Retrieving Data
-		$student = $this->Student->find('first', array('conditions' => array('upn' => $upn)));
+		$student = $this->Student->findByUpn($upn);
 		$subjects = $this->Subject->find('all', array('order' => 'name ASC'));
 		$rooms = $this->Room->find('all', array('order' => 'name ASC'));
 		$incidentoptions = $this->IncidentOption->findOptions();

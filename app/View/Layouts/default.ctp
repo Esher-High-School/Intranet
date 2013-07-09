@@ -10,6 +10,6 @@ echo $this->element('header');
 		<div class="span3">
 			<?php echo $this->element('newmenu'); ?>
 		</div>
-
+	</div>
 <?php 
 echo $this->element('footer');

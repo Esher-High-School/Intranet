@@ -12,7 +12,7 @@ if (isset($title)) {
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta charset="utf-8">
 		<title><?php echo $showTitle; ?></title>
-		<link href="http://web.esherhigh.surrey.sch.uk/cake/assets/stylesheets/screen.css" rel="stylesheet" type="text/css">
+		<link href="/assets/stylesheets/screen.css" rel="stylesheet" type="text/css">
 		<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
 		<link href="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/css/elfinder.min.css" rel="stylesheet" type="text/css">
 		<link href="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/css/theme.css" rel="stylesheet" type="text/css">
