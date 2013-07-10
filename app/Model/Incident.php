@@ -115,11 +115,11 @@ class Incident extends AppModel {
 	}
 	
 	function getTutorGroupIncidents($form, $day) {
-		return $this->query("select students.surname, students.forename, incident.date, incident.id, students.form, incident.upn, count(incident.upn) AS Number from students inner JOIN incident on students.upn = incident.upn where students.form = '" . $form . "' and DATE_SUB(CURDATE(),INTERVAL '" . $day . "' DAY)<= date GROUP BY upn ORDER BY Number DESC limit 0,50");
+		return $this->query("select students.surname, students.forename, incident.date, incident.id, students.form, incident.upn, count(incident.upn) AS Number from students inner JOIN incident on students.upn = incident.upn where students.form = '" . $form . "' and DATE_SUB(CURDATE(),INTERVAL '" . $day . "' DAY)<= date GROUP BY upn ORDER BY Number DESC");
 	}
 	
 	function getYearIncidents($year, $days) {
-		return $this->query("select students.surname, students.forename, incident.date, incident.id, students.year, students.form, incident.upn, count(incident.upn) AS Number from students inner JOIN incident on students.upn = incident.upn where students.year = '" . $year . "' and DATE_SUB(CURDATE(),INTERVAL '" . $days . "' DAY)<= date GROUP BY upn ORDER BY Number DESC limit 0,50");
+		return $this->query("select students.surname, students.forename, incident.date, incident.id, students.year, students.form, incident.upn, count(incident.upn) AS Number from students inner JOIN incident on students.upn = incident.upn where students.year = '" . $year . "' and DATE_SUB(CURDATE(),INTERVAL '" . $days . "' DAY)<= date GROUP BY upn ORDER BY Number DESC");
 	}
 
 	function getStudentIncidents($upn) {
