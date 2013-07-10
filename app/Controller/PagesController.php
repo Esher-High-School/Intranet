@@ -53,6 +53,7 @@ class PagesController extends AppController {
 	public function edit($id) {
 		$this->set('title', 'Edit Page');
 		$this->Page->id = $id;
+		$this->set('id', $id);
 		if ($this->request->is('get')) {
 			$this->request->data = $this->Page->read();
 		} else {
@@ -63,7 +64,7 @@ class PagesController extends AppController {
 						Page updated successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'view', $id));
+				$this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
