@@ -35,20 +35,24 @@
 </div>
 <h2 class="center"><small>(to post a message here, please email ICT support)</small></h2>
 
-<h3>Searches</h3>
+<h3>Search</h3>
 <div class="searches">
 	<form action="" method="post" class="search">
-		<input name="q" type="text">
+		<input name="query" type="text">
 		<br>
 		<label for="googleSearch" class="searchProvider">
 			<input type="radio" name="sp" value="google" id="googleSearch" checked>
 			Google
 		</label>
 		<label for "wolframSearch" class="searchProvider">
-			<input type="radio" name="sp" value="wolfram" id="wolframSearch">
+			<input type="radio" name="sp" value="wikipedia" id="wolframSearch">
+			Wikipedia
+		</label>
+		<label for "wolframSearch" class="searchProvider">
+			<input type="radio" name="sp" value="wolframalpha" id="wolframSearch">
 			Wolfram Alpha
 		</label>
-		<br>
+		<br><br>
 		<input class="btn btn-primary btn-large" type="submit" value="Search">
 	</form>
 </div>
