@@ -19,7 +19,7 @@ if (isset($title)) {
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
-		<?php if (isset($cmsuser)): ?>
+		<?php if (isset($cmsuser['CmsUser'])): ?>
 			<style type="text/css">
 				body {
 					margin-top: 40px;
@@ -38,7 +38,7 @@ if (isset($title)) {
 		<script src="http://web.esherhigh.surrey.sch.uk/static/js/ckeditor/ckeditor.js" type="text/javascript"></script>
 		<script src="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
 		<?php 
-		if (isset($cmsuser)) {
+		if (isset($cmsuser['CmsUser'])) {
 			echo $this->element('top-navbar'); 
 		}
 		?>
