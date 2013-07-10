@@ -44,8 +44,8 @@
 			<input type="radio" name="sp" value="google" id="googleSearch" checked>
 			Google
 		</label>
-		<label for "wolframSearch" class="searchProvider">
-			<input type="radio" name="sp" value="wikipedia" id="wolframSearch">
+		<label for "wikipediaSearch" class="searchProvider">
+			<input type="radio" name="sp" value="wikipedia" id="wikipediaSearch">
 			Wikipedia
 		</label>
 		<label for "wolframSearch" class="searchProvider">
