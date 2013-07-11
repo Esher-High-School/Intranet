@@ -14,7 +14,7 @@
 				</div>
 				<div class="row lower">
 					<div class="span6 left">
-						<p>&copy; Esher C of E High School <?php echo date('Y'); ?></p>
+						<p>&copy; <?php echo $global_settings['Site Name']; ?> <?php echo date('Y'); ?></p>
 					</div>
 					<div class="span6 right">
 						<ul class="footer-nav">

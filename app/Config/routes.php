@@ -72,6 +72,10 @@
 	
 	/* CMS Areas */
 	Router::connect('/cms', array('controller' => 'cms', 'action' => 'index'));
+
+	Router::connect('/cms/settings', array('controller' => 'settings', 'action' => 'index'));
+	Router::connect('/cms/settings/add', array('controller' => 'settings', 'action' => 'add'));
+	Router::connect('/cms/settings/edit/*', array('controller' => 'settings', 'action' => 'edit'));
 	
 	Router::connect('/cms/pages', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/cms/pages/add', array('controller' => 'pages', 'action' => 'add'));

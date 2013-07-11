@@ -36,6 +36,8 @@ class AppController extends Controller {
 	public function beforeRender() {
 		//Global Settings
 		$this->loadModel('Setting');
+		$global_settings = $this->Setting->getSettings();
+		$this->set('global_settings', $global_settings);
 
 		//Load user group models
 		$this->loadModel('LearningMentor');

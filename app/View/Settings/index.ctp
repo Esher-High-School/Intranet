@@ -14,7 +14,7 @@
 					<?php echo $setting['Setting']['name']; ?>
 				</td>
 				<td>
-					<?php echo $setting['Setting']['name']; ?>
+					<?php echo $setting['Setting']['value']; ?>
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('action' => 'edit', $setting['Setting']['id'])); ?>

@@ -13,6 +13,14 @@ class Setting extends AppModel {
 	);
 
 	function getSettings() {
+		$dbsettings = $this->find('all');
+		foreach ($dbsettings as $setting) {
+			$settings[$setting['Setting']['name']] = $setting['Setting']['value'];
+		}
+		return $settings;
+	}
+
+	function listSettings() {
 		return $this->find('all', array('order' => array('name' => 'ASC')));
 	}
 }

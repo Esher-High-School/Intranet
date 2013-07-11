@@ -54,7 +54,7 @@ if (isset($title)) {
 				</div>
 				<div class="span9">
 					<a href="/">
-						<h1>Esher C of E High School</h1>
+						<h1><?php echo $global_settings['Site Name']; ?></h1>
 						<h2>Staff Intranet</h2>
 					</a>
 				</div>

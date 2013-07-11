@@ -17,7 +17,7 @@ class SettingsController extends AppController {
 
 	public function index() {
 		$this->set('title', 'Settings');
-		$settings = $this->Setting->getSettings();
+		$settings = $this->Setting->listSettings();
 		$this->set('settings', $settings);
 	}
 
