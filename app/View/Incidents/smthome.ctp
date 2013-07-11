@@ -5,7 +5,7 @@
 		<th>Student Name</th>
 		<th>Form</th>
 		<th>Problem</th>
-		<th>Problem 2</th>
+		<th>Submitted by</th>
 	</thead>
 	<?php foreach ($recent as $incident): ?>
 	<tr class="center">
@@ -16,7 +16,7 @@
 		</td>
 		<td width="1%"><?php echo $incident['Student']['form']; ?></td>
 		<td><?php echo $incident['Incident']['problems1']; ?></td>
-		<td><?php echo $incident['Incident']['problems2']; ?></td>
+		<td><?php echo $incident['Incident']['username']; ?></td>
 	</tr>
 	<?php endforeach; ?>
 </table>

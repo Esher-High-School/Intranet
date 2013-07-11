@@ -31,13 +31,13 @@ class HoysController extends AppController {
 		if ($cmsuser == null) {
 			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
 		}
-		$this->set('Add New Head of Year');
+		$this->set('title', 'Add New Head of Year');
 		if ($this->request->is('post')) {
 			if ($this->Hoy->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						<p>Head of Year saved successfully.</p>
+						Head of Year saved successfully.
 					</div>
 				');
 				$this->redirect(array('action' => 'index'));
@@ -45,7 +45,7 @@ class HoysController extends AppController {
 		}
 	}
 	
-	public function edit($id = null) {
+	public function edit($id) {
 		$Authentication = new Authentication;
 		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
 		if ($cmsuser == null) {
@@ -60,7 +60,7 @@ class HoysController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						<p>Head of Year updated successfully.</p>
+						Head of Year updated successfully.
 					</div>
 				');
 				$this->redirect(array('action' => 'index'));
@@ -68,7 +68,7 @@ class HoysController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-warning">
 						<button class="close" data-dismiss="alert">&times;</button>
-						<p>Unable to update head of year. Please confirm that you have entered all details correctly.</p>
+						Unable to update head of year. Please confirm that you have entered all details correctly.
 					</div>
 				');
 			}
@@ -83,7 +83,7 @@ class HoysController extends AppController {
 			$this->Session->setFlash('
 				<div class="alert alert-success">
 					<button class="close" data-dismiss="alert">&times;</button>
-					<p>Head of Year deleted successfully.</p>
+					Head of Year deleted successfully.
 				</div>
 			');
 			$this->redirect(array('action' => 'index'));

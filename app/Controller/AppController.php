@@ -34,6 +34,10 @@ class AppController extends Controller {
 	var $uses = array('CmsUser');
 	
 	public function beforeRender() {
+		//Global Settings
+		$this->loadModel('Setting');
+
+		//Load user group models
 		$this->loadModel('LearningMentor');
 		$this->loadModel('Smt');
 		$this->loadModel('Link');
