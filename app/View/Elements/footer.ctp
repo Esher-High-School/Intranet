@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="span12 right">
 						<h1>
-							<?php echo $this->Html->Link('Esher C of E High School', '/'); ?>
+							<?php echo $this->Html->Link($global_settings['Site Name'], '/'); ?>
 						</h1>
 						<h2>
 							<?php echo $this->Html->Link('Staff Intranet', '/'); ?>
