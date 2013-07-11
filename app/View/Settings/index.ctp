@@ -23,3 +23,6 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+<p>
+	<?php echo $this->Html->Link('Add Setting', array('action' => 'add')); ?>
+</p>
