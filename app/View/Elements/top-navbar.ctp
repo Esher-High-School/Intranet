@@ -25,11 +25,6 @@
 									<?php echo $this->Html->link('Files', array('controller' => 'files', 'action' => 'index')); ?>
 								</li>
 							<?php endif; ?>
-							<?php if ($cmsuser['CmsUser']['authlevel'] == 2): ?>
-								<li>
-									<?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
-								</li>
-							<?php endif; ?>
 							<?php if ($cmsuser['CmsUser']['authlevel'] >= 2): ?>
 								<li>
 									<?php echo $this->Html->Link('Thought For The Day Upload', 'http://web.esherhigh.surrey.sch.uk/tfd_upload.php'); ?>
@@ -46,6 +41,11 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
+							<?php if ($cmsuser['CmsUser']['authlevel'] == 2): ?>
+								<li>
+									<?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
+								</li>
+							<?php endif; ?>
 							<li>
 								<?php echo $this->Html->Link('Tutors', array('controller' => 'tutors', 'action' => 'index')); ?>
 							</li>
