@@ -627,9 +627,23 @@ class IncidentsController extends AppController {
 		$this->set('smt', $smt);
 	}
 
-	public function printIncidentsSelect($upn) {
+	public function printIncidentsSelect($upn, $date1=null, $date2=null) {
 		$this->set('title', 'Print Incidents');
 		$student = $this->Student->findByUpn($upn);
+
+		if ($date1 !== null) {
+			$this->set('date1', $date1);
+		} else {
+			$this->set('date1', date('d-m-Y', strtotime(date('d-m-Y') . '-1 year')));
+		}
+
+		if ($date2 !== null) {
+			$this->set('date2', $date2);
+		} else {
+			$this->set('date2', date('d-m-Y'));
+		}
+
+		$this->set('student', $student);
 	}
 
 	public function printIncidents($upn, $date1, $date2) {

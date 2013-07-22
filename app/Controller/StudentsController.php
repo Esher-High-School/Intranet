@@ -59,7 +59,7 @@ class StudentsController extends AppController {
 
 	}
 	
-	public function incidentPrintingList($year=null) {
+	public function incidentPrintList($year=null) {
 		$Authentication = new Authentication;
 		$this->loadModel('IncidentUser');
 		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
@@ -69,10 +69,14 @@ class StudentsController extends AppController {
 				if ($year !== null) {
 					$this->set('year', $year);
 					$students = $this->Student->yearGroup($year);
+					$this->set('students', $students);
 				}
+			} else {
+				$this->redirect(array('controller' => 'IncidentUsers', 'action' => 'accessdenied'));
 			}
+		} else {
+			$this->redirect(array('controller' => 'IncidentUsers', 'action' => 'accessdenied'));
 		}
-		
 	}
 	
 	public function years() {
