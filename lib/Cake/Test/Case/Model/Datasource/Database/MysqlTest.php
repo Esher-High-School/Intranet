@@ -15,8 +15,9 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Model.Datasource.Database
  * @since         CakePHP(tm) v 1.2.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 App::uses('Model', 'Model');
 App::uses('AppModel', 'Model');
 App::uses('Mysql', 'Model/Datasource/Database');
@@ -2507,7 +2508,7 @@ class MysqlTest extends CakeTestCase {
 /**
  * Test that array conditions with only one element work.
  *
- * @return
+ * @return void
  */
 	public function testArrayConditionsOneElement() {
 		$conditions = array('id' => array(1));
