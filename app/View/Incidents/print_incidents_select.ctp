@@ -3,7 +3,7 @@
 	Student Name: <strong><?php echo $student['Student']['forename'] . ' ' . $student['Student']['surname']; ?></strong>
 </p>
 <h4>Select Date Range</h4>
-<form class="form-horizontal">
+<form class="form-horizontal" method="post">
 	<p>Date format: <strong>DD-MM-YYYY</strong>.</p>
 	<div class="control-group">
 		<label class="control-label">
@@ -18,7 +18,12 @@
 			End Date
 		</label>
 		<div class="controls">
-			<input type="text" name="endDate">
+			<input type="text" name="endDate" value="<?php echo $date2; ?>">
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<input type="submit" class="btn btn-primary" value="Submit">
 		</div>
 	</div>
 </form>

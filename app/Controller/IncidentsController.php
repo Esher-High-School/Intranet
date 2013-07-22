@@ -631,6 +631,13 @@ class IncidentsController extends AppController {
 		$this->set('title', 'Print Incidents');
 		$student = $this->Student->findByUpn($upn);
 
+		if (isset($_POST['startDate'])) {
+			$date1 = $_POST['startDate'];
+		}
+		if (isset($_POST['endDate'])) {
+			$date2 = $_POST['endDate'];
+		}
+
 		if ($date1 !== null) {
 			$this->set('date1', $date1);
 		} else {
@@ -641,6 +648,10 @@ class IncidentsController extends AppController {
 			$this->set('date2', $date2);
 		} else {
 			$this->set('date2', date('d-m-Y'));
+		}
+
+		if ($date1 !== null && $date2 !== null) {
+			$this->redirect(array('action' => 'printIncidents', $upn, $date1, $date2));
 		}
 
 		$this->set('student', $student);
