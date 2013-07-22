@@ -1,5 +1,5 @@
 <h3>All Staff Bulletins</h3>
-<table class="table table-bordered table-striped table-hover">
+<table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="60%">Title</th>
 		<th width="20%">Date Posted</th>
