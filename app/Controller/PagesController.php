@@ -17,9 +17,10 @@ class PagesController extends AppController {
 	}
 	
 	public function view($id = null) {
-		$this->set('title', 'Viewing Page');
 		$this->Page->id = $id;
-		$this->set('page', $this->Page->read());
+		$page = $this->Page->read();
+		$this->set('title', $page['Page']['name']);
+		$this->set('page', $page);
 	}
 	
 	public function add() {
