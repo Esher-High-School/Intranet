@@ -3,7 +3,7 @@ class IncidentsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'CmsUser', 'Hoy', 'Hod', 'IncidentMonitor');
+	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'CmsUser', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
 	
 	var $paginate = array(
 		'fields' => array('Incident.id', 'Incident.upn', 'Incident.problems1', 'Incident.problems2', 'Student.forename', 'Student.surname', 'Student.form'),
@@ -627,8 +627,13 @@ class IncidentsController extends AppController {
 		$this->set('smt', $smt);
 	}
 
-	public function printIncidents($upn) {
+	public function printIncidentsSelect($upn) {
 		$this->set('title', 'Print Incidents');
+		$student = $this->Student->findByUpn($upn);
+	}
+
+	public function printIncidents($upn, $date1, $date2) {
+		$this->set('title', 'Incidents Printout');
 		$this->layout = 'print';
 		$incidents = $this->Incident->getStudentIncidents($upn);
 		$student = $this->Student->findByUpn($upn);
