@@ -7,18 +7,16 @@ if (!$Authentication->isAdmin()) {
 } else {
 ?>
 <h3>Add SMT Staff</h3>
-<br>
-<div class="row">
-	<div class="span4">
-		<?php
-			echo $this->Form->create('Smt', array('action' => 'edit'));
-			echo $this->Form->input('username', array('class' => 'span4', 'placeholder' => 'Username', 'label' => false));
-			echo $this->Form->button('Add SMT Staff', array('type' => 'submit', 'class' => 'btn btn-primary btn-block'));
-			echo $this->Form->end();
-		?>
+<?php echo $this->Form->Create('smt', array('class' => 'form-horizontal')); ?>
+	<div class="control-group">
+		<label class="control-label">Username</label>
+		<div class="controls">
+			<?php echo $this->Form->input('username', array('label' => false)); ?>
+		</div>
 	</div>
-	<div class="span3">
-		<p style="padding-top: 4px;">Username</p>
+	<div class="control-group">
+		<div class="controls">
+			<?php echo $this->Form->button('Add SMT Staff', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
+		</div>
 	</div>
-</div>
 <?php } ?>

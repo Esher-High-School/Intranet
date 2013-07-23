@@ -2,6 +2,9 @@
 <p>
 	Student Name: <strong><?php echo $student['Student']['forename'] . ' ' . $student['Student']['surname']; ?></strong>
 </p>
+<p>
+	<?php echo $this->Html->Link('Select another student', array('controller' => 'students', 'action' => 'incidentPrintList')); ?>
+</p>
 <h4>Select Date Range</h4>
 <form class="form-horizontal" method="post">
 	<p>Date format: <strong>DD-MM-YYYY</strong>.</p>

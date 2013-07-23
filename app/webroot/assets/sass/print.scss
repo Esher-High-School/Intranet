@@ -1,3 +1,26 @@
 /* Welcome to Compass. Use this file to define print styles.
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import '../imports/resources/bootstrap.scss';
+
+@media screen {
+	.incident {
+		margin-bottom: 700px;
+	}
+}
+
+@media print {
+	.header-container {
+		width: 940px;
+	}
+
+	.container {
+		width: 94%;
+	}
+
+	.incident {
+		page-break-after: always;
+	}
+}
