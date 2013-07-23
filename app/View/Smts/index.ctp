@@ -1,7 +1,7 @@
 <?php
 $IntranetAuth = new Authentication;
 ?>
-<h1>All SMT Staff</h1>
+<h3>All SMT Staff</h3>
 <table class="table table-bordered table-striped table-hover table-condensed">
 	<thead>
 		<th width="90%">Name</th>
