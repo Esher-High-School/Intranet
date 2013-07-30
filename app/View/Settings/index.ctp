@@ -6,6 +6,7 @@
 		<th>
 		
 		</th>
+
 	</thead>
 	<tbody>
 		<?php foreach($settings as $setting): ?>
@@ -18,6 +19,8 @@
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('action' => 'edit', $setting['Setting']['id'])); ?>
+					&nbsp;
+					<?php echo $this->Form->postLink('Delete', $setting['Setting']['id'], array('action' => 'delete')); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

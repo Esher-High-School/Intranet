@@ -72,6 +72,7 @@ class SettingsController extends AppController {
 					Setting deleted successfully.
 				</div>
 			');
+			$this->redirect(array('action' => 'index'));
 		}
 	}
 }

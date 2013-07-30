@@ -11,6 +11,15 @@ class CmsUsersController extends AppController {
 			'CmsUser.authlevel' => 'asc'
 		)
 	);
+
+	public function beforeFilter() {
+		$roles = array(
+			1 => 'Publisher',
+			2 => 'Administrator',
+			3 => 'Thought for the day upload'
+		);
+		$this->set('roles', $roles);
+	}
 	
 	public function index() {
 		$Authentication = new Authentication;

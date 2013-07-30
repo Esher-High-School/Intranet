@@ -660,7 +660,7 @@ class IncidentsController extends AppController {
 	public function printIncidents($upn, $date1, $date2) {
 		$this->set('title', 'Incidents Printout');
 		$this->layout = 'print';
-		$incidents = $this->Incident->getStudentIncidents($upn);
+		$incidents = $this->Incident->getStudentIncidentsByDates($upn);
 		$student = $this->Student->findByUpn($upn);
 		$this->set('incidents', $incidents);
 		$this->set('student', $student);

@@ -87,14 +87,14 @@ class PhoneExtensionsController extends AppController {
 	}
 	
 	public function delete($id) {
-		if ($this->request->is('get')) {
-			throw new MethodNotAllowedException();
-		} 
 		$Authentication = new Authentication;
 		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
 		if ($cmsuser == null) {
 			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
 		}
+		if ($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		} 
 		if ($this->PhoneExtension->delete($id)) {
 			$this->Session->setFlash('
 				<div class="alert alert-success">

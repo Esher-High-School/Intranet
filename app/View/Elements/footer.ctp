@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="span12 right">
 						<h1>
-							<?php echo $this->Html->Link($global_settings['Site Name'], '/'); ?>
+							<?php echo $this->Html->Link($global_settings['School Name'], '/'); ?>
 						</h1>
 						<h2>
 							<?php echo $this->Html->Link('Staff Intranet', '/'); ?>
@@ -14,7 +14,7 @@
 				</div>
 				<div class="row lower">
 					<div class="span6 left">
-						<p>&copy; <?php echo $global_settings['Site Name']; ?> <?php echo date('Y'); ?></p>
+						<p>&copy; <?php echo $global_settings['School Name']; ?> <?php echo date('Y'); ?></p>
 					</div>
 					<div class="span6 right">
 						<ul class="footer-nav">

@@ -15,7 +15,7 @@ function role($role) {
 		<th>Username</th>
 		<th>Role</th>
 		<?php if ($IntranetAuth->isAdmin()) { ?>
-			<th></th>
+			<th><?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?></th>
 		<?php } ?>
 	</thead>
 	<tbody>

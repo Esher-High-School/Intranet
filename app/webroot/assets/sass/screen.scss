@@ -7,22 +7,22 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "sassy-buttons";
-@import '../imports/resources/bootstrap.scss';
-@import '../imports/resources/font-awesome.scss';
+@import 'resources/_bootstrap.scss';
+@import 'resources/_font-awesome.scss';
 @import url('https://fonts.googleapis.com/css?family=Handlee|Open+Sans:300,400,700|Roboto+Slab');
 
 /*!
  * Staff Intranet Styles
  */
 // Mixins and Variables
-@import '../imports/resources/mixins.scss';
-@import '../imports/resources/settings.scss';
+@import 'resources/_mixins.scss';
+@import 'resources/_settings.scss';
 
 // Primary Styles
-@import '../imports/resources/typography.scss';
-@import '../imports/resources/primary.scss';
-@import '../imports/resources/navigation.scss';
-@import '../imports/resources/components.scss';
+@import 'resources/_typography.scss';
+@import 'resources/_primary.scss';
+@import 'resources/_navigation.scss';
+@import 'resources/_components.scss';
 
 // Controller Specific Styles
-@import '../imports/controllers/staffbulletins.scss';
+@import 'controllers/_staffbulletins.scss';

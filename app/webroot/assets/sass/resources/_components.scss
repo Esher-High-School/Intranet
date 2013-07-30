@@ -75,17 +75,14 @@ a.button-nav, a:hover.button-nav, a.button-secondary-nav, a:hover.button-seconda
 }
 
 /* Form Elements */
-input, input[type="text"], textarea, select {
+input, input[type="text"], input[type="number"], textarea, select {
 	@include border-radius(0px);
 }
-input[type="text"] {
+input[type="text"], input[type="number"], .input-block-level, select {
 	font-size: 1.5em;
 	height: auto;
 }
-input[type="text"].input-block-level {
-	font-size: 1.5em;
-	height: auto;
-}
+
 /* Pagination */
 a.pagination-text {
 	color: #000;

@@ -2,7 +2,7 @@
 	<div class="navbar-inner">
 		<div class="container">
 			<a href="/" class="brand">Staff Intranet</a>
-			<ul class="nav pull-right">
+			<ul class="nav navbar-nav pull-right">
 				<?php if (isset($cmsuser['CmsUser']['id'])): ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
