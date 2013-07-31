@@ -8,11 +8,20 @@ function pFormat($problem) {
 };
 ?>
 
-<h3>Incidents for <?php echo $student['Student']['forename'] . ' ' . $student['Student']['surname']; ?></h3>
 <?php foreach ($incidents as $incident): ?>
 <div class="incident">
+	<div class="header-container">
+		<div class="row">
+			<div class="span1">
+				<img src="/img/ehs.png" alt="Esher C of E High School">
+			</div>
+			<div class="span9">
+				<h1>Esher C of E High School</h1>
+			</div>
+		</div>
+	</div>
 	<h5 style="font-weight: 300;">
-		<strong>Date:</strong> <?php echo $incident['Incident']['date']; ?> - <strong>Time:</strong> <?php echo $incident['Incident']['time']; ?>
+		<strong>Student:</strong> <?php echo ($student['Student']['forename'] . ' ' . $student['Student']['surname']); ?> - <strong>Date:</strong> <?php echo $incident['Incident']['date']; ?> - <strong>Time:</strong> <?php echo $incident['Incident']['time']; ?>
 	</h5>
 	<table class="table table-condensed table-striped">
 		<tr>

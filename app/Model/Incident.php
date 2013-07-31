@@ -125,4 +125,22 @@ class Incident extends AppModel {
 	function getStudentIncidents($upn) {
 		return $this->find('all', array('conditions' => array('Incident.upn' => $upn)));
 	}
+
+	function getStudentIncidentsByDates($upn, $date1, $date2) {
+		$date1 = strtotime($date1);
+		$date2 = strtotime($date2);
+		$date1 = date('Y-m-d', $date1);
+		$date2 = date('Y-m-d', $date2);
+		return $this->find('all', 
+			array(
+				'conditions' => array(
+					'Incident.upn' => $upn,
+					'Incident.date between ? and ?' => array($date1, $date2)
+				),
+				'order' => array(
+					'Incident.id' => 'DESC'
+				)
+			)
+		);
+	}
 }
