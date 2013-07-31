@@ -56,7 +56,7 @@ a:hover.button-primary {
 }
 
 .button-nav {
-	@include sassy-button("flat", 0px, 1em, #0059ac, #0059ac, #fff, "inset");
+	@include sassy-button("flat", 0px, 1em, #333, #333, #fff, "inset");
 	height: auto;
 	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF0059AC', endColorstr='#FF0059ac');
 }

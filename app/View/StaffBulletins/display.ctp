@@ -19,7 +19,7 @@
 							</td>
 							<td>
 								<div class="bulletin-text">
-									<p><?php echo $this->Html->Link('Details', array('controller' => 'staffbulletins', 'action' => 'view', $staffbulletin['StaffBulletin']['id']), array('class' => 'btn btn-primary')); ?></p>
+									<p><?php echo $this->Html->Link('Details', array('controller' => 'staffbulletins', 'action' => 'view', $staffbulletin['StaffBulletin']['id']), array('class' => 'btn btn-danger')); ?></p>
 									<p><?php echo $this->Html->Link($staffbulletin['StaffBulletin']['doctitle'], $staffbulletin['StaffBulletin']['document'], array('class' => 'btn')); ?></p>
 								</div>
 							</td>

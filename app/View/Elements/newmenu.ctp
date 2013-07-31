@@ -49,7 +49,7 @@
 				<?php endif; ?>
 				<?php if ($incidentuser['IncidentUser']['printing'] == 1): ?>
 					<li>
-						<?php echo $this->Html->Link('Incident Report Printout', 'http://web.esherhigh.surrey.sch.uk/AlexReportGenerateSelect.php'); ?>
+						<?php echo $this->Html->Link('Incident Report Printout', array('controller' => 'students', 'action' => 'incidentPrintList')); ?>
 					</li>
 				<?php endif; ?>
 			<?php endif; ?>
