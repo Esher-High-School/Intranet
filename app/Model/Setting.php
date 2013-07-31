@@ -7,6 +7,10 @@ class Setting extends AppModel {
 		'name' => array(
 			'rule' => 'notEmpty'
 		),
+		'name' => array(
+			'rule' => 'isUnique',
+			'message' => 'Name must be unique'
+		),
 		'value' => array(
 			'rule' => 'notEmpty'
 		)

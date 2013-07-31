@@ -20,7 +20,7 @@
 				<td>
 					<?php echo $this->Html->Link('Edit', array('action' => 'edit', $setting['Setting']['id'])); ?>
 					&nbsp;
-					<?php echo $this->Form->postLink('Delete', $setting['Setting']['id'], array('action' => 'delete')); ?>
+					<?php echo $this->Form->postLink('Delete', $setting['Setting']['id'], array('action' => 'delete', 'class' => 'danger')); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

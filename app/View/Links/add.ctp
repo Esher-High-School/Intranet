@@ -9,7 +9,7 @@
 	<div class="control-group">
 		<label class="control-label" for="urlInput">URL</label>
 		<div class="controls">
-			<?php echo $this->Form->input('link', array('class' => 'input-block-level', 'id' => 'urlInput', 'label' => false)); ?>
+			<?php echo $this->Form->input('link', array('type' => 'text', 'class' => 'input-block-level', 'id' => 'urlInput', 'label' => false)); ?>
 		</div>
 	</div>
 	<div class="control-group">
