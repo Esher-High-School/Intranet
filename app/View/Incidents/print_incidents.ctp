@@ -20,18 +20,7 @@ function pFormat($problem) {
 			</div>
 		</div>
 	</div>
-	<h5 style="font-weight: 300;">
-		<strong>Student:</strong> <?php echo ($student['Student']['forename'] . ' ' . $student['Student']['surname']); ?> - <strong>Date:</strong> <?php echo $incident['Incident']['date']; ?> - <strong>Time:</strong> <?php echo $incident['Incident']['time']; ?>
-	</h5>
 	<table class="table table-condensed table-striped">
-		<tr>
-			<td>
-				<strong>Reported by</strong>
-			</td>
-			<td colspan="3">
-				<?php echo $incident['Incident']['username']; ?>
-			</td>
-		</tr>
 		<tr>
 			<td>
 				<strong>Name</strong>
@@ -48,6 +37,14 @@ function pFormat($problem) {
 			</td>
 			<td width="40%">
 				<?php echo $incident['Student']['form']; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Reported by</strong>
+			</td>
+			<td colspan="3">
+				<?php echo $incident['Incident']['username']; ?>
 			</td>
 		</tr>
 		<tr>

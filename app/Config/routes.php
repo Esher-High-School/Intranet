@@ -30,6 +30,8 @@
 	Router::connect('/staffbulletin/*', array('controller' => 'staffbulletins', 'action' => 'index'));
 	
 	Router::connect('/phoneextensions', array('controller' => 'phoneextensions', 'action' => 'index'));
+
+	Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
 	
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
@@ -62,7 +64,7 @@
 	Router::connect('/incidents/departments/*', array('controller' => 'incidents', 'action' => 'deptList'));
 	Router::connect('/incidents/department/*', array('controller' => 'incidents', 'action' => 'incidentsByDepartment'));
 	Router::connect('/incidents/users', array('controller' => 'incidents', 'action' => 'users'));
-	
+
 	/* Learning Mentors */
 	Router::connect('/learningmentors', array('controller' => 'incidents', 'action' => 'learningmentorhome'));
 	Router::connect('/learningmentors/accessdenied', array('controller' => 'learningmentors', 'action' => 'accessdenied'));
