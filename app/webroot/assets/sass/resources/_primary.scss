@@ -6,7 +6,7 @@ body {
 
 footer {
 	@include center;
-	background-color: #003A70;
+	background-color: #121212;
 	font-size: 0.8em;
 	line-height: 1em;
 	width: 100%; 
@@ -25,7 +25,7 @@ footer {
 			text-decoration: none;
 		}
 		a:hover {
-			color: #C5D60B;
+			color: #BD1527;
 		}
 		text-shadow: 0 0 4px #000;
 	}
@@ -49,7 +49,7 @@ footer {
 				text-decoration: none;
 			}
 			a:hover {
-				color: #C5D60B;
+				color: #BD1527;
 			}
 		}
 	}

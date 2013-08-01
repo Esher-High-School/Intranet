@@ -123,6 +123,19 @@
 		@include border-radius(0px);
 		padding: 8px 0;
 	}
+	a {
+		color: #222;
+	}
+	a:hover {
+		color: #BD1527;
+	}
+	.nav-list {
+		li {
+			a:hover {
+				background: none;
+			}
+		}
+	}
 }
 
 /* More Navigation */

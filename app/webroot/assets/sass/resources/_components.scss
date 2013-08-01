@@ -34,6 +34,10 @@ table.sbCarousel-table {
   filter: alpha(opacity=50);
 }
 
+a.carousel-control {
+  color: #fff;
+}
+
 /* Buttons */
 .button {
 	@include sassy-button("simple", 6px, 1em, #fff, #dedede, #000, "inset");
@@ -70,8 +74,26 @@ a.button-nav, a:hover.button-nav, a.button-secondary-nav, a:hover.button-seconda
 	color: #fff;
 }
 
+/* Bootstrap Button overrides */
+
+a.btn {
+  color: #000;
+}
+a.btn-primary, a.btn-danger, a.btn-info, a.btn-inverse, a.btn-warning, a.btn-success {
+  color: #fff;
+}
+
 .btn {
 	@include border-radius(0px);
+}
+
+.btn-primary, .btn-danger {
+  background-color: #bd362f;
+}
+
+.btn {
+  background-image: none;
+  border: 0;
 }
 
 /* Form Elements */

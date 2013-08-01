@@ -33,7 +33,7 @@ h3 {
 	margin-bottom: 12px;
 	line-height: 1em;
 	small {
-		
+		font-family: $primary-font, sans-serif;
 	}
 }
 
@@ -48,9 +48,14 @@ a:hover {
 }
 
 a {
+	color: #BD1527;
 	.black {
 		color: #000;
 	}
+}
+
+a:hover {
+	color: #911320;
 }
 
 a, a:hover, a:visited, a:link, a:active {
