@@ -85,15 +85,16 @@ a.btn-primary, a.btn-danger, a.btn-info, a.btn-inverse, a.btn-warning, a.btn-suc
 
 .btn {
 	@include border-radius(0px);
+  border: 0;
+  background-image: none;
 }
 
 .btn-primary, .btn-danger {
   background-color: #bd362f;
 }
 
-.btn {
-  background-image: none;
-  border: 0;
+.btn-primary:hover, .btn-danger:hover {
+  background-color: #a72c25;
 }
 
 /* Form Elements */
