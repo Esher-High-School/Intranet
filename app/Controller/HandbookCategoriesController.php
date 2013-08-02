@@ -8,6 +8,12 @@ class HandbookCategoriesController extends AppController {
 		$this->set('categories', $this->HandbookCategory->getCategories());
 	}
 
+	public function view($id) {
+		$this->HandbookCategory->id = $id;
+		$category = $this->HandbookCategory->read();
+		$this->set('category', $category);
+	}
+
 	public function add() {
 		$this->set('title', 'Add handbook category');
 		if ($this->request->is('post')) {

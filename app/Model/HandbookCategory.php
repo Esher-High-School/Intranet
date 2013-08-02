@@ -16,11 +16,15 @@ class HandbookCategory extends AppModel {
 	public $hasMany = array(
 		'HandbookDocument' => array(
 			'className' => 'HandbookDocument',
-			'foreignkey' => 'category'
+			'foreignKey' => 'category'
 		)
 	);
 
 	function getCategories() {
-		return $this->find('all', array('order' => array('name' => 'ASC')));
+		return $this->find('all', 
+			array('order' => 
+				array('name' => 'ASC')
+				)
+			);
 	}
 }
