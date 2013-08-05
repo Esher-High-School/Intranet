@@ -5,4 +5,11 @@ class Subject extends AppModel {
 			'rule' => 'notEmpty',
 		)
 	);
+
+	public $hasMany = array(
+		'Staff' => array(
+			'className' => 'Staff',
+			'foreignKey' => 'subject_id'
+		)
+	);
 }
