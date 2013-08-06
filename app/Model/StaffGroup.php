@@ -32,7 +32,7 @@ class StaffGroup extends AppModel {
 					'StaffGroup.type' => $type
 				),
 				'order' => array(
-					'StaffGroup.name' => 'ASC'
+					'StaffGroup.name' => 'ASC',
 				)
 			)
 		);

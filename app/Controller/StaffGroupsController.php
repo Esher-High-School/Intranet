@@ -12,7 +12,7 @@ class StaffGroupsController extends AppController {
 		}
 		$grouptypes = array(
 			0 => 'Teaching Staff',
-			1 => 'Non-Teaching Staff',
+			1 => 'Support Staff',
 			2 => 'SLT Staff'
 		);
 		$this->set('grouptypes', $grouptypes);
@@ -21,11 +21,11 @@ class StaffGroupsController extends AppController {
 	public function index() {
 		$this->set('title', 'Staff Groups List');
 
-		$group[0] = $this->StaffGroup->getByType(0);
-		$group[1] = $this->StaffGroup->getByType(1);
-		$group[2] = $this->StaffGroup->getByType(2);
+		$groups[0] = $this->StaffGroup->getByType(0);
+		$groups[1] = $this->StaffGroup->getByType(1);
+		$groups[2] = $this->StaffGroup->getByType(2);
 
-		$this->set('group', $group);
+		$this->set('groups', $groups);
 	}
 
 	public function view($id) {

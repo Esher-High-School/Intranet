@@ -6,17 +6,8 @@
 	height: 190px;
 	.thumb {
 		text-align: center;
-		h5 {
-			margin: 0;
-			a {
-				text-decoration: none;
-			}
-			a:hover {
-				text-decoration: none;
-			}
-		}
 		border: 1px #ccc solid;
-		padding: 6px;
+		padding: 0px;
 		margin-top: 12px;
 		background-color: #dfdfdf;
 		width: 100px;
@@ -27,5 +18,23 @@
 		line-height: 108px;
 		font-weight: 700;
 		color: #aaa;
+		a {
+			color: #aaa;
+		}
+		a:hover {
+			color: #999;
+		}
+	}
+}
+.staff.view {
+	height: auto;
+	.thumb {
+		height: 160px;
+		width: 160px;
+		margin-top: 0;
+		padding: 0;
+		margin-bottom: 20px;
+		font-size: 120px;
+		line-height: 1em;
 	}
 }

@@ -16,7 +16,7 @@ class StaffController extends AppController {
 
 		$grouptypes = array(
 			0 => 'Teaching Staff',
-			1 => 'Non-Teaching Staff',
+			1 => 'Support Staff',
 			2 => 'SLT Staff'
 		);
 		$this->set('grouptypes', $grouptypes);
@@ -35,11 +35,21 @@ class StaffController extends AppController {
 	public function index() {
 		$this->set('title', 'Staff List');
 
-		$groups = $this->StaffGroup->getAllGroups();
-		$staff = $this->Staff->getAllStaff();
+		$groups[0] = $this->StaffGroup->getByType(0);
+		$groups[1] = $this->StaffGroup->getByType(1);
+		$groups[2] = $this->StaffGroup->getByType(2);
+
+		$this->set('groups', $groups);
+	}
+
+	public function view($id) {
+		$this->set('title', 'Viewing Staff Profile');
+
+		$this->Staff->id = $id;
+
+		$staff = $this->Staff->read();
 
 		$this->set('staff', $staff);
-		$this->set('groups', $groups);
 	}
 
 	public function add() {
@@ -49,6 +59,7 @@ class StaffController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
+						Staff member added successfully.
 					</div>
 				');
 				$this->redirect(array('action' => 'index'));
@@ -75,7 +86,15 @@ class StaffController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Unable to add staff member. Please enusre that you have filled out all fields correctly.
+						Staff member updated successfully.
+					</div>
+				');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('
+					<div class="alert alert-error">
+						<button class="close" data-dismiss="alert">&times;</button>
+						Unable to update staff member. Please make sure that you have filled out all fields correctly.
 					</div>
 				');
 			}

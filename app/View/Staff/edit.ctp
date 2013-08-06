@@ -1,5 +1,6 @@
-<h3>Add Staff Member</h3>
-<?php echo $this->Form->create('Staff', array('class' => 'form-horizontal')); ?>
+<h3>Edit Staff Member</h3>
+<?php echo $this->Form->create('Staff', array('url' => array('controller' => 'staff', 'action' => 'edit'), 'class' => 'form-horizontal')); ?>
+	<?php echo $this->Form->input('id', array('hidden' => true, 'label' => false)); ?>
 	<div class="control-group">
 		<label class="control-label">Username</label>
 		<div class="controls">
@@ -38,7 +39,7 @@
 	</div>
 	<div class="control-group">
 		<div class="controls">
-			<?php echo $this->Form->button('Add Staff Member', array('action' => 'add', 'type' => 'submit', 'class' => 'btn btn-primary')); ?>
+			<?php echo $this->Form->button('Edit Staff Member', array('controller' => 'Staff', 'action' => 'edit', 'type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 <?php echo $this->Form->end(); ?>
