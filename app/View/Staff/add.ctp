@@ -1,5 +1,5 @@
 <h3>Add Staff Member</h3>
-<?php echo $this->Form->create('Staff', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+<?php echo $this->Form->create('Staff', array('class' => 'form-horizontal')); ?>
 	<div class="control-group">
 		<label class="control-label">Username</label>
 		<div class="controls">
@@ -30,6 +30,9 @@
 			<?php echo $this->Form->input('title', array('label' => false)); ?>
 		</div>
 	</div>
+	<div class="control-group">
+		<div class="controls">
+			<?php echo $this->Form->button('Add Staff Member', array('action' => 'add', 'type' => 'submit', 'class' => 'btn btn-primary')); ?>
+		</div>
+	</div>
 <?php echo $this->Form->end(); ?>
-
-<?php debug($groups); ?>

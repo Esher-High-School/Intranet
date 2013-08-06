@@ -28,6 +28,16 @@ class StaffGroupsController extends AppController {
 		$this->set('group', $group);
 	}
 
+	public function view($id) {
+		$this->set('title', 'Viewing Staff Group');
+
+		$this->StaffGroup->id = $id;
+
+		$group = $this->StaffGroup->read();
+
+		$this->set('group', $group);
+	}
+
 	public function add() {
 		$this->set('title', 'Add New Staff Group');
 		if ($this->request->is('post')) {

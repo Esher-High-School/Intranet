@@ -35,11 +35,11 @@ class StaffController extends AppController {
 	public function index() {
 		$this->set('title', 'Staff List');
 
-		$staff[0] = $this->Staff->getByType(0);
-		$staff[1] = $this->Staff->getByType(1);
-		$staff[2] = $this->Staff->getByType(2);
+		$groups = $this->StaffGroup->getAllGroups();
+		$staff = $this->Staff->getAllStaff();
 
 		$this->set('staff', $staff);
+		$this->set('groups', $groups);
 	}
 
 	public function add() {

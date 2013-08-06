@@ -1,4 +1,6 @@
 <h3>Staff List</h3>
+<?php debug($staff); ?>
+<?php debug($groups); ?>
 <h4>Teaching Staff</h4>
 <div class="row">
 	<div class="span8 stafflist">

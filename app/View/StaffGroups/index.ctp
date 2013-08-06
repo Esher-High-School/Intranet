@@ -8,7 +8,11 @@
 	</thead>
 	<tbody>
 		<?php foreach($group[2] as $group): ?>
-
+			<tr>
+				<td>
+					<?php echo $group['StaffGroup']['name']; ?>
+				</td>
+			</tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
@@ -21,7 +25,11 @@
 	</thead>
 	<tbody>
 		<?php foreach($group[0] as $group): ?>
-
+			<tr>
+				<td>
+					<?php echo $group['StaffGroup']['name']; ?>
+				</td>
+			</tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
@@ -34,7 +42,11 @@
 	</thead>
 	<tbody>
 		<?php foreach($group[1] as $group): ?>
-
+			<tr>
+				<td>
+					<?php echo $this->Html->Link($group['StaffGroup']['name'], array('action' => 'view', $group['StaffGroup']['id'])); ?>
+				</td>
+			</tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>

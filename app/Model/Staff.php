@@ -14,6 +14,7 @@ class Staff extends AppModel {
 	public $belongsTo = array(
 		'StaffGroup' => array(
 			'className' => 'StaffGroup',
+			'foreignKey' => 'group_id'
 		)
 	);
 
@@ -21,7 +22,9 @@ class Staff extends AppModel {
 		return $this->find('all',
 			array(
 				'order' => array(
-					'Staff.name' => 'ASC'
+					'Staff.title' => 'ASC',
+					'Staff.forename' => 'ASC',
+					'Staff.surname' => 'ASC'
 				)
 			)
 		);
@@ -31,7 +34,7 @@ class Staff extends AppModel {
 		return $this->find('all',
 			array(
 				'conditions' => array(
-					'Staff.type' => $type
+					'StaffGroup.type' => $type
 				),
 				'order' => array(
 					'Staff.title' => 'ASC',
