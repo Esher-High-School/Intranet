@@ -6,7 +6,7 @@ class StaffGroup extends AppModel {
 		'name' => array(
 			'rule' => 'notEmpty'
 		)
-	)
+	);
 
 	public $hasMany = array(
 		'Staff' => array(

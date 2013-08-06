@@ -48,3 +48,10 @@
 		</div>
 	</div>
 </div>
+<?php if (isset($cmsuser['CmsUser']['user'])): ?>
+	<?php if ($cmsuser['CmsUser']['authlevel'] == 2): ?>
+		<p>
+			<?php echo $this->Html->Link('Add Staff', array('action' => 'add')); ?>
+		</p>
+	<?php endif; ?>
+<?php endif; ?>

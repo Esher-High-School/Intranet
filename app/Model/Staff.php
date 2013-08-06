@@ -11,6 +11,12 @@ class Staff extends AppModel {
 		)
 	);
 
+	public $belongsTo = array(
+		'StaffGroup' => array(
+			'className' => 'StaffGroup',
+		)
+	);
+
 	function getAllStaff() {
 		return $this->find('all',
 			array(
