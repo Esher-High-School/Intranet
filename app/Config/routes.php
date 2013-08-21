@@ -21,17 +21,17 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-	Router::connect('/', array('controller' => 'staffbulletins', 'action' => 'display'));
+	Router::connect('/', array('controller' => 'StaffBulletins', 'action' => 'display'));
 	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
 	
 	Router::connect('/tfd', array('controller' => 'tfds', 'action' => 'index'));
 	
-	Router::connect('/staffbulletin/*', array('controller' => 'staffbulletins', 'action' => 'index'));
+	Router::connect('/staffbulletin/*', array('controller' => 'StaffBulletins', 'action' => 'index'));
 	
-	Router::connect('/phoneextensions', array('controller' => 'phoneextensions', 'action' => 'index'));
+	Router::connect('/phoneextensions', array('controller' => 'PhoneExtensions', 'action' => 'index'));
 
-	Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
+	//Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
 	
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
@@ -67,7 +67,7 @@
 
 	/* Learning Mentors */
 	Router::connect('/learningmentors', array('controller' => 'incidents', 'action' => 'learningmentorhome'));
-	Router::connect('/learningmentors/accessdenied', array('controller' => 'learningmentors', 'action' => 'accessdenied'));
+	Router::connect('/learningmentors/accessdenied', array('controller' => 'learningMentors', 'action' => 'accessdenied'));
 	
 	/* SMT Areas */
 	Router::connect('/smt', array('controller' => 'incidents', 'action' => 'smthome'));
@@ -95,28 +95,28 @@
 	Router::connect('/cms/students/add', array('controller' => 'students', 'action' => 'add'));
 	Router::connect('/cms/students/edit/*', array('controller' => 'students', 'action' => 'edit'));
 	
-	Router::connect('/cms/staffbulletins', array('controller' => 'staffbulletins', 'action' => 'index'));
-	Router::connect('/cms/staffbulletins/add', array('controller' => 'staffbulletins', 'action' => 'add'));
-	Router::connect('/cms/staffbulletins/edit/*', array('controller' => 'staffbulletins', 'action' => 'edit'));
+	Router::connect('/cms/staffbulletins', array('controller' => 'staffBulletins', 'action' => 'index'));
+	Router::connect('/cms/staffbulletins/add', array('controller' => 'staffBulletins', 'action' => 'add'));
+	Router::connect('/cms/staffbulletins/edit/*', array('controller' => 'staffBulletins', 'action' => 'edit'));
 	
 	Router::connect('/cms/tutors', array('controller' => 'tutors', 'action' => 'index'));
 	Router::connect('/cms/tutors/add', array('controller' => 'tutors', 'action' => 'add'));
 	Router::connect('/cms/tutors/edit', array('controller' => 'tutors', 'action' => 'edit'));
 	
-	Router::connect('/cms/phoneextensions/edit/*', array('controller' => 'phoneextensions', 'action' => 'edit'));
-	Router::connect('/cms/phoneextensions/delete/*', array('controller' => 'phoneextensions', 'action' => 'delete'));
+	Router::connect('/cms/phoneextensions/edit/*', array('controller' => 'phoneExtensions', 'action' => 'edit'));
+	Router::connect('/cms/phoneextensions/delete/*', array('controller' => 'phoneExtensions', 'action' => 'delete'));
 	
 	/* Administration Areas */
 	Router::connect('/admin', array('controller' => 'admin', 'action' => 'index'));
 	Router::connect('/admin/accessdenied', array('controller' => 'admin', 'action' => 'accessdenied'));
 	
-	Router::connect('/admin/users', array('controller' => 'cmsusers', 'action' => 'index'));
-	Router::connect('/admin/users/add', array('controller' => 'cmsusers', 'action' => 'add'));
-	Router::connect('/admin/users/edit/*', array('controller' => 'cmsusers', 'action' => 'edit'));
+	Router::connect('/admin/users', array('controller' => 'cmsUsers', 'action' => 'index'));
+	Router::connect('/admin/users/add', array('controller' => 'cmsUsers', 'action' => 'add'));
+	Router::connect('/admin/users/edit/*', array('controller' => 'cmsUsers', 'action' => 'edit'));
 	
-	Router::connect('/admin/learningmentors', array('controller' => 'learningmentors', 'action' => 'index'));
-	Router::connect('/admin/learningmentors/add', array('controller' => 'learningmentors', 'action' => 'add'));
-	Router::connect('/admin/learningmentors/edit', array('controller' => 'learningmentors', 'action' => 'edit'));
+	Router::connect('/admin/learningmentors', array('controller' => 'learningMentors', 'action' => 'index'));
+	Router::connect('/admin/learningmentors/add', array('controller' => 'learningMentors', 'action' => 'add'));
+	Router::connect('/admin/learningmentors/edit', array('controller' => 'learningMentors', 'action' => 'edit'));
 	
 	Router::connect('/admin/hod', array('controller' => 'hods', 'action' => 'index'));
 	Router::connect('/admin/hod/add', array('controller' => 'hods', 'action' => 'add'));
