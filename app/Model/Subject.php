@@ -6,10 +6,12 @@ class Subject extends AppModel {
 		)
 	);
 
-	public $hasMany = array(
-		'Staff' => array(
-			'className' => 'Staff',
-			'foreignKey' => 'subject_id'
-		)
-	);
+	function getSubjects() {
+		return $this->find('all', array(
+				'order' => array(
+					'Name' => 'ASC'
+				)
+			)
+		);
+	}
 }

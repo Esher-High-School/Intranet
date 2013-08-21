@@ -14,8 +14,8 @@ if (isset($title)) {
 		<title><?php echo $showTitle; ?></title>
 		<link href="/assets/stylesheets/screen.css" rel="stylesheet" type="text/css">
 		<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
-		<link href="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/css/elfinder.min.css" rel="stylesheet" type="text/css">
-		<link href="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/css/theme.css" rel="stylesheet" type="text/css">
+		<link href="http://web.esherhigh.surrey.sch.uk/lib/elfinder/css/elfinder.min.css" rel="stylesheet" type="text/css">
+		<link href="http://web.esherhigh.surrey.sch.uk/lib/elfinder/css/theme.css" rel="stylesheet" type="text/css">
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
@@ -34,9 +34,9 @@ if (isset($title)) {
 		<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.0.0.js" type="text/javascript"></script>
-		<script src="http://web.esherhigh.surrey.sch.uk/static/js/bootstrap.min.js" type="text/javascript"></script>
-		<script src="http://web.esherhigh.surrey.sch.uk/static/js/ckeditor/ckeditor.js" type="text/javascript"></script>
-		<script src="http://web.esherhigh.surrey.sch.uk/cake/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
+		<script src="http://web.esherhigh.surrey.sch.uk/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="http://web.esherhigh.surrey.sch.uk/js/ckeditor/ckeditor.js" type="text/javascript"></script>
+		<script src="http://web.esherhigh.surrey.sch.uk/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
 		<?php 
 		if (isset($cmsuser['CmsUser'])) {
 			echo $this->element('top-navbar'); 
