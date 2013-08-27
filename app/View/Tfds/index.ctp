@@ -15,7 +15,7 @@
 				<?php echo stripslashes(h($tfd['Tfd']['name'])); ?>
 			</td>
 			<td>
-				<a href="/cake/files/tftd/<?php echo $tfd['Tfd']['path']; ?>">Download</a>
+				<a href="/files/tftd/<?php echo $tfd['Tfd']['path']; ?>">Download</a>
 			</td>
 		</tr>	
 <?php

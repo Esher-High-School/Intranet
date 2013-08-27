@@ -18,6 +18,14 @@ class DocumentsController extends AppController {
 		$documents = $this->Document->find('all');
 		$this->set('documents', $documents);
 	}
+
+	public function category($id) {
+		$this->DocumentCategory->id = $id;
+		$category = $this->DocumentCategory->read();
+		$this->set('category', $category);
+
+		$documents = $this->Documents->getByCategory($id);
+	}
 	
 	public function add() {
 		$this->set('title', 'Add New Document');

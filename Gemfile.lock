@@ -11,6 +11,7 @@ GEM
     sassy-buttons (0.2)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES

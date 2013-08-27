@@ -12,7 +12,9 @@
 	<tbody>
 		<?php foreach($categories as $category): ?>
 		<tr>
-			<td><?php echo $category['DocumentCategory']['name']; ?></td>
+			<td>
+				<?php echo $this->Html->Link($category['DocumentCategory']['name'], array('action' => 'view', $category['DocumentCategory']['id'])); ?>
+			</td>
 			<td>
 				<?php if(isset($cmsuser['CmsUser'])) {
 					echo $this->Html->Link('Edit', array('action' => 'edit'));

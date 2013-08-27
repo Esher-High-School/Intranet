@@ -5,9 +5,9 @@
 		<th width="85%">Name</th>
 		<?php if (isset($cmsuser)): ?>
 			<th>
-				<?php echo $this->Html->Link('<i class="icon-plus-sign"></i>', 
+				<?php echo $this->Html->Link('Add', 
 					array('action' => 'add'),
-					array('escape' => false)
+					array('class' => 'btn btn-primary btn-mini')
 				);
 				?>
 			</th>

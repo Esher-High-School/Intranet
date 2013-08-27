@@ -31,6 +31,12 @@
 	
 	Router::connect('/phoneextensions', array('controller' => 'PhoneExtensions', 'action' => 'index'));
 
+	Router::connect('/staffbulletins', array('controller' => 'StaffBulletins', 'action' => 'index'));
+	Router::connect('/staffbulletins/view/*', array('controller' => 'StaffBulletins', 'action' => 'view'));
+
+	Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
+	Router::connect('/documents', array('controller' => 'Documents', 'action' => 'index'));
+
 	//Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
 	
 	/* Incident Reporting */
