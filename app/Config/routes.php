@@ -36,6 +36,7 @@
 
 	Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
 	Router::connect('/documents', array('controller' => 'Documents', 'action' => 'index'));
+	Router::connect('/documents/categories', array('controller' => 'DocumentCategories', 'action' => 'index')); 
 
 	//Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
 	

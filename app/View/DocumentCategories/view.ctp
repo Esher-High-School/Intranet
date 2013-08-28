@@ -1,5 +1,5 @@
 <h3><?php echo $category['DocumentCategory']['name']; ?></h3>
-<p>Documents from category <?php echo $category['DocumentCategory']['name']; ?>.</p>
+<p><?php echo $category['DocumentCategory']['description']; ?></p>
 
 <table class="table table-striped table-hover table-condensed">
 	<thead>
