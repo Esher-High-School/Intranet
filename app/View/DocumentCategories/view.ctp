@@ -1,5 +1,5 @@
 <h3><?php echo $category['DocumentCategory']['name']; ?></h3>
-<p><?php echo $category['DocumentCategory']['description']; ?></p>
+<p><?php echo nl2br($category['DocumentCategory']['description']); ?></p>
 
 <table class="table table-striped table-hover table-condensed">
 	<thead>

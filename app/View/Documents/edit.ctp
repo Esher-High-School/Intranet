@@ -15,8 +15,8 @@
 		</label>
 		<div class="controls">
 			<select name="data[Document][category_id]" class="input-block-level">
-				<option value="<?php echo $document_category; ?>">
-					<?php echo $categories[$document_category]['DocumentCategory']['name']; ?>
+				<option value="<?php echo $document_category['DocumentCategory']['id']; ?>">
+					<?php echo $document_category['DocumentCategory']['name']; ?>
 				</option>
 				<?php foreach($categories as $category): ?>
 					<option value="<?php echo $category['DocumentCategory']['id']; ?>">

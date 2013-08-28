@@ -57,7 +57,9 @@ class DocumentsController extends AppController {
 		if ($this->request->is('get')) {
 			$categories = $this->DocumentCategory->getCategories();
 			$this->request->data = $this->Document->read();
-			$this->set('document_category', $this->request->data['Document']['category_id']);
+			$category_id = $this->request->data['Document']['category_id'];
+			$document_category = $this->DocumentCategory->findById($category_id);
+			$this->set('document_category', $document_category);
 			$this->set('categories', $categories);
 		} else {
 			if ($this->Document->save($this->request->data)) {
