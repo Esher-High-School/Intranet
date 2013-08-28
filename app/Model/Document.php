@@ -6,7 +6,6 @@ class Document extends AppModel {
 			'joinTable' => 'document_categories',
 			'foreignKey' => 'id',
 			'associationForeignKey' => 'category_id',
-			'unique' => true
 		)
 	);
 

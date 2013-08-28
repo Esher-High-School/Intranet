@@ -15,6 +15,11 @@
 		</label>
 		<div class="controls">
 			<select name="data[Document][category_id]" class="input-block-level">
+				<?php if (isset($selected_category)): ?>
+					<option value="<?php echo $selected_category['DocumentCategory']['id']; ?>">
+						<?php echo $selected_category['DocumentCategory']['name']; ?>
+					</option>
+				<?php endif; ?>
 				<?php foreach($categories as $category): ?>
 					<option value="<?php echo $category['DocumentCategory']['id']; ?>">
 						<?php echo $category['DocumentCategory']['name']; ?>
@@ -35,3 +40,8 @@
 		</div>
 	</div>
 <?php echo $this->Form->end(); ?>
+<?php if (isset($selected_category)): ?>
+	<p>
+		<?php echo $this->Html->Link('Back to category', array('controller' => 'DocumentCategories', 'action' => 'view', $selected_category['DocumentCategory']['id'])); ?>
+	</p>
+<?php endif; ?>

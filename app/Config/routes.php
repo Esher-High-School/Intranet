@@ -34,8 +34,10 @@
 	Router::connect('/staffbulletins', array('controller' => 'StaffBulletins', 'action' => 'index'));
 	Router::connect('/staffbulletins/view/*', array('controller' => 'StaffBulletins', 'action' => 'view'));
 
-	Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
 	Router::connect('/documents', array('controller' => 'Documents', 'action' => 'index'));
+        Router::connect('/documents/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
+
+
 	Router::connect('/documents/categories', array('controller' => 'DocumentCategories', 'action' => 'index')); 
 
 	//Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
@@ -90,6 +92,9 @@
 	Router::connect('/cms/pages', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/cms/pages/add', array('controller' => 'pages', 'action' => 'add'));
 	Router::connect('/cms/pages/edit/*', array('controller' => 'pages', 'action' => 'edit'));
+
+	Router::connect('/cms/documents/add', array('controller' => 'documents', 'action' => 'add'));
+	Router::connect('/cms/documents/add/*', array('controller' => 'documents', 'action' => 'add')); 
 	
 	Router::connect('/cms/links', array('controller' => 'links', 'action' => 'index'));
 	Router::connect('/cms/links/add', array('controller' => 'links', 'action' => 'add'));

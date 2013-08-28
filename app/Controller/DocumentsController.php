@@ -27,10 +27,14 @@ class DocumentsController extends AppController {
 		$documents = $this->Documents->getByCategory($id);
 	}
 	
-	public function add() {
+	public function add($category_id=null) {
 		$this->set('title', 'Add New Document');
 		$categories = $this->DocumentCategory->getCategories();
 		$this->set('categories', $categories);
+		if ($category_id !== null) {
+			$selected_category = $this->DocumentCategory->findById($category_id);
+			$this->set('selected_category', $selected_category);
+		}
 		if ($this->request->is('post')) {
 			if ($this->Document->save($this->request->data)) {
 				$this->Session->setFlash('
@@ -39,7 +43,7 @@ class DocumentsController extends AppController {
 						Your document has been added successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'DocumentCategories', 'action' => 'view', $this->request->data['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">

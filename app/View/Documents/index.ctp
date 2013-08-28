@@ -17,7 +17,7 @@
 					<?php echo $document['Document']['name']; ?>
 				</td>
 				<td>
-					<?php echo $document['Document']['category_id']; ?>
+					<?php echo $document['Document']['name']; ?>
 				</td>
 				<td>
 					<?php echo $document['Document']['document']; ?>
