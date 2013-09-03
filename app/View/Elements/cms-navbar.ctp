@@ -66,7 +66,7 @@
 							<li>
 								<?php echo $this->Html->Link('SMT Staff', array('controller' => 'smts', 'action' => 'index')); ?>
 							</li>
-i						</ul>
+						</ul>
 					</li>
 				<?php endif; ?>
 
