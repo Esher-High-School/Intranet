@@ -39,7 +39,7 @@ if (isset($title)) {
 		<script src="http://web.esherhigh.surrey.sch.uk/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
 		<?php 
 		if (isset($cmsuser['CmsUser'])) {
-			echo $this->element('top-navbar'); 
+			echo $this->element('cms-navbar'); 
 		}
 		?>
 		<div class="navigation-bg">
