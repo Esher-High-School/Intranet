@@ -201,7 +201,7 @@ class IncidentsController extends AppController {
 			endforeach;
 		}
 		
-		// Email Tutor
+		// Email Tutor(s)
 		if ($tutors !== null) {
 			foreach($tutors as $tutor) {
 				$Email->to($tutor['Tutor']['username'] . '@esherhigh.surrey.sch.uk');

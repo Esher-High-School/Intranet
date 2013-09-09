@@ -18,12 +18,6 @@
 			<?php echo $this->Form->input('username', array('class' => 'input-block-level', 'label' => false)); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="email">Email</label>
-		<div class="controls">
-			<?php echo $this->Form->input('email', array('class' => 'input-block-level', 'label' => false)); ?>
-		</div>
-	</div>
 	<?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
 	<div class="control-group">
 		<div class="controls">

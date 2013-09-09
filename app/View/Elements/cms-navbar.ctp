@@ -57,6 +57,7 @@
 							<li>
 								<?php echo $this->Html->Link('Year Heads', array('controller' => 'hoys', 'action' => 'index')); ?>
 							</li>
+							<li class="divider"></li>
 							<li>
 								<?php echo $this->Html->Link('Incident Users', array('controller' => 'IncidentUsers', 'action' => 'index')); ?>
 							</li>

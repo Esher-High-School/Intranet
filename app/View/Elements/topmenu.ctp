@@ -3,7 +3,7 @@
 		<?php
 			echo $this->Html->Link('Ariadne', array('controller' => 'pages', 'action' => 'view', 27), array('class' => 'button-nav'));
 			echo $this->Html->Link('Calendar', array('controller' => 'pages', 'action' => 'view', 26), array('class' => 'button-nav'));
-			echo $this->Html->Link('Cover', 'file://2k3server\everyone\Cover\COVER7.HTM', array('class' => 'button-nav'));
+			echo $this->Html->Link('Cover', 'file://10.18.56.70\everyone\Cover\COVER7.HTM', array('class' => 'button-nav'));
 			echo $this->Html->Link('Phone Extensions', array('controller' => 'phoneextensions', 'action' => 'index'), array('class' => 'button-nav'));
 			echo $this->Html->Link('School Development Plan', array('controller' => 'pages', 'action' => 'view', 37), array('class' => 'button-nav'));
 			echo $this->Html->Link('Email', 'https://webmail.esherhigh.surrey.sch.uk/', array('class' => 'button-nav'));

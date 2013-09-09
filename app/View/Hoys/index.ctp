@@ -2,7 +2,7 @@
 $IntranetAuth = new Authentication;
 ?>
 <h3>All HoYs</h3>
-<table class="table table-bordered table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="40%">Name</th>
 		<th width="40%">Year</th>
