@@ -12,7 +12,19 @@ class TutorsController extends AppController {
 			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Listing Tutors');
-		$this->set('tutors', $this->Tutor->getTutors());
+		$tutors[11] =  $this->Tutor->getTutors(11);
+		$tutors[10] = $this->Tutor->getTutors(10);
+		$tutors[9] = $this->Tutor->getTutors(9);
+		$tutors[8] = $this->Tutor->getTutors(8);
+		$tutors[7] = $this->Tutor->getTutors(7);
+		
+		$tutors[11]['Year'] = 11;
+		$tutors[10]['Year'] = 10;
+		$tutors[9]['Year'] = 9;
+		$tutors[8]['Year'] = 8;
+		$tutors[7]['Year'] = 7;
+
+		$this->set('tutors', $tutors);
 	}
 	
 	public function incidentindex() {

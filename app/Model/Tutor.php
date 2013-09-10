@@ -23,8 +23,18 @@ class Tutor extends AppModel {
 		)
 	);
 	
-	function getTutors() {
-		return $this->find('all', array('order' => 'Tutor.username ASC'));
+	function getTutors($year=null) {
+		if ($year == null) {
+			return $this->find('all', array('order' => 'Tutor.username ASC'));
+		} else {
+			return $this->find('all', array(
+				'order' => 'Tutor.username ASC',
+				'conditions' => array(
+					'Tutor.form LIKE' => $year . '%'
+					)
+				)
+			);
+		}
 	}
 	
 	function getTutorsForForm($form) {
