@@ -57,8 +57,8 @@ class Incident extends AppModel {
 		$startdate = ($year . '-09-01');
 		return $this->find('count', array(
 			'conditions' => array(
-				'incident.subject' => $dept,
-				'incident.date >=' => $startdate
+				'Incident.subject' => $dept,
+				'Incident.date >=' => $startdate
 			)
 		));
 	}
@@ -80,11 +80,11 @@ class Incident extends AppModel {
 	function getStudentDepartmentIncidents($dept, $upn) {
 		return $this->find('all', array(
 			'conditions' => array(
-				'student.upn' => $upn,
-				'incident.subject' => $dept
+				'Student.upn' => $upn,
+				'Incident.subject' => $dept
 			),
 			'order' => array(
-				'incident.date' => 'DESC'
+				'Incident.date' => 'DESC'
 			)
 		));
 	}
