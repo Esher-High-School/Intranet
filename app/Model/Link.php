@@ -12,4 +12,20 @@ class Link extends AppModel {
 			'rule' => 'notEmpty'
 		),
 	);
+
+	function getSidebarLinks() {
+		return $this->find('all', array(
+			'conditions' => array(
+				'Link.type' => 0
+			)
+		));
+	}
+
+	function getHeaderLinks() {
+		return $this->find('all', array(
+			'conditions' => array(
+				'Link.type' => 1
+			)
+		));
+	}
 }

@@ -3,19 +3,11 @@ class LinksController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $paginate = array(
-		'fields' => array('Link.id', 'Link.menu', 'Link.link', 'Link.status'),
-		'maxLimit' => 2000,
-		'limit' => 2000,
-		'order' => array(
-			'Link.menu' => 'asc'
-		)
-	);
-	
 	public function index() {
 		$this->set('title', 'Showing all Menu Items');
-		$data = $this->paginate('Link');
-		$this->set('links', $data);
+		$links[0] = $this->Link->getSidebarLinks();
+		$links[1] = $this->Link->getHeaderLinks();
+		$this->set('links', $links);
 	}
 	
 	public function add() {

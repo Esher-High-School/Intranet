@@ -1,4 +1,6 @@
 <h3>Showing All Links</h3>
+
+<h4>Sidebar Links</h4>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="75%">Name</th>
