@@ -49,7 +49,7 @@ class Incident extends AppModel {
 	
 	function countDepartmentIncidents($dept) {
 		$date = date('Y-m-d');
-		if (date('m') > 9) {
+		if (date('m') >= 9) {
 			$year = (date('Y'));
 		} else {
 			$year = (date('Y') - 1);

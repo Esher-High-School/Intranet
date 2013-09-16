@@ -1,6 +1,13 @@
 <h3>Showing All Links</h3>
-
-<h4>Sidebar Links</h4>
+<?php 
+$i = 0;
+foreach($allLinks as $links):
+if ($i == 0) {
+	echo ('<h4>Header Links</h4>');
+} else {
+	echo ('<h4>Sidebar Links</h4>');
+}
+?>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="75%">Name</th>
@@ -22,3 +29,6 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+<?php 
+$i++;
+endforeach; ?>

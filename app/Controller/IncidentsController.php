@@ -175,6 +175,7 @@ class IncidentsController extends AppController {
 		
 		// Email Sender
 		$Email = new CakeEmail();
+		$Email->config('default');
 		$Email->from(array('intranet@esherhigh.surrey.sch.uk' => 'Staff Intranet'));
 		$Email->to($username . '@esherhigh.surrey.sch.uk');
 		$Email->subject('Incident Report Form: ' . $incident['Student']['forename'] . ' ' . $incident['Student']['surname']);
@@ -403,7 +404,7 @@ class IncidentsController extends AppController {
 		$this->set('title', 'Viewing ' . $dept . ' department incidents');
 		$this->set('username', $Authentication->Username());
 		
-		$this->set('departments', $this->Incident->getDepartments('all'));
+		$this->set('departments', $this->Hod->getHodDepts($Authentication->Username()));
 		$data = $this->Incident->getDepartmentIncidents($dept);
 		$this->set('dept', $dept);
 		$this->set('incidents', $data);

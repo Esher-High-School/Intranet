@@ -1,5 +1,5 @@
 <h3>Add Link</h3>
-<?php echo $this->Form->create('Link', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+<?php echo $this->iForm->create('Link', array('action' => 'add', 'class' => 'form-horizontal')); ?>
 	<div class="control-group">
 		<label class="control-label" for="nameInput">Name</label>
 		<div class="controls">

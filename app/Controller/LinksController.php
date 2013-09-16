@@ -5,9 +5,9 @@ class LinksController extends AppController {
 	
 	public function index() {
 		$this->set('title', 'Showing all Menu Items');
-		$links[0] = $this->Link->getSidebarLinks();
-		$links[1] = $this->Link->getHeaderLinks();
-		$this->set('links', $links);
+		$links[0] = $this->Link->getHeaderLinks();
+		$links[1] = $this->Link->getSidebarLinks();
+		$this->set('allLinks', $links);
 	}
 	
 	public function add() {

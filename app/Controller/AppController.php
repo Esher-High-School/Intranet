@@ -85,7 +85,7 @@ class AppController extends Controller {
 			$this->set('incidentuser', $incidentuser);
 		}
 		
-		$links = $this->Link->find('all', array('order' => 'menu ASC'));
+		$links = $this->Link->getSidebarLinks();
 		$this->set('links', $links);
 	}
 }

@@ -35,8 +35,8 @@
 		<div class="controls">
 			<select name="department">
 				<?php foreach($departments as $dept2): ?>
-					<option value="<?php echo $dept2['incident']['subject']; ?>">
-						<?php echo $dept2['incident']['subject']; ?>
+					<option value="<?php echo $dept2['Hod']['id']; ?>">
+						<?php echo $dept2['Hod']['dept']; ?>
 					</option>
 				<?php endforeach; ?>
 			</select>
