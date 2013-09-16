@@ -62,7 +62,7 @@
 								<?php echo $this->Html->Link('Incident Users', array('controller' => 'IncidentUsers', 'action' => 'index')); ?>
 							</li>
 							<li>
-								<?php echo $this->Html->Link('Learning Mentors', array('controller' => 'learningmentors', 'action' => 'index')); ?>
+								<?php echo $this->Html->Link('Learning Mentors', array('controller' => 'LearningMentors', 'action' => 'index')); ?>
 							</li>
 							<li>
 								<?php echo $this->Html->Link('SMT Staff', array('controller' => 'smts', 'action' => 'index')); ?>
