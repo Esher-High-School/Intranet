@@ -296,7 +296,7 @@ class IncidentsController extends AppController {
 		$this->set('yr', $yr);
 	}
 	
-	public function hoyHome($year=null) {
+	public function hoyHome($year=null, $startdate=null, $enddate=null) {
 		$Authentication = new Authentication;
 		$hoy = $this->Hoy->getHoyYears($Authentication->Username());
 		if (!isset($hoy[0])) {
@@ -310,7 +310,20 @@ class IncidentsController extends AppController {
 		}
 		$this->set('title', 'My Year Group');
 		$this->set('hoy', $hoy);
-		$students = $this->Incident->getYearIncidents($year, 10000);
+
+		if (isset($_POST['startDate'])) {
+			$this->redirect(array('action' => 'hoyHome', $_POST['startDate'], $_POST['endDate'], $_POST['yearGroup']));
+		}
+		
+		$this->set('smt', $smt);
+		$this->set('learningmentor', $learningmentor);
+
+		$this->set('posted', $posted);
+		$this->set('year', ($year));
+		$this->set('startdate', $startdate);
+		$this->set('enddate', $enddate);
+		$incident = $this->Incident->getIncidents($startdate, $enddate, $year);
+		$this->set('incidents', $incident);
 		$this->set('students', $students);
 		$this->set('year', $year);
 	}
