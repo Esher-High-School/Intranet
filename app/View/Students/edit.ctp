@@ -25,12 +25,12 @@
 	</div>
 
 	<div class="control-group">
-		<label class="control-label" for="sexInput">
-			Sex<br>
+		<label class="control-label" for="genderInput">
+			Gender<br>
 			<small>(example: M or F)</small>
 		</label>
 		<div class="controls">
-			<?php echo $this->Form->input('sex', array('label' => false, 'id' => 'sexInput')); ?>
+			<?php echo $this->Form->input('gender', array('label' => false, 'id' => 'sexInput')); ?>
 		</div>
 	</div>
 
@@ -80,15 +80,6 @@
 		</label>
 		<div class="controls">
 			<?php echo $this->Form->input('postcode', array('label' => false, 'id' => 'postcodeInput')); ?>
-		</div>
-	</div>
-
-	<div class="control-group">
-		<label class="control-label" for="senInput">
-			Special Educational Needs
-		</label>
-		<div class="controls">
-			<?php echo $this->Form->input('sen', array('label' => false, 'id' => 'senInput')); ?>
 		</div>
 	</div>
 

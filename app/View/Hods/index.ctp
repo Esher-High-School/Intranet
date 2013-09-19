@@ -1,5 +1,5 @@
 <h3>All Heads of Department</h3>
-<table class="table table-bordered table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="42%">Name</th>
 		<th width="42%">Department</th>

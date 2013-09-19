@@ -20,11 +20,11 @@ class HandbookCategory extends AppModel {
 		)
 	);
 
-	function getCategories() {
+	function getAll() {
 		return $this->find('all', 
 			array('order' => 
 				array('name' => 'ASC')
-				)
-			);
+			)
+		);
 	}
 }

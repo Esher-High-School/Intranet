@@ -25,12 +25,12 @@
 	</div>
 
 	<div class="control-group">
-		<label class="control-label" for="sexInput">
-			Sex<br>
+		<label class="control-label" for="genderInput">
+			Gender<br>
 			<small>(example: M or F)</small>
 		</label>
 		<div class="controls">
-			<?php echo $this->Form->input('sex', array('label' => false, 'id' => 'sexInput')); ?>
+			<?php echo $this->Form->input('gender', array('label' => false, 'id' => 'genderInput')); ?>
 		</div>
 	</div>
 

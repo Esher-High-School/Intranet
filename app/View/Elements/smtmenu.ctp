@@ -1,4 +1,4 @@
-<div class="navigation nav-smt">
+<div class="navigation nav-sub">
 	<div class="container condensed">
 		<?php 
 		echo (

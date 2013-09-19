@@ -42,7 +42,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-                                                                <?php echo $this->Html->Link('CMS Users', array('controller' => 'cmsusers', 'action' => 'index')); ?>
+                                                                <?php echo $this->Html->Link('CMS Users', array('controller' => 'cmsUsers', 'action' => 'index')); ?>
                                                         </li>
 							<li class="divider"></li>
                                                         <li>

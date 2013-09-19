@@ -40,7 +40,7 @@
 
 	Router::connect('/documents/categories', array('controller' => 'DocumentCategories', 'action' => 'index')); 
 
-	//Router::connect('/handbook', array('controller' => 'Handbook', 'action' => 'home'));
+	Router::connect('/handbook', array('controller' => 'HandbookDocuments', 'action' => 'home'));
 	
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));

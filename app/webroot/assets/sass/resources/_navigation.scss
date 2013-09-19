@@ -24,10 +24,36 @@
 	top: 80px;
 }
 
-.nav-smt {
+.nav-sub {
 	background-color: #333;
 	a.btn {
 		color: #fff;
+	}
+}
+
+.nav-handbook {
+	@include box-shadow(0 0 6px 1px #aaa);
+	background-color: #fff;
+	width: 100%;
+	a.button-nav {
+		background-color: #fff;
+		color: #000;
+		text-shadow: none;
+	}
+	a.button-nav:hover {
+		background-color: #BD1527;
+	}
+	li.dropdown.open {
+		ul.dropdown-menu {
+			li:hover {
+				background-image: none;
+				background-color: #BD1527;
+				a:hover {
+					background-image: none;
+					background-color: #BD1527;
+				}
+			}
+		}
 	}
 }
 
