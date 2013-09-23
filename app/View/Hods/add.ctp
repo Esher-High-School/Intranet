@@ -1,4 +1,4 @@
-<h1>Add Head of Department</h1>
+<h2>Add Head of Department</h2>
 <br>
 <div class="row">
 	<div class="span4">
