@@ -16,7 +16,7 @@
 				<?php echo $this->Html->Link($category['DocumentCategory']['name'], array('action' => 'view', $category['DocumentCategory']['id'])); ?>
 			</td>
 			<td>
-				<?php if(isset($cmsuser['CmsUser'])) {
+				<?php if(!isset($cmsuser)) {
 					echo $this->Html->Link('Edit', array('action' => 'edit'));
 				} ?>
 			</td>

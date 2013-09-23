@@ -10,8 +10,9 @@ if ($i == 0) {
 ?>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
-		<th width="75%">Name</th>
-		<th width="25%">
+		<th>Name</th>
+		<th>URL</th>
+		<th>
 			<?php echo $this->Html->Link('New', array('controller' => 'links', 'action' => 'add'), array('escape' => false)); ?>
 		</th>
 	</thead>
@@ -20,6 +21,9 @@ if ($i == 0) {
 			<tr>
 				<td>
 					<?php echo $this->Html->link($link['Link']['menu'], $link['Link']['link']); ?>
+				</td>
+				<td>
+					<?php echo $link['Link']['link']; ?>
 				</td>
 				<td>
 					<?php echo $this->Html->link('Edit', array('action' => 'edit', $link['Link']['id'])); ?>

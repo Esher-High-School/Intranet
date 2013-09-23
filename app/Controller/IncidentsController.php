@@ -313,10 +313,10 @@ class IncidentsController extends AppController {
 
 		if (isset($_POST['startDate'])) {
 			$this->redirect(array('action' => 'hoyHome', $_POST['startDate'], $_POST['endDate'], $_POST['yearGroup']));
+			$posted = true;
+		} else {
+			$posted = false;
 		}
-		
-		$this->set('smt', $smt);
-		$this->set('learningmentor', $learningmentor);
 
 		$this->set('posted', $posted);
 		$this->set('year', ($year));
@@ -324,7 +324,6 @@ class IncidentsController extends AppController {
 		$this->set('enddate', $enddate);
 		$incident = $this->Incident->getIncidents($startdate, $enddate, $year);
 		$this->set('incidents', $incident);
-		$this->set('students', $students);
 		$this->set('year', $year);
 	}
 	

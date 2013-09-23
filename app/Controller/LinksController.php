@@ -11,10 +11,11 @@ class LinksController extends AppController {
 	}
 	
 	public function add() {
-		$status[0] = 'Normal';
-		$status[1] = 'New';
-		$status[2] = 'Updated';
-		$this->set('statuses', $status);
+		$type = array(
+			0 => 'Sidebar Link',
+			1 => 'Header Link'
+		);
+		$this->set('types', $type);
 		$this->set('title', 'Add New Link');
 		if ($this->request->is('post')) {
 			if ($this->Link->save($this->request->data)) {

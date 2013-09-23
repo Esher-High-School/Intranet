@@ -1,24 +1,51 @@
 <h3>My Year Group</h3>
 <h4>Select Year Group</h4>
 <form method="post" class="form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="year">Year Group</label>
-		<div class="controls">
-			<select name="yearGroups">
-				<?php foreach ($hoy as $year): ?>
-					<option value="<?php echo $year['Hoy']['year']; ?>">
-						Year <?php echo $year['Hoy']['year']; ?>
-					</option>
-				<?php endforeach; ?>
-			</select>
-		</div>
-	</div>
-	<div class="control-group">
-		<div class="controls">
-			<input type="submit" class="btn btn-primary" value="Select Year Group">
-		</div>
-	</div>
+        <div class="control-group">
+                <label class="control-label" for="inputStartdate">Start Date</label>
+                <div class="controls">
+                        <input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>">
+                </div>
+        </div>
+        <div class="control-group">
+                <label class="control-label" for="inputEnddate">End Date</label>
+                <div class="controls">
+                        <input type="text" name="endDate" id="inputEnddate" value="<?php echo $enddate; ?>">
+                </div>
+        </div>
+        <div class="control-group">
+                <label class="control-label" for="inputYear">Year Group</label>
+                <div class="controls">
+                        <select name="yearGroup">
+                                <?php if ($posted == true) { ?>
+                                <option value="<?php echo $year; ?>">
+                                        <?php
+                                                if (is_numeric($year)) {
+                                                        echo ('Year ' . $year);
+                                                } elseif($year == 'any') {
+                                                        echo ('All Years');
+                                                } else {
+                                                        echo ($year);
+                                                }
+                                        ?>
+                                </option>
+                                <?php } ?>
+                                <option value="any">All Years</option>
+                                <option value="7">Year 7</option>
+                                <option value="8">Year 8</option>
+                                <option value="9">Year 9</option>
+                                <option value="10">Year 10</option>
+                                <option value="11">Year 11</option>
+                        </select>
+                </div>
+        </div>
+        <div class="control-group">
+                <div class="controls">
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+        </div>
 </form>
+
 
 <h4>Year <?php echo $year['Hoy']['year']; ?></h4>
 <table class="table table-striped table-hover table-condensed">
@@ -29,7 +56,7 @@
 		<th>Number of incidents</th>
 	</thead>
 	<tbody>
-		<?php foreach ($students as $student): ?>
+		<?php foreach ($incidents as $student): ?>
 			<tr>
 				<td width="5%">
 					<?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'student', $student['incident']['upn']), array('class' => 'btn btn-mini btn-success')); ?>

@@ -14,7 +14,7 @@ function displayPermission($value) {
 		<th>Incident Monitoring</th>
 		<th>Incident Printing</th>
 		<th width="5%">
-			<?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-small')); ?>
+			<?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?>
 		</th>
 	</thead>
 	<tbody>

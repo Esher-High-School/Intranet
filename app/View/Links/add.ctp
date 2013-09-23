@@ -1,5 +1,22 @@
 <h3>Add Link</h3>
-<?php echo $this->iForm->create('Link', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+<?php echo $this->Form->create('Link', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+	<div class="control-group">
+		<label class="control-label" for="typeInput">Type</label>
+		<div class="controls">
+			<select name="data[Link][type]">
+				<?php 
+				$t = 0;
+				foreach($types as $type): ?>
+					<option value="<?php echo $t; ?>">
+						<?php echo $type; ?>
+					</option>
+				<?php
+				$t++;
+				endforeach; 
+				?>
+			</select>
+		</div>
+	</div>
 	<div class="control-group">
 		<label class="control-label" for="nameInput">Name</label>
 		<div class="controls">

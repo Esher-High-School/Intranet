@@ -21,9 +21,10 @@
 </div>
 <?php if (isset($year)) { ?>
 	<h4>Select Student</h4>
-	<table class="table table-bordered table-striped table-condensed">
+	<table class="table table-hover table-striped table-condensed">
 		<thead>
-			<th>Name</th>
+			<th>Surname</th>
+			<th>Forename</th>
 			<th>Form</th>
 			<th width="1%"></th>
 		</thead>
@@ -32,9 +33,13 @@
 				<tr>
 					<td>
 						<?php 
-						$name = ($student['Student']['surname'] . ', ' . $student['Student']['forename']);
-						echo $this->Html->Link($name, array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
+						echo $this->Html->Link($student['Student']['surname'], array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
 					</td>
+                                        <td>
+                                                <?php
+                                                echo $this->Html->Link($student['Student']['forename'], array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
+                                        </td>
+
 					<td><?php echo $student['Student']['form']; ?></td>
 					<td>
 						<?php echo $this->Html->Link('Select', array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>

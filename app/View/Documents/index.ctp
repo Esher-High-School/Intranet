@@ -23,9 +23,9 @@
 					<?php echo $document['Document']['document']; ?>
 				</td>
 				<td>
-					<?php if (isset($cmsuser['CmsUser'])) {
+					<?php 
 						echo $this->Html->Link('Edit', array('action' => 'edit', $document['Document']['id'])); 
-					} ?>
+				?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

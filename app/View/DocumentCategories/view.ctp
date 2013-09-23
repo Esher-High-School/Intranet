@@ -17,7 +17,11 @@
 					<a href="/files/<?php echo ($category['DocumentCategory']['id'] . '/' . $document['document']); ?>"><?php echo $document['name']; ?></a>
 				</td>
 				<td>
-					&nbsp;
+					<?php 
+					if (isset($cmsuser['CmsUser'])) {
+						echo $this->Html->Link('Edit', array('controller' => 'Documents', 'action' => 'edit', $document['id']));
+					}
+					 ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

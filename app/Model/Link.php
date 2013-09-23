@@ -28,6 +28,9 @@ class Link extends AppModel {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Link.type' => 1
+			),
+			'order' => array(
+				'Link.menu' => 'ASC'
 			)
 		));
 	}

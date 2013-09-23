@@ -35,7 +35,7 @@
 	Router::connect('/staffbulletins/view/*', array('controller' => 'StaffBulletins', 'action' => 'view'));
 
 	Router::connect('/documents', array('controller' => 'Documents', 'action' => 'index'));
-        Router::connect('/documents/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
+        Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
 
 
 	Router::connect('/documents/categories', array('controller' => 'DocumentCategories', 'action' => 'index')); 

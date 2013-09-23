@@ -87,5 +87,8 @@ class AppController extends Controller {
 		
 		$links = $this->Link->getSidebarLinks();
 		$this->set('links', $links);
+
+		$menu = $this->Link->getHeaderLinks();
+		$this->Set('headerlinks', $menu); 
 	}
 }

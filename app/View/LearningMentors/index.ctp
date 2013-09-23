@@ -5,7 +5,7 @@ $IntranetAuth = new Authentication;
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="90%">Name</th>
-		<th><?php echo $this->Html->link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-small')); ?></th>
+		<th><?php echo $this->Html->link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?></th>
 	</thead>
 	<tbody>
 		<?php foreach ($learningmentors as $learningmentor): ?>
