@@ -19,6 +19,9 @@
 							<?php endif; ?>
 							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li>
+									<?php echo $this->Html->Link('Documents', array('controller' => 'documents', 'action' => 'index')); ?>
+								</li>
+								<li>
 									<?php echo $this->Html->Link('Pages', array('controller' => 'pages', 'action' => 'index')); ?>
 								</li>
 								<li>
@@ -27,7 +30,15 @@
 							<?php endif; ?>
 							<?php if ($cmsuser['CmsUser']['authlevel'] >= 2): ?>
 								<li>
-									<?php echo $this->Html->Link('Thought For The Day Upload', 'http://web.esherhigh.surrey.sch.uk/tfd_upload.php'); ?>
+									<?php echo $this->Html->Link('Thought For The Day', 'http://web.esherhigh.surrey.sch.uk/tfd_upload.php'); ?>
+								</li>
+							<?php endif; ?>
+							<?php if($cmsuser['CmsUser']['authlevel'] == 2): ?>
+								<li>
+									<?php echo $this->Html->Link('Subjects', array('controller' => 'Subjects', 'action' => 'index')); ?>
+								</li>
+								<li>
+									<?php echo $this->Html->Link('Rooms', array('controller' => 'Rooms', 'action' => 'index')); ?>
 								</li>
 							<?php endif; ?>
 							<?php if($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
