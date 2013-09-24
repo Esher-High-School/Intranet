@@ -11,10 +11,13 @@
 						</a>
 
 						<ul class="dropdown-menu">
-							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
+							<?php if ($cmsuser['CmsUser']['authlevel'] == 2): ?>
 								<li>
 									<?php echo $this->Html->Link('Links', array('controller' => 'links', 'action' => 'index')); ?>
 								</li>
+								<li class="divider"></li>
+							<?php endif; ?>
+							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li>
 									<?php echo $this->Html->Link('Pages', array('controller' => 'pages', 'action' => 'index')); ?>
 								</li>
