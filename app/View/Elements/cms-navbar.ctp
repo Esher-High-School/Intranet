@@ -30,7 +30,7 @@
 									<?php echo $this->Html->Link('Thought For The Day Upload', 'http://web.esherhigh.surrey.sch.uk/tfd_upload.php'); ?>
 								</li>
 							<?php endif; ?>
-							<?php if($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1)): ?>
+							<?php if($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li class="divider"></li>
 								<li>
 									<?php echo $this->Html->link('Files', array('controller' => 'files', 'action' => 'index')); ?>
