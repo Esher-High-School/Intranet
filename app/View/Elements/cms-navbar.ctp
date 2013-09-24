@@ -108,22 +108,13 @@
 
 							</li>
 							<li>
+								<?php echo $this->Html->Link('Classlink 11', 'https://eh-cl11.esherhigh.surrey.sch.uk'); ?>
+							</li>
+							<li>
 								<?php echo $this->Html->Link('Censornet', 'http://10.18.56.9'); ?>
 							</li>
 							<li>
-								<?php echo $this->Html->Link('Digital Signage', 'http://10.18.56.35'); ?>
-							</li>
-							<li>
 								<?php echo $this->Html->Link('phpMyAdmin', 'http://admin.web.esherhigh.surrey.sch.uk/phpmyadmin/'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('phpSysInfo', 'http://admin.web.esherhigh.surrey.sch.uk/phpSysInfo/'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('RM Management Console', 'https://ehs-cc3-001'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('LANsweeper: 2kserver', 'http://2kserver/lansweeper/'); ?>
 							</li>
 						</ul>
 					</li>
