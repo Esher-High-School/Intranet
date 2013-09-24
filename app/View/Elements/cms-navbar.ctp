@@ -6,7 +6,7 @@
 				<?php if (isset($cmsuser['CmsUser']['id'])): ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Content Management
+							Content
 							<b class="caret"></b>
 						</a>
 
@@ -33,7 +33,13 @@
 									<?php echo $this->Html->Link('Thought For The Day', 'http://web.esherhigh.surrey.sch.uk/tfd_upload.php'); ?>
 								</li>
 							<?php endif; ?>
+							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 4): ?>
+								<li>
+									<?php echo $this->Html->Link('Staff Handbook', array('controller' => 'HandbookCategories', 'action' => 'index')); ?>
+								</li>
+							<?php endif; ?>
 							<?php if($cmsuser['CmsUser']['authlevel'] == 2): ?>
+								<li class="divider"></li>
 								<li>
 									<?php echo $this->Html->Link('Subjects', array('controller' => 'Subjects', 'action' => 'index')); ?>
 								</li>
@@ -54,7 +60,7 @@
 				<?php if ($cmsuser['CmsUser']['authlevel'] == 2): ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							User Management
+							Users
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
@@ -91,7 +97,7 @@
 				<?php if($cmsuser['CmsUser']['authlevel'] == 2): ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Administrator Links
+							Admin
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
