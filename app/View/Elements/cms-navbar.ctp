@@ -19,7 +19,7 @@
 							<?php endif; ?>
 							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li>
-									<?php echo $this->Html->Link('Documents', array('controller' => 'documents', 'action' => 'index')); ?>
+									<?php echo $this->Html->Link('Documents', array('controller' => 'documentCategories', 'action' => 'index')); ?>
 								</li>
 								<li>
 									<?php echo $this->Html->Link('Pages', array('controller' => 'pages', 'action' => 'index')); ?>
