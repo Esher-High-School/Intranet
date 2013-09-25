@@ -1,5 +1,5 @@
 <h3>Add New Document</h3>
-<?php echo $this->Form->create('Document', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+<?php echo $this->Form->create('Document', array('type' => 'file', 'action' => 'add', 'class' => 'form-horizontal')); ?>
 	<div class="control-group">
 		<label class="control-label" for="name">Name</label>
 		<div class="controls">
@@ -31,7 +31,7 @@
 	<div class="control-group">
 		<label class="control-label" for="document">Document</label>
 		<div class="controls">
-			<?php echo $this->Form->input('document', array('label' => false, 'class' => 'input-block-level')); ?>
+			<?php echo $this->Form->input('document', array('type' => 'file', 'label' => false, 'class' => 'input-block-level')); ?>
 		</div>
 	</div>
 	<div class="control-group">
