@@ -5,7 +5,7 @@ class HandbookCategoriesController extends AppController {
 
 	public function index() {
 		$this->set('title', 'Listing handbook categories');
-		$this->set('categories', $this->HandbookCategory->getCategories());
+		$this->set('categories', $this->HandbookCategory->getAll());
 	}
 
 	public function view($id) {
