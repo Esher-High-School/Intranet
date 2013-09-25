@@ -11,7 +11,7 @@
 		<?php foreach ($categories as $category): ?>
 			<tr>
 				<td>
-					<?php echo $category['HandbookCategory']['name']; ?>
+					<?php echo $this->Html->Link($category['HandbookCategory']['name'], array('action' => 'view', $category['HandbookCategory']['id'])); ?>
 				</td>
 				<td>
 					0

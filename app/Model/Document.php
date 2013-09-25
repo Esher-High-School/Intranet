@@ -25,12 +25,4 @@ class Document extends AppModel {
 		$this->Document->id = $id;
 		return $this->Document->read;
 	}
-
-	function beforeSave() {
-		extract($this->data['Document']['document']);
-		if ($size && !$error) {
-			move_uploaded_file($tmp_name, '/srv/www/intranet/public/app/webroot/files/'. $this->data['Document']['category_id']);
-		}
-		return true;
-	}
 }
