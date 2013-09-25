@@ -170,7 +170,7 @@ class IncidentsController extends AppController {
 
 <p><strong>Action Taken:</strong> ' . $incident['Incident']['action'] . '</p>
 
-<p><strong>View Full Details:</strong> http://web.esherhigh.surrey.sch.uk/cake/incident/' . $incident['Incident']['id'] . '</p>	
+<p><strong>View Full Details:</strong> http://web.esherhigh.surrey.sch.uk/incident/' . $incident['Incident']['id'] . '</p>	
 		');
 		
 		// Email Sender
