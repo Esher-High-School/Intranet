@@ -76,7 +76,7 @@ class HandbookDocumentsController extends AppController {
 		if ($this->request->is('get')) {
 			$this->request->data = $this->HandbookDocument->read();
 		} else {
-			if ($this->HandbookDocument->save($this->request->data)); {
+			if ($this->HandbookDocument->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
