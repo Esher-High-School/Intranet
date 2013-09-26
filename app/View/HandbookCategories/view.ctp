@@ -22,7 +22,9 @@
 			<tr>
 				<td><?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?></td>
 				<td>
-					<?php echo date('F j, Y', $document['created']); ?>
+					<?php 
+					$uploaded = strtotime($document['created']);
+					echo date('F j, Y', $uploaded); ?>
 				</td>
 				<td>
 					<?php echo date('F j, Y', $document['reviewed']); ?>
