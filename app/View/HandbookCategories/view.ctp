@@ -22,10 +22,10 @@
 			<tr>
 				<td><?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?></td>
 				<td>
-					<?php echo date('Y-m-d', $document['created']); ?>
+					<?php echo date('F j, Y', $document['created']); ?>
 				</td>
 				<td>
-					<?php echo date('Y-m-d', $document['reviewed']); ?>
+					<?php echo date('F j, Y', $document['reviewed']); ?>
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>
