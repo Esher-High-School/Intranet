@@ -8,7 +8,7 @@
 			Created
 		</th>
 		<th>
-			Expires
+			Last Reviewed
 		</th>
 		<th>
 			<?php echo $this->Html->Link('Add', array('controller' => 'HandbookDocuments', 'action' => 'add')); ?>
