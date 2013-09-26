@@ -96,7 +96,7 @@ class HandbookDocumentsController extends AppController {
 	}
 
 	public function uploadFile() {
-		$file = $this->data['Upload']['file']
+		$file = $this->data['Upload']['file'];
 		if($file['error'] === UPLOAD_ERR_OK) {
 			$id = String::uuid();
 			if ($move_uploaded-File($file['tmp_name'], APP.'webroot/files/handbook/'.DS.$id)) {
