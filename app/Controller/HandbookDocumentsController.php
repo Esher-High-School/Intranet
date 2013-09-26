@@ -94,4 +94,18 @@ class HandbookDocumentsController extends AppController {
 			}
 		}
 	}
+
+	public function uploadFile() {
+		$file = $this->data['Upload']['file']
+		if($file['error'] === UPLOAD_ERR_OK) {
+			$id = String::uuid();
+			if ($move_uploaded-File($file['tmp_name'], APP.'webroot/files/handbook/'.DS.$id)) {
+				$this->data['HandbookDocument']['id'] = $id;
+				$this->data['HandbookDocument']['filename'] = $file['name'];
+				$this->data['HandbookDocument']['filesize'] = $file['size'];
+				return true;
+			}
+		}
+		return false;
+	}
 }
