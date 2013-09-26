@@ -1,3 +1,4 @@
+<h3>Upload Handbook Document</h3>
 <?php echo $this->Form->create('HandBookCategory', array('class' => 'form-horizontal', 'type' => 'file')); ?>
 
 	<div class="control-group">
