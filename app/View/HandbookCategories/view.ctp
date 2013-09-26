@@ -20,12 +20,14 @@
 	<tbody>
 		<?php foreach ($category['HandbookDocument'] as $document): ?>
 			<tr>
-				<td><?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?></td>
 				<td>
-					<?php echo date('Y-m-d', $document['created']); ?>
+					<?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?>
 				</td>
 				<td>
-					<?php echo date('Y-m-d', $document['reviewed']); ?>
+					<?php echo date('jS F, y', $document['created']); ?>
+				</td>
+				<td>
+					<?php echo date('js F, y', $document['reviewed']); ?>
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>
