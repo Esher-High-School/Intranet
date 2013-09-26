@@ -34,7 +34,7 @@ class HandbookDocumentsController extends AppController {
 		$this->set('document', $document);
 	}
 
-	public function add($id) {
+	public function add() {
 		$Authentication = new Authentication;
 		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
 		if ($cmsuser = null) {
