@@ -14,3 +14,22 @@
 		<p style="padding-top: 10px;">Year</p>
 	</div>
 </div>
+
+<?php echo $this->Form->create('Hoy', array('class' => 'form-horizontal')); ?>
+	<div class="control-group">
+		<label class="control-label">
+			Username
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('username', array('label' => false)); ?>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">
+			Year
+		</label>
+		<div class="controls">
+			<?php echo $this->Form->input('year', array('label' => false)); ?>
+		</div>
+	</div>
+<?php echo $this->Form->end(); ?>
