@@ -31,7 +31,7 @@
 					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>
 				</td>
 				<td>
-					<?php echo $this->Html->postLink('Delete', array('controller' => 'HandbookDocuments', 'action' => 'delete', ))
+					<?php echo $this->Html->postLink('Delete', array('controller' => 'HandbookDocuments', 'action' => 'delete', )); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
