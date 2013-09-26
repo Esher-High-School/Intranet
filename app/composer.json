@@ -1,8 +1,5 @@
 {
 	"config": {
 		"vendor-dir" : "Vendor"
-	},
-	"require": {
-		"mjohnson/uploader": "4.*"
 	}
 }
