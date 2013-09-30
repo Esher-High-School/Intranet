@@ -18,7 +18,7 @@
 			</td>
 			<td>
 				<?php if(isset($cmsuser['CmsUser'])) {
-					echo $this->Html->Link('Edit', array('action' => 'edit'));
+					echo $this->Html->Link('Edit', array('action' => 'edit', $category['DocumentCategory']['id']));
 				} ?>
 			</td>
 			<td>
