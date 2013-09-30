@@ -45,6 +45,9 @@ class DocumentCategoriesController extends AppController {
 	}
 
 	public function edit($id) {
+		$this->set('title', 'Edit Category');
+		$this->DocumentCategory->id = $id;
+		$this->set('id', $id);
 		if ($this->request->is('get')) {
 			$this->request->data = $this->DocumentCategory->read();
 		} else {
