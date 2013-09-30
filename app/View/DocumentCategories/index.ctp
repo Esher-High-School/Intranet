@@ -17,12 +17,12 @@
 				<?php echo $this->Html->Link($category['DocumentCategory']['name'], array('action' => 'view', $category['DocumentCategory']['id'])); ?>
 			</td>
 			<td>
-				<?php if(!isset($cmsuser)) {
+				<?php if(isset($cmsuser['CmsUser'])) {
 					echo $this->Html->Link('Edit', array('action' => 'edit'));
 				} ?>
 			</td>
 			<td>
-				<?php if (!isset($cmsuser)) {
+				<?php if (isset($cmsuser['CmsUser'])) {
 					echo $this->Form->postLink('Delete', array('action' => 'delete', $category['DocumentCategory']['id']), array('Are you sure you want to delete this category?'));
 				} ?>
 			</td>
