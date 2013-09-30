@@ -8,6 +8,7 @@
 			}
 			?>
 		</th>
+		<th>&nbsp;</th>
 	</thead>
 	<tbody>
 		<?php foreach($categories as $category): ?>
@@ -18,6 +19,11 @@
 			<td>
 				<?php if(!isset($cmsuser)) {
 					echo $this->Html->Link('Edit', array('action' => 'edit'));
+				} ?>
+			</td>
+			<td>
+				<?php if (!isset($cmsuser)) {
+					echo $this->Form->postLink('Delete', array('action' => 'delete', $category['DocumentCategory']['id']), array('Are you sure you want to delete this category?'));
 				} ?>
 			</td>
 		</tr>

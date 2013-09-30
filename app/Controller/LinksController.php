@@ -59,6 +59,7 @@ class LinksController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
 						<button class="close" data-dismiss="alert">&times;</button>
+						Unable to update link. Please ensure that you have filled out all fields correctly.
 					</div>
 				');
 			}
