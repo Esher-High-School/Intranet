@@ -62,7 +62,7 @@ if (isset($title)) {
 					<div class="span1 right">
 						<img src="/img/ac.png" alt="Arts Colleges">
 					</div>
-				</div></div>
+				</div>
 			</div>
 		</div>
 		<?php
