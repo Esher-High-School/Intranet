@@ -3,7 +3,7 @@
 	$().ready(function() {
 		var elf = $('#elfinder').elfinder({
 			// lang: 'en',             // language (OPTIONAL)
-			url : '/cake/lib/elfinder/php/connector.php'  // connector URL (REQUIRED)
+			url : '/lib/elfinder/php/connector.php'  // connector URL (REQUIRED)
 		}).elfinder('instance');			
 	});
 </script>
