@@ -13,7 +13,7 @@
 	<tbody>
 		<?php foreach($categories as $category): ?>
 		<tr>
-			<td>
+			<td width="80%">
 				<?php echo $this->Html->Link($category['DocumentCategory']['name'], array('action' => 'view', $category['DocumentCategory']['id'])); ?>
 			</td>
 			<td>
