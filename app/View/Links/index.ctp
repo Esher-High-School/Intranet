@@ -13,7 +13,7 @@ if ($i == 0) {
 		<th>Name</th>
 		<th>URL</th>
 		<th width="100">
-			<?php echo $this->Html->Link('New', array('controller' => 'links', 'action' => 'add'), array('escape' => false)); ?>
+			<?php echo $this->Html->Link('New', array('controller' => 'links', 'action' => 'add'), array('class' => 'btn btn-primary btn-mini', 'escape' => false)); ?>
 		</th>
 	</thead>
 	<tbody>

@@ -4,7 +4,7 @@
 		<th>Name</th>
 		<th>
 			<?php if (isset($cmsuser['CmsUser'])) {
-				echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary')); 
+				echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); 
 			}
 			?>
 		</th>
