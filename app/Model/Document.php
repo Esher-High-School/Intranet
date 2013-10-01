@@ -1,4 +1,4 @@
-<?php
+	<?php
 class Document extends AppModel {
 	public $belongsTo = array(
 		'DocumentCategory' => array(

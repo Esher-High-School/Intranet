@@ -26,9 +26,6 @@ class DocumentCategory extends AppModel {
 			array(
 				'conditions' => array(
 					'DocumentCategory.id' => $id
-				),
-				'order' => array(
-					'Document.name' => 'ASC'
 				)
 			)
 		);
