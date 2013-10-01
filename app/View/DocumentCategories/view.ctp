@@ -15,7 +15,7 @@
 		<?php foreach($category['Document'] as $document): ?>
 			<tr>
 				<td>
-					<?php echo $this->Html->Link($document['Document']['name'], array('controller' => 'Documents', 'action' => 'download', $document['Document']['id'])); ?>
+					<?php echo $this->Html->Link($document['name'], array('controller' => 'Documents', 'action' => 'download', $document['id'])); ?>
 				</td>
 				<td>
 					<?php 
