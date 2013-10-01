@@ -58,6 +58,7 @@ class DocumentsController extends AppController {
 	public function edit($id) {
 		$this->set('title', 'Edit Document');
 		$this->Document->id = $id;
+		$document = $this->Document->read();
 		if ($this->request->is('get')) {
 			$categories = $this->DocumentCategory->getCategories();
 			$this->request->data = $this->Document->read();
@@ -73,7 +74,7 @@ class DocumentsController extends AppController {
 						Document updated successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'documentCategories', 'action' => 'view', $document['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
