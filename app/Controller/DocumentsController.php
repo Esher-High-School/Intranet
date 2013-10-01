@@ -110,8 +110,9 @@ class DocumentsController extends AppController {
 			');
 			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
 		}
-		$this->view = 'media';
 		$filename = $document['Document']['filename'];
+		$this->response->file(APP.'Uploads'.DS.$document['Document']['document'], array('download' => true, 'name' => $filename))
+		/*
 		$this->set(array(
 			'document' => $document['Document']['document'],
 			'name' => substr($filename, 0, strrpos($filename, '.')),
@@ -119,6 +120,7 @@ class DocumentsController extends AppController {
 			'path' => APP.'Uploads'.DS,
 			'download' => true
 		));
+		*/
 	}
 
 	public function delete($id) {
