@@ -92,9 +92,9 @@ class DocumentsController extends AppController {
 			$id = String::uuid();
 			$category = $this->data['Document']['category_id'];
 			if (move_uploaded_file($file['tmp_name'], APP.'webroot'.DS.'files'.DS.$category.DS.$id)) {
-				$this->data['Document']['document'] = $id;
-				$this->data['Document']['filename'] = $file['name'];
-				$this->data['Document']['filetype'] = $file['type'];
+				$this->request->data['Document']['document'] = $id;
+				$this->request->data['Document']['filename'] = $file['name'];
+				$this->request->data['Document']['filetype'] = $file['type'];
 				return true;
 			}
 		}
