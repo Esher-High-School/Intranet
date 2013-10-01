@@ -1,3 +1,4 @@
+<?php debug $documents; ?>
 <h3><?php echo $documents[0]['DocumentCategory']['name']; ?></h3>
 <p><?php echo nl2br($documents[0]['DocumentCategory']['description']); ?></p>
 
@@ -7,7 +8,7 @@
 		<th></th>
 		<th> 
 			<?php if (isset($cmsuser['CmsUser'])) {
-			       echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $documents[0]['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
+				echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $documents[0]['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
 			} ?>
 		</th>
 	</thead>
@@ -22,7 +23,7 @@
 					if (isset($cmsuser['CmsUser'])) {
 						echo $this->Html->Link('Edit', array('controller' => 'Documents', 'action' => 'edit', $document['Document']['id']));
 					}
-					 ?>
+					?>
 				</td>
 				<td>
 					<?php
