@@ -94,7 +94,7 @@ class DocumentsController extends AppController {
 			if (move_uploaded_file($file['tmp_name'], APP.'webroot'.DS.'files'.DS.$category.DS.$id)) {
 				$this->data['Document']['document'] = $id;
 				$this->data['Document']['filename'] = $file['name'];
-				$this->data['Document']['type'] = $file['type'];
+				$this->data['Document']['filetype'] = $file['type'];
 				return true;
 			}
 		}
