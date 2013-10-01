@@ -7,7 +7,7 @@
 		<th></th>
 		<th> 
 			<?php if (isset($cmsuser['CmsUser'])) {
-				echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $documents[0]['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
+				echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
 			} ?>
 		</th>
 	</thead>
