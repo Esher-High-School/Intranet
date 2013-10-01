@@ -1,5 +1,5 @@
 <h3><?php echo $documents[0]['DocumentCategory']['name']; ?></h3>
-<p><?php echo nl2br($documents['DocumentCategory']['description']); ?></p>
+<p><?php echo nl2br($documents[0]['DocumentCategory']['description']); ?></p>
 
 <table class="table table-striped table-hover table-condensed">
 	<thead>
@@ -7,7 +7,7 @@
 		<th></th>
 		<th> 
 			<?php if (isset($cmsuser['CmsUser'])) {
-			       echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $documents['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
+			       echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $documents[0]['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
 			} ?>
 		</th>
 	</thead>
