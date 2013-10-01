@@ -163,7 +163,7 @@ class DocumentsController extends AppController {
 	function deleteFile($id) {
 		$this->Document->id = $id;
 		$document = $this->Document->read();
-		$path = 'Uploads'.DS.$document['Document']['document'];
+		$path = APP.'Uploads'.DS.$document['Document']['document'];
 		if (file_exists($path)) {
 			unlink($path);
 			return true;
