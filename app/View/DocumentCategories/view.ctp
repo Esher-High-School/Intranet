@@ -4,12 +4,12 @@
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>Name</th>
-		<th></th>
 		<th> 
 			<?php if (isset($cmsuser['CmsUser'])) {
 				echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
 			} ?>
 		</th>
+		<th></th>
 	</thead>
 	<tbody>
 		<?php foreach($documents as $document): ?>
