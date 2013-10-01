@@ -111,7 +111,7 @@ class DocumentsController extends AppController {
 			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
 		}
 		$filename = $document['Document']['filename'];
-		$this->response->file(APP.'Uploads'.DS.$document['Document']['document'], array('download' => true, 'name' => $filename));
+		$this->response->file('Uploads'.DS.$document['Document']['document'], array('download' => true, 'name' => $filename));
 		/*
 		$this->set(array(
 			'document' => $document['Document']['document'],
