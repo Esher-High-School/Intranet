@@ -128,7 +128,7 @@ class DocumentsController extends AppController {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
-		if ($this->Document->delete($id)) {
+		if ($this->deleteFile($id) && $this->Document->delete($id)) {
 			$this->Session->setFlash('
 				<div class="alert alert-success">
 					<button class="close" data-dismiss="alert">&times;</button>
@@ -153,5 +153,17 @@ class DocumentsController extends AppController {
 			}
 		}
 		return false;
+	}
+
+	function deleteFile($id) {
+		$this->Document->id = $id;
+		$document = $this->Document->read();
+		$path = 'Uploads'.DS.$document['Document']['document'];
+		if (file_exists($path)) {
+			unlink($path);
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

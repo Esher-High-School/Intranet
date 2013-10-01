@@ -49,9 +49,6 @@
 							<?php endif; ?>
 							<?php if($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li class="divider"></li>
-								<li>
-									<?php echo $this->Html->link('Files', array('controller' => 'files', 'action' => 'index')); ?>
-								</li>
 							<?php endif; ?>
 						</ul>
 					</li>
