@@ -36,7 +36,7 @@ class DocumentsController extends AppController {
 			$this->set('selected_category', $selected_category);
 		}
 		if ($this->request->is('post')) {
-			if ($this->Document->save($this->request->data)) {
+			if ($this->uploadFile() && $this->Document->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
@@ -83,5 +83,19 @@ class DocumentsController extends AppController {
 				');
 			}
 		}
+	}
+
+	// Private function used to handle file uploads
+	function uploadFile() {
+		$file = $this->data['Document']['document'];
+		if ($file['error'] == UPLOAD_ERR_OK) {
+			$id = String::uuid();
+			$category = $this->data['Document']['category_id'];
+			if (move_uploaded_file($file['tmp_name'], APP.'files'.DS.$category.DS.$id)) {
+				$this->data['Document']['document'];
+				return true;
+			}
+		}
+		return false;
 	}
 }
