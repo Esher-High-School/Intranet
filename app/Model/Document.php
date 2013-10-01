@@ -27,7 +27,7 @@ class Document extends AppModel {
 	}
 
 	function getFromCategory($category_id) {
-		$this->find('all', array(
+		return $this->find('all', array(
 				'conditions' => array(
 					'Document.category_id' => $category_id
 				),
