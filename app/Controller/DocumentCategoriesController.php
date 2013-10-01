@@ -12,8 +12,7 @@ class DocumentCategoriesController extends AppController {
 	}
 
 	public function view($id) {
-		$this->DocumentCategory->id = $id;
-		$category = $this->DocumentCategory->read();
+		$category = $this->Document->getFromCategory($id);
 		$this->set('category', $category);
 	}
 

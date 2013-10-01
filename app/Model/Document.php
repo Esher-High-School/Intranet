@@ -25,4 +25,16 @@ class Document extends AppModel {
 		$this->Document->id = $id;
 		return $this->Document->read;
 	}
+
+	function getFromCategory($category_id) {
+		$this->find('all', array(
+				'conditions' => array(
+					'Document.category_id' => $category_id
+				),
+				'order' => array(
+					'Document.name' => 'ASC'
+				)
+			)
+		);
+	}
 }
