@@ -1,3 +1,4 @@
+<?php debug($category); ?>
 <h3><?php echo $category['DocumentCategory']['name']; ?></h3>
 <p><?php echo nl2br($category['DocumentCategory']['description']); ?></p>
 
