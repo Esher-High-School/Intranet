@@ -114,7 +114,10 @@
 								<?php echo $this->Html->Link('Censornet', 'http://10.18.56.9'); ?>
 							</li>
 							<li>
-								<?php echo $this->Html->Link('phpMyAdmin', 'http://admin.web.esherhigh.surrey.sch.uk/phpmyadmin/'); ?>
+								<?php echo $this->Html->Link('phpMyAdmin', 'http://admin.web.esherhigh.surrey.sch.uk/phpMyAdmin/'); ?>
+							</li>
+							<li>
+								<?php echo $this->Html->Link('phpSysInfo', 'http://admin.web.esherhigh.surrey.sch.uk/phpSysInfo/'); ?>
 							</li>
 						</ul>
 					</li>
