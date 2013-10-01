@@ -6,16 +6,16 @@
 		<th>Name</th>
 		<th></th>
 		<th> 
-                        <?php if (isset($cmsuser['CmsUser'])) {
-                                echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
-                        } ?>
+			<?php if (isset($cmsuser['CmsUser'])) {
+			       echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-mini'));
+			} ?>
 		</th>
 	</thead>
 	<tbody>
 		<?php foreach($category['Document'] as $document): ?>
 			<tr>
 				<td>
-					<a href="/files/<?php echo ($category['DocumentCategory']['id'] . '/' . $document['document']); ?>"><?php echo $document['name']; ?></a>
+					<?php echo $this->Html->Link($document['Document']['name'], array('controller' => 'Documents', 'action' => 'download', $document['Document']['id'])); ?>
 				</td>
 				<td>
 					<?php 
