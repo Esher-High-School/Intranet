@@ -1,6 +1,5 @@
-<?php debug($category); ?>
-<h3><?php echo $documents[0]['DocumentCategory']['name']; ?></h3>
-<p><?php echo nl2br($documents[0]['DocumentCategory']['description']); ?></p>
+<h3><?php echo $category['DocumentCategory']['name']; ?></h3>
+<p><?php echo nl2br($category['DocumentCategory']['description']); ?></p>
 
 <table class="table table-striped table-hover table-condensed">
 	<thead>
