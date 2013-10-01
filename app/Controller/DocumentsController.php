@@ -89,10 +89,10 @@ class DocumentsController extends AppController {
 	function uploadFile() {
 		$file = $this->data['Document']['document'];
 		if ($file['error'] == UPLOAD_ERR_OK) {
-			$id = String::uuid();
+			$id = 
 			$category = $this->data['Document']['category_id'];
 			if (move_uploaded_file($file['tmp_name'], APP.'webroot'.DS.'files'.DS.$category.DS.$id)) {
-				$this->data['Document']['document'];
+				$this->data['Document']['document']  = $id;
 				return true;
 			}
 		}
