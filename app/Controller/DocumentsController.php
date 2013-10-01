@@ -85,13 +85,64 @@ class DocumentsController extends AppController {
 		}
 	}
 
+	public function download($id=null) {
+		if (!$id) {
+			$this->Session->setFlash('
+				<div class="alert alert-error">
+					<button class="close" data-dismiss="alert">
+						&times;
+					</button>
+					File not found. If you believe this to be in error, please contact ICT support.
+				</div>
+			');
+			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
+		}
+		$this->Document->id = $id;
+		$document = $this->Document->read();
+		if (!$document) {
+			$this->Session->setFlash('
+				<div class="alert alert-error">
+					<button class="close" data-dismiss="alert">
+						&times;
+					</button>
+					File not found. If you believe this to be in error, please contact ICT support.
+				</div>
+			');
+			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
+		}
+		$this->view = 'media';
+		$filename = $document['Document']['filename'];
+		$this->set(array(
+			'document' => $document['Document']['document'],
+			'name' => substr($filename, 0, strrpos($filename, '.')),
+			'extension' => substr(strrchr($filename, '.'), 1),
+			'path' => APP.'Uploads'.DS,
+			'download' => true
+		));
+	}
+
+	public function delete($id) {
+		if ($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		}
+		if ($this->Document->delete($id)) {
+			$this->Session->setFlash('
+				<div class="alert alert-success">
+					<button class="close" data-dismiss="alert">&times;</button>
+					Document deleted successfully.
+				</div>
+			');
+			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
+		}
+	}
+
 	// Private function used to handle file uploads
 	function uploadFile() {
 		$file = $this->data['Document']['document'];
 		if ($file['error'] == UPLOAD_ERR_OK) {
 			$id = String::uuid();
 			$category = $this->data['Document']['category_id'];
-			if (move_uploaded_file($file['tmp_name'], APP.'webroot'.DS.'files'.DS.$category.DS.$id)) {
+			if (move_uploaded_file($file['tmp_name'], APP.'Uploads'.DS.$id)) {
 				$this->request->data['Document']['document'] = $id;
 				$this->request->data['Document']['filename'] = $file['name'];
 				$this->request->data['Document']['filetype'] = $file['type'];
