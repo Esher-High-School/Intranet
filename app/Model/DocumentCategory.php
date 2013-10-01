@@ -21,7 +21,7 @@ class DocumentCategory extends AppModel {
 	}
 	
 	function getDocuments($id) {
-		$this->DocumentCategory->id = $id;
-		return $this->DocumentCategory->read;
+		$this->id = $id;
+		return $this->read;
 	}
 }
