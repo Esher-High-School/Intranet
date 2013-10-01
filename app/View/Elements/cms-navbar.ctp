@@ -47,9 +47,6 @@
 									<?php echo $this->Html->Link('Rooms', array('controller' => 'Rooms', 'action' => 'index')); ?>
 								</li>
 							<?php endif; ?>
-							<?php if($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
-								<li class="divider"></li>
-							<?php endif; ?>
 						</ul>
 					</li>
 				<?php endif; ?>
