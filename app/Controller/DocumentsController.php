@@ -112,6 +112,7 @@ class DocumentsController extends AppController {
 		}
 		$filename = $document['Document']['filename'];
 		$this->response->file('Uploads'.DS.$document['Document']['document'], array('download' => true, 'name' => $filename));
+		return $this->response;
 		/*
 		$this->set(array(
 			'document' => $document['Document']['document'],
