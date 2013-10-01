@@ -128,6 +128,9 @@ class DocumentsController extends AppController {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
+		$this->Document->id = $id;
+		$document = $this->Document->read();
+		$category = $document['Document']['category_id'];
 		if ($this->deleteFile($id) && $this->Document->delete($id)) {
 			$this->Session->setFlash('
 				<div class="alert alert-success">
@@ -135,7 +138,9 @@ class DocumentsController extends AppController {
 					Document deleted successfully.
 				</div>
 			');
-			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
+			$this->redirect(array('controller' => 'documentCategories', 'action' => 'view', $category));
+		} else {
+			die('File did not delete');
 		}
 	}
 
