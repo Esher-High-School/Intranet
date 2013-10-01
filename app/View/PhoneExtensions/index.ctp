@@ -4,6 +4,7 @@
 		<th width="10%">Ext</th>
 		<th width="85%">Name</th>
 		<?php if (isset($cmsuser)): ?>
+			<th>&nbsp;</th>
 			<th>
 				<?php echo $this->Html->Link('Add', 
 					array('action' => 'add'),
@@ -24,15 +25,14 @@
 				</td>
 				<?php if (isset($cmsuser)): ?>
 					<td>
-						<?php echo $this->Html->Link('<i class="icon-pencil"></i>', 
-							array('action' => 'edit', $extension['PhoneExtension']['id']),
-							array('escape' => false)
+						<?php echo $this->Html->Link('Edit', 
+							array('action' => 'edit', $extension['PhoneExtension']['id'])
 						);
 						?>
-						
-						<?php echo $this->Form->postLink('<i class="icon-trash"></i>', 
-							array('action' => 'delete', $extension['PhoneExtension']['id']),
-							array('escape' => false)
+					</td>
+					<td>
+						<?php echo $this->Form->postLink('Delete', 
+							array('action' => 'delete', $extension['PhoneExtension']['id'])
 						);
 						?>
 					</td>
