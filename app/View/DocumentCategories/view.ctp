@@ -1,4 +1,4 @@
-<?php debug($documents); ?>
+<?php debug($category); ?>
 <h3><?php echo $documents[0]['DocumentCategory']['name']; ?></h3>
 <p><?php echo nl2br($documents[0]['DocumentCategory']['description']); ?></p>
 
