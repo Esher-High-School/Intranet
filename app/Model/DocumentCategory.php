@@ -21,7 +21,13 @@ class DocumentCategory extends AppModel {
 	}
 	
 	function getDocuments($id) {
-		$this->id = $id;
-		return $this->read;
+		return $this->find(
+			'first', 
+			array(
+				'conditions' => array(
+					'DocumentCategory.id' => $id
+				)
+			)
+		);
 	}
 }
