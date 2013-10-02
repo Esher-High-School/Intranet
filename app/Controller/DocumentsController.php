@@ -6,11 +6,7 @@ class DocumentsController extends AppController {
 	var $uses = array('Document', 'DocumentCategory', 'CmsUser');
 
 	public function beforeFilter() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
+
 	}
 
 	public function index() {
