@@ -5,6 +5,7 @@
 		<th>
 			<?php echo $this->Html->link('<i class="icon-plus-sign"></i>', array('controller' => 'pages', 'action' => 'add'), array('escape' => false)); ?>
 		</th>
+		<th></th>
 	</thead>
 	
 	<?php foreach ($pages as $page): ?>
@@ -13,8 +14,10 @@
 			<?php echo $this->Html->link($page['Page']['name'], array('controller' => 'pages', 'action' => 'view', $page['Page']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link('<i class="icon-pencil black"></i>', array('controller' => 'pages', 'action' => 'edit', $page['Page']['id']), array('escape' => false)); ?>
-			<?php echo $this->Form->postLink('<i class="icon-remove black"></i>', array('controller' => 'pages', 'action' => 'delete', $page['Page']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link('Edit', array('controller' => 'pages', 'action' => 'edit', $page['Page']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Form->postLink('Delete', array('controller' => 'pages', 'action' => 'delete', $page['Page']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
