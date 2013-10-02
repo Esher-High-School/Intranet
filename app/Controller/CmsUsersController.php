@@ -3,14 +3,6 @@ class CmsUsersController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $paginate = array(
-		'fields' => array('CmsUser.id', 'CmsUser.user', 'CmsUser.authlevel'),
-		'maxLimit' => 100,
-		'limit' => 100,
-		'order' => array(
-			'CmsUser.authlevel' => 'asc'
-		)
-	);
 
 	public function beforeFilter() {
 		$roles = array(
@@ -29,7 +21,7 @@ class CmsUsersController extends AppController {
 			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'CMS Users');
-		$data = $this->paginate('CmsUser');
+		$cmsusers = $this->CmsUser->getUsers();
 		$this->set('cmsusers', $data);
 	}
 	

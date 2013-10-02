@@ -9,4 +9,15 @@ class CmsUser extends AppModel {
 			'rule' => 'notEmpty'
 		)
 	);
+
+	function getUsers() {
+		return $this->find(
+			'all',
+			array(
+				'order' => array(
+					'user' => 'ASC'
+				)
+			)
+		);
+	}
 }
