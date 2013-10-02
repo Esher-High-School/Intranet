@@ -3,7 +3,7 @@
 	<thead>
 		<th width="84%">Title</th>
 		<th>
-			<?php echo $this->Html->link('<i class="icon-plus-sign"></i>', array('controller' => 'pages', 'action' => 'add'), array('escape' => false)); ?>
+			<?php echo $this->Html->link('Add', array('controller' => 'pages', 'action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?>
 		</th>
 		<th></th>
 	</thead>
