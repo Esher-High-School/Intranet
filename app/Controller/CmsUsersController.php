@@ -22,7 +22,7 @@ class CmsUsersController extends AppController {
 		}
 		$this->set('title', 'CMS Users');
 		$cmsusers = $this->CmsUser->getUsers();
-		$this->set('cmsusers', $data);
+		$this->set('cmsusers', $cmsusers);
 	}
 	
 	public function accessdenied() {
