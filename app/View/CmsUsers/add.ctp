@@ -1,6 +1,5 @@
 <h3>Add CMS User</h3>
 <?php echo $this->Form->Create('CmsUser', array('class' => 'form-horizontal')); ?>
-<?php echo $this->Form->input('id', array('type' => 'hidden', 'label' => false)); ?>
 	<div class="control-group">
 		<label class="control-label" for="user">Username</label>
 		<div class="controls">
