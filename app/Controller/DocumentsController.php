@@ -10,20 +10,14 @@ class DocumentsController extends AppController {
 	}
 
 	public function index() {
+		$this->authenticate();
 		$this->set('title', 'All Documents');
 		$documents = $this->Document->find('all');
 		$this->set('documents', $documents);
 	}
-
-	public function category($id) {
-		$this->DocumentCategory->id = $id;
-		$category = $this->DocumentCategory->read();
-		$this->set('category', $category);
-
-		$documents = $this->Documents->getByCategory($id);
-	}
 	
 	public function add($category_id=null) {
+		$this->authenticate();
 		$this->set('title', 'Add New Document');
 		$categories = $this->DocumentCategory->getCategories();
 		$this->set('categories', $categories);
@@ -52,6 +46,7 @@ class DocumentsController extends AppController {
 	}
 
 	public function edit($id) {
+		$this->authenticate();
 		$this->set('title', 'Edit Document');
 		$this->Document->id = $id;
 		$document = $this->Document->read();
@@ -122,6 +117,7 @@ class DocumentsController extends AppController {
 	}
 
 	public function delete($id) {
+		$this->authenticate();
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
@@ -166,6 +162,15 @@ class DocumentsController extends AppController {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	/* Authentication Magic */
+	function authenticate() {
+		$Authentication = new Authentication;
+		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		if (!isset($cmsuser['CmsUser'])) {
+			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
 		}
 	}
 }
