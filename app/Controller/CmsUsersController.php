@@ -8,8 +8,7 @@ class CmsUsersController extends AppController {
 		$roles = array(
 			1 => 'Publisher',
 			2 => 'Administrator',
-			3 => 'Thought for the Day Upload',
-			4 => 'Staff Handbook and Documents Upload'
+			3 => 'Thought for the Day Upload'
 		);
 		$this->set('roles', $roles);
 	}
