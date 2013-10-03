@@ -24,13 +24,13 @@
 					<?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?>
 				</td>
 				<td>
-					<?php echo date('jS F Y', strtotime($document['user'])); ?>
+					<?php $document['user']; ?>
 				</td>
 				<td>
-					<?php echo date('jS F Y', strtotime($document['created'])); ?>
+					<?php echo date('jS F Y', $document['created']); ?>
 				</td>
 				<td>
-					<?php echo date('js F Y', strtotime($document['modified'])); ?>
+					<?php echo date('js F Y', $document['modified']); ?>
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>
