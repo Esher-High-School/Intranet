@@ -24,7 +24,7 @@
 					<?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?>
 				</td>
 				<td>
-					<?php $document['user']; ?>
+					<?php echo $document['user']; ?>
 				</td>
 				<td>
 					<?php echo date('jS F Y', $document['created']); ?>
