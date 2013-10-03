@@ -4,6 +4,9 @@
 		<th>
 			Name
 		</th>
+		<td>
+			User
+		</td>
 		<th>
 			Created
 		</th>
