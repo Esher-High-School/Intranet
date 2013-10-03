@@ -42,7 +42,7 @@ class HandbookDocumentsController extends AppController {
 		}
 		$this->set('title', 'Add Handbook Document');
 		if ($this->request->is('post')) {
-			if($this->HandbookDocument->save($this->request->data)) {
+			if($this->uploadFile() && $this->HandbookDocument->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">
@@ -58,7 +58,7 @@ class HandbookDocumentsController extends AppController {
 						<button class="close" data-dismiss="alert">
 							&times;
 						</button>
-						Unable to add the handbook document. Please ensure that you have filled out all fields correctly.
+						Unable to add your handbook document. Please ensure that you have filled out all fields correctly.
 					</div>
 				');
 			}
@@ -95,17 +95,40 @@ class HandbookDocumentsController extends AppController {
 		}
 	}
 
-	public function uploadFile() {
-		$file = $this->data['Upload']['file'];
-		if($file['error'] === UPLOAD_ERR_OK) {
+	// Private function used to handle file uploads
+	function uploadFile() {
+		$file = $this->data['HandbookDocument']['document'];
+		if ($file['error'] == UPLOAD_ERR_OK) {
 			$id = String::uuid();
-			if ($move_uploaded-File($file['tmp_name'], APP.'webroot/files/handbook/'.DS.$id)) {
-				$this->data['HandbookDocument']['id'] = $id;
-				$this->data['HandbookDocument']['filename'] = $file['name'];
-				$this->data['HandbookDocument']['filesize'] = $file['size'];
+			$category = $this->data['Document']['category_id'];
+			if (move_uploaded_file($file['tmp_name'], APP.'Uploads'.DS.$id)) {
+				$this->request->data['Document']['document'] = $id;
+				$this->request->data['Document']['filename'] = $file['name'];
+				$this->request->data['Document']['filetype'] = $file['type'];
 				return true;
 			}
 		}
 		return false;
+	}
+
+	function deleteFile($id) {
+		$this->HandbookDocument->id = $id;
+		$document = $this->Document->read();
+		$path = APP.'Uploads'.DS.$document['HandbookDocument']['document'];
+		if (file_exists($path)) {
+			unlink($path);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/* Authentication Magic */
+	function authenticate() {
+		$Authentication = new Authentication;
+		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		if (!isset($cmsuser['CmsUser'])) {
+			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		}
 	}
 }
