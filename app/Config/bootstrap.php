@@ -163,5 +163,5 @@ Cache::config('default', array('engine' => 'File'));
 App::uses('Authentication', 'Lib');
 App::uses('CakeEmail', 'Network/Email');
  
-require(basename(APP) . '/Lib/Authentication.php');
-require(basename(APP) . '/Lib/Theme.php');
+require('../Lib/Authentication.php');
+require('../Lib/Theme.php');
