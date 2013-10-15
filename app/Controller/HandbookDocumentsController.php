@@ -1,6 +1,6 @@
 <?php
 class HandbookDocumentsController extends AppController {
-	public $helpers = array('Html', 'Form', 'Fck');
+	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 
 	var $uses = array('HandbookDocument', 'HandbookCategory', 'cmsuser');
@@ -41,6 +41,8 @@ class HandbookDocumentsController extends AppController {
 			$this->redirect(array('controller' => 'CmsUser', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Add Handbook Document');
+		$categories = $this->HandbookCategory->getAll();
+		$this->set('categories', $categories);
 		if ($this->request->is('post')) {
 			if($this->uploadFile() && $this->HandbookDocument->save($this->request->data)) {
 				$this->Session->setFlash('
@@ -100,11 +102,11 @@ class HandbookDocumentsController extends AppController {
 		$file = $this->data['HandbookDocument']['document'];
 		if ($file['error'] == UPLOAD_ERR_OK) {
 			$id = String::uuid();
-			$category = $this->data['Document']['category_id'];
+			$category = $this->data['HandbookDocument']['category'];
 			if (move_uploaded_file($file['tmp_name'], APP.'Uploads'.DS.$id)) {
-				$this->request->data['Document']['document'] = $id;
-				$this->request->data['Document']['filename'] = $file['name'];
-				$this->request->data['Document']['filetype'] = $file['type'];
+				$this->request->data['HandbookDocument']['document'] = $id;
+				$this->request->data['HandbookDocument']['filename'] = $file['name'];
+				$this->request->data['HandbookDocument']['filetype'] = $file['type'];
 				return true;
 			}
 		}
