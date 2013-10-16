@@ -33,7 +33,7 @@
 									<?php echo $this->Html->Link('Thought For The Day', 'http://web.esherhigh.surrey.sch.uk/tfd_upload.php'); ?>
 								</li>
 							<?php endif; ?>
-							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 4): ?>
+							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li>
 									<?php echo $this->Html->Link('Staff Handbook', array('controller' => 'HandbookCategories', 'action' => 'index')); ?>
 								</li>
@@ -100,6 +100,9 @@
 							</li>
 							<li class="divider">
 
+							</li>
+							<li>
+								<?php echo $this->Html->Link('Spiceworks', 'https://eh-spiceworks'); ?>
 							</li>
 							<li>
 								<?php echo $this->Html->Link('Classlink 11', 'https://eh-cl11.esherhigh.surrey.sch.uk'); ?>

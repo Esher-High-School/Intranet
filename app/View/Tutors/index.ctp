@@ -1,7 +1,9 @@
 <h3>Tutors</h3>
 
-<?php foreach ($tutors as $tutors2): ?>
-<h4>Year <?php echo $tutors2['Year']; ?> Tutors</h4>
+<?php 
+$year = 7;
+foreach ($tutors as $tutors2): ?>
+<h4>Year <?php echo $year; ?> Tutors</h4>
 <table class="table table-striped table-hover table-condensed">
         <thead>
                 <th>Name</th>
@@ -27,4 +29,6 @@
                 <?php endforeach; ?>
         </tbody>
 </table>
-<?php endforeach; ?>
+<?php 
+$year++;
+endforeach; ?>

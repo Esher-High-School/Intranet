@@ -25,7 +25,9 @@ class Tutor extends AppModel {
 	
 	function getTutors($year=null) {
 		if ($year == null) {
-			return $this->find('all', array('order' => 'Tutor.username ASC'));
+			return $this->find('all', 
+				array('order' => 'Tutor.form ASC')
+			);
 		} else {
 			return $this->find('all', array(
 				'order' => 'Tutor.username ASC',
