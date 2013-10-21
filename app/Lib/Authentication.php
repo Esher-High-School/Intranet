@@ -1,5 +1,9 @@
 <?php
-$user = $_SERVER['REMOTE_USER'];
+if (isset($_SERVER['REMOTE_USER'])) {
+	$user = $_SERVER['REMOTE_USER'];
+} else {
+	die('Authentication error. Please make sure that Apache is configured to check authentication correctly.');
+}
 
 class Authentication {
 	public function isAdmin() {

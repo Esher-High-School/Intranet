@@ -4,9 +4,9 @@
 		<th>
 			Name
 		</th>
-		<td>
+		<th>
 			User
-		</td>
+		</th>
 		<th>
 			Created
 		</th>
@@ -39,7 +39,7 @@
 					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>
 				</td>
 				<td>
-					<?php echo $this->Form->postLink('Delete', array('controller' => 'HandbookDocuments', 'action' => 'delete', )); ?>
+					<?php echo $this->Form->postLink('Delete', array('controller' => 'HandbookDocuments', 'action' => 'delete', $document['id'])); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

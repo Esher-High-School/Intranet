@@ -78,17 +78,6 @@ class DocumentsController extends AppController {
 	}
 
 	public function download($id=null) {
-		if (!$id) {
-			$this->Session->setFlash('
-				<div class="alert alert-error">
-					<button class="close" data-dismiss="alert">
-						&times;
-					</button>
-					File not found. If you believe this to be in error, please contact ICT support.
-				</div>
-			');
-			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
-		}
 		$this->Document->id = $id;
 		$document = $this->Document->read();
 		if (!$document) {

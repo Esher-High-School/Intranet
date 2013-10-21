@@ -1,5 +1,9 @@
 <h3>Upload Handbook Document</h3>
-<?php echo $this->Form->create('HandBookDocument', array('class' => 'form-horizontal', 'type' => 'file')); ?>
+<?php echo $this->Form->create('HandbookDocument', array('class' => 'form-horizontal', 'type' => 'file', 'action' => 'add')); ?>
+
+<?php if(isset($error)) {
+	debug($error); 
+} ?>
 
 	<div class="control-group">
 		<label class="control-label">Name</label>

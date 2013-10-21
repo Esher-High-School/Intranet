@@ -10,15 +10,6 @@ class HandbookDocument extends AppModel {
 		)
 	);
 
-	public $validate = array(
-		'document_path' => array(
-			'extension' => array(
-				'rule' => array('extension', array('pdf')),
-				'message' => 'You may only upload PDF documents'
-			)
-		)
-	);
-
 	function getDocuments($category) {
 		$this->find('all', 
 			array('conditions' => array(

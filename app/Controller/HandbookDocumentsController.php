@@ -25,13 +25,35 @@ class HandbookDocumentsController extends AppController {
 		$this->HandbookDocument->id = $id;
 		$document = $this->HandbookDocument->read();
 		$this->set('title', $document['HandbookDocument']['name']);
-		$documentPath = ('../webroot/files/handbook/' . $document['HandbookDocument']['path']);
+		$documentPath = ('../Uploads/' . $document['HandbookDocument']['document']);
 		if (file_exists($documentPath)) {	
 			$this->set('exists', true);
 		} else {
 			$this->set('exists', false);
 		}
 		$this->set('document', $document);
+	}
+
+	public function document($id) {
+		$this->HandbookDocument->id = $id;
+		$document = $this->HandbookDocument->read();
+		if (!$document) {
+			$this->Session->setFlash('
+				<div class="alert alert-error">
+					<button class="close" data-dismiss="alert">
+						&times;
+					</button>
+					File not found. If you believe this to be in error, please contact ICT support.
+				</div>
+			');
+			$this->redirect(array('controller' => 'HandbookCategory', 'action' => 'index'));
+		}
+		$filename = $document['HandbookDocument']['filename'];
+		$this->response->type(array('pdf' => 'application/x-pdf'));
+		$this->response->type('pdf');
+		$this->response->file('Uploads'.DS.$document['HandbookDocument']['document'], array('download' => false, 'name' => $filename, 'Content-Disposition' => 'inline'));
+		$this->response->header('Content-Disposition', 'inline');
+		return $this->response;
 	}
 
 	public function add() {
@@ -49,11 +71,11 @@ class HandbookDocumentsController extends AppController {
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">
 							&times;
-						</div>
+						</button>
 						Handbook document added successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'handbookCategories', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -97,6 +119,25 @@ class HandbookDocumentsController extends AppController {
 		}
 	}
 
+	public function delete($id) {
+		$this->authenticate();
+		if ($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->HandbookDocument->id = $id;
+		$document = $this->HandbookDocument->read();
+		$category = $document['HandbookDocument']['category'];
+		if ($this->deleteFile($id) && $this->HandbookDocument->delete($id)) {
+			$this->Session->setFlash('
+				<div class="alert alert-success">
+					<button class="close" data-dismiss="alert">&times;</button>
+					Handbook document deleted successfully.
+				</div>
+			');
+			$this->redirect(array('controller' => 'handbookCategories', 'action' => 'view', $category));
+		}
+	}
+
 	// Private function used to handle file uploads
 	function uploadFile() {
 		$file = $this->data['HandbookDocument']['document'];
@@ -115,7 +156,7 @@ class HandbookDocumentsController extends AppController {
 
 	function deleteFile($id) {
 		$this->HandbookDocument->id = $id;
-		$document = $this->Document->read();
+		$document = $this->HandbookDocument->read();
 		$path = APP.'Uploads'.DS.$document['HandbookDocument']['document'];
 		if (file_exists($path)) {
 			unlink($path);

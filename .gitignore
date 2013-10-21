@@ -12,3 +12,4 @@
 /app/Uploads/*
 /app/Config/core.php
 /app/Config/database.php
+/logs
