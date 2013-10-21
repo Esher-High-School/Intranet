@@ -17,7 +17,7 @@
 <table class="table table-striped table-condensed table-hover">
 	<thead>
 		<th width="2%">&nbsp;</th>
-		<th width="49%">Username</th>
+		<th width="49%">Name</th>
 		<th width="49%">Incidents</th>
 	</thead>
 	<tbody>
@@ -26,7 +26,15 @@
 				<td>
 					<?php echo $this->Html->Link('View', array('action' => 'incidentsByUser', $user['incident']['username']), array('class' => 'btn btn-mini btn-success')); ?>
 				</td>
-				<td><?php echo $user['incident']['username']; ?></td>
+				<td>
+					<?php 
+					echo (
+						strtoupper(substr($user['incident']['username'], 0, 1)) .
+						' ' .
+						ucfirst(substr($user['incident']['username'], 1))
+					);
+					?>
+				</td>
 				<td><?php echo $user[0]['Number']; ?></td>
 			</tr>
 		<?php endforeach; ?>
