@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><?php echo $title; ?></title>
-		<link href="/assets/stylesheets/print.css" rel="stylesheet" type="text/css">
+		<link href="/stylesheets/print.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="navbar navbar-fixed-top navbar-inverse">
