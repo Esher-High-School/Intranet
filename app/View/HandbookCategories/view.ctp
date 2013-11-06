@@ -1,4 +1,3 @@
-<h3><?php echo $category['HandbookCategory']['name']; ?> Documents</h3>
 <table class="table table-striped table-condensed table-hover">
 	<thead>
 		<th>

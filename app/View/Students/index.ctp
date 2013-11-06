@@ -17,9 +17,6 @@ function Sen($sen) {
 	}
 }
 ?>
-<h3>
-	Year <?php echo $year; ?> Students
-</h3>
 <table class="table table-striped table-hover table-condensed table-students">
 	<thead>
 		<th>Surname</th>
@@ -27,7 +24,7 @@ function Sen($sen) {
 		<th>UPN</th>
 		<th>Form</th>
 		<th>
-			<?php echo $this->Html->Link('New Student', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?>
+			<?php echo $this->Html->Link('New Student', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 	</thead>
 	<?php foreach ($students as $student): ?>

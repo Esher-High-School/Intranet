@@ -3,13 +3,12 @@
 		echo $this->Html->Link('Back to My Department', array('controller' => 'incidents', 'action' => 'hodHome'));
 	}
 ?>
-<h3><?php echo $dept; ?> Incident List</h3>
 <?php if(isset($hod[1])) { ?>
 <h4>Select Department</h4>
 <form method="post" class="form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="department">Department</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="department">Department</label>
+		<div class="col-lg-9">
 			<select name="department">
 				<?php foreach($hod as $dept2): ?>
 					<option value="<?php echo $dept2['Hod']['dept']; ?>">
@@ -19,8 +18,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<input type="submit" class="btn btn-primary" value="Select Department">
 		</div>
 	</div>
@@ -30,9 +29,9 @@
 ?>
 <h4>Select Department</h4>
 <form method="post" class="form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="department">Department</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="department">Department</label>
+		<div class="col-lg-9">
 			<select name="department">
 				<?php foreach($departments as $dept2): ?>
 					<option value="<?php echo $dept2['Hod']['id']; ?>">
@@ -42,8 +41,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<input type="submit" class="btn btn-primary" value="Select Department">
 		</div>
 	</div>
@@ -58,7 +57,7 @@
 	<tbody>
 		<?php foreach($incidents as $incident): ?>
 			<tr>
-				<td><?php echo $this->Html->Link('View', array('action' => 'deptStudent', $dept, $incident['incident']['upn']), array('class' => 'btn btn-success btn-mini')); ?>
+				<td><?php echo $this->Html->Link('View', array('action' => 'deptStudent', $dept, $incident['incident']['upn']), array('class' => 'btn btn-success btn-xs')); ?>
 				<td><?php echo $incident['students']['forename'] . ' ' . $incident['students']['surname']; ?></td>
 				<td><?php echo $incident[0]['Number']; ?></td>
 			</tr>

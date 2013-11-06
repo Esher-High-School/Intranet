@@ -29,7 +29,7 @@ class StudentsController extends AppController {
 	}
 	
 	public function incidentFormList($year=null) {
-		$this->set('title', 'Incident Reporting - Select Student');
+		$this->set('title', 'Incident Reporting');
 		if ($year !== null) {
 			$this->set('year', $year);
 			$students = $this->Student->yearGroup($year);
@@ -43,7 +43,7 @@ class StudentsController extends AppController {
 		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
 		if (isset($incidentuser['IncidentUser']['id'])) {
 			if ($incidentuser['IncidentUser']['monitoring'] == 1) {
-				$this->set('title', 'Incident Monitoring - Select Student');
+				$this->set('title', 'Incident Monitoring');
 				if ($year !== null) {
 					$this->set('year', $year);
 					$students = $this->Student->yearGroup($year);
@@ -65,7 +65,7 @@ class StudentsController extends AppController {
 		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
 		if (isset($incidentuser['IncidentUser']['id'])) {
 			if ($incidentuser['IncidentUser']['printing'] == 1) {
-				$this->set('title', 'Incident Printing - Select Student');
+				$this->set('title', 'Incident Printing');
 				if ($year !== null) {
 					$this->set('year', $year);
 					$students = $this->Student->yearGroup($year);

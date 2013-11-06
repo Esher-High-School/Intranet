@@ -1,15 +1,35 @@
-<h1>Add Learning Mentor</h1>
-<br>
-<div class="row">
-	<div class="span4">
-		<?php
-			echo $this->Form->create('LearningMentor', array('action' => 'edit'));
-			echo $this->Form->input('username', array('class' => 'span4', 'placeholder' => 'Username', 'label' => false));
-			echo $this->Form->button('Add Learning Mentor', array('type' => 'submit', 'class' => 'btn btn-primary btn-block'));
-			echo $this->Form->end();
-		?>
+<?php
+echo $this->Form->create('LearningMentor', 
+	array(
+		'action' => 'edit', 
+		'class' => 'form-horizontal'
+	)
+);
+?>
+	<div class="form-group">
+		<label class="col-lg-3" for="nameInput">Username</label>
+		<div class="col-lg-5">
+			<?php
+			echo $this->Form->input('username', 
+				array(
+					'class' => 'form-control',
+					'id' => 'nameInput', 
+					'label' => false
+				)
+			);
+			?>
+		</div>
 	</div>
-	<div class="span3">
-		<p style="padding-top: 4px;">Username</p>
+
+	<div class="form-group">
+		<div class="col-lg-offset-3 col-lg-9">
+			<?php 
+			echo $this->Form->button('Add Learning Mentor', 
+				array(
+					'type' => 'submit',
+					'class' => 'btn btn-primary'
+				)
+			);
+			?>
+		</div>
 	</div>
-</div>

@@ -1,4 +1,3 @@
-<h3>Incident Printing</h3>
 <h4>Select Year Group</h4>
 <div class="pagination center">
 	<ul>
@@ -21,7 +20,7 @@
 </div>
 <?php if (isset($year)): ?>
 	<h4>Select Student</h4>
-	<table class="table table-bordered table-striped table-condensed">
+	<table class="table table-striped table-condensed table-centered">
 		<thead>
 			<th>Name</th>
 			<th>Form</th>

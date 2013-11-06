@@ -31,7 +31,11 @@ if ($notFound == true) { ?>
 				$incident['Student']['forename'] . ' ' .
 				$incident['Student']['surname']
 			);
-			?>
+			if (isset($smt)): ?>
+			<small>
+				<?php echo $this->Html->Link('(View Incidents)', array('action' => 'student', $incident['Student']['upn'])); ?>
+			</small>
+			<?php endif; ?>
 		</td>
 		<td>
 			<strong>Form</strong>

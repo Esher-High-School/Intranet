@@ -12,10 +12,10 @@ function pFormat($problem) {
 <div class="incident">
 	<div class="header-container">
 		<div class="row">
-			<div class="span1">
+			<div class="col-md-1">
 				<img src="/img/ehs.png" alt="Esher C of E High School">
 			</div>
-			<div class="span9">
+			<div class="col-md-9">
 				<h1>Esher C of E High School</h1>
 			</div>
 		</div>
@@ -43,7 +43,7 @@ function pFormat($problem) {
 			<td>
 				<strong>Reported by</strong>
 			</td>
-			<td colspan="3">
+			<td colcol-md-="3">
 				<?php echo $incident['Incident']['username']; ?>
 			</td>
 		</tr>
@@ -61,13 +61,13 @@ function pFormat($problem) {
 		</tr>
 		<tr>
 			<td><strong>Location</strong></td>
-			<td colspan="3"><?php echo $incident['Incident']['location']; ?></td>
+			<td colcol-md-="3"><?php echo $incident['Incident']['location']; ?></td>
 		</tr>
 		<tr>
 			<td>
 				<strong>Names of other students</strong>
 			</td>
-			<td colspan="3">
+			<td colcol-md-="3">
 				<?php echo h($incident['Incident']['other']); ?>
 			</td>
 		</tr>
@@ -89,7 +89,7 @@ function pFormat($problem) {
 			<td>
 				<strong>Brief Description</strong>
 			</td>
-			<td colspan="3">
+			<td colcol-md-="3">
 				<?php echo h($incident['Incident']['incident']); ?>
 			</td>
 		</tr>
@@ -97,7 +97,7 @@ function pFormat($problem) {
 			<td>
 				<strong>Action Taken</strong>
 			</td>
-			<td colspan="3">
+			<td colcol-md-="3">
 				<?php echo $incident['Incident']['action']; ?>
 			</td>
 		</tr>

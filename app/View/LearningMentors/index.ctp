@@ -1,11 +1,10 @@
 <?php
 $IntranetAuth = new Authentication;
 ?>
-<h3>Learning Mentors</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="90%">Name</th>
-		<th><?php echo $this->Html->link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?></th>
+		<th><?php echo $this->Html->link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?></th>
 	</thead>
 	<tbody>
 		<?php foreach ($learningmentors as $learningmentor): ?>

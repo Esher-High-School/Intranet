@@ -1,13 +1,12 @@
 <?php
 $IntranetAuth = new Authentication;
 ?>
-<h3>All HoYs</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="40%">Name</th>
 		<th width="40%">Year</th>
 		<th width="20%">
-			<?php echo $this->Html->link('New HoY', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?>
+			<?php echo $this->Html->link('New HoY', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 	</thead>
 	<tbody>

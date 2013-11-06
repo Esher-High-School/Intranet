@@ -6,21 +6,21 @@ class IncidentOptionsController extends AppController {
 	var $uses = array('IncidentOption', 'CmsUser');
 	
 	public function beforeFilter() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
-		$this->set('cmsuser', $cmsuser);
+
 	}
 	
 	public function index() {
 		$this->set('title', 'Listing Incident Options');
-		$incidentoptions = $this->IncidentOption->find('all', array('order' => 'Name ASC'));
+		$incidentoptions = $this->IncidentOption->find('all', 
+			array(
+				'order' => 'Name ASC'
+			)
+		);
 		$this->set('incidentoptions', $incidentoptions);
 	}
 	
 	public function add() {
+		$this->authenticate();
 		$this->set('title', 'Add Incident Option');
 		if ($this->request->is('post')) {
 			if ($this->IncidentOption->save($this->request->data)) {
@@ -44,6 +44,7 @@ class IncidentOptionsController extends AppController {
 	}
 	
 	public function edit($id) {
+		$this->authenticate();
 		$this->set('title', 'Edit Incident Option');
 		$this->IncidentOption->id = $id;
 		if ($this->request->is('get')) {
@@ -56,7 +57,11 @@ class IncidentOptionsController extends AppController {
 						Room updated successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(
+					array(
+						'action' => 'index'
+					)
+				);
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -69,6 +74,7 @@ class IncidentOptionsController extends AppController {
 	}
 	
 	public function delete($id) {
+		$this->authenticate();
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
@@ -79,7 +85,27 @@ class IncidentOptionsController extends AppController {
 					Room deleted successfully.
 				</div>
 			');
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(
+				array(
+					'action' => 'index'
+				)
+			);
 		}
+	}
+
+	// Authentication
+	function authenticate() {
+		$Authentication = new Authentication;
+		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		if ($cmsuser == null) {
+			$this->redirect(
+				array
+				(
+					'controller' => 'CmsUsers',
+					'action' => 'accessdenied'
+				)
+			);
+		}
+		$this->set('cmsuser', $cmsuser);
 	}
 }

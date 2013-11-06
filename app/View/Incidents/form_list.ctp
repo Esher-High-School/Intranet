@@ -1,20 +1,20 @@
-<h3>Incident Filtering <small>Date format: Year-Month-Day</small></h3>
+<p>Date format: Year-Month-Day</p>
 <form method="post" class="form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="inputStartdate">Start Date</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="inputStartdate">Start Date</label>
+		<div class="col-lg-9">
 			<input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>">
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="inputEnddate">End Date</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="inputEnddate">End Date</label>
+		<div class="col-lg-9">
 			<input type="text" name="endDate" id="inputEnddate" value="<?php echo $enddate; ?>">
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="inputYear">Year Group</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="inputYear">Year Group</label>
+		<div class="col-lg-9">
 			<select name="yearGroup">
 				<?php if ($posted == true) { ?>
 				<option value="<?php echo $year; ?>">
@@ -38,8 +38,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<button type="submit" class="btn btn-primary">Filter</button>
 		</div>
 	</div>
@@ -55,7 +55,7 @@
 		<?php foreach($groups as $group): ?>
 			<tr>
 				<td width="10%">
-					<?php echo $this->Html->Link('View', array('action' => 'tutorgroup', $group['students']['form']), array('class' => 'btn btn-success btn-mini')); ?>
+					<?php echo $this->Html->Link('View', array('action' => 'tutorgroup', $group['students']['form']), array('class' => 'btn btn-success btn-xs')); ?>
 				</td>
 				<td>
 					<?php echo $group['students']['form']; ?>

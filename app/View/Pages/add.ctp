@@ -6,10 +6,9 @@ if (!$Authentication->isAdmin()) {
 	<p>Your username is <strong>" . $Authentication->Username() . "</strong>.</p>");
 } else {
 ?>
-<h3>Add Page</h3>
 <?php
 echo $this->Form->create('Page');
-echo $this->Form->input('name', array('class' => 'input-block-level', 'placeholder' => 'Title', 'label' => false));
-echo $this->Form->input('page', array('class' => 'input-block-level ckeditor', 'rows' => '15', 'placeholder' => 'Content', 'label' => false));
+echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Title', 'label' => false, 'class' => 'form-control'));
+echo $this->Form->input('page', array('class' => 'form-control ckeditor', 'rows' => '15', 'placeholder' => 'Content', 'label' => false, 'class' => 'form-control'));
 echo $this->Form->button('Save Page', array('type' => 'submit', 'class' => 'btn btn-primary'));
 }?>

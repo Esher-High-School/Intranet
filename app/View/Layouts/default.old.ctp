@@ -36,7 +36,7 @@ $Theme = new ThemeFunctions;
 			</div>
 			<div class="container">
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<?php
 						if ($IntranetAuth->isAdmin()) {
 							echo $content_for_layout;
@@ -48,7 +48,7 @@ $Theme = new ThemeFunctions;
 						}
 						?>
 					</div>
-					<div class="span4">
+					<div class="col-md-4">
 						<h3>Navigation</h3>
 						<ul class="nav nav-tabs nav-stacked">
 							<li><?php echo $this->Html->Link('Home', array('controller' => 'pages', 'action' => 'view', 36)); ?></li>

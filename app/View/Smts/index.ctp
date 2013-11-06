@@ -1,14 +1,13 @@
 <?php
 $IntranetAuth = new Authentication;
 ?>
-<h3>All SMT Staff</h3>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<th width="90%">Name</th>
 		<th>
 			<?php
 			if ($IntranetAuth->isAdmin()) {
-				echo $this->Html->link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini'));
+				echo $this->Html->link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs'));
 			}
 			?>
 		</th>

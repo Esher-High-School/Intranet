@@ -16,8 +16,6 @@
 
 */
 ?>
-
-<h3>Select a year group</h3>
 <p>Please select a year group for a list of students.</p>
 <ul>
 	<li><?php echo $this->Html->link('Year 7', array('action' => 'index', 7)); ?></li>

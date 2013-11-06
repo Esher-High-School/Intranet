@@ -92,8 +92,27 @@ class DocumentsController extends AppController {
 			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
 		}
 		$filename = $document['Document']['filename'];
-		$this->response->file('Uploads'.DS.$document['Document']['document'], array('download' => true, 'name' => $filename));
-		return $this->response;
+		$ext = substr($filename, -3);
+		if ($ext == 'pdf') {
+			$this->response->type(array('pdf' => 'application/x-pdf'));
+			$this->response->type('pdf');
+			$this->response->file('Uploads'.DS.$document['Document']['document'], 
+				array(
+					'download' => false,
+					'name' => $filename,
+					'Content-Disposition' => 'inline'
+				)
+			);
+			return $this->response;
+		} else {
+			$this->response->file('Uploads'.DS.$document['Document']['document'], 
+				array(
+					'download' => true, 
+					'name' => $filename
+				)
+			);
+			return $this->response;
+		}
 		/*
 		$this->set(array(
 			'document' => $document['Document']['document'],

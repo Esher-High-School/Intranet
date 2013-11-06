@@ -1,0 +1,106 @@
+/* Typography */
+body, p {
+	font-size: 14px;
+	line-height: 20px;
+	font-family: $primary-font, sans-serif;
+}
+h1, h2 {
+	padding: 0;
+	margin: 0;
+}
+h1 {
+	margin-bottom: 10px;
+}
+h2 {
+	color: #357ebd;
+	font-family: $primary-font, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	font-size: 2.8em;
+	font-weight: 300;
+	border-bottom: 1px #dfdfdf solid;
+	margin-bottom: 12px;
+	line-height: 1em;
+	padding-bottom: 0.3em;
+	small {
+		font-family: $primary-font, sans-serif;
+	}
+}
+
+h3 {
+	color: #357ebd;
+	font-family: $primary-font, sans-serif;
+	margin: 0;
+	padding: 0;
+	margin-top: 0.4em;
+	margin-bottom: 0.2em;
+	font-size: 1.4em;
+	line-height: 1em;
+	small {
+		font-family: $primary-font, sans-serif;
+	}
+}
+
+h4 {
+	font-size: 1.6em;
+	line-height: 1em;
+	font-weight: 400;
+}
+
+footer {
+	h2 {
+		text-align: right;
+	}
+}
+
+
+a:hover {
+	text-decoration: none;
+}
+
+/*
+a {
+	color: #BD1527;
+	.black {
+		color: #000;
+	}
+}
+
+a:hover {
+	color: #911320;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+	i {
+		color: #000;
+		font-decoration: none;
+		font-size: 14px;
+	}
+}
+
+a.danger {
+	color: #bb0000;
+}
+*/
+/* List Formatting */
+ol {
+	li {
+		margin-top: 16px;
+		margin-bottom: 20px;
+	}
+	ul {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		li {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+}
+
+ul {
+	
+}

@@ -1,13 +1,12 @@
-<h3>Edit Incident Option</h3>
 <?php echo $this->Form->create('IncidentOption', array('action' => 'edit', 'class' => 'form-horizontal')); ?>
-	<div class="control-group">
-		<label class="control-label">Name</label>
-		<div class="controls">
-			<?php echo $this->Form->input('name', array('class' => 'input-block-level', 'label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Name</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('name', array('class' => 'form-control', 'label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
 			<?php echo $this->Form->button('Edit Incident Option', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

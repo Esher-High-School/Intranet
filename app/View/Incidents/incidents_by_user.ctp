@@ -1,4 +1,3 @@
-<h3>Incident reports by <?php echo $user; ?></h3>
 <table class="table table-condensed table-striped table-hover">
 	<thead>
 		<th>&nbsp;</th>
@@ -10,7 +9,7 @@
 		<?php foreach ($incidents as $incident): ?>
 			<tr>
 				<td>
-					<?php echo $this->Html->Link('View', array('action' => 'view', $incident['Incident']['id']), array('class' => 'btn btn-mini btn-success')); ?>
+					<?php echo $this->Html->Link('View', array('action' => 'view', $incident['Incident']['id']), array('class' => 'btn btn-xs btn-success')); ?>
 				</td>
 				<td><?php echo $incident['Incident']['date']; ?></td>
 				<td><?php echo ($incident['Student']['forename'] . ' ' . $incident['Student']['surname']); ?></td>

@@ -1,4 +1,3 @@
-<h3>Showing All Links</h3>
 <?php 
 $i = 0;
 foreach($allLinks as $links):
@@ -13,7 +12,7 @@ if ($i == 0) {
 		<th>Name</th>
 		<th>URL</th>
 		<th width="100">
-			<?php echo $this->Html->Link('New', array('controller' => 'links', 'action' => 'add'), array('class' => 'btn btn-primary btn-mini', 'escape' => false)); ?>
+			<?php echo $this->Html->Link('New', array('controller' => 'links', 'action' => 'add'), array('class' => 'btn btn-primary btn-xs', 'escape' => false)); ?>
 		</th>
 	</thead>
 	<tbody>

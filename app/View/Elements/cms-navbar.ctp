@@ -1,7 +1,7 @@
-<div class="navbar navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
 	<div class="navbar-inner">
 		<div class="container">
-			<a href="/" class="brand">Staff Intranet</a>
+			<a href="/" class="navbar-brand">Staff Intranet</a>
 			<ul class="nav navbar-nav pull-right">
 				<?php if (isset($cmsuser['CmsUser']['id'])): ?>
 					<li class="dropdown">
@@ -46,6 +46,15 @@
 								<li>
 									<?php echo $this->Html->Link('Rooms', array('controller' => 'Rooms', 'action' => 'index')); ?>
 								</li>
+								<li>
+									<?php echo $this->Html->Link('Incident Options',
+										array(
+											'controller' => 'incidentOptions',
+											'action' => 'index'
+										)
+									);
+									?>
+								</li>
 							<?php endif; ?>
 						</ul>
 					</li>
@@ -59,12 +68,12 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-                                                                <?php echo $this->Html->Link('CMS Users', array('controller' => 'cmsUsers', 'action' => 'index')); ?>
-                                                        </li>
+								<?php echo $this->Html->Link('CMS Users', array('controller' => 'cmsUsers', 'action' => 'index')); ?>
+							</li>
 							<li class="divider"></li>
-                                                        <li>
-                                                                <?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
-                                                        </li>
+								<li>
+									<?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
+								</li>
 							<li>
 								<?php echo $this->Html->Link('Tutors', array('controller' => 'tutors', 'action' => 'index')); ?>
 							</li>
@@ -125,4 +134,4 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</nav>

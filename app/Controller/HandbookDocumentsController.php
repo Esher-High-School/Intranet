@@ -57,11 +57,7 @@ class HandbookDocumentsController extends AppController {
 	}
 
 	public function add() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser = null) {
-			$this->redirect(array('controller' => 'CmsUser', 'action' => 'accessdenied'));
-		}
+		$this->authenticate();
 		$this->set('title', 'Add Handbook Document');
 		$categories = $this->HandbookCategory->getAll();
 		$this->set('categories', $categories);

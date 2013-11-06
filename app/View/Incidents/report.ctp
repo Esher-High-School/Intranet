@@ -1,4 +1,3 @@
-<h3>Student Incident Form</h3>
 <?php echo $this->Form->create('Incident', array('action' => 'reportSubmit')); ?>
 	<?php
 		echo $this->Form->hidden('upn', array('value' => $student['Student']['upn']));
@@ -71,7 +70,7 @@
 					<strong>Names of other students</strong>
 				</td>
 				<td colspan="3">
-					<?php echo $this->Form->input('other', array('style' => 'width: 96.5%', 'label' => false)); ?>
+					<?php echo $this->Form->input('other', array('label' => false, 'class' => 'form-control')); ?>
 				</td>
 			</tr>
 			<tr>
@@ -136,7 +135,7 @@
 				</td>
 				<td colspan="3">
 				
-				<?php echo $this->Form->input('incident', array('style' => 'width: 96.5%', 'label' => false)); ?>
+				<?php echo $this->Form->input('incident', array('label' => false, 'class' => 'form-control')); ?>
 				</td>
 			</tr>
 			<tr>
@@ -157,7 +156,7 @@
 			<tr>
 				<td colspan="4" style="text-align: center;">
 					<?php echo $this->Form->button('Submit incident', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
-					<?php echo $this->Html->Link('Reset', array('action' => 'report', $student['Student']['upn']), array('class' => 'btn')); ?>
+					<?php echo $this->Html->Link('Reset', array('action' => 'report', $student['Student']['upn']), array('class' => 'btn btn-default')); ?>
 				</td>
 			</tr>
 		</tbody>

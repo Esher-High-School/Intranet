@@ -1,4 +1,3 @@
-<h3>Staff Groups</h3>
 <?php 
 $gi = 0;
 foreach($grouptypes as $grouptype): ?>

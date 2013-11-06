@@ -14,6 +14,9 @@ class DocumentCategoriesController extends AppController {
 	public function view($id) {
 		$this->DocumentCategory->id = $id;
 		$category = $this->DocumentCategory->read();
+		$title = $category['DocumentCategory']['name'];
+		$this->set('title', $title);
+
 		$documents = $this->Document->getFromCategory($id);
 		$this->set('category', $category);
 		$this->set('documents', $documents);

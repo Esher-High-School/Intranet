@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="span4">
+	<div class="col-md-4">
 		<h4>All Tutors</h4>
 	</div>
-	<div class="span3 right">
+	<div class="col-md-3 right">
 	</div>
 </div>
 <table class="table table-bordered table-striped table-hover table-condensed">
@@ -14,7 +14,7 @@
 	<tbody>
 		<?php foreach ($tutors as $tutor): ?>
 			<tr>
-				<td width="17%"><?php echo $this->Html->Link('View Incidents', array('controller' => 'incidents', 'action' => 'form', $tutor['Tutor']['form']), array('class' => 'btn btn-mini btn-success')); ?></td>
+				<td width="17%"><?php echo $this->Html->Link('View Incidents', array('controller' => 'incidents', 'action' => 'form', $tutor['Tutor']['form']), array('class' => 'btn btn-xs btn-success')); ?></td>
 				<td width="10%"><?php echo $tutor['Tutor']['form']; ?></td>
 				<td><?php echo $tutor['Tutor']['name']; ?></td> 
 			</tr>

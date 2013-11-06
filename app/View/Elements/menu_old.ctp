@@ -19,8 +19,8 @@ $extra = null;
 function menu_item($item,$link,$status) {
 	$extra = null;
 
-	if ($status==1) { $extra=' <span class="label label-important">New</span>'; }
-	if ($status==2) { $extra=' <span class="label label-warning">Updated</span>'; }
+	if ($status==1) { $extra=' <col-md- class="label label-important">New</col-md->'; }
+	if ($status==2) { $extra=' <col-md- class="label label-warning">Updated</col-md->'; }
 
 	echo '<li><a href="'.$link.'">'.$item.'</a>'.$extra.'</li>';   
 }

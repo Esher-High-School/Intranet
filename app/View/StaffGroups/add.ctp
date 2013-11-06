@@ -1,19 +1,18 @@
-<h3>Add Staff Group</h3>
 <?php echo $this->Form->create('StaffGroup', array('action' =>'add', 'class' => 'form-horizontal')); ?>
-	<div class="control-group">
-		<label class="control-label" for="name">Name</label>
-		<div class="controls">
-			<?php echo $this->Form->input('name', array('label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="name">Name</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('name', array('label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label">Group Type</label>
-		<div class="controls">
-			<?php echo $this->Form->input('type', array('type' => 'select', 'options' => $grouptypes, 'label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Group Type</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('type', array('type' => 'select', 'options' => $grouptypes, 'label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<?php echo $this->Form->button('Add Group', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

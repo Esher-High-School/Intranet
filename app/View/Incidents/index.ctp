@@ -1,20 +1,19 @@
-<h3>Incident Filtering <small>Date format: Year-Month-Day</small></h3>
 <form method="post" class="form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="inputStartdate">Start Date</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="inputStartdate">Start Date</label>
+		<div class="col-lg-9">
 			<input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>">
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="inputEnddate">End Date</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="inputEnddate">End Date</label>
+		<div class="col-lg-9">
 			<input type="text" name="endDate" id="inputEnddate" value="<?php echo $enddate; ?>">
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="inputYear">Year Group</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="inputYear">Year Group</label>
+		<div class="col-lg-9">
 			<select name="yearGroup">
 				<?php if ($posted == true) { ?>
 				<option value="<?php echo $year; ?>">
@@ -38,8 +37,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<button type="submit" class="btn btn-primary">Filter</button>
 		</div>
 	</div>
@@ -64,7 +63,7 @@ if (is_numeric($year)) {
 		<?php foreach ($incidents as $incident): ?>
 			<tr>
 				<td>
-					<?php echo $this->Html->Link('View', array('action' => 'student', $incident['incident']['upn']), array('class' => 'btn btn-mini btn-success')); ?>
+					<?php echo $this->Html->Link('View', array('action' => 'student', $incident['incident']['upn']), array('class' => 'btn btn-xs btn-success')); ?>
 				</td>
 				<td><?php echo $incident[0]['Number']; ?></td>
 				<td><?php echo $incident['students']['forename']; ?> <?php echo $incident['students']['surname']; ?></td>

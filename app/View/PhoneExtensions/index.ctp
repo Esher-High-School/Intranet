@@ -1,5 +1,4 @@
-<h3>Phone Extensions</h3>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<th width="10%">Ext</th>
 		<th width="85%">Name</th>
@@ -8,7 +7,7 @@
 			<th>
 				<?php echo $this->Html->Link('Add', 
 					array('action' => 'add'),
-					array('class' => 'btn btn-primary btn-mini')
+					array('class' => 'btn btn-primary btn-xs')
 				);
 				?>
 			</th>

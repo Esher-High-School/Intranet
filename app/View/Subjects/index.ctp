@@ -1,9 +1,8 @@
-<h3>Listing Subjects</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="80%">Name</th>
 		<th>
-			<?php echo $this->Html->Link('Add Subject', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?>
+			<?php echo $this->Html->Link('Add Subject', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 		<th></th>
 	</thead>

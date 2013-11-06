@@ -9,13 +9,12 @@ function role($role) {
 	}
 }
  ?>
-<h3>CMS Users</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>Username</th>
 		<th>Role</th>
 		<?php if ($IntranetAuth->isAdmin()) { ?>
-			<th><?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?></th>
+			<th><?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?></th>
 		<?php } ?>
 	</thead>
 	<tbody>

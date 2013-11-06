@@ -1,22 +1,21 @@
-<h3>Upload Handbook Document</h3>
 <?php echo $this->Form->create('HandbookDocument', array('class' => 'form-horizontal', 'type' => 'file', 'action' => 'add')); ?>
 
 <?php if(isset($error)) {
 	debug($error); 
 } ?>
 
-	<div class="control-group">
-		<label class="control-label">Name</label>
-		<div class="controls">
-			<?php echo $this->Form->input('name', array('label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Name</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('name', array('label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="category">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="category">
 			Category
 		</label>
-		<div class="controls">
-			<select name="data[HandbookDocument][category]" class="input-block-level">
+		<div class="col-lg-9">
+			<select name="data[HandbookDocument][category]" class="form-control">
 				<?php if (isset($selected_category)): ?>
 					<option value="<?php echo $select_category['HandbookCategory']['id']; ?>">
 						<?php echo $select_category['HandbookCategory']['name']; ?>
@@ -30,14 +29,14 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label">File</label>
-		<div class="controls">
-			<?php echo $this->Form->input('document', array('type' => 'file', 'label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">File</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('document', array('type' => 'file', 'label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<?php echo $this->Form->button('Upload Document', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

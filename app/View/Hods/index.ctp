@@ -1,4 +1,3 @@
-<h3>All Heads of Department</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th width="42%">Name</th>
@@ -7,7 +6,7 @@
 			<?php 
 				echo $this->Html->link('Add HoD', 
 				array('action' => 'add'), 
-				array('class' => 'btn btn-primary btn-mini')); 
+				array('class' => 'btn btn-primary btn-xs')); 
 			?>
 		</th>
 	</thead>

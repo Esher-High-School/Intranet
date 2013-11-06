@@ -9,7 +9,7 @@
 	</thead>
 	<?php foreach ($recent as $incident): ?>
 	<tr class="center">
-		<td width="1%"><?php echo $this->Html->Link('View', array('action' => 'view', $incident['Incident']['id']), array('class' => 'btn btn-mini btn-success')); ?></td>
+		<td width="1%"><?php echo $this->Html->Link('View', array('action' => 'view', $incident['Incident']['id']), array('class' => 'btn btn-xs btn-success')); ?></td>
 		<td width="200">
 			<?php echo $incident['Student']['forename']; ?>
 			<?php echo $incident['Student']['surname']; ?>
@@ -35,7 +35,7 @@ foreach ($yr as $year) { ?>
 		</thead>
 		<?php foreach ($year as $students): ?>
 		<tr class="center">
-			<td width="5%"><?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'student', $students['incident']['upn']), array('class' => 'btn btn-mini btn-success')); ?></td>
+			<td width="5%"><?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'student', $students['incident']['upn']), array('class' => 'btn btn-xs btn-success')); ?></td>
 			<td width="60%">
 				<?php echo $students['students']['forename']; ?> 
 				<?php echo $students['students']['surname']; ?>

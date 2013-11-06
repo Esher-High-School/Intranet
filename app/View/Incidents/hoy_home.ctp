@@ -1,21 +1,20 @@
-<h3>My Year Group</h3>
 <h4>Select Year Group</h4>
 <form method="post" class="form-horizontal">
-        <div class="control-group">
-                <label class="control-label" for="inputStartdate">Start Date</label>
-                <div class="controls">
+        <div class="form-group">
+                <label class="col-lg-3 control-label" for="inputStartdate">Start Date</label>
+                <div class="col-lg-9">
                         <input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>">
                 </div>
         </div>
-        <div class="control-group">
-                <label class="control-label" for="inputEnddate">End Date</label>
-                <div class="controls">
+        <div class="form-group">
+                <label class="col-lg-3 control-label" for="inputEnddate">End Date</label>
+                <div class="col-lg-9">
                         <input type="text" name="endDate" id="inputEnddate" value="<?php echo $enddate; ?>">
                 </div>
         </div>
-        <div class="control-group">
-                <label class="control-label" for="inputYear">Year Group</label>
-                <div class="controls">
+        <div class="form-group">
+                <label class="col-lg-3 control-label" for="inputYear">Year Group</label>
+                <div class="col-lg-9">
                         <select name="yearGroup">
                                 <?php if ($posted == true) { ?>
                                 <option value="<?php echo $year; ?>">
@@ -39,15 +38,15 @@
                         </select>
                 </div>
         </div>
-        <div class="control-group">
-                <div class="controls">
+        <div class="form-group">
+                <div class="col-lg-9">
                         <button type="submit" class="btn btn-primary">Filter</button>
                 </div>
         </div>
 </form>
 
 
-<h4>Year <?php echo $year['Hoy']['year']; ?></h4>
+<h4>Year <?php echo $year; ?></h4>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>&nbsp;</th>
@@ -59,7 +58,7 @@
 		<?php foreach ($incidents as $student): ?>
 			<tr>
 				<td width="5%">
-					<?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'student', $student['incident']['upn']), array('class' => 'btn btn-mini btn-success')); ?>
+					<?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'student', $student['incident']['upn']), array('class' => 'btn btn-xs btn-success')); ?>
 				</td>
 				<td width="60%">
 					<?php

@@ -1,8 +1,7 @@
-<h3>Listing Incident Form Options</h3>
-<table class="table table-bordered table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<th width="80%">Name</th>
-		<th><?php echo $this->Html->Link('Add Option', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?></th>
+		<th><?php echo $this->Html->Link('Add Option', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?></th>
 	</thead>
 	<tbody>
 		<?php foreach($incidentoptions as $option): ?>

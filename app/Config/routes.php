@@ -23,6 +23,7 @@
 
 	Router::connect('/', array('controller' => 'StaffBulletins', 'action' => 'display'));
 	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/pages/delete/*', array('controller' => 'pages', 'action' => 'delete'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
 	
 	Router::connect('/tfd', array('controller' => 'tfds', 'action' => 'index'));

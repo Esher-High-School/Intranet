@@ -1,4 +1,3 @@
-<h3>Thought for The Day</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>Date</th>

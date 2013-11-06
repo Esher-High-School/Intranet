@@ -39,6 +39,10 @@ class AppController extends Controller {
 		$global_settings = $this->Setting->getSettings();
 		$this->set('global_settings', $global_settings);
 
+		// Load content for navigation
+		$this->loadModel('Page');
+		$this->loadModel('DocumentCategory');
+
 		//Load user group models
 		$this->loadModel('LearningMentor');
 		$this->loadModel('Smt');
@@ -48,21 +52,25 @@ class AppController extends Controller {
 		$this->loadModel('Hod');
 		$this->loadModel('IncidentUser');
 		
+		// Authentication magic
 		$Authentication = new Authentication;
 		$authUser['username'] = $Authentication->Username();
 		$this->set('authUser', $authUser);
 		$this->set('username', $authUser['username']);
 		
+		// Load Users
 		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
 		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
 		$smt = $this->Smt->findByUsername($Authentication->Username());
 		
+		// Get group information
 		$hoy = $this->Hoy->getHoyYears($Authentication->Username());
 		
 		$tutor = $this->Tutor->findByUsername($Authentication->Username());
 		$hod = $this->Hod->getHodDepts($Authentication->Username());
 		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
 		
+		// Send it all to the view with this wonderful array of ifs
 		if (isset($cmsuser)) {
 			$this->set('cmsuser', $cmsuser);
 		}
@@ -85,10 +93,17 @@ class AppController extends Controller {
 			$this->set('incidentuser', $incidentuser);
 		}
 		
+		// Navigation related magic
 		$links = $this->Link->getSidebarLinks();
 		$this->set('links', $links);
 
 		$menu = $this->Link->getHeaderLinks();
-		$this->Set('headerlinks', $menu); 
+		$this->set('headerlinks', $menu); 
+
+		$pages = $this->Page->getPages();
+		$this->set('pages', $pages);
+
+		$dcategories = $this->DocumentCategory->getCategories();
+		$this->set('dcategories', $dcategories);
 	}
 }

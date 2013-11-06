@@ -1,4 +1,3 @@
-<h3>Incident Monitoring</h3>
 <h4>Select Year Group</h4>
 <div class="pagination center">
 	<ul>

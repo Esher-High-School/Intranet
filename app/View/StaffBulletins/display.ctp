@@ -1,4 +1,3 @@
-<h3>Staff Noticeboard <small>Last updated: <?php echo $latestbulletin['StaffBulletin']['created']; ?></small></h3>
 <div id="sbCarousel" class="carousel slide">
 	<div class="carousel-inner">
 		<?php foreach ($bulletins as $i => $staffbulletin):
@@ -8,9 +7,9 @@
 			<?php } else { ?>
 				<div class="item">
 			<?php } ?>
-					<table class="sbCarousel-table">
+					<table class="sbCarousel-table" style="width: 70%; margin-left: auto; margin-right: auto;">
 						<tr>
-							<td>
+							<td width="300">
 								<div class="note">
 									<div class="note-inner">
 										<p><?php echo $staffbulletin['StaffBulletin']['summary']; ?></p>
@@ -19,8 +18,8 @@
 							</td>
 							<td>
 								<div class="bulletin-text">
-									<p><?php echo $this->Html->Link('Details', array('controller' => 'StaffBulletins', 'action' => 'view', $staffbulletin['StaffBulletin']['id']), array('class' => 'btn btn-danger')); ?></p>
-									<p><?php echo $this->Html->Link($staffbulletin['StaffBulletin']['doctitle'], $staffbulletin['StaffBulletin']['document'], array('class' => 'btn')); ?></p>
+									<p><?php echo $this->Html->Link('Details', array('controller' => 'StaffBulletins', 'action' => 'view', $staffbulletin['StaffBulletin']['id']), array('class' => 'btn btn-primary')); ?></p>
+									<p><?php echo $this->Html->Link($staffbulletin['StaffBulletin']['doctitle'], $staffbulletin['StaffBulletin']['document'], array('class' => 'btn btn-default')); ?></p>
 								</div>
 							</td>
 						</tr>
@@ -38,7 +37,7 @@
 <h3>Search</h3>
 <div class="searches">
 	<form action="" method="post" class="search">
-		<input name="query" type="text">
+		<input name="query" type="text" class="form-control">
 		<br>
 		<label for="googleSearch" class="searchProvider">
 			<input type="radio" name="sp" value="google" id="googleSearch" checked>

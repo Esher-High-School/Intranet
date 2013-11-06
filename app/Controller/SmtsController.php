@@ -22,11 +22,18 @@ class SmtsController extends AppController {
 		}
 		
 		$this->set('title', 'Listing SMT Staff');
-		$data = $this->paginate('Smt');
-		$this->set('smts', $data);
+		$smts = $this->Smt->find('all',
+			array(
+				'order' => array(
+					'Smt.username' => 'asc'
+				)
+			)
+		);
+		$this->set('smts', $smts);
 	}
 	
 	public function add() {
+		$this->set('title', 'Add SMT Staff');
 		$Authentication = new Authentication;
 		$user = $this->CmsUser->findByUser($Authentication->Username());
 		if ($user['CmsUser']['authlevel'] <2) {
@@ -35,13 +42,24 @@ class SmtsController extends AppController {
 		
 		$this->set('Add New SMT Staff');
 		if ($this->request->is('post')) {
-			$this->Session->setFlash('
-				<div class="alert alert-success">
-					<button class="close" data-dismiss="alert">&times;</button>
-					<p>SMT staff added successfully.</p>
-				</div>
-			');
-			$this->redirect(array('action' => 'index'));
+			if($this->Smt->save($this->request->data)) {
+				$this->Session->setFlash('
+					<div class="alert alert-success">
+						<button class="close" data-dismiss="alert">&times;</button>
+						<p>SMT staff added successfully.</p>
+					</div>
+				');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('
+					<div class="alert alert-danger">
+						<button class="close" data-dismiss="alert">&times;</button>
+						<p>
+							Unable to add SMT staff. Please ensure that you have filled out all fields correctly.
+						</p>
+					</div>
+				');
+			}
 		}
 	}
 	

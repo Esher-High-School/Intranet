@@ -1,14 +1,13 @@
-<h2>Edit Handbook Category</h2>
 <?php echo $this->Form->Create('HandbookCategory', array('action' => 'edit', 'class' => 'form-horizontal')); ?>
 
-	<div class="control-group">
-		<label class="control-label">Category Name</label>
-		<div class="controls">
-			<?php echo $this->Form->input('name', array('label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Category Name</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('name', array('label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<?php echo $this->Form->button('Save Category', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

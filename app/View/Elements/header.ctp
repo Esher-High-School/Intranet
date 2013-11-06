@@ -12,17 +12,14 @@ if (isset($title)) {
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta charset="utf-8">
 		<title><?php echo $showTitle; ?></title>
-		<link href="/assets/stylesheets/screen.css" rel="stylesheet" type="text/css">
-		<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
-		<link href="http://web.esherhigh.surrey.sch.uk/lib/elfinder/css/elfinder.min.css" rel="stylesheet" type="text/css">
-		<link href="http://web.esherhigh.surrey.sch.uk/lib/elfinder/css/theme.css" rel="stylesheet" type="text/css">
+		<link href="/stylesheets/screen.css" rel="stylesheet" type="text/css">
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
 		<?php if (isset($cmsuser['CmsUser'])): ?>
 			<style type="text/css">
 				body {
-					margin-top: 40px;
+					padding-top: 51px;
 				}
 				.navigation-bg {
 					top: 120px;
@@ -31,43 +28,39 @@ if (isset($title)) {
 		<?php endif; ?>
 	</head>
 	<body>
-		<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
-		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.0.0.js" type="text/javascript"></script>
-		<script src="http://web.esherhigh.surrey.sch.uk/js/bootstrap.min.js" type="text/javascript"></script>
-		<script src="http://web.esherhigh.surrey.sch.uk/js/ckeditor/ckeditor.js" type="text/javascript"></script>
-		<script src="http://web.esherhigh.surrey.sch.uk/lib/elfinder/js/elfinder.min.js" type="text/javascript"></script>
+		<script src="/javascripts/jquery.min.js" type="text/javascript"></script>
+		<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
 		<?php 
 		if (isset($cmsuser['CmsUser'])) {
 			echo $this->element('cms-navbar'); 
 		}
 		?>
-		<div class="navigation-bg">
-			&nbsp;
-		</div>
 		<div class="header">
 			<div class="container">
 				<div class="row">
-					<div class="span1">
+					<div class="logo">
 						<a href="/">
-							<img src="/img/ehs.png" alt="Esher C of E High School">
+							<img src="/images/ehs.png" alt="Esher C of E High School">
 						</a>
 					</div>
-					<div class="span9">
+					<div class="title">
 						<a href="/">
 							<h1><?php echo $global_settings['School Name']; ?></h1>
 							<h2>Staff Intranet</h2>
 						</a>
 					</div>
-					<div class="span1 right">
-						<img src="/img/ac.png" alt="Arts Colleges">
-					</div>
 				</div>
 			</div>
 		</div>
+
 		<?php
 		echo $this->element('topmenu', array('user' => $username));
 		?>
+
+		<div class="container">
+			<h2><?php echo $title; ?></h2>
+		</div>
+
 		<div class="main-container">
 			<?php
 			if ($this->params['controller'] == 'incidents') {

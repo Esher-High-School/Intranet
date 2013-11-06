@@ -1,5 +1,3 @@
-<h3>Tutors</h3>
-
 <?php 
 $year = 7;
 foreach ($tutors as $tutors2): ?>
@@ -10,7 +8,7 @@ foreach ($tutors as $tutors2): ?>
                 <th>Form</th>
                 <th>Username</th>
                 <th>
-                        <?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); ?>
+                        <?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
                 </th>
         </thead>
         <tbody>

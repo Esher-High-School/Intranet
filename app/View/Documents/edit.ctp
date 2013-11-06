@@ -1,20 +1,19 @@
-<h3>Edit Document</h3>
 <?php echo $this->Form->create('Document', array('action' => 'edit', 'class' => 'form-horizontal')); ?>
-	<div class="control-group">
-		<label class="control-label" for="name">Name</label>
-		<div class="controls">
-			<?php echo $this->Form->input('name', array('label' => false, 'class' => 'input-block-level')); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="name">Name</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('name', array('label' => false, 'class' => 'form-control', 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="category">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="category">
 			Category<br>
 			<small>
 				<?php echo $this->Html->link('(Edit Categories)', array('controller' => 'DocumentCategories', 'action' => 'index')); ?>
 			</small>
 		</label>
-		<div class="controls">
-			<select name="data[Document][category_id]" class="input-block-level">
+		<div class="col-lg-9">
+			<select name="data[Document][category_id]" class="form-control">
 				<option value="<?php echo $document_category['DocumentCategory']['id']; ?>">
 					<?php echo $document_category['DocumentCategory']['name']; ?>
 				</option>
@@ -26,14 +25,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="document">Document</label>
-		<div class="controls">
-			<?php echo $this->Form->input('document', array('label' => false, 'class' => 'input-block-level')); ?>
-		</div>
-	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
 			<?php echo $this->Form->button('Edit Document', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

@@ -1,0 +1,152 @@
+/* Header Navigation */
+.nav-sub {
+	background-color: #333;
+	a.btn {
+		color: #fff;
+	}
+}
+
+.nav-handbook {
+	@include box-shadow(0 0 6px 1px #aaa);
+	background-color: #fff;
+	width: 100%;
+	a.button-nav {
+		background-color: #fff;
+		color: #000;
+		text-shadow: none;
+	}
+	a.button-nav:hover {
+		background-color: #BD1527;
+	}
+	li.dropdown.open {
+		ul.dropdown-menu {
+			li:hover {
+				background-image: none;
+				background-color: #BD1527;
+				a:hover {
+					background-image: none;
+					background-color: #BD1527;
+				}
+			}
+		}
+	}
+}
+
+/* Sidebar Navigation */
+.side-nav {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	p {
+		margin-left: 6px;
+	}
+	hr {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	/*
+	ul {
+		font-size: 8pt;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		margin-left: 6px;
+		margin-top: 6px;
+		li {
+			background-image: url('../images/sidenav-bullet.gif');
+			background-position: left top;
+			background-repeat: no-repeat;
+			padding-bottom: 6px;
+			padding-left: 24px;
+		}
+	}
+	*/
+	.nav-header {
+		color: #000;
+	}
+	.title {
+		height: 20px;
+		background-image: url('/images/heading-bg.gif');
+		color: #fff;
+		padding: 5px;
+		margin: 0;
+		padding-left: 6px;
+		padding-right: 6px;
+		h5 { 
+			font-size: 10pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 700;
+		}
+	}
+	.content {
+		padding: 0px;
+	}
+	.well {
+		@include border-radius(0px);
+		padding: 8px 0;
+	}
+	/*
+	a {
+		color: #222;
+	}
+	a:hover {
+		color: #BD1527;
+	}
+	*/
+	.nav-list {
+		li {
+			a {
+				padding: 3px 15px;
+			}
+			a:hover {
+				background: none;
+			}
+		}
+		li.divider {
+			height: 1px;
+			margin: 9px 1px;
+			overflow: hidden;
+			background-color: rgb(229, 229, 229);
+			border-bottom: 1px solid rgb(255,255,255);
+		}
+		.nav-header {
+			display: block;
+			padding: 3px 15px;
+			font-size: 1em;
+			font-weight: bold;
+			line-height: 20px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+/* More Navigation */
+.navbar-inner {
+	height: 20px;
+	ul {
+		li {
+			a:hover {
+				background-color: #BD1527;
+			}
+		}
+	}
+}
+/*
+ul.dropdown-menu {
+	@include border-radius(0px);
+}
+.dropdown-menu li>a:hover, .dropdown-menu li>a:focus, .dropdown-submenu:hover>a {
+	background-image: none;
+	a:hover {
+		background-image: none;
+		background-color: #BD1527;
+	}
+
+}
+*/
+
+.navbar-inverse {
+	background: none;
+	background-image: url('/images/cms-bg.png');
+}

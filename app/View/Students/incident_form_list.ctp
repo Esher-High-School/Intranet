@@ -1,4 +1,3 @@
-<h3>Incident Reporting</h3>
 <p>Before you submit an incident report, keep in mind:</p>
 <p>An individual report must be completed for each student with unacceptable behaviour.</p>
 <p>Information on this form must be factual and describe the incident and/or action taken. This is not the place to express opinions.</p>
@@ -42,7 +41,7 @@
 					</td>
 					<td><?php echo $student['Student']['form']; ?></td>
 					<td>
-						<?php echo $this->Html->Link('Select', array('controller' => 'incidents', 'action' => 'report', $student['Student']['upn']), array('class' => 'btn btn-success btn-mini')); ?>
+						<?php echo $this->Html->Link('Select', array('controller' => 'incidents', 'action' => 'report', $student['Student']['upn']), array('class' => 'btn btn-success btn-xs')); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

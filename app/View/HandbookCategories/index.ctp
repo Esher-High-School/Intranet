@@ -1,5 +1,3 @@
-<h3>Handbook Categories</h3>
-
 <p><?php echo $this->Html->Link('Add Category', array('action' => 'add')); ?></p>
 <table class="table table-striped table-hover table-condensed">
 	<thead>

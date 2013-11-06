@@ -1,10 +1,9 @@
-<h3>Document Categories</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>Name</th>
 		<th>
 			<?php if (isset($cmsuser['CmsUser'])) {
-				echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-mini')); 
+				echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); 
 			}
 			?>
 		</th>

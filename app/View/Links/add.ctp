@@ -1,8 +1,8 @@
 <h3>Add Link</h3>
 <?php echo $this->Form->create('Link', array('action' => 'add', 'class' => 'form-horizontal')); ?>
-	<div class="control-group">
-		<label class="control-label" for="typeInput">Type</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="typeInput">Type</label>
+		<div class="col-lg-9">
 			<select name="data[Link][type]">
 				<?php 
 				$t = 0;
@@ -17,20 +17,20 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="nameInput">Name</label>
-		<div class="controls">
-			<?php echo $this->Form->input('menu', array('class' => 'input-block-level','id' => 'nameInput', 'label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="nameInput">Name</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('menu', array('class' => 'form-control','id' => 'nameInput', 'label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="urlInput">URL</label>
-		<div class="controls">
-			<?php echo $this->Form->input('link', array('type' => 'text', 'class' => 'input-block-level', 'id' => 'urlInput', 'label' => false)); ?>
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="urlInput">URL</label>
+		<div class="col-lg-9">
+			<?php echo $this->Form->input('link', array('type' => 'text', 'class' => 'form-control', 'id' => 'urlInput', 'label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
 			<?php echo $this->Form->button('Save Link', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

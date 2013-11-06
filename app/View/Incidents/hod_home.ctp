@@ -1,10 +1,9 @@
-<h3>My Department</h3>
 <?php if (isset($hod[1])) {?>
 <h4>Select Department</h4>
 <form method="post" class="form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="year">Department</label>
-		<div class="controls">
+	<div class="form-group">
+		<label class="col-lg-3 control-label" for="year">Department</label>
+		<div class="col-lg-9">
 			<select name="department">
 				<?php foreach ($hod as $dept2): ?>
 					<option value="<?php echo $dept2['Hod']['dept']; ?>">
@@ -14,8 +13,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-lg-9">
 			<input type="submit" class="btn btn-primary" value="Select Department">
 		</div>
 	</div>
@@ -36,7 +35,7 @@
 		<?php foreach ($students as $student): ?>
 			<tr>
 				<td width="5%">
-					<?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'deptStudent', $dept, $student['incident']['upn']), array('class' => 'btn btn-mini btn-success')); ?>
+					<?php echo $this->Html->Link('View', array('controller' => 'incidents', 'action' => 'deptStudent', $dept, $student['incident']['upn']), array('class' => 'btn btn-xs btn-success')); ?>
 				</td>
 				<td width="60%">
 					<?php

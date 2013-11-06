@@ -1,4 +1,3 @@
-<h3>Settings</h3>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>Name</th>

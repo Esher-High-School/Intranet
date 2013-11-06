@@ -15,6 +15,7 @@ class IncidentsController extends AppController {
 	);
 	
 	public function index($startdate=null, $enddate=null, $year='') {
+		$this->set('title', 'Incident List');
 		$posted = true;
 		if ($startdate==null) {
 			$date = date('Y-m-d');
@@ -63,6 +64,7 @@ class IncidentsController extends AppController {
 		$Authentication = new Authentication;
 		$this->set('username', $Authentication->Username());
 		
+		$this->set('title', 'Incident Reporting');
 		// If form is submitted, process it
 		if ($this->request->is('post')) {
 			if ($this->Incident->save($this->request->data)) {
@@ -296,7 +298,7 @@ class IncidentsController extends AppController {
 		$this->set('yr', $yr);
 	}
 	
-	public function hoyHome($year=null, $startdate=null, $enddate=null) {
+	public function hoyHome($startdate=null, $enddate=null, $year=null) {
 		$Authentication = new Authentication;
 		$hoy = $this->Hoy->getHoyYears($Authentication->Username());
 		if (!isset($hoy[0])) {
@@ -312,10 +314,19 @@ class IncidentsController extends AppController {
 		$this->set('hoy', $hoy);
 
 		if (isset($_POST['startDate'])) {
-			$this->redirect(array('action' => 'hoyHome', $_POST['startDate'], $_POST['endDate'], $_POST['yearGroup']));
+			$this->redirect(
+				array(
+					'action' => 'hoyHome', 
+					$_POST['startDate'], 
+					$_POST['endDate'], 
+					$_POST['yearGroup']
+				)
+			);
 			$posted = true;
 		} else {
 			$posted = false;
+			$startdate = date('Y-m-d', strtotime(date('Y-m-d') . '-1 month'));
+			$enddate = date('Y-m-d');
 		}
 
 		$this->set('posted', $posted);
@@ -358,9 +369,9 @@ class IncidentsController extends AppController {
 				));
 			}
 		}
-		$student = $this->Student->find('first', array('conditions' => array('upn' => $upn)));
+		$student = $this->Student->findByUpn($upn);
 		$incidents = $this->Incident->getStudentDepartmentIncidents($dept, $upn);
-		$this->set('title', 'Incidents for Student within Department');
+		$this->set('title', 'Incidents for ' . $student['Student']['forename'] . ' ' . $student['Student']['surname'] . ' in ' . $dept);
 		$this->set('student', $student);
 		$this->set('incidents', $incidents);
 		$this->set('dept', $dept);
@@ -413,7 +424,7 @@ class IncidentsController extends AppController {
 			}
 		}
 		$this->set('day', $day);
-		$this->set('title', 'Viewing ' . $dept . ' department incidents');
+		$this->set('title', $dept . ' Incidents');
 		$this->set('username', $Authentication->Username());
 		
 		$this->set('departments', $this->Hod->getHodDepts($Authentication->Username()));
@@ -569,7 +580,9 @@ class IncidentsController extends AppController {
 		}
 		$this->set('smt', $smt);
 		$this->set('learningmentor', $learningmentor);
-		$this->set('title', 'Viewing Student Incidents');
+		$student = $this->Incident->Student->findByUpn($upn);
+		$this->set('student', $student);
+		$this->set('title', 'Viewing Incidents for ' . $student['Student']['forename'] . ' ' . $student['Student']['surname']);
 		if ($day == 'all') {
 			$date = (date('Y-m-d', strtotime('-6 year')));
 		} else {
@@ -588,8 +601,6 @@ class IncidentsController extends AppController {
 		$incidents = $this->paginate('Incident');
 		$this->set('days', $day);
 		$this->set('incidents', $incidents);
-		$student = $this->Incident->Student->find('first', array('conditions' => array('Student.upn' => $upn)));
-		$this->set('student', $student);
 	}
 	
 	public function view($id = null) {
