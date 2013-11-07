@@ -113,14 +113,17 @@ footer {
 }
 
 .container {
+	width: 100%;
 	max-width: $container-width;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .header {
 	background-color: rgb(240, 240, 240);
 	padding: 16px;
 	width: 100%;
-	color: #fff;
+	color: #222;
 	.container {
 		margin-top: 0;
 		margin-bottom: 0;

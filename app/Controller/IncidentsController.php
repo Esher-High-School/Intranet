@@ -323,10 +323,17 @@ class IncidentsController extends AppController {
 				)
 			);
 			$posted = true;
-		} else {
+		} elseif($startdate == null) {
 			$posted = false;
 			$startdate = date('Y-m-d', strtotime(date('Y-m-d') . '-1 month'));
 			$enddate = date('Y-m-d');
+		} else {
+			$posted = true;
+		}
+
+		if ($year == 'any') {
+			$year = '';
+			$displayYear = 'any';
 		}
 
 		$this->set('posted', $posted);
@@ -335,7 +342,7 @@ class IncidentsController extends AppController {
 		$this->set('enddate', $enddate);
 		$incident = $this->Incident->getIncidents($startdate, $enddate, $year);
 		$this->set('incidents', $incident);
-		$this->set('year', $year);
+		$this->set('year', $displayYear);
 	}
 	
 	public function hodHome($dept=null) {

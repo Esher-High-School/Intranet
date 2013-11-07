@@ -150,3 +150,13 @@ ul.dropdown-menu {
 	background: none;
 	background-image: url('/images/cms-bg.png');
 }
+
+/* Dropdowns */
+.dropdown-menu {
+	li {
+		a:hover, a:focus {
+			background-color: #357ebd;
+			color: #fff;
+		}
+	}
+}

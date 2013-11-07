@@ -1,4 +1,4 @@
-<h4>Select Year Group</h4>
+<h4>Select Dates &amp; Year Group</h4>
 <form method="post" class="form-horizontal">
         <div class="form-group">
                 <label class="col-lg-3 control-label" for="inputStartdate">Start Date</label>
@@ -45,8 +45,11 @@
         </div>
 </form>
 
-
-<h4>Year <?php echo $year; ?></h4>
+<?php if ($year !== 'any'): ?>
+        <h4>Year <?php echo $year; ?></h4>
+<?php else: ?>
+        <h4>Any Year</h4>
+<?php endif; ?>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>&nbsp;</th>

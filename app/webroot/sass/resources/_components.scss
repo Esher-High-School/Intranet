@@ -223,3 +223,11 @@ a.pagination-text {
     width: auto;
   
 }
+
+/* Forms */
+textarea, .form-control, select {
+  padding: 6px 12px;
+  border-radius: 0px;
+  font-size: 1.2em;
+  font-family: $primary-font, sans-serif;
+}
