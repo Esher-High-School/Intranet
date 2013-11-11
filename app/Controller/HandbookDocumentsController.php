@@ -56,11 +56,16 @@ class HandbookDocumentsController extends AppController {
 		return $this->response;
 	}
 
-	public function add() {
+	public function add($categoryId=null) {
 		$this->authenticate();
 		$this->set('title', 'Add Handbook Document');
 		$categories = $this->HandbookCategory->getAll();
 		$this->set('categories', $categories);
+
+		if ($categoryId !== null) {
+			$selectedCategory = $this->HandbookCategory->findById($categoryId);
+			$this->set('selectedCategory', $selectedCategory);
+		}
 		if ($this->request->is('post')) {
 			if($this->uploadFile() && $this->HandbookDocument->save($this->request->data)) {
 				$this->Session->setFlash('
@@ -71,7 +76,7 @@ class HandbookDocumentsController extends AppController {
 						Handbook document added successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'handbookCategories', 'action' => 'index'));
+				$this->redirect(array('controller' => 'handbookCategories', 'action' => 'view', $this->request->data['HandbookDocument']['category']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">

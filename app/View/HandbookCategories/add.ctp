@@ -1,5 +1,4 @@
 <?php echo $this->Form->Create('HandbookCategory', array('class' => 'form-horizontal')); ?>
-
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Category Name</label>
 		<div class="col-lg-9">

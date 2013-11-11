@@ -342,7 +342,9 @@ class IncidentsController extends AppController {
 		$this->set('enddate', $enddate);
 		$incident = $this->Incident->getIncidents($startdate, $enddate, $year);
 		$this->set('incidents', $incident);
-		$this->set('year', $displayYear);
+		if (isset($displayYear)) {
+			$this->set('year', $displayYear);
+		}
 	}
 	
 	public function hodHome($dept=null) {
@@ -695,5 +697,20 @@ class IncidentsController extends AppController {
 		$student = $this->Student->findByUpn($upn);
 		$this->set('incidents', $incidents);
 		$this->set('student', $student);
+	}
+
+	public function delete($id) {
+		if ($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		}
+		if ($this->Incident->delete($id)) {
+			$this->Session->setFlash('
+				<div class="alert alert-success">
+					<button class="close" data-dismiss="alert">&times;</button>
+					Incident deleted successfully.
+				</div>
+			');
+			$this->redirect(array('action' => 'index'));
+		}
 	}
 }

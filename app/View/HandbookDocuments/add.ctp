@@ -3,7 +3,7 @@
 <?php if(isset($error)) {
 	debug($error); 
 } ?>
-
+	<?php echo $this->Form->input('user', array('label' => false, 'type' => 'hidden', 'default' => $username)); ?>
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Name</label>
 		<div class="col-lg-9">
@@ -16,9 +16,9 @@
 		</label>
 		<div class="col-lg-9">
 			<select name="data[HandbookDocument][category]" class="form-control">
-				<?php if (isset($selected_category)): ?>
-					<option value="<?php echo $select_category['HandbookCategory']['id']; ?>">
-						<?php echo $select_category['HandbookCategory']['name']; ?>
+				<?php if (isset($selectedCategory)): ?>
+					<option value="<?php echo $selectedCategory['HandbookCategory']['id']; ?>">
+						<?php echo $selectedCategory['HandbookCategory']['name']; ?>
 					</option>
 				<?php endif; ?>
 				<?php foreach($categories as $category): ?>

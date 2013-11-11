@@ -6,12 +6,12 @@ function pFormat($problem) {
 		return $problem;
 	}
 }
-if ($notFound == true) { ?>
+if ($notFound == true): ?>
 <h3>No Incident Report Found</h3>
 <p>There is no incident by this ID in the database.</p>
 <p>If you believe this to be in error, please contact ICT support.</p>
 <?php
-} else { ?>
+else: ?>
 <h3>Incident #<?php echo $incident['Incident']['id']; ?></h3>
 <table class="table table-striped table-bordered table-condensed">
 	<tr>
@@ -99,4 +99,18 @@ if ($notFound == true) { ?>
 		</td>
 	</tr>
 </table>
-<?php } ?>
+<?php endif;
+if(isset($smt)): ?>
+	<h4>Actions</h4>
+	<?php
+	echo $this->Form->postLink('Delete', array(
+			'action' => 'delete',
+			$incident['Incident']['id'], 
+			'class' => 'danger'
+		),
+		array(
+			'Are you sure you want to delete this incident?'
+		)
+	);
+	?>
+<?php endif; ?>

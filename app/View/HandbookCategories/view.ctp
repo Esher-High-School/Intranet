@@ -1,3 +1,6 @@
+<p>
+	<?php echo $this->Html->Link('Back to categories', array('action' => 'index')); ?>
+</p>
 <table class="table table-striped table-condensed table-hover">
 	<thead>
 		<th>
@@ -13,7 +16,7 @@
 			Last Reviewed
 		</th>
 		<th>
-			<?php echo $this->Html->Link('Add', array('controller' => 'HandbookDocuments', 'action' => 'add')); ?>
+			<?php echo $this->Html->Link('Add', array('controller' => 'HandbookDocuments', 'action' => 'add', $category['HandbookCategory']['id']), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 		<th>
 
@@ -29,10 +32,10 @@
 					<?php echo $document['user']; ?>
 				</td>
 				<td>
-					<?php echo date('jS F Y', $document['created']); ?>
+					<?php echo $document['created']; ?>
 				</td>
 				<td>
-					<?php echo date('js F Y', $document['modified']); ?>
+					<?php echo $document['modified']; ?>
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>

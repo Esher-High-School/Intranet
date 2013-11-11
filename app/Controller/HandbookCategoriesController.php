@@ -11,6 +11,8 @@ class HandbookCategoriesController extends AppController {
 	public function view($id) {
 		$this->HandbookCategory->id = $id;
 		$category = $this->HandbookCategory->read();
+
+		$this->set('title', $category['HandbookCategory']['name']);
 		$this->set('category', $category);
 	}
 
