@@ -102,7 +102,7 @@
 	</div>
 
 	<div class="form-group">
-		<div class="col-lg-9">
+		<div class="col-lg-9 col-offset-3">
 			<?php echo $this->Form->button('Add Student', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

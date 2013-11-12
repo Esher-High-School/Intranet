@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<th width="42%">Name</th>
 		<th width="42%">Department</th>

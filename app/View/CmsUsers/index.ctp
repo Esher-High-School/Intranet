@@ -9,7 +9,7 @@ function role($role) {
 	}
 }
  ?>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<th>Username</th>
 		<th>Role</th>
