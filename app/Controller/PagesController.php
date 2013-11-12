@@ -1,6 +1,6 @@
 <?php
 class PagesController extends AppController {
-	public $helpers = array('Html', 'Form', 'Fck');
+	public $helpers = array('Html', 'Form', 'Markdown.Markdown');
 	public $components = array('Session');
 	
 	var $uses = array('Page', 'Document', 'CmsUser');

@@ -162,6 +162,8 @@ Cache::config('default', array('engine' => 'File'));
  
 App::uses('Authentication', 'Lib');
 App::uses('CakeEmail', 'Network/Email');
+
+CakePlugin::load('Markdown');
  
 require('../Lib/Authentication.php');
 require('../Lib/Theme.php');
