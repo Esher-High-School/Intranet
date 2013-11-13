@@ -46,14 +46,33 @@
 					<td>
 						<?php 
 						if (isset($cmsuser['CmsUser'])) {
-							echo $this->Html->Link('Edit', array('controller' => 'Documents', 'action' => 'edit', $document['id']));
+							echo $this->Html->Link(
+								'Edit', 
+								array(
+									'controller' => 'Documents', 
+									'action' => 'edit', 
+									$document['id']),
+								array(
+									'class' => 'btn btn-xs btn-default'
+								)
+							);
 						}
 						?>
 					</td>
 					<td>
 						<?php
 						if (isset($cmsuser['CmsUser'])) {
-							echo $this->Form->postLink('Delete', array('controller' => 'Documents', 'action' => 'delete', $document['id']), array('Are you sure you want to delete this document?')); 
+							echo $this->Form->postLink(
+								'Delete', 
+								array(
+									'controller' => 'Documents', 
+									'action' => 'delete', 
+									$document['id']), 
+								array(
+									'class' => 'btn btn-xs btn-default',
+									'Are you sure you want to delete this document?'
+									)
+								); 
 						}
 						?>
 					</td>

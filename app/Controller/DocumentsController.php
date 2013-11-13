@@ -77,12 +77,12 @@ class DocumentsController extends AppController {
 		}
 	}
 
-	public function download($id=null) {
+	public function download($id=null, $filename=null) {
 		$this->Document->id = $id;
 		$document = $this->Document->read();
 		if (!$document) {
 			$this->Session->setFlash('
-				<div class="alert alert-error">
+				<div class="alert alert-danger">
 					<button class="close" data-dismiss="alert">
 						&times;
 					</button>
@@ -91,18 +91,22 @@ class DocumentsController extends AppController {
 			');
 			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
 		}
+		if ($filename == null) {
+			$filename = $document['Document']['filename'];
+			$this->redirect(
+				array(
+					'action' => 'download',
+					$id,
+					$filename
+				)
+			);
+		}
 		$filename = $document['Document']['filename'];
 		$ext = substr($filename, -3);
 		if ($ext == 'pdf') {
-			$this->response->type(array('pdf' => 'application/x-pdf'));
 			$this->response->type('pdf');
-			$this->response->file('Uploads'.DS.$document['Document']['document'], 
-				array(
-					'download' => false,
-					'name' => $filename,
-					'Content-Disposition' => 'inline'
-				)
-			);
+			$this->response->file('Uploads'.DS.$document['Document']['document']);
+			$this->response->header('Content-Disposition', 'inline');
 			return $this->response;
 		} else {
 			$this->response->file('Uploads'.DS.$document['Document']['document'], 

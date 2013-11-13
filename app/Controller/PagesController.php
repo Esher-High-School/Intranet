@@ -29,7 +29,7 @@ class PagesController extends AppController {
 						Your page has been added successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'view'));
+				$this->redirect(array('action' => 'view', $this->Post->id));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -56,7 +56,7 @@ class PagesController extends AppController {
 						Page updated successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'edit', $id));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">

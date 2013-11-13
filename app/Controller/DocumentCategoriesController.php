@@ -14,9 +14,12 @@ class DocumentCategoriesController extends AppController {
 	public function view($id) {
 		$this->DocumentCategory->id = $id;
 		$category = $this->DocumentCategory->read();
+		$documents = $this->Document->getFromCategory($id);
+
 		$title = $category['DocumentCategory']['name'];
 		$this->set('title', $title);
 		$this->set('category', $category);
+		$this->set('documents', $documents);
 	}
 
 	public function add() {
@@ -78,7 +81,7 @@ class DocumentCategoriesController extends AppController {
 			throw new MethodNotAllowedException();
 		}
 		$documentCount = $this->Document->countFromCategory($id);
-		if ($documentCount > 0) {
+		if ($documentCount == 0) {
 			if ($this->DocumentCategory->delete($id)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
@@ -89,16 +92,30 @@ class DocumentCategoriesController extends AppController {
 				$this->redirect(array('action' => 'index'));
 			}
 		} else {
-			$this->Session->setFlash('
-				<div class="alert alert-danger">
-					<button class="close" data-dismiss="alert">&times;</button>
+			if ($documentCount == 1) {
+				$text = '
+					<p>
+						The category still contains ' . $documentCount . ' document.
+					</p>
+					<p>
+						You must delete it before attempting to delete the category.
+					</p>
+				';
+			} else {
+				$text = '
 					<p>
 						The category still contains ' . $documentCount . ' documents.
 					</p>
-
 					<p>
-						You must delete these before attempting to delete the category.
+						You must delete them before attempting to delete the category.
 					</p>
+				';
+			}
+
+			$this->Session->setFlash('
+				<div class="alert alert-danger">
+					<button class="close" data-dismiss="alert">&times;</button>
+					' . $text . '
 				</div>
 			');
 			$this->redirect(array('action' => 'index'));
