@@ -1,5 +1,4 @@
-<?php echo $page['Page']['page']; ?>
-<?php
+<?php echo Markdown($page['Page']['page']);
 $IntranetAuth = new Authentication;
 if ($IntranetAuth->isAdmin()) {
 	echo '<hr>';

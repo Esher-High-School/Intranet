@@ -37,4 +37,13 @@ class Document extends AppModel {
 			)
 		);
 	}
+
+	function countFromCategory($category_id) {
+		return $this->find('count', array(
+				'conditions' => array(
+					'Document.category_id' => $category_id
+				)
+			)
+		);
+	}
 }

@@ -11,6 +11,9 @@ $IntranetAuth = new Authentication;
 			}
 			?>
 		</th>
+		<th>
+
+		</th>
 	</thead>
 	<tbody>
 		<?php foreach ($smts as $smt): ?>
@@ -19,8 +22,12 @@ $IntranetAuth = new Authentication;
 				<td>
 					<?php
 					if ($IntranetAuth->isAdmin()) {
-						echo $this->Html->Link('<i class="icon-pencil black"></i>', array('action' => 'edit', $smt['Smt']['id']), array('escape' => false));
-						echo $this->Form->postLink('<i class="icon-remove black"></i>', array('action' => 'delete', $smt['Smt']['id']), array('escape' => false));
+						echo $this->Html->Link('Edit', array('action' => 'edit', $smt['Smt']['id']), array('escape' => false));
+					?>
+				</td>
+				<td>
+					<?php 
+						echo $this->Form->postLink('Delete', array('action' => 'delete', $smt['Smt']['id']), array('escape' => false));
 					} ?>
 				</td>
 			</tr>

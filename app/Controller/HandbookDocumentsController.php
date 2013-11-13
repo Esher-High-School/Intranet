@@ -49,9 +49,8 @@ class HandbookDocumentsController extends AppController {
 			$this->redirect(array('controller' => 'HandbookCategory', 'action' => 'index'));
 		}
 		$filename = $document['HandbookDocument']['filename'];
-		$this->response->type(array('pdf' => 'application/x-pdf'));
 		$this->response->type('pdf');
-		$this->response->file('Uploads'.DS.$document['HandbookDocument']['document'], array('download' => false, 'name' => $filename, 'Content-Disposition' => 'inline'));
+		$this->response->file('Uploads'.DS.$document['HandbookDocument']['document']);
 		$this->response->header('Content-Disposition', 'inline');
 		return $this->response;
 	}

@@ -1,0 +1,8 @@
+.edit-link {
+	position: absolute;
+	display: block;
+	width: 100%;
+	max-width: ($container-width - (60px * 2));
+	margin-top: -20px;
+	text-align: right;
+}

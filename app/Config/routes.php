@@ -150,7 +150,7 @@
 	
 	Router::connect('/admin/rooms', array('controller' => 'rooms', 'action' => 'index'));
 	Router::connect('/admin/rooms/add', array('controller' => 'rooms', 'action' => 'add'));
-	Router::connect('/admin/rooms/edit*', array('controller' => 'rooms', 'action' => 'edit'));
+	Router::connect('/admin/rooms/edit/*', array('controller' => 'rooms', 'action' => 'edit'));
 	
 	Router::connect('/admin/incidentoptions', array('controller' => 'IncidentOptions', 'action' => 'index'));
 	Router::connect('/admin/incidentoptions/add', array('controller' => 'IncidentOptions', 'action' => 'add'));

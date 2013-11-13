@@ -8,10 +8,8 @@ h1, h2 {
 	padding: 0;
 	margin: 0;
 }
+
 h1 {
-	margin-bottom: 10px;
-}
-h2 {
 	color: #357ebd;
 	font-family: $primary-font, sans-serif;
 	text-align: center;
@@ -30,13 +28,26 @@ h2 {
 	}
 }
 
-h3 {
+h2 {
+	font-family: $primary-font, sans-serif;
+	font-size: 1.8em;
+	line-height: 1.5em;
+	padding: 0;
+	padding-bottom: 0.5em;
+	font-weight: 400;
 	color: #357ebd;
+	text-align: center;
+}
+
+h3 {
+	color: #444;
+	border-bottom: 1px #7cb7ea solid;
 	font-family: $primary-font, sans-serif;
 	margin: 0;
 	padding: 0;
+	padding-bottom: 0.3em;
 	margin-top: 0.4em;
-	margin-bottom: 0.2em;
+	margin-bottom: 0.4em;
 	font-size: 1.4em;
 	line-height: 1em;
 	small {
@@ -48,12 +59,6 @@ h4 {
 	font-size: 1.6em;
 	line-height: 1em;
 	font-weight: 400;
-}
-
-footer {
-	h2 {
-		text-align: right;
-	}
 }
 
 
@@ -91,16 +96,20 @@ ol {
 		margin-top: 16px;
 		margin-bottom: 20px;
 	}
-	ul {
-		margin-top: 10px;
-		margin-bottom: 10px;
-		li {
-			margin-top: 0px;
-			margin-bottom: 0px;
-		}
+}
+ul {
+	list-style-type: square;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 2em;
+	li {
+		margin-top: 0px;
+		margin-bottom: 6px;
 	}
 }
 
-ul {
-	
+ul.dropdown-menu, ul.navbar-nav {
+	li {
+		margin: 0;
+	}
 }

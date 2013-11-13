@@ -1,6 +1,6 @@
 <?php
 class DocumentCategoriesController extends AppController {
-	public $helpers = array('Html', 'Form');
+	public $helpers = array('Html', 'Form', 'Markdown.Markdown');
 	public $components = array('Session');
 
 	var $uses = array('Document', 'DocumentCategory', 'CmsUser');
@@ -16,10 +16,7 @@ class DocumentCategoriesController extends AppController {
 		$category = $this->DocumentCategory->read();
 		$title = $category['DocumentCategory']['name'];
 		$this->set('title', $title);
-
-		$documents = $this->Document->getFromCategory($id);
 		$this->set('category', $category);
-		$this->set('documents', $documents);
 	}
 
 	public function add() {
@@ -37,7 +34,8 @@ class DocumentCategoriesController extends AppController {
 						Your category has been added successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$id = $this->DocumentCategory->id;
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -56,14 +54,14 @@ class DocumentCategoriesController extends AppController {
 		if ($this->request->is('get')) {
 			$this->request->data = $this->DocumentCategory->read();
 		} else {
-			if ($this->Document->save($this->request->data)) {
+			if ($this->DocumentCategory->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
 						Document updated successfully.
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -79,11 +77,28 @@ class DocumentCategoriesController extends AppController {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
-		if ($this->DocumentCategory->delete($id)) {
+		$documentCount = $this->Document->countFromCategory($id);
+		if ($documentCount > 0) {
+			if ($this->DocumentCategory->delete($id)) {
+				$this->Session->setFlash('
+					<div class="alert alert-success">
+						<button class="close" data-dismiss="alert">&times;</button>
+						Document category deleted successfully.
+					</div>
+				');
+				$this->redirect(array('action' => 'index'));
+			}
+		} else {
 			$this->Session->setFlash('
-				<div class="alert alert-success">
+				<div class="alert alert-danger">
 					<button class="close" data-dismiss="alert">&times;</button>
-					Document category deleted successfully.
+					<p>
+						The category still contains ' . $documentCount . ' documents.
+					</p>
+
+					<p>
+						You must delete these before attempting to delete the category.
+					</p>
 				</div>
 			');
 			$this->redirect(array('action' => 'index'));

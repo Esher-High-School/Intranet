@@ -7,7 +7,7 @@ function displayPermission($value) {
 	}
 }
 ?>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<th>Username</th>
 		<th>Incident Monitoring</th>
@@ -15,6 +15,7 @@ function displayPermission($value) {
 		<th width="5%">
 			<?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
+		<th></th>
 	</thead>
 	<tbody>
 		<?php foreach($incidentusers as $incidentuser): ?>
@@ -24,9 +25,11 @@ function displayPermission($value) {
 				<td><?php echo displayPermission($incidentuser['IncidentUser']['printing']); ?></td>
 				<td>
 					<?php 
-					echo $this->Html->Link('<i class="icon-pencil"></i>', array('action' => 'edit', $incidentuser['IncidentUser']['id']), array('escape' => false)); 
-					echo ' ';
-					echo $this->Form->postLink('<i class="icon-trash"></i>', array('action' => 'delete', $incidentuser['IncidentUser']['id']), array('escape' => false));
+					echo $this->Html->Link('Edit', array('action' => 'edit', $incidentuser['IncidentUser']['id']), array('escape' => false)); ?>
+				</td>
+				<td>
+					<?php
+					echo $this->Form->postLink('Delete', array('action' => 'delete', $incidentuser['IncidentUser']['id']), array('escape' => false));
 					?>
 				</td>
 			</tr>

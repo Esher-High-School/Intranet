@@ -4,12 +4,12 @@
 			<div class="container">	
 				<div class="row">
 					<div class="col-md-12 right">
-						<h1>
+						<span class="heading">
 							<?php echo $this->Html->Link($global_settings['School Name'], '/'); ?>
-						</h1>
-						<h2>
+						</span>
+						<span class="subheading">
 							<?php echo $this->Html->Link('Staff Intranet', '/'); ?>
-						</h2>
+						</span>
 					</div>
 				</div>
 				<div class="row lower">

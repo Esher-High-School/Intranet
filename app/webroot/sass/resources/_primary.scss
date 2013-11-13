@@ -57,33 +57,26 @@ footer {
 			}
 		}
 	}
-	h1 {
+
+	span.heading {
 		text-shadow: 0 0 4px #000;
-		margin: 0;
-		margin-top: 16px;
-		padding: 0;
-		font-size: 32px;
-		line-height: 1em;
-		font-weight: 400;
-		margin-bottom: 8px;
+		font-family: $primary-font, sans-serif;
+		font-size: 2.8em;
+		line-height: 1.5em;
+		text-align: right;
+		border: 0;
+		display: block;
 		a, a:link, a:active, a:visited, a:hover {
 			color: #fff;
 			text-decoration: none;
 		}
 	}
-	h2 {
+	span.subheading {
 		text-shadow: 0 0 4px #000;
-		border-bottom: 0;
-		margin: 0;
-		padding: 0;
-		margin-bottom: 16px;
-		position: relative;
-		right: 20px;
-		line-height: 1em;
-		font-family: $primary-font, serif;
-		font-weight: 400;
-		font-size: 24px;
-		color: #ddd;
+		text-align: right;
+		font-size: 2em;
+		line-height: 1.5em;
+		font-family: $primary-font, sans-serif;
 		a, a:link, a:active, a:visited, a:hover {
 			color: #fff;
 			text-decoration: none;
@@ -152,6 +145,7 @@ footer {
 		font-size: 38px;
 		line-height: 1em;
 		font-weight: 400;
+		border: 0;
 	}
 	h2 {
 		text-align: left;
