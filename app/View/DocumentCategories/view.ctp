@@ -80,26 +80,28 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-<?php elseif (isset($cmsuser)): ?>
-	<?php 
+<?php else:
 	$textOnly = trim($category['DocumentCategory']['description']);
 	if (strlen($textOnly) > 0): ?>
 		<hr>
+	<?php else: ?>
+		<h2>There are currently no documents in this page.</h2>
 	<?php endif; ?>
-	<h2>There are currently no documents uploaded.</h2>
-	<p class="center">
-		<?php 
-		echo $this->Html->Link(
-			'Upload Document',
-			array(
-				'controller' => 'documents',
-				'action' => 'add',
-				$category['DocumentCategory']['id']
-			),
-			array(
-				'class' => 'btn btn-primary'
-			)
-		);
-		?>
-	</p>
-<?php endif; ?>
+	<?php if(isset($cmsuser)): ?>
+		<p class="center">
+			<?php 
+			echo $this->Html->Link(
+				'Upload Document',
+				array(
+					'controller' => 'documents',
+					'action' => 'add',
+					$category['DocumentCategory']['id']
+				),
+				array(
+					'class' => 'btn btn-primary'
+				)
+			);
+			?>
+		</p>
+	<?php endif; ?>
+<?php endif;
