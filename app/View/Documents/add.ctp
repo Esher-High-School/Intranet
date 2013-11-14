@@ -7,7 +7,7 @@
 	</div>
 	<div class="form-group">
 		<label class="col-lg-3 control-label" for="category">
-			Category<br>
+			Page<br>
 			<small>
 				<?php echo $this->Html->link('(Edit Pages)', array('controller' => 'Pages', 'action' => 'index')); ?>
 			</small>
