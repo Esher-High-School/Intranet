@@ -16,7 +16,15 @@
 		</td>
 		<td width="1%"><?php echo $incident['Student']['form']; ?></td>
 		<td><?php echo $incident['Incident']['problems1']; ?></td>
-		<td><?php echo $incident['Incident']['username']; ?></td>
+		<td>
+			<?php 
+			echo (
+				strtoupper(substr($incident['Incident']['username'], 0, 1)) .
+				' ' .
+				ucfirst(substr($incident['Incident']['username'], 1))
+			);
+			?>
+		</td>
 	</tr>
 	<?php endforeach; ?>
 </table>

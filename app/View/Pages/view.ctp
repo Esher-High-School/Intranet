@@ -5,16 +5,16 @@
 			'Edit',
 			array(
 				'action' => 'edit',
-				$category['DocumentCategory']['id']
+				$category['Page']['id']
 			)
 		);
 		?>
 	</span>
 <?php endif; ?>
-<?php echo Markdown($category['DocumentCategory']['description']); ?>
+<?php echo Markdown($category['Page']['description']); ?>
 
 <?php if(isset($category['Document'][0])):
-	$textOnly = trim($category['DocumentCategory']['description']);
+	$textOnly = trim($category['Page']['description']);
 	if (strlen($textOnly) > 0): ?>
 		<hr>
 	<?php endif; ?>
@@ -23,7 +23,7 @@
 			<th width="80%">Name</th>
 			<th> 
 				<?php if (isset($cmsuser['CmsUser'])) {
-					echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['DocumentCategory']['id']), array('class' => 'btn btn-primary btn-xs'));
+					echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['Page']['id']), array('class' => 'btn btn-primary btn-xs'));
 				} ?>
 			</th>
 			<th></th>
@@ -81,7 +81,7 @@
 		</tbody>
 	</table>
 <?php else:
-	$textOnly = trim($category['DocumentCategory']['description']);
+	$textOnly = trim($category['Page']['description']);
 	if (strlen($textOnly) > 0): ?>
 		<hr>
 		<p>
@@ -98,7 +98,7 @@
 				array(
 					'controller' => 'documents',
 					'action' => 'add',
-					$category['DocumentCategory']['id']
+					$category['Page']['id']
 				),
 				array(
 					'class' => 'btn btn-primary'

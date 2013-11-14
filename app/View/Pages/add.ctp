@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('DocumentCategory', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+<?php echo $this->Form->create('Page', array('action' => 'add', 'class' => 'form-horizontal')); ?>
 	<div class="form-group">
 		<label class="col-lg-2 control-label" for="name">Name</label>
 		<div class="col-lg-10">
@@ -14,7 +14,7 @@
 
 	<div class="form-group">
 		<div class="col-lg-10 col-lg-offset-2">
-			<?php echo $this->Form->button('Add Document Category', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
+			<?php echo $this->Form->button('Add Pages', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 <?php echo $this->Form->end(); ?>

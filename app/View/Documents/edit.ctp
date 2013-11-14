@@ -7,19 +7,19 @@
 	</div>
 	<div class="form-group">
 		<label class="col-lg-3 control-label" for="category">
-			Category<br>
+			Page<br>
 			<small>
-				<?php echo $this->Html->link('(Edit Categories)', array('controller' => 'DocumentCategories', 'action' => 'index')); ?>
+				<?php echo $this->Html->link('(List Pages)', array('controller' => 'Pages', 'action' => 'index')); ?>
 			</small>
 		</label>
 		<div class="col-lg-9">
 			<select name="data[Document][category_id]" class="form-control">
-				<option value="<?php echo $document_category['DocumentCategory']['id']; ?>">
-					<?php echo $document_category['DocumentCategory']['name']; ?>
+				<option value="<?php echo $document_category['Page']['id']; ?>">
+					<?php echo $document_category['Page']['name']; ?>
 				</option>
 				<?php foreach($categories as $category): ?>
-					<option value="<?php echo $category['DocumentCategory']['id']; ?>">
-						<?php echo $category['DocumentCategory']['name']; ?>
+					<option value="<?php echo $category['Page']['id']; ?>">
+						<?php echo $category['Page']['name']; ?>
 					</option>
 				<?php endforeach; ?>
 			</select>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">
-			<?php echo $this->Form->button('Edit Document', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
+			<?php echo $this->Form->button('Save Document', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 <?php echo $this->Form->end(); ?>

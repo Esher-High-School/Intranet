@@ -28,13 +28,13 @@ class PagesController extends AppController {
 		if (!isset($cmsuser['CmsUser'])) {
 			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
 		}
-		$this->set('title', 'Add New Document Category');
+		$this->set('title', 'Add New Page');
 		if ($this->request->is('post')) {
 			if($this->Page->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Your category has been added successfully.
+						Your page has been added successfully.
 					</div>
 				');
 				$id = $this->Page->id;
@@ -43,7 +43,7 @@ class PagesController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Unable to add your category. Please make sure that you have filled out all fields correctly.
+						Unable to add your page. Please make sure that you have filled out all fields correctly.
 					</div>
 				');
 			}
@@ -51,7 +51,7 @@ class PagesController extends AppController {
 	}
 
 	public function edit($id) {
-		$this->set('title', 'Edit Category');
+		$this->set('title', 'Edit Page');
 		$this->Page->id = $id;
 		$this->set('id', $id);
 		if ($this->request->is('get')) {
@@ -61,7 +61,7 @@ class PagesController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Document updated successfully.
+						Page updated successfully.
 					</div>
 				');
 				$this->redirect(array('action' => 'view', $id));
@@ -69,7 +69,7 @@ class PagesController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Unable to update your category. Please make sure that you have filled out all fields correctly.
+						Unable to update your page. Please make sure that you have filled out all fields correctly.
 					</div>
 				');
 			}
@@ -86,7 +86,7 @@ class PagesController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Document category deleted successfully.
+						Page deleted successfully.
 					</div>
 				');
 				$this->redirect(array('action' => 'index'));
@@ -95,19 +95,19 @@ class PagesController extends AppController {
 			if ($documentCount == 1) {
 				$text = '
 					<p>
-						The category still contains ' . $documentCount . ' document.
+						The page still contains ' . $documentCount . ' document.
 					</p>
 					<p>
-						You must delete it before attempting to delete the category.
+						You must delete it before attempting to delete the page.
 					</p>
 				';
 			} else {
 				$text = '
 					<p>
-						The category still contains ' . $documentCount . ' documents.
+						The page still contains ' . $documentCount . ' documents.
 					</p>
 					<p>
-						You must delete them before attempting to delete the category.
+						You must delete them before attempting to delete the page.
 					</p>
 				';
 			}

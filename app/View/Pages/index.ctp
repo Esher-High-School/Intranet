@@ -13,16 +13,16 @@
 		<?php foreach($categories as $category): ?>
 		<tr>
 			<td width="80%">
-				<?php echo $this->Html->Link($category['DocumentCategory']['name'], array('action' => 'view', $category['DocumentCategory']['id'])); ?>
+				<?php echo $this->Html->Link($category['Page']['name'], array('action' => 'view', $category['Page']['id'])); ?>
 			</td>
 			<td>
 				<?php if(isset($cmsuser['CmsUser'])) {
-					echo $this->Html->Link('Edit', array('action' => 'edit', $category['DocumentCategory']['id']));
+					echo $this->Html->Link('Edit', array('action' => 'edit', $category['Page']['id']));
 				} ?>
 			</td>
 			<td>
 				<?php if (isset($cmsuser['CmsUser'])) {
-					echo $this->Form->postLink('Delete', array('action' => 'delete', $category['DocumentCategory']['id']), array('Are you sure you want to delete this category?'));
+					echo $this->Form->postLink('Delete', array('action' => 'delete', $category['Page']['id']), array('Are you sure you want to delete this category?'));
 				} ?>
 			</td>
 		</tr>

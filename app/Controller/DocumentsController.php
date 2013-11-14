@@ -3,7 +3,7 @@ class DocumentsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('Document', 'DocumentCategory', 'CmsUser');
+	var $uses = array('Document', 'Page', 'CmsUser');
 
 	public function beforeFilter() {
 
@@ -19,10 +19,10 @@ class DocumentsController extends AppController {
 	public function add($category_id=null) {
 		$this->authenticate();
 		$this->set('title', 'Add New Document');
-		$categories = $this->DocumentCategory->getCategories();
+		$categories = $this->Page->getPages();
 		$this->set('categories', $categories);
 		if ($category_id !== null) {
-			$selected_category = $this->DocumentCategory->findById($category_id);
+			$selected_category = $this->Page->findById($category_id);
 			$this->set('selected_category', $selected_category);
 		}
 		if ($this->request->is('post')) {
@@ -33,7 +33,7 @@ class DocumentsController extends AppController {
 						Your document has been added successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'DocumentCategories', 'action' => 'view', $this->request->data['Document']['category_id']));
+				$this->redirect(array('controller' => 'Pages', 'action' => 'view', $this->request->data['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -51,10 +51,10 @@ class DocumentsController extends AppController {
 		$this->Document->id = $id;
 		$document = $this->Document->read();
 		if ($this->request->is('get')) {
-			$categories = $this->DocumentCategory->getCategories();
+			$categories = $this->Page->getPages();
 			$this->request->data = $this->Document->read();
 			$category_id = $this->request->data['Document']['category_id'];
-			$document_category = $this->DocumentCategory->findById($category_id);
+			$document_category = $this->Page->findById($category_id);
 			$this->set('document_category', $document_category);
 			$this->set('categories', $categories);
 		} else {
@@ -65,7 +65,7 @@ class DocumentsController extends AppController {
 						Document updated successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'documentCategories', 'action' => 'view', $document['Document']['category_id']));
+				$this->redirect(array('controller' => 'Pages', 'action' => 'view', $document['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -89,7 +89,7 @@ class DocumentsController extends AppController {
 					File not found. If you believe this to be in error, please contact ICT support.
 				</div>
 			');
-			$this->redirect(array('controller' => 'documentCategories', 'action' => 'index'));
+			$this->redirect(array('controller' => 'Pages', 'action' => 'index'));
 		}
 		if ($filename == null) {
 			$filename = $document['Document']['filename'];
@@ -143,7 +143,7 @@ class DocumentsController extends AppController {
 					Document deleted successfully.
 				</div>
 			');
-			$this->redirect(array('controller' => 'documentCategories', 'action' => 'view', $category));
+			$this->redirect(array('controller' => 'Pages', 'action' => 'view', $category));
 		} else {
 			die('File did not delete');
 		}

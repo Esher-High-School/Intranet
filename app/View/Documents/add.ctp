@@ -15,13 +15,13 @@
 		<div class="col-lg-9">
 			<select name="data[Document][category_id]" class="form-control">
 				<?php if (isset($selected_category)): ?>
-					<option value="<?php echo $selected_category['DocumentCategory']['id']; ?>">
-						<?php echo $selected_category['DocumentCategory']['name']; ?>
+					<option value="<?php echo $selected_category['Page']['id']; ?>">
+						<?php echo $selected_category['Page']['name']; ?>
 					</option>
 				<?php endif; ?>
 				<?php foreach($categories as $category): ?>
-					<option value="<?php echo $category['DocumentCategory']['id']; ?>">
-						<?php echo $category['DocumentCategory']['name']; ?>
+					<option value="<?php echo $category['Page']['id']; ?>">
+						<?php echo $category['Page']['name']; ?>
 					</option>
 				<?php endforeach; ?>
 			</select>
@@ -41,6 +41,6 @@
 <?php echo $this->Form->end(); ?>
 <?php if (isset($selected_category)): ?>
 	<p>
-		<?php echo $this->Html->Link('Back to category', array('controller' => 'DocumentCategories', 'action' => 'view', $selected_category['DocumentCategory']['id'])); ?>
+		<?php echo $this->Html->Link('Back to category', array('controller' => 'DocumentCategories', 'action' => 'view', $selected_category['Page']['id'])); ?>
 	</p>
 <?php endif; ?>
