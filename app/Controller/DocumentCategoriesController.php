@@ -6,7 +6,7 @@ class DocumentCategoriesController extends AppController {
 	var $uses = array('Document', 'DocumentCategory', 'CmsUser');
 
 	public function index() {
-		$this->set('title', 'Document Categories');
+		$this->set('title', 'Pages');
 		$categories = $this->DocumentCategory->getCategories();
 		$this->set('categories', $categories);
 	}

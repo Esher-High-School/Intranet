@@ -84,8 +84,11 @@
 	$textOnly = trim($category['DocumentCategory']['description']);
 	if (strlen($textOnly) > 0): ?>
 		<hr>
+		<p>
+			There are currently no documents associated with this page.
+		</p>
 	<?php else: ?>
-		<h2>There are currently no documents in this page.</h2>
+		<h2>This page currently has no content.</h2>
 	<?php endif; ?>
 	<?php if(isset($cmsuser)): ?>
 		<p class="center">
