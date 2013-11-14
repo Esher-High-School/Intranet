@@ -99,7 +99,7 @@ else: ?>
 		</td>
 	</tr>
 </table>
-<?php endif;
+<?php
 if(isset($smt)): ?>
 	<h4>Actions</h4>
 	<?php
@@ -113,4 +113,5 @@ if(isset($smt)): ?>
 		)
 	);
 	?>
+<?php endif; ?>
 <?php endif; ?>
