@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 <?php
 class Page extends AppModel {
 	var $useTable = 'document_categories';
-	var $name = 'DocumentCategory';
+	var $name = 'Page';
 
 	public $hasMany = array(
 		'Document' => array(
