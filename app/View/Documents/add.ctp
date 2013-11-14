@@ -9,7 +9,7 @@
 		<label class="col-lg-3 control-label" for="category">
 			Category<br>
 			<small>
-				<?php echo $this->Html->link('(Edit Categories)', array('controller' => 'DocumentCategories', 'action' => 'index')); ?>
+				<?php echo $this->Html->link('(Edit Pages)', array('controller' => 'Pages', 'action' => 'index')); ?>
 			</small>
 		</label>
 		<div class="col-lg-9">
