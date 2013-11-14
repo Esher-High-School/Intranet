@@ -23,26 +23,7 @@
 				</ul>
 			</li>
 
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					Documents <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<?php foreach ($dcategories as $category): ?>
-						<li>
-							<?php
-							echo $this->Html->Link($category['DocumentCategory']['name'],
-								array(
-									'controller' => 'DocumentCategories',
-									'action' => 'view',
-									$category['DocumentCategory']['id']
-								)
-							);
-							?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</li>
+
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					Links <b class="caret"></b>

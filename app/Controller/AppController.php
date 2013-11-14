@@ -41,7 +41,6 @@ class AppController extends Controller {
 
 		// Load content for navigation
 		$this->loadModel('Page');
-		$this->loadModel('DocumentCategory');
 
 		//Load user group models
 		$this->loadModel('LearningMentor');
@@ -102,8 +101,5 @@ class AppController extends Controller {
 
 		$pages = $this->Page->getPages();
 		$this->set('pages', $pages);
-
-		$dcategories = $this->DocumentCategory->getCategories();
-		$this->set('dcategories', $dcategories);
 	}
 }

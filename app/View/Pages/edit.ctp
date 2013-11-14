@@ -1,10 +1,21 @@
-<?php
-echo $this->Form->create('Page', array('action' => 'edit'));
-echo $this->Form->input('name', array('class' => 'col-md-9', 'placeholder' => 'Title', 'label' => false, 'class' => 'form-control'));
-echo $this->Form->input('page', array('class' => 'col-md-9 ckeditor', 'rows' => '30', 'placeholder' => 'Content', 'label' => false, 'class' => 'form-control'));
-echo $this->Form->input('id', array('type' => 'hidden'));
-?>
-<br>
-<?php echo $this->Form->button('Save Page', array('type' => 'submit', 'class' => 'btn btn-primary')); ?> 
-<?php echo $this->Html->Link('View Page', array('action' => 'view', $id), array('class' => 'btn btn-default'));
-echo $this->Form->end();
+<?php echo $this->Form->create('DocumentCategory', array('action' => 'edit', 'class' => 'form-horizontal')); ?>
+        <div class="form-group">
+                <label class="col-lg-2 control-label" for="name">Name</label>
+                <div class="col-lg-10">
+                        <?php echo $this->Form->input('name', array('label' => false, 'class' => 'form-control', 'class' => 'form-control')); ?>
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="col-lg-2 control-label" for="Description">Description</label>
+                <div class="col-lg-10">
+                        <?php echo $this->Form->input('description', array('label' => false, 'class' => 'form-control', 'class' => 'form-control', 'rows' => 15)); ?>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                        <?php echo $this->Form->button('Save Document Category', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
+                </div>
+        </div>
+<?php echo $this->Form->end(); ?>
+
