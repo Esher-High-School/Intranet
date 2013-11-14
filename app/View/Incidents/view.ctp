@@ -65,7 +65,7 @@ else: ?>
 			<strong>Names of other students</strong>
 		</td>
 		<td colspan="3">
-			<?php echo h($incident['Incident']['other']); ?>
+			<?php echo nl2br(h($incident['Incident']['other'])); ?>
 		</td>
 	</tr>
 	<tr>
@@ -87,7 +87,7 @@ else: ?>
 			<strong>Brief Description</strong>
 		</td>
 		<td colspan="3">
-			<?php echo h($incident['Incident']['incident']); ?>
+			<?php echo nl2br(h($incident['Incident']['incident'])); ?>
 		</td>
 	</tr>
 	<tr>
