@@ -12,8 +12,8 @@ class LinksController extends AppController {
 	
 	public function add() {
 		$type = array(
-			0 => 'Sidebar Link',
-			1 => 'Header Link'
+			0 => 'Header Link',
+			1 => 'Sidebar Link'
 		);
 		$this->set('types', $type);
 		$this->set('title', 'Add New Link');

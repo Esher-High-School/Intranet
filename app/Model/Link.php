@@ -16,7 +16,7 @@ class Link extends AppModel {
 	function getSidebarLinks() {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Link.type' => 0
+				'Link.type' => 1
 			),
 			'order' => array(
 				'Link.menu' => 'ASC'
@@ -27,7 +27,7 @@ class Link extends AppModel {
 	function getHeaderLinks() {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Link.type' => 1
+				'Link.type' => 0
 			),
 			'order' => array(
 				'Link.menu' => 'ASC'

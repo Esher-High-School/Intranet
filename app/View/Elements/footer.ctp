@@ -3,34 +3,33 @@
 		<footer>
 			<div class="container">	
 				<div class="row">
-					<div class="col-md-12 right">
+					<div class="col-md-6 left">
 						<span class="heading">
 							<?php echo $this->Html->Link($global_settings['School Name'], '/'); ?>
 						</span>
+					</div>
+					<div class="col-md-6 right">
 						<span class="subheading">
 							<?php echo $this->Html->Link('Staff Intranet', '/'); ?>
 						</span>
 					</div>
 				</div>
-				<div class="row lower">
-					<div class="col-md-6 left">
-						<p>&copy; <?php echo $global_settings['School Name']; ?> <?php echo date('Y'); ?></p>
-					</div>
-					<div class="col-md-6 right">
-						<ul class="footer-nav">
-							<li>
-								<?php echo $this->Html->Link('Home', array('controller' => 'staffbulletins', 'action' => 'display')); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Website', 'http://www.esherhigh.surrey.sch.uk'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Webmail', 'https://webmail.esherhigh.surrey.sch.uk'); ?>
-							</li>
-						</ul>
+			</div>
+		</footer>
+		<nav class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<?php 
+						echo $this->Html->Link('Pages', array(
+								'controller' => 'Pages',
+								'action' => 'index'
+							)
+						);
+						?>
 					</div>
 				</div>
 			</div>
-		</footer>
+		</nav>
 	</body>
 </html>

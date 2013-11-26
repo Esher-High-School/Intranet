@@ -29,26 +29,17 @@
 					Links <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
-					<li>
-						<?php echo $this->Html->Link('Accident Reporting', ' https://surreycc-safety.net/scc/login/default.aspx'); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->Link('Lesson Tracker System', 'http://esher.lessontrackersystem.com'); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->Link('Surrey CC Intranet', ' http://snet.surreycc.gov.uk/'); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->Link('Webmail', 'https://webmail.esherhigh.surrey.sch.uk'); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->Link('Website', 'http://www.esherhigh.surrey.sch.uk'); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->Link('VLE', 'https://elm.itslearning.com'); ?>
-					</li>
-						</ul>
-					</li>
+					<?php foreach($headerlinks as $link): ?>
+						<li>
+							<?php 
+							echo $this->Html->Link(
+								$link['Link']['menu'],
+								$link['Link']['link']
+							);
+							?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
 			<li>
 				
 				<?php echo $this->Html->Link('Cover', '/cover'); ?>

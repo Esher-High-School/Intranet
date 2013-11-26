@@ -59,7 +59,12 @@ class HodsController extends AppController {
 	
 	public function edit($id = null) {
 		$this->set('title', 'Edit Head of Department');
+
+		$subjects = $this->Subject->getSubjects();
+		$this->set('subjects', $subjects);
+
 		$this->Hod->id = $id;
+
 		if ($this->request->is('get')) {
 			$this->request->data = $this->Hod->read();
 		} else {

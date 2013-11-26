@@ -17,8 +17,8 @@ class HandbookDocumentsController extends AppController {
 
 	public function index() {
 		$this->set('title', 'Index');
-		$categories = $this->HandbookCategory->getAll();
-		$this->set('categories', $categories);
+		$documents = $this->HandbookDocument->find('all');
+		$this->set('documents', $documents);
 	}
 
 	public function view($id) {
@@ -107,7 +107,7 @@ class HandbookDocumentsController extends AppController {
 						Handbook document updated successfully. 
 					</div>
 				');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'handbookCategories', 'action' => 'view', $this->request->data['HandbookDocument']['category']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">

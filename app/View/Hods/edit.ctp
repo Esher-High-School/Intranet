@@ -1,15 +1,40 @@
-<div class="row">
-	<div class="col-md-4">
-		<?php
-			echo $this->Form->create('Hod', array('action' => 'edit'));
-			echo $this->Form->input('username', array('class' => 'col-md-4', 'placeholder' => 'Username', 'label' => false, 'class' => 'form-control'));
-			echo $this->Form->input('dept', array('class' => 'col-md-4', 'placeholder' => 'Department', 'label' => false, 'class' => 'form-control'));
-			echo $this->Form->button('Edit HoD', array('type' => 'submit', 'class' => 'btn btn-primary btn-block'));
-			echo $this->Form->end();
-		?>
+<?php echo $this->Form->create('Hod', array('class' => 'form-horizontal', 'action' => 'edit')); ?>
+	<div class="form-group">
+		<label class="col-lg-2 control-label" for="Username">
+			Username
+		</label>
+		<div class="col-lg-10">
+			<?php echo $this->Form->input('username',
+				array(
+					'label' => false,
+					'class' => 'form-control'
+				)
+			); ?>
+		</div>
 	</div>
-	<div class="col-md-3">
-		<p style="padding-top: 4px;">Username</p>
-		<p style="padding-top: 10px;">Department</p>
+
+	<div class="form-group">
+		<label class="col-lg-2 control-label" for="Department">
+			Department
+		</label>
+		<div class="col-lg-10">
+			<select name="data[Hod][dept]" class="form-control">
+				<option value="<?php echo $this->request->data['Hod']['dept']; ?>">
+					<?php echo $this->request->data['Hod']['dept']; ?>
+				</option>
+				<?php foreach($subjects as $subject): ?>
+					<option value="<?php echo $subject['Subject']['name']; ?>">
+						<?php echo $subject['Subject']['name']; ?>
+					</option>
+				<?php endforeach; ?>
+			</select>
+		</div>
 	</div>
-</div>
+
+	<div class="form-group">
+		<div class="col-lg-10 col-lg-offset-2">
+			<?php echo $this->Form->button('Save HoD', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
+		</div>
+	</div>
+
+<?php echo $this->Form->end(); ?>

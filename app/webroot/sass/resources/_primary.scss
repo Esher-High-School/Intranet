@@ -1,8 +1,4 @@
 /* Primary Elements */
-html {
-	background-color: #121212;
-}
-
 body {
 	background-color: rgb(245, 245, 245);
 	margin: 0;
@@ -10,11 +6,11 @@ body {
 
 footer {
 	@include center;
-	background-color: #1d1d1d;
+	@include box-shadow(0 0 8px 1px #888);
+	background-color: #222;
 	font-size: 0.8em;
 	line-height: 1em;
 	width: 100%; 
-	min-height: 200px;
 	margin: 0;
 	margin-top: 32px;
 	padding-top: 16px;
@@ -22,14 +18,14 @@ footer {
 	font-weight: 400;
 	color: #fff;
 	p {
-		color: #fff;
+		color: #ddd;
 		font-weight: 400;
 		a, a:link, a:visited, a:active, a:hover {
-			color: #fff;
+			color: #ddd;
 			text-decoration: none;
 		}
 		a:hover {
-			color: #BD1527;
+			color: #fff;
 		}
 		text-shadow: 0 0 4px #000;
 	}
@@ -40,6 +36,7 @@ footer {
 		list-style-type: none;
 		padding: 0;
 		margin: 0;
+		margin-top: 32px;
 		li {
 			display: inline;
 			font-size: 14px;
@@ -48,12 +45,12 @@ footer {
 			a, a:link, a:visited, a:active, a:hover {
 				font-weight: 400;
 				font-size: 14px;
-				color: #fff;
+				color: #ccc;
 				text-shadow: 0 0 4px #000;
 				text-decoration: none;
 			}
 			a:hover {
-				color: #BD1527;
+				color: #fff;
 			}
 		}
 	}
@@ -61,9 +58,9 @@ footer {
 	span.heading {
 		text-shadow: 0 0 4px #000;
 		font-family: $primary-font, sans-serif;
-		font-size: 2.8em;
+		font-size: 2em;
 		line-height: 1.5em;
-		text-align: right;
+		text-align: left;
 		border: 0;
 		display: block;
 		a, a:link, a:active, a:visited, a:hover {
@@ -74,12 +71,43 @@ footer {
 	span.subheading {
 		text-shadow: 0 0 4px #000;
 		text-align: right;
-		font-size: 2em;
+		font-size: 1.5em;
 		line-height: 1.5em;
 		font-family: $primary-font, sans-serif;
 		a, a:link, a:active, a:visited, a:hover {
 			color: #fff;
 			text-decoration: none;
+		}
+	}
+}
+
+nav.footer {
+	margin-top: 8px;
+	margin-bottom: 16px;
+	font-weight: 400;
+	a {
+		color: #666;
+	}
+	a:hover {
+		color: #888;
+	}
+	h4 {
+		font-family: $primary-font, sans-serif;
+		margin: 0;
+		padding: 0;
+		font-size: 1em;
+		font-weight: 700;
+		color: #333;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		li {
+			margin: 0;
+			padding: 0;
+			margin-top: 0.2em;
+			margin-bottom: 0.2em;
 		}
 	}
 }

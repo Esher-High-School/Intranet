@@ -229,3 +229,7 @@ textarea, .form-control, select {
   font-size: 1.2em;
   font-family: $primary-font, sans-serif;
 }
+
+select {
+  padding: 0;
+}

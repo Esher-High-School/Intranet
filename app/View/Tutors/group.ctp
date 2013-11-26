@@ -1,9 +1,21 @@
-<table class="table table-bordered table-striped table-hover table-condensed">
+<?php
+function gender($gender) {
+	if ($gender == 'M') {
+		return 'Male';
+	} elseif($gender == 'F') {
+		return 'Female';
+	} else {
+		return 'Unknown';
+	}
+}
+?>
+
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<tr>
 			<th>Name</th>
 			<th>Surname</th>
-			<th>Sex</th>
+			<th>Gender</th>
 			<th width="20%">
 				<?php echo $this->Html->Link('Add Student', array('controller' => 'students', 'action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 			</th>
@@ -14,11 +26,12 @@
 			<tr>
 				<td><?php echo $student['Student']['forename'];?></td>
 				<td><?php echo $student['Student']['surname']; ?></td>
-				<td><?php echo $student['Student']['sex']; ?></td>
+				<td><?php echo gender($student['Student']['gender']); ?></td>
 				<td>
 					<?php
-					echo $this->Html->Link('<i class="icon-pencil black"></i>', array('controller' => 'students', 'action' => 'edit', $student['Student']['upn']), array('escape' => false));
-					echo $this->Form->postLink('<i class="icon-remove black"></i>', array('controller' => 'students', 'action' => 'delete', $student['Student']['upn']), array('escape' => false), 'Are you sure you want to delete ' . $student['Student']['forename'] . ' ' . $student['Student']['surname'] . '?');
+					echo $this->Html->Link('Edit', array('controller' => 'students', 'action' => 'edit', $student['Student']['upn']));
+					echo '&nbsp;';
+					echo $this->Form->postLink('Delete', array('controller' => 'students', 'action' => 'delete', $student['Student']['upn']), array('escape' => false), 'Are you sure you want to delete ' . $student['Student']['forename'] . ' ' . $student['Student']['surname'] . '?');
 					?>
 				</td>
 			</tr>
