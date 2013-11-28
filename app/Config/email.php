@@ -45,7 +45,7 @@ class EmailConfig {
 	public $default = array(
 		'transport' => 'Mail',
 		'from' => 'administrator@esherhigh.surrey.sch.uk',
-		'host' => 'eh-mail01',
+		'host' => 'eh-mail01.esherhigh.surrey.sch.uk',
 		'username' => 'administrator@esherhigh.surrey.sch.uk',
 		'password' => 'V00525v00525'
 		//'charset' => 'utf-8',
