@@ -32,6 +32,9 @@
  
 class AppController extends Controller {
 	var $uses = array('CmsUser');
+	public function beforeFilter() {
+		$this->set('title', '');
+	}
 	
 	public function beforeRender() {
 		//Global Settings

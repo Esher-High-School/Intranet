@@ -36,7 +36,7 @@ class DocumentsController extends AppController {
 				$this->redirect(array('controller' => 'Pages', 'action' => 'view', $this->request->data['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
-					<div class="alert alert-error">
+					<div class="alert alert-danger">
 						<button class="close" data-dismiss="alert">&times;</button>
 						Unable to add your document. Please make sure that you have filled out all fields correctly.
 					</div>

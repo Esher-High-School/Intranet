@@ -1,9 +1,5 @@
-<?php
-$Authentication = new Authentication;
-?>
-<?php echo $this->Form->create('IncidentMonitor', array('action' => 'add', 'class' => 'form-horizontal')); ?>
+<?php echo $this->Form->create('incidentMonitor', array('action' => 'add', 'class' => 'form-horizontal')); ?>
 	<?php echo $this->Form->input('upn', array('value' => $upn, 'type' => 'hidden')); ?>
-	<?php echo $this->Form->input('username', array('value' => $Authentication->username(), 'type' => 'hidden')); ?>
 	<div class="form-group">
 		<label class="col-lg-3 control-label" for="inputStudent">Student Name</label>
 		<div class="col-lg-9">

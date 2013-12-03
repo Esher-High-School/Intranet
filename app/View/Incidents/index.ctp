@@ -1,20 +1,20 @@
 <form method="post" class="form-horizontal">
 	<div class="form-group">
-		<label class="col-lg-3 control-label" for="inputStartdate">Start Date</label>
-		<div class="col-lg-9">
-			<input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>">
+		<label class="col-lg-2 control-label" for="inputStartdate">Start Date</label>
+		<div class="col-lg-10">
+			<input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-lg-3 control-label" for="inputEnddate">End Date</label>
-		<div class="col-lg-9">
-			<input type="text" name="endDate" id="inputEnddate" value="<?php echo $enddate; ?>">
+		<label class="col-lg-2 control-label" for="inputEnddate">End Date</label>
+		<div class="col-lg-10">
+			<input type="text" name="endDate" id="inputEnddate" value="<?php echo $enddate; ?>" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-lg-3 control-label" for="inputYear">Year Group</label>
-		<div class="col-lg-9">
-			<select name="yearGroup">
+		<label class="col-lg-2 control-label" for="inputYear">Year Group</label>
+		<div class="col-lg-10">
+			<select name="yearGroup" class="form-control">
 				<?php if ($posted == true) { ?>
 				<option value="<?php echo $year; ?>">
 					<?php
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-9">
+		<div class="col-lg-10 col-lg-offset-2">
 			<button type="submit" class="btn btn-primary">Filter</button>
 		</div>
 	</div>
