@@ -613,6 +613,10 @@ class IncidentsController extends AppController {
 	}
 	
 	public function view($id = null) {
+		if ($id = null) {
+			throw new NotFoundException;
+		}
+		$this->set('title', 'Viewing incident' . $id);
 		// Authentication
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUsername($Authentication->Username());
@@ -641,14 +645,12 @@ class IncidentsController extends AppController {
 		$this->Incident->Student->upn = $this->Incident->upn;
 		$incident = $this->Incident->read();
 		$student = $this->Student->read();
-		$title = ('Viewing Incident #' . $id);
 		
 		if (!isset($incident['Incident']['upn'])) {
 			throw new NotFoundException;
 		}
 		
 		// Sending data to view
-		$this->set('title', $title);
 		$this->set('incident', $incident);
 		$this->set('student', $student);
 		$this->set('hoy', $hoy);

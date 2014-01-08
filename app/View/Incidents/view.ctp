@@ -1,5 +1,4 @@
-<h3>Incident #<?php echo $incident['Incident']['id']; ?></h3>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed" style="margin-top: 10px">
 	<tr>
 		<td>
 			<strong>Reported by</strong>
@@ -88,16 +87,18 @@
 </table>
 <?php
 if(isset($smt)): ?>
-	<h4>Actions</h4>
-	<?php
-	echo $this->Form->postLink('Delete', array(
-			'action' => 'delete',
-			$incident['Incident']['id'], 
-			'class' => 'danger'
-		),
-		array(
-			'Are you sure you want to delete this incident?'
-		)
-	);
-	?>
+	<div class="actions">
+		<h4>Actions</h4>
+		<?php
+		echo $this->Form->postLink('Delete', array(
+				'action' => 'delete',
+				$incident['Incident']['id'], 
+				'class' => 'danger'
+			),
+			array(
+				'Are you sure you want to delete this incident?'
+			)
+		);
+		?>
+	</div>
 <?php endif; ?>

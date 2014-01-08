@@ -243,3 +243,13 @@ table {
 		padding: 10px;
 	}
 }
+
+/* Lists */
+ol {
+	margin-left: -8px;
+	//border-left: 2px #aaa solid;
+	li {
+		margin-left: 8px;
+		list-style-type: decimal;
+	}
+}
