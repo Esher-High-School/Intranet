@@ -29,16 +29,16 @@
 			<th></th>
 		</thead>
 		<tbody>
-			<?php foreach($category['Document'] as $document): ?>
+			<?php foreach($documents as $document): ?>
 				<tr>
 					<td>
 						<?php 
-						echo $this->Html->Link($document['name'], 
+						echo $this->Html->Link($document['Document']['name'], 
 							array(
 								'controller' => 'Documents', 
 								'action' => 'download', 
-								$document['id'], 
-								$document['filename']
+								$document['Document']['id'], 
+								$document['Document']['filename']
 							)
 						); 
 						?>
@@ -51,7 +51,7 @@
 								array(
 									'controller' => 'Documents', 
 									'action' => 'edit', 
-									$document['id']),
+									$document['Document']['id']),
 								array(
 									'class' => 'btn btn-xs btn-default'
 								)
@@ -67,7 +67,7 @@
 								array(
 									'controller' => 'Documents', 
 									'action' => 'delete', 
-									$document['id']), 
+									$document['Document']['id']), 
 								array(
 									'class' => 'btn btn-xs btn-default',
 									'Are you sure you want to delete this document?'

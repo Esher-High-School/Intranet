@@ -11,7 +11,7 @@
 							<?php 
 							echo $this->Html->Link($page['Page']['name'], 
 								array(
-									'controller' => 'Pages',
+									'controller' => 'pages',
 									'action' => 'view',
 									$page['Page']['id']
 								)

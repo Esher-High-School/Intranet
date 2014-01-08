@@ -27,7 +27,6 @@ class IncidentMonitorsController extends AppController {
 		$this->set('upn', $upn);
 		$this->set('student', $student);
 		if($this->request->is('post')) {
-			$this->request->data['IncidentMonitor']['username'] == $Authentication->username();
 			if ($this->IncidentMonitor->save($this->request->data)) {
 				$this->Session->setFlash('
 					<div class="alert alert-success">

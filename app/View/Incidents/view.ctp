@@ -1,17 +1,3 @@
-<?php
-function pFormat($problem) {
-	if ($problem == 'na') {
-		return 'N/A';
-	} else {
-		return $problem;
-	}
-}
-if ($notFound == true): ?>
-<h3>No Incident Report Found</h3>
-<p>There is no incident by this ID in the database.</p>
-<p>If you believe this to be in error, please contact ICT support.</p>
-<?php
-else: ?>
 <h3>Incident #<?php echo $incident['Incident']['id']; ?></h3>
 <table class="table table-striped table-bordered table-condensed">
 	<tr>
@@ -19,7 +5,9 @@ else: ?>
 			<strong>Reported by</strong>
 		</td>
 		<td colspan="3">
-			<?php echo $incident['Incident']['username']; ?>
+			<?php 
+			echo $this->Incident->usernameFormat($incident['Incident']['username']);
+			?>
 		</td>
 	</tr>
 	<tr>
@@ -72,15 +60,14 @@ else: ?>
 		<td>
 			<strong>Problems</strong>
 		</td>
-		<td><?php echo pFormat($incident['Incident']['problems1']); ?></td>
-		<td></td>
-		<td><?php echo pFormat($incident['Incident']['problems2']); ?></td>
+		<td colspan="2"><?php echo $this->Incident->problemFormat($incident['Incident']['problems1']); ?></td>
+		<td><?php echo $this->Incident->problemFormat($incident['Incident']['problems2']); ?></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td><?php echo pFormat($incident['Incident']['problems3']); ?></td>
+		<td><?php echo $this->Incident->problemFormat($incident['Incident']['problems3']); ?></td>
 		<td></td>
-		<td><?php echo pFormat($incident['Incident']['problems4']); ?></td>
+		<td><?php echo $this->Incident->problemFormat($incident['Incident']['problems4']); ?></td>
 	</tr>
 	<tr>
 		<td>
@@ -113,5 +100,4 @@ if(isset($smt)): ?>
 		)
 	);
 	?>
-<?php endif; ?>
 <?php endif; ?>

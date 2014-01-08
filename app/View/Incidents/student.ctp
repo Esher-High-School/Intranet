@@ -18,9 +18,9 @@
 <table class="table table-condensed table-striped table-hover">
 	<thead>
 		<th>&nbsp;</th>
-		<th>Date</th>
-		<th>Subject</th>
-		<th>User</th>
+		<th width="100">Date</th>
+		<th width="100">Subject</th>
+		<th width="100">User</th>
 		<th>Description</th>
 	</thead>
 	<tbody>
@@ -31,7 +31,13 @@
 				</td>
 				<td><?php echo $incident['Incident']['date']; ?></td>
 				<td><?php echo $incident['Incident']['subject']; ?></td>
-				<td><?php echo $incident['Incident']['username']; ?></td>
+				<td>
+					<?php 
+					echo strtoupper(substr($incident['Incident']['username'], 0, 1));
+					echo ' ';
+					echo ucfirst(substr($incident['Incident']['username'], 1));
+					?>
+				</td>
 				<td><?php echo substr($incident['Incident']['incident'], 0, 120); ?>...</td>
 			</tr>
 		<?php endforeach; ?>

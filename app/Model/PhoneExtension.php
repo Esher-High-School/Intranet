@@ -8,4 +8,15 @@ class PhoneExtension extends AppModel {
 			'rule' => 'notEmpty'
 		)
 	);
+
+	function getExtensions() {
+		return $this->find(
+			'all',
+			array(
+				'order' => array(
+					'name' => 'ASC'
+				)
+			)
+		);
+	}
 }

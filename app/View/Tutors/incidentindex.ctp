@@ -5,7 +5,7 @@
 	<div class="col-md-3 right">
 	</div>
 </div>
-<table class="table table-bordered table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed">
 	<thead>
 		<th>&nbsp;</th>
 		<th>Form</th>

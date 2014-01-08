@@ -144,7 +144,7 @@
 				</td>
 				<td colspan="3">
 					<select name="data[Incident][action]" style="width: 100%">
-						<option value="na">N/A</option>
+						<option value="na">None</option>
 						<?php foreach ($actions as $action): ?>
 							<option value="<?php echo $action; ?>">
 								<?php echo $action; ?>

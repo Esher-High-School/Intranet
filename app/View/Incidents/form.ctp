@@ -13,7 +13,7 @@
 		?>
 	</div>
 </div>
-<table class="table table-striped table-hover table-bordered table-condensed table-students">
+<table class="table table-striped table-hover table-condensed table-students">
 	<thead>
 		<th>&nbsp;</th>
 		<th>Student Name</th>

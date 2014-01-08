@@ -1,6 +1,6 @@
 <?php
 class IncidentsController extends AppController {
-	public $helpers = array('Html', 'Form');
+	public $helpers = array('Html', 'Form', 'Incident');
 	public $components = array('Session');
 	
 	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'CmsUser', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
@@ -644,9 +644,7 @@ class IncidentsController extends AppController {
 		$title = ('Viewing Incident #' . $id);
 		
 		if (!isset($incident['Incident']['upn'])) {
-			$this->set('notFound', true);
-		} else {
-			$this->set('notFound', false);
+			throw new NotFoundException;
 		}
 		
 		// Sending data to view

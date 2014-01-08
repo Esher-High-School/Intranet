@@ -1,5 +1,5 @@
 <?php 
-echo $bulletin['StaffBulletin']['details']; 
+echo Markdown($bulletin['StaffBulletin']['details']); 
 $IntranetAuth = new Authentication;
 if (isset($cmsuser)) {
 	echo $this->Html->Link('Edit', array('action' => 'edit', $bulletin['StaffBulletin']['id'])); 

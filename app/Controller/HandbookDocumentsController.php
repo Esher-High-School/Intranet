@@ -11,7 +11,7 @@ class HandbookDocumentsController extends AppController {
 	}
 
 	public function home() {
-		$this->set('title', 'Home');
+		$this->set('title', 'Staff Handbook');
 		$this->set('handbook', true);
 	}
 

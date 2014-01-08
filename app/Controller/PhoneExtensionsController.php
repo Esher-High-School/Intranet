@@ -5,23 +5,10 @@ class PhoneExtensionsController extends AppController {
 	
 	var $uses = array('PhoneExtension', 'CmsUser');
 	
-	var $paginate = array(
-		'fields' => array('PhoneExtension.id', 'PhoneExtension.extension', 'PhoneExtension.name'),
-		'maxLimit' => 1000,
-		'limit' => 1000,
-		'order' => array(
-			'PhoneExtension.name' => 'asc'
-		)
-	);
-	
 	public function index() {
 		$this->set('title', 'Phone Extensions');
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if(isset($cmsuser['CmsUser'])) {
-			$this->set('cmsuser', $cmsuser['CmsUser']);
-		}
-		$extensions = $this->PhoneExtension->find('all', array('order' => 'PhoneExtension.name ASC'));
+
+		$extensions = $this->PhoneExtension->getExtensions();
 		$this->set('extensions', $extensions);
 	}
 	

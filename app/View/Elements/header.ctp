@@ -12,12 +12,13 @@ if (isset($title)) {
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta charset="utf-8">
 		<title><?php echo $showTitle; ?></title>
-		<link href="/stylesheets/screen.css" rel="stylesheet" type="text/css">
+		<link href="/stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="/stylesheets/print.css" rel="stylesheet" type="text/css" media="print">
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
 		<?php if (isset($cmsuser['CmsUser'])): ?>
-			<style type="text/css">
+			<style type="text/css" media="screen">
 				body {
 					padding-top: 51px;
 				}
@@ -58,7 +59,7 @@ if (isset($title)) {
 		echo $this->element('topmenu', array('user' => $username));
 		?>
 
-		<div class="container">
+		<div class="page-title container">
 			<h1><?php echo $title; ?></h1>
 		</div>
 

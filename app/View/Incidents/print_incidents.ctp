@@ -44,7 +44,11 @@ function pFormat($problem) {
 				<strong>Reported by</strong>
 			</td>
 			<td colspan="3">
-				<?php echo $incident['Incident']['username']; ?>
+				<?php 
+				echo strtoupper(substr($incident['Incident']['username'], 0, 1));
+				echo ' ';
+				echo ucfirst(substr($incident['Incident']['username'], 1)); 
+				?>
 			</td>
 		</tr>
 		<tr>
