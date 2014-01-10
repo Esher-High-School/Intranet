@@ -64,8 +64,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><?php echo $this->Incident->problemFormat($incident['Incident']['problems3']); ?></td>
-		<td></td>
+		<td colspan="2"><?php echo $this->Incident->problemFormat($incident['Incident']['problems3']); ?></td>
 		<td><?php echo $this->Incident->problemFormat($incident['Incident']['problems4']); ?></td>
 	</tr>
 	<tr>

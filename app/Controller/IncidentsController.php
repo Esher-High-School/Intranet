@@ -405,7 +405,7 @@ class IncidentsController extends AppController {
 		$this->set('smt', $smt);
 		$this->set('hod', $hod);
 		$this->set('day', $viewday);
-		$this->set('title', 'Viewing Incidents by Department');
+		$this->set('title', 'Incidents by Department');
 		$this->set('departments', $this->Incident->getDepartments($day));
 	}
 	
@@ -443,6 +443,7 @@ class IncidentsController extends AppController {
 	}
 
 	public function users($startdate=null) {
+		$this->set('title', 'Incidents by Users');
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUsername($Authentication->Username());
 		if ($smt == null) {
@@ -513,7 +514,7 @@ class IncidentsController extends AppController {
 		
 		$this->set('smt', $smt);
 		$this->set('learningmentor', $learningmentor);
-		$this->set('title', 'Listing year groups');
+		$this->set('title', 'Year Groups');
 		$this->set('startdate', $startdate);
 		$this->set('enddate', $enddate);
 		$groups = $this->Incident->getYearGroups($startdate, $enddate);
@@ -616,7 +617,7 @@ class IncidentsController extends AppController {
 		if ($id == null) {
 			throw new NotFoundException;
 		}
-		$this->set('title', 'Viewing incident' . $id);
+		$this->set('title', 'Viewing incident ' . $id);
 		// Authentication
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUsername($Authentication->Username());
