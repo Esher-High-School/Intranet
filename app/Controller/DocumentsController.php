@@ -33,7 +33,7 @@ class DocumentsController extends AppController {
 						Your document has been added successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'Pages', 'action' => 'view', $this->request->data['Document']['category_id']));
+				$this->redirect(array('controller' => 'pages', 'action' => 'view', $this->request->data['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-danger">
@@ -65,7 +65,7 @@ class DocumentsController extends AppController {
 						Document updated successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'Pages', 'action' => 'view', $document['Document']['category_id']));
+				$this->redirect(array('controller' => 'pages', 'action' => 'view', $document['Document']['category_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -89,7 +89,7 @@ class DocumentsController extends AppController {
 					File not found. If you believe this to be in error, please contact ICT support.
 				</div>
 			');
-			$this->redirect(array('controller' => 'Pages', 'action' => 'index'));
+			$this->redirect(array('controller' => 'pages', 'action' => 'index'));
 		}
 		if ($filename == null) {
 			$filename = $document['Document']['filename'];
@@ -143,7 +143,7 @@ class DocumentsController extends AppController {
 					Document deleted successfully.
 				</div>
 			');
-			$this->redirect(array('controller' => 'Pages', 'action' => 'view', $category));
+			$this->redirect(array('controller' => 'pages', 'action' => 'view', $category));
 		} else {
 			die('File did not delete');
 		}

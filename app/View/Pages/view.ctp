@@ -35,7 +35,7 @@
 						<?php 
 						echo $this->Html->Link($document['Document']['name'], 
 							array(
-								'controller' => 'Documents', 
+								'controller' => 'documents', 
 								'action' => 'download', 
 								$document['Document']['id'], 
 								$document['Document']['filename']
