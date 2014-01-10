@@ -592,7 +592,7 @@ class IncidentsController extends AppController {
 		$this->set('learningmentor', $learningmentor);
 		$student = $this->Incident->Student->findByUpn($upn);
 		$this->set('student', $student);
-		$this->set('title', 'Viewing Incidents for ' . $student['Student']['forename'] . ' ' . $student['Student']['surname']);
+		$this->set('title', 'Incidents for ' . $student['Student']['forename'] . ' ' . $student['Student']['surname']);
 		if ($day == 'all') {
 			$date = (date('Y-m-d', strtotime('-6 year')));
 		} else {
