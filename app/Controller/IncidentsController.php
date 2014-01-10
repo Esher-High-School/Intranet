@@ -284,7 +284,7 @@ class IncidentsController extends AppController {
 		}
 
 		$this->set('smt', $smt);
-		$this->set('title', 'Incidents Statistics');
+		$this->set('title', 'Incident Statistics');
 		$this->set('recent', $this->Incident->latest());
 		
 		$top5 = $this->Incident->top();
