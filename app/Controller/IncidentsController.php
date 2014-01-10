@@ -613,7 +613,7 @@ class IncidentsController extends AppController {
 	}
 	
 	public function view($id = null) {
-		if ($id = null) {
+		if ($id == null) {
 			throw new NotFoundException;
 		}
 		$this->set('title', 'Viewing incident' . $id);
