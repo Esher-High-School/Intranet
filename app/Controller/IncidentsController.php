@@ -1,6 +1,6 @@
 <?php
 class IncidentsController extends AppController {
-	public $helpers = array('Html', 'Form', 'Incident');
+	public $helpers = array('Html', 'Form', 'Incident', 'Markdown.Markdown');
 	public $components = array('Session');
 	
 	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'CmsUser', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');

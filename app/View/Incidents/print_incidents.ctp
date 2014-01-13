@@ -12,10 +12,10 @@ function pFormat($problem) {
 <div class="incident">
 	<div class="header-container">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-lg-2">
 				<img src="/images/ehs.png" alt="Esher C of E High School">
 			</div>
-			<div class="col-md-8">
+			<div class="col-lg-8">
 				<h1>Esher C of E High School</h1>
 			</div>
 		</div>
@@ -94,7 +94,7 @@ function pFormat($problem) {
 				<strong>Brief Description</strong>
 			</td>
 			<td colspan="3">
-				<?php echo h($incident['Incident']['incident']); ?>
+				<?php echo Markdown($incident['Incident']['incident']); ?>
 			</td>
 		</tr>
 		<tr>

@@ -25,6 +25,8 @@
 	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/pages/delete/*', array('controller' => 'pages', 'action' => 'delete'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
+
+	Router::connect('/cover/*', array('controller' => 'cover', 'action' => 'index'));
 	
 	Router::connect('/tfd', array('controller' => 'tfds', 'action' => 'index'));
 	
@@ -41,22 +43,22 @@
 
 	Router::connect('/documents/categories', array('controller' => 'DocumentCategories', 'action' => 'index')); 
 
-	Router::connect('/handbook', array('controller' => 'HandbookDocuments', 'action' => 'home'));
-	
+	Router::connect('/handbook', array('controller' => 'handbookDocuments', 'action' => 'home'));
+	Router::connect('/handbook/*', array('controller' => 'handbookDocuments', 'action' => 'view'));
+
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
-	Router::connect('/incidentform', array('controller' => 'students', 'action' => 'incidentFormList'));
-	Router::connect('/incidentform/select/*', array('controller' => 'students', 'action' => 'incidentFormList'));
-	Router::connect('/incidentform/form/*', array('controller' => 'incidents', 'action' => 'report'));
-	Router::connect('/incidentform/submit', array('controller' => 'incidents', 'action' => 'reportSubmit'));
-	Router::connect('/incidentform/email/*', array('controller' => 'incidents', 'action' => 'reportEmail'));
+	Router::connect('/incidents/form/*', array('controller' => 'students', 'action' => 'incidentFormList'));
+	Router::connect('/incidents/student/*', array('controller' => 'incidents', 'action' => 'report'));
+	Router::connect('/incidents/form/submit', array('controller' => 'incidents', 'action' => 'reportSubmit'));
+	Router::connect('/incidents/form/email/*', array('controller' => 'incidents', 'action' => 'reportEmail'));
 
 	/* Incident Printing */
 	Router::connect('/incidents/print/*', array('controller' => 'students', 'action' => 'incidentPrintList')); 
 	Router::connect('/incidents/printing/dates/*', array('controller' => 'incidents', 'action' => 'printIncidentsSelect'));
 
 	/* Incident Monitoring */
-	Router::connect('/incidentmonitoring/select/*', array('controller' => 'students', 'action' => 'incidentMonitoringList'));
+	Router::connect('/incidents/monitor/*', array('controller' => 'students', 'action' => 'incidentMonitoringList'));
 	
 	/* My Year Group */
 	Router::connect('/incidents/my-year-group/*', array('controller' => 'incidents', 'action' => 'hoyHome'));
@@ -80,7 +82,7 @@
 	Router::connect('/learningmentors/accessdenied', array('controller' => 'learningMentors', 'action' => 'accessdenied'));
 	
 	/* SMT Areas */
-	Router::connect('/smt', array('controller' => 'incidents', 'action' => 'smthome'));
+	Router::connect('/incidents/smt', array('controller' => 'incidents', 'action' => 'smthome'));
 	Router::connect('/smt/accessdenied', array('controller' => 'smts', 'action' => 'accessdenied'));
 	
 	/* CMS Areas */

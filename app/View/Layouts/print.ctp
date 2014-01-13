@@ -9,13 +9,8 @@
 			<div class="navbar-inner">
 				<div class="print-container">
 					<?php
-					echo $this->Html->Link('Staff Intranet', array('/'), array('class' => 'navbar-brand')); 
+					echo $this->Html->Link('Staff Intranet', '/', array('class' => 'navbar-brand')); 
 					?>
-					<ul class="nav navbar-nav">
-						<li>
-							<?php echo $this->Html->Link('Incident Printing', array('controller' => 'students', 'action' => 'IncidentPrintList')); ?>
-						</li>
-					</ul>
 
 					<a href="javascript:window.print()" class="btn btn-primary navbar-btn pull-right">Print</a>
 					
