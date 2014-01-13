@@ -8,7 +8,7 @@
 /tags
 /app/webroot/files/
 /app/webroot/assets/.sass-cache/
-/app/webroot/cover/
+/app/webroot/coverfiles/
 /app/Uploads/*
 /app/Config/core.php
 /app/Config/database.php
