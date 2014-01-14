@@ -49,7 +49,7 @@
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
 	Router::connect('/incidents/form/*', array('controller' => 'students', 'action' => 'incidentFormList'));
-	Router::connect('/incidents/student/*', array('controller' => 'incidents', 'action' => 'report'));
+	Router::connect('/incidents/report/*', array('controller' => 'incidents', 'action' => 'report'));
 	Router::connect('/incidents/submit', array('controller' => 'incidents', 'action' => 'reportSubmit'));
 	Router::connect('/incidents/submit/email/*', array('controller' => 'incidents', 'action' => 'reportEmail'));
 
@@ -58,7 +58,10 @@
 	Router::connect('/incidents/printing/dates/*', array('controller' => 'incidents', 'action' => 'printIncidentsSelect'));
 
 	/* Incident Monitoring */
-	Router::connect('/incidents/monitor/*', array('controller' => 'students', 'action' => 'incidentMonitoringList'));
+	Router::connect('/incidents/monitor', array('controller' => 'students', 'action' => 'incidentMonitoringList'));
+	Router::connect('/incidents/monitor/year/*', array('controller' => 'students', 'action' => 'incidentMonitoringList'));
+	Router::connect('/incidents/monitor/add/*', array('controller' => 'incidentMonitors', 'action' => 'add'));
+
 	
 	/* My Year Group */
 	Router::connect('/incidents/my-year-group/*', array('controller' => 'incidents', 'action' => 'hoyHome'));

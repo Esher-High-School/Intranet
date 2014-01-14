@@ -32,16 +32,16 @@
 				<tr>
 					<td>
 						<?php 
-						echo $this->Html->Link($student['Student']['surname'], array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
+						echo $student['Student']['surname']; ?>
 					</td>
                                         <td>
                                                 <?php
-                                                echo $this->Html->Link($student['Student']['forename'], array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
+                                                echo $student['Student']['forename'] ?>
                                         </td>
 
 					<td><?php echo $student['Student']['form']; ?></td>
 					<td>
-						<?php echo $this->Html->Link('Select', array('controller' => 'IncidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
+						<?php echo $this->Html->Link('Select', array('controller' => 'incidentMonitors', 'action' => 'add', $student['Student']['upn'])); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
