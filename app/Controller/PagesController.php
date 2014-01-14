@@ -16,6 +16,10 @@ class PagesController extends AppController {
 		$category = $this->Page->read();
 		$documents = $this->Document->getFromCategory($id);
 
+		if (!isset($category['Page'])) {
+			throw new NotFoundException;
+		}
+
 		$title = $category['Page']['name'];
 		$this->set('title', $title);
 		$this->set('category', $category);

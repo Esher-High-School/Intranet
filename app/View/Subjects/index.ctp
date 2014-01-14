@@ -2,7 +2,7 @@
 	<thead>
 		<th width="80%">Name</th>
 		<th>
-			<?php echo $this->Html->Link('Add Subject', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
+			<?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 		<th></th>
 	</thead>

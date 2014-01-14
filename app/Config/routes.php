@@ -50,8 +50,8 @@
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
 	Router::connect('/incidents/form/*', array('controller' => 'students', 'action' => 'incidentFormList'));
 	Router::connect('/incidents/student/*', array('controller' => 'incidents', 'action' => 'report'));
-	Router::connect('/incidents/form/submit', array('controller' => 'incidents', 'action' => 'reportSubmit'));
-	Router::connect('/incidents/form/email/*', array('controller' => 'incidents', 'action' => 'reportEmail'));
+	Router::connect('/incidents/submit', array('controller' => 'incidents', 'action' => 'reportSubmit'));
+	Router::connect('/incidents/submit/email/*', array('controller' => 'incidents', 'action' => 'reportEmail'));
 
 	/* Incident Printing */
 	Router::connect('/incidents/print/*', array('controller' => 'students', 'action' => 'incidentPrintList')); 
@@ -168,3 +168,4 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+	

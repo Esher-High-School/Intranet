@@ -24,7 +24,7 @@ function Sen($sen) {
 		<th>UPN</th>
 		<th>Form</th>
 		<th>
-			<?php echo $this->Html->Link('New Student', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
+			<?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 	</thead>
 	<?php foreach ($students as $student): ?>
@@ -33,7 +33,7 @@ function Sen($sen) {
 		<td><?php echo $student['Student']['forename']; ?></td>
 		<td><?php echo $student['Student']['upn']; ?></td>
 		<td><?php echo $student['Student']['form']; ?></td>
-		<td><?php echo $this->Html->Link('<i class="icon-pencil black"></i>', array('action' => 'edit', $student['Student']['upn']), array('escape' => false)); ?></td>
+		<td><?php echo $this->Html->Link('Edit', array('action' => 'edit', $student['Student']['upn'])); ?></td>
 	</tr>
 	<?php endforeach; ?>
 </table>

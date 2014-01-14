@@ -21,12 +21,23 @@
 			</td>
 			<td>
 				<?php if(isset($cmsuser['CmsUser'])) {
-					echo $this->Html->Link('Edit', array('action' => 'edit', $category['Page']['id']), array('class' => 'btn btn-default btn-xs'));
+					echo $this->Html->Link('Edit', 
+						array(
+							'action' => 'edit', 
+							$category['Page']['id']
+						) 
+					);
 				} ?>
 			</td>
 			<td>
 				<?php if (isset($cmsuser['CmsUser'])) {
-					echo $this->Form->postLink('Delete', array('action' => 'delete', $category['Page']['id']), array('class' => 'btn btn-xs btn-default', 'Are you sure you want to delete this category?'));
+					echo $this->Form->postLink('Delete', 
+						array(
+							'action' => 'delete', $category['Page']['id']
+							), 
+						array(
+							'Are you sure you want to delete this category?')
+						);
 				} ?>
 			</td>
 		</tr>

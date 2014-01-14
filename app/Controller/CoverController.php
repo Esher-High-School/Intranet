@@ -6,7 +6,14 @@ class CoverController extends AppController {
 	public function index($date=null) {
 		$this->set('title', 'Cover');
 
-		$monday = date('y-m-d', strtotime('this monday'));
+		$currentDay = date('l');
+		if ($currentDay == 'Monday') {
+			$when = 'this monday';
+		} else {
+			$when = 'last monday';
+		}
+
+		$monday = date('y-m-d', strtotime($when));
 
 		$i = 0;
 		while ($i <= 4) {

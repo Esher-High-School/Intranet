@@ -23,8 +23,26 @@
 				</td>
 				<td>
 					<?php 
-						echo $this->Html->Link('Edit', array('action' => 'edit', $document['Document']['id'])); 
+						if (isset($cmsuser['CmsUser'])) {
+							echo $this->Html->Link('Edit', array('action' => 'edit', $document['Document']['id'])); 
+						}
 				?>
+				</td>
+				<td>
+					<?php
+					if (isset($cmsuser['CmsUser'])) {
+						echo $this->Form->postLink(
+							'Delete', 
+							array(
+								'controller' => 'Documents', 
+								'action' => 'delete', 
+								$document['Document']['id']), 
+							array(
+								'Are you sure you want to delete this document?'
+								)
+							); 
+					}
+					?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
