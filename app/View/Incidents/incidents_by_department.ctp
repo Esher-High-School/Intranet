@@ -7,8 +7,8 @@
 <h4>Select Department</h4>
 <form method="post" class="form-horizontal">
 	<div class="form-group">
-		<label class="col-lg-3 control-label" for="department">Department</label>
-		<div class="col-lg-9">
+		<label class="col-md-3 control-label" for="department">Department</label>
+		<div class="col-md-9">
 			<select name="department">
 				<?php foreach($hod as $dept2): ?>
 					<option value="<?php echo $dept2['Hod']['dept']; ?>">
@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-9">
+		<div class="col-md-9">
 			<input type="submit" class="btn btn-primary" value="Select Department">
 		</div>
 	</div>
@@ -30,8 +30,8 @@
 <h4>Select Department</h4>
 <form method="post" class="form-horizontal">
 	<div class="form-group">
-		<label class="col-lg-3 control-label" for="department">Department</label>
-		<div class="col-lg-9">
+		<label class="col-md-3 control-label" for="department">Department</label>
+		<div class="col-md-9">
 			<select name="department">
 				<?php foreach($departments as $dept2): ?>
 					<option value="<?php echo $dept2['Hod']['id']; ?>">
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-9">
+		<div class="col-md-9">
 			<input type="submit" class="btn btn-primary" value="Select Department">
 		</div>
 	</div>

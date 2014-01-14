@@ -8,23 +8,23 @@
 <form class="form-horizontal" method="post">
 	<p>Date format: <strong>DD-MM-YYYY</strong>.</p>
 	<div class="form-group">
-		<label class="col-lg-2 control-label">
+		<label class="col-md-2 control-label">
 			Start Date
 		</label>
-		<div class="col-lg-9">
+		<div class="col-md-9">
 			<input type="text" name="startDate" value="<?php echo $date1; ?>" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-lg-2 control-label">
+		<label class="col-md-2 control-label">
 			End Date
 		</label>
-		<div class="col-lg-9">
+		<div class="col-md-9">
 			<input type="text" name="endDate" value="<?php echo $date2; ?>" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-9 col-lg-offset-2">
+		<div class="col-md-9 col-md-offset-2">
 			<input type="submit" class="btn btn-primary" value="Submit">
 		</div>
 	</div>

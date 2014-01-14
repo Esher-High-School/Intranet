@@ -7,8 +7,8 @@ echo $this->Form->create(
 );
 ?>
 	<div class="form-group">
-		<label class="col-lg-2 control-label" for="title">Title</label>
-		<div class="col-lg-10">
+		<label class="col-md-2 control-label" for="title">Title</label>
+		<div class="col-md-10">
 			<?php 
 			echo $this->Form->input(
 				'title', array(
@@ -21,8 +21,8 @@ echo $this->Form->create(
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-lg-2 control-label" for="summary">Summary</label>
-		<div class="col-lg-10">
+		<label class="col-md-2 control-label" for="summary">Summary</label>
+		<div class="col-md-10">
 			<?php 
 			echo $this->Form->input(
 				'summary', array(
@@ -35,8 +35,8 @@ echo $this->Form->create(
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-lg-2 control-label" for="details">Details</label>
-		<div class="col-lg-10">
+		<label class="col-md-2 control-label" for="details">Details</label>
+		<div class="col-md-10">
 			<?php
 			echo $this->Form->input(
 				'details', array(
@@ -49,8 +49,8 @@ echo $this->Form->create(
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-lg-2 control-label" for="published">Status</label>
-		<div class="col-lg-10">
+		<label class="col-md-2 control-label" for="published">Status</label>
+		<div class="col-md-10">
 			<?php
 			echo $this->Form->input(
 				'published', array(
@@ -67,7 +67,7 @@ echo $this->Form->create(
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-10 col-lg-offset-2">
+		<div class="col-md-10 col-md-offset-2">
 			<?php
 			echo $this->Form->button(
 				'Update Bulletin', array(

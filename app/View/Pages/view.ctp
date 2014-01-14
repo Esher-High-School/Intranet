@@ -51,10 +51,7 @@
 								array(
 									'controller' => 'Documents', 
 									'action' => 'edit', 
-									$document['Document']['id']),
-								array(
-									'class' => 'btn btn-xs btn-default'
-								)
+									$document['Document']['id'])
 							);
 						}
 						?>
@@ -69,7 +66,6 @@
 									'action' => 'delete', 
 									$document['Document']['id']), 
 								array(
-									'class' => 'btn btn-xs btn-default',
 									'Are you sure you want to delete this document?'
 									)
 								); 

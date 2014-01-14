@@ -1,12 +1,12 @@
 <form method="post" class="form-horizontal">
 	<div class="form-group">
-		<label class="col-lg-2 control-label" for="inputStartdate">Start Date</label>
-		<div class="col-lg-10">
+		<label class="col-md-2 control-label" for="inputStartdate">Start Date</label>
+		<div class="col-md-10">
 			<input type="text" name="startDate" id="inputStartdate" value="<?php echo $startdate; ?>" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-10 col-lg-offset-2">
+		<div class="col-md-10 col-md-offset-2">
 			<button type="submit" class="btn btn-primary">Filter</button>
 		</div>
 	</div>

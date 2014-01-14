@@ -1,12 +1,12 @@
 <?php echo $this->Form->create('Room', array('action' => 'add', 'class' => 'form-horizontal')); ?>
 	<div class="form-group">
-		<label class="col-lg-3 control-label">Room Name</label>
-		<div class="col-lg-9">
+		<label class="col-md-3 control-label">Room Name</label>
+		<div class="col-md-9">
 			<?php echo $this->Form->input('name', array('class' => 'form-control', 'label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-9">
+		<div class="col-md-9">
 			<?php echo $this->Form->button('Add Room', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
