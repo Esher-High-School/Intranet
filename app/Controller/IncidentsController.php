@@ -617,7 +617,7 @@ class IncidentsController extends AppController {
 		if ($id == null) {
 			throw new NotFoundException;
 		}
-		$this->set('title', 'Viewing incident ' . $id);
+		$this->set('title', 'Viewing incident #' . $id);
 		// Authentication
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUsername($Authentication->Username());
