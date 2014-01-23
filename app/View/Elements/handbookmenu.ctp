@@ -9,13 +9,13 @@
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu" role="menu">
-					<?php foreach($category['HandbookDocument'] as $document): ?>
+					<?php foreach($cdocuments[$category['HandbookCategory']['id']][0] as $document): ?>
 						<li>
 							<?php echo $this->Html->Link(
-								$document['name'],
+								$document['HandbookDocument']['name'],
 								array(
 									'action' => 'view',
-									$document['id']
+									$document['HandbookDocument']['id']
 								)
 							); ?>
 						</li>
