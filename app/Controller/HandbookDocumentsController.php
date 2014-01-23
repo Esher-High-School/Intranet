@@ -8,6 +8,14 @@ class HandbookDocumentsController extends AppController {
 	public function beforeFilter() {
 		$categories = $this->HandbookCategory->getAll();
 		$this->set('categories', $categories);	
+
+		/*foreach ($categories as $category) {
+			$cdocuments[$category['HandbookCategory']['id']] = array(
+				$this->HandbookDocument->find('all', array('order' => 'name ASC'))
+			);
+		} */
+
+		//$this->set('cdocuments', $documents);
 	}
 
 	public function home() {

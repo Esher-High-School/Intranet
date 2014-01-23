@@ -26,7 +26,7 @@
 		<?php foreach ($category['HandbookDocument'] as $document): ?>
 			<tr>
 				<td>
-					<?php echo $this->Html->Link($document['name'], array('controller' => 'HandbookDocuments', 'action' => 'view', $document['id'])) ; ?>
+					<?php echo $this->Html->Link($document['name'], array('controller' => 'handbookDocuments', 'action' => 'view', $document['id'])) ; ?>
 				</td>
 				<td>
 					<?php echo $document['user']; ?>
@@ -38,10 +38,10 @@
 					<?php echo $document['modified']; ?>
 				</td>
 				<td>
-					<?php echo $this->Html->Link('Edit', array('controller' => 'HandbookDocuments', 'action' => 'edit', $document['id'])); ?>
+					<?php echo $this->Html->Link('Edit', array('controller' => 'handbookDocuments', 'action' => 'edit', $document['id'])); ?>
 				</td>
 				<td>
-					<?php echo $this->Form->postLink('Delete', array('controller' => 'HandbookDocuments', 'action' => 'delete', $document['id'])); ?>
+					<?php echo $this->Form->postLink('Delete', array('controller' => 'handbookDocuments', 'action' => 'delete', $document['id'])); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

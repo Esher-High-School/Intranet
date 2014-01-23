@@ -45,6 +45,7 @@
 
 	Router::connect('/handbook', array('controller' => 'handbookDocuments', 'action' => 'home'));
 	Router::connect('/handbook/*', array('controller' => 'handbookDocuments', 'action' => 'view'));
+	Router::connect('/handbook/*/edit', array('controller' => 'handbookDocuments', 'action' => 'edit'));
 
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
@@ -108,25 +109,25 @@
 	
 	Router::connect('/cms/filemanager', array('controller' => 'files', 'action' => 'index'));
 	
-	Router::connect('/cms/students', array('controller' => 'students', 'action' => 'years'));
-	Router::connect('/cms/students/year/*', array('controller' => 'students', 'action' => 'index'));
-	Router::connect('/cms/students/add', array('controller' => 'students', 'action' => 'add'));
-	Router::connect('/cms/students/edit/*', array('controller' => 'students', 'action' => 'edit'));
-	
 	Router::connect('/cms/staffbulletins', array('controller' => 'staffBulletins', 'action' => 'index'));
 	Router::connect('/cms/staffbulletins/add', array('controller' => 'staffBulletins', 'action' => 'add'));
 	Router::connect('/cms/staffbulletins/edit/*', array('controller' => 'staffBulletins', 'action' => 'edit'));
 	
-	Router::connect('/cms/tutors', array('controller' => 'tutors', 'action' => 'index'));
-	Router::connect('/cms/tutors/add', array('controller' => 'tutors', 'action' => 'add'));
-	Router::connect('/cms/tutors/edit', array('controller' => 'tutors', 'action' => 'edit'));
-	
 	Router::connect('/cms/phoneextensions/edit/*', array('controller' => 'phoneExtensions', 'action' => 'edit'));
 	Router::connect('/cms/phoneextensions/delete/*', array('controller' => 'phoneExtensions', 'action' => 'delete'));
-	
+
 	/* Administration Areas */
 	Router::connect('/admin', array('controller' => 'admin', 'action' => 'index'));
 	Router::connect('/admin/accessdenied', array('controller' => 'admin', 'action' => 'accessdenied'));
+
+	Router::connect('/admin/students', array('controller' => 'students', 'action' => 'years'));
+	Router::connect('/admin/students/year/*', array('controller' => 'students', 'action' => 'index'));
+	Router::connect('/admin/students/add', array('controller' => 'students', 'action' => 'add'));
+	Router::connect('/admin/students/edit/*', array('controller' => 'students', 'action' => 'edit'));
+
+	Router::connect('/admin/tutors', array('controller' => 'tutors', 'action' => 'index'));
+	Router::connect('/admin/tutors/add', array('controller' => 'tutors', 'action' => 'add'));
+	Router::connect('/admin/tutors/edit', array('controller' => 'tutors', 'action' => 'edit'));
 	
 	Router::connect('/admin/users', array('controller' => 'cmsUsers', 'action' => 'index'));
 	Router::connect('/admin/users/add', array('controller' => 'cmsUsers', 'action' => 'add'));
