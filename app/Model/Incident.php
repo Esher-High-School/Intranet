@@ -103,7 +103,7 @@ class Incident extends AppModel {
 	}
 	
 	function getUserIncidents($user) {
-		return $this->find('all', array('conditions' => array('Incident.username' => $user), 'order' => 'Incident.id ASC'));
+		return $this->find('all', array('conditions' => array('Incident.username' => $user), 'order' => 'Incident.id DESC'));
 	}
 	
 	function getYearGroups($startdate=null, $enddate=null) {

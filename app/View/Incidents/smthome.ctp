@@ -21,7 +21,7 @@
 			echo (
 				strtoupper(substr($incident['Incident']['username'], 0, 1)) .
 				' ' .
-				ucfirst(substr($incident['Incident']['username'], 1))
+				ucfirst(strtolower(substr($incident['Incident']['username'], 1)))
 			);
 			?>
 		</td>

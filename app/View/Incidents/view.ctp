@@ -6,7 +6,16 @@
 		<td colspan="3">
 			<?php 
 			echo $this->Incident->usernameFormat($incident['Incident']['username']);
+			if (isset($smt)):
 			?>
+				<small>
+					<?php
+					echo $this->Html->Link('(View Incidents)', array(
+						'action' => 'incidentsByUser', strtolower($incident['Incident']['username'])
+					));
+					?>
+				</small>
+			<?php endif; ?>
 		</td>
 	</tr>
 	<tr>

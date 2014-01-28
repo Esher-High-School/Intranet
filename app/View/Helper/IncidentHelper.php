@@ -20,7 +20,7 @@ class IncidentHelper extends Helper {
 		$username = (
 			strtoupper(substr($username, 0, 1)) .
 			' ' .
-			ucfirst(substr($username, 1))
+			ucfirst(strtolower(substr($username, 1)))
 		);
 		return ($username);
 	}

@@ -16,7 +16,7 @@
 			Last Reviewed
 		</th>
 		<th>
-			<?php echo $this->Html->Link('Add', array('controller' => 'HandbookDocuments', 'action' => 'add', $category['HandbookCategory']['id']), array('class' => 'btn btn-primary btn-xs')); ?>
+			<?php echo $this->Html->Link('Add', array('controller' => 'handbookDocuments', 'action' => 'add', $category['HandbookCategory']['id']), array('class' => 'btn btn-primary btn-xs')); ?>
 		</th>
 		<th>
 

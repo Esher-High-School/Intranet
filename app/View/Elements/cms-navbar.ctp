@@ -19,7 +19,7 @@
 							<?php endif; ?>
 							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li>
-									<?php echo $this->Html->Link('Pages', array('controller' => 'Pages', 'action' => 'index')); ?>
+									<?php echo $this->Html->Link('Pages', array('controller' => 'pages', 'action' => 'index')); ?>
 								</li>
 								<li>
 									<?php echo $this->Html->Link('Staff Bulletin', array('controller' => 'staffbulletins', 'action' => 'index')); ?>
@@ -27,16 +27,16 @@
 							<?php endif; ?>
 							<?php if ($cmsuser['CmsUser']['authlevel'] == 2 or $cmsuser['CmsUser']['authlevel'] == 1): ?>
 								<li>
-									<?php echo $this->Html->Link('Staff Handbook', array('controller' => 'HandbookCategories', 'action' => 'index')); ?>
+									<?php echo $this->Html->Link('Staff Handbook', array('controller' => 'handbookCategories', 'action' => 'index')); ?>
 								</li>
 							<?php endif; ?>
 							<?php if($cmsuser['CmsUser']['authlevel'] == 2): ?>
 								<li class="divider"></li>
 								<li>
-									<?php echo $this->Html->Link('Subjects', array('controller' => 'Subjects', 'action' => 'index')); ?>
+									<?php echo $this->Html->Link('Subjects', array('controller' => 'subjects', 'action' => 'index')); ?>
 								</li>
 								<li>
-									<?php echo $this->Html->Link('Rooms', array('controller' => 'Rooms', 'action' => 'index')); ?>
+									<?php echo $this->Html->Link('Rooms', array('controller' => 'rooms', 'action' => 'index')); ?>
 								</li>
 								<li>
 									<?php echo $this->Html->Link('Incident Options',

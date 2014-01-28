@@ -479,7 +479,13 @@ class IncidentsController extends AppController {
 		}
 		
 		$this->set('user', $user);
-		$this->set('title', 'Incidents by ' . $user);
+
+		$titleUser = (
+			strtoupper(substr($user, 0, 1)) .
+			' ' .
+			ucfirst(strtolower(substr($user, 1)))
+		);
+		$this->set('title', 'Incidents by ' . $titleUser);
 		$incidents = $this->Incident->getUserIncidents($user);
 		$this->set('incidents', $incidents);
 	}

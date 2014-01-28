@@ -22,30 +22,27 @@
  */
 
 	Router::connect('/', array('controller' => 'StaffBulletins', 'action' => 'display'));
-	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
-	Router::connect('/pages/delete/*', array('controller' => 'pages', 'action' => 'delete'));
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
 
 	Router::connect('/cover/*', array('controller' => 'cover', 'action' => 'index'));
 	
 	Router::connect('/tfd', array('controller' => 'tfds', 'action' => 'index'));
 	
-	Router::connect('/staffbulletin/*', array('controller' => 'StaffBulletins', 'action' => 'index'));
-	
 	Router::connect('/phoneextensions', array('controller' => 'PhoneExtensions', 'action' => 'index'));
 
-	Router::connect('/staffbulletins', array('controller' => 'StaffBulletins', 'action' => 'index'));
-	Router::connect('/staffbulletins/view/*', array('controller' => 'StaffBulletins', 'action' => 'view'));
-
 	Router::connect('/documents', array('controller' => 'Documents', 'action' => 'index'));
-        Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view'));
-
-
-	Router::connect('/documents/categories', array('controller' => 'DocumentCategories', 'action' => 'index')); 
+	Router::connect('/documents/category', array('controller' => 'DocumentCategories', 'action' => 'index'));
+	Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view')); 
 
 	Router::connect('/handbook', array('controller' => 'handbookDocuments', 'action' => 'home'));
+
+	Router::connect('/handbook/category', array('controller' => 'handbookCategories', 'action' => 'index'));
+	Router::connect('/handbook/category/add', array('controller' => 'handbookCategories', 'action' => 'add'));
+	Router::connect('/handbook/category/edit/*', array('controller' => 'handbookCategories', 'action' => 'edit'));
+	Router::connect('/handbook/category/*', array('controller' => 'handbookCategories', 'action' => 'view'));
+
+	Router::connect('/handbook/add/*', array('controller' => 'handbookDocuments', 'action' => 'add'));
+	Router::connect('/handbook/edit/*', array('controller' => 'handbookDocuments', 'action' => 'edit'));
 	Router::connect('/handbook/*', array('controller' => 'handbookDocuments', 'action' => 'view'));
-	Router::connect('/handbook/*/edit', array('controller' => 'handbookDocuments', 'action' => 'edit'));
 
 	/* Incident Reporting */
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
@@ -80,6 +77,7 @@
 	Router::connect('/incidents/departments/*', array('controller' => 'incidents', 'action' => 'deptList'));
 	Router::connect('/incidents/department/*', array('controller' => 'incidents', 'action' => 'incidentsByDepartment'));
 	Router::connect('/incidents/users', array('controller' => 'incidents', 'action' => 'users'));
+	Router::connect('/incidents/users/*', array('controller' => 'incidents', 'action' => 'incidentsByUser'));
 
 	/* Learning Mentors */
 	Router::connect('/learningmentors', array('controller' => 'incidents', 'action' => 'learningmentorhome'));
@@ -91,12 +89,8 @@
 	
 	/* CMS Areas */
 	Router::connect('/cms', array('controller' => 'cms', 'action' => 'index'));
-
-	Router::connect('/cms/settings', array('controller' => 'settings', 'action' => 'index'));
-	Router::connect('/cms/settings/add', array('controller' => 'settings', 'action' => 'add'));
-	Router::connect('/cms/settings/edit/*', array('controller' => 'settings', 'action' => 'edit'));
 	
-	Router::connect('/cms/pages', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/cms/pages/add', array('controller' => 'pages', 'action' => 'add'));
 	Router::connect('/cms/pages/edit/*', array('controller' => 'pages', 'action' => 'edit'));
 
@@ -119,6 +113,10 @@
 	/* Administration Areas */
 	Router::connect('/admin', array('controller' => 'admin', 'action' => 'index'));
 	Router::connect('/admin/accessdenied', array('controller' => 'admin', 'action' => 'accessdenied'));
+
+	Router::connect('/admin/settings', array('controller' => 'settings', 'action' => 'index'));
+	Router::connect('/admin/settings/add', array('controller' => 'settings', 'action' => 'add'));
+	Router::connect('/admin/settings/edit/*', array('controller' => 'settings', 'action' => 'edit'));
 
 	Router::connect('/admin/students', array('controller' => 'students', 'action' => 'years'));
 	Router::connect('/admin/students/year/*', array('controller' => 'students', 'action' => 'index'));
@@ -158,9 +156,9 @@
 	Router::connect('/admin/rooms/add', array('controller' => 'rooms', 'action' => 'add'));
 	Router::connect('/admin/rooms/edit/*', array('controller' => 'rooms', 'action' => 'edit'));
 	
-	Router::connect('/admin/incidentoptions', array('controller' => 'IncidentOptions', 'action' => 'index'));
-	Router::connect('/admin/incidentoptions/add', array('controller' => 'IncidentOptions', 'action' => 'add'));
-	Router::connect('/admin/incidentoptions/edit/*', array('controller' => 'IncidentOptions', 'action' => 'edit'));
+	Router::connect('/admin/incidentoptions', array('controller' => 'incidentOptions', 'action' => 'index'));
+	Router::connect('/admin/incidentoptions/add', array('controller' => 'incidentOptions', 'action' => 'add'));
+	Router::connect('/admin/incidentoptions/edit/*', array('controller' => 'incidentOptions', 'action' => 'edit'));
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 
  * how to customize the loading of plugin routes.
