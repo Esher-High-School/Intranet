@@ -47,8 +47,18 @@
 			<li>
 				<?php echo $this->Html->Link('Handbook', '/handbook'); ?>
 			</li>
-			<li>
-				<?php echo $this->Html->Link('Helpdesk', 'http://10.18.56.36/SupportDeskSSP/Main.aspx'); ?>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					Helpdesk <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<?php echo $this->Html->Link('ICT Support', 'http://10.18.56.36/SupportDeskSSP/Main.aspx'); ?>
+					</li>
+					<li>
+						<?php echo $this->Html->Link('Premises', 'http://10.18.56.38/supportdeskssp/Main.aspx'); ?>
+					</li>
+				</ul>
 			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">

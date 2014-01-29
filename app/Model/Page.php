@@ -1,12 +1,12 @@
 <?php
 class Page extends AppModel {
-	var $useTable = 'document_categories';
+	var $useTable = 'pages';
 	var $name = 'Page';
 
 	public $hasMany = array(
 		'Document' => array(
 			'className' => 'Document',
-			'foreignKey' => 'category_id'
+			'foreignKey' => 'page_id'
 		)
 	);
 
@@ -29,7 +29,7 @@ class Page extends AppModel {
 			'first', 
 			array(
 				'conditions' => array(
-					'DocumentCategory.id' => $id
+					'Page.id' => $id
 				)
 			)
 		);

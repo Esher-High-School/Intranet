@@ -1,11 +1,11 @@
 	<?php
 class Document extends AppModel {
 	public $belongsTo = array(
-		'DocumentCategory' => array(
-			'className' => 'DocumentCategory',
-			'joinTable' => 'document_categories',
+		'Page' => array(
+			'className' => 'Page',
+			'joinTable' => 'Pages',
 			'foreignKey' => 'id',
-			'associationForeignKey' => 'category_id',
+			'associationForeignKey' => 'page_id',
 		)
 	);
 
@@ -29,7 +29,7 @@ class Document extends AppModel {
 	function getFromCategory($category_id) {
 		return $this->find('all', array(
 				'conditions' => array(
-					'Document.category_id' => $category_id
+					'Document.page_id' => $category_id
 				),
 				'order' => array(
 					'Document.name' => 'ASC'
@@ -41,7 +41,7 @@ class Document extends AppModel {
 	function countFromCategory($category_id) {
 		return $this->find('count', array(
 				'conditions' => array(
-					'Document.category_id' => $category_id
+					'Document.page_id' => $category_id
 				)
 			)
 		);

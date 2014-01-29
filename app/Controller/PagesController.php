@@ -13,16 +13,18 @@ class PagesController extends AppController {
 
 	public function view($id) {
 		$this->Page->id = $id;
-		$category = $this->Page->read();
+		$page = $this->Page->read();
 		$documents = $this->Document->getFromCategory($id);
 
-		if (!isset($category['Page'])) {
+		if (!isset($page['Page'])) {
 			throw new NotFoundException;
 		}
 
-		$title = $category['Page']['name'];
+		$title = $page['Page']['name'];
+		$subtitle = ('Last updated ' . $page['Page']['modified']);
+
 		$this->set('title', $title);
-		$this->set('category', $category);
+		$this->set('category', $page);
 		$this->set('documents', $documents);
 	}
 

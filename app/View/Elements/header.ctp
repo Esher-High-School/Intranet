@@ -60,7 +60,14 @@ if (isset($title)) {
 		?>
 
 		<div class="page-title container">
-			<h1><?php echo $title; ?></h1>
+			<h1>
+				<?php echo $title; ?>
+				<?php if (isset($subtitle)): ?>
+					<small>
+						<?php echo $subtitle; ?>
+					</small>
+				<?php endif; ?>
+			</h1>
 		</div>
 
 		<div class="main-container">
