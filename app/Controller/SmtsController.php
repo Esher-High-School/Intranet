@@ -5,15 +5,6 @@ class SmtsController extends AppController {
 	
 	var $uses = array('Smt', 'CmsUser');
 	
-	var $paginate = array(
-		'fields' => array('Smt.id', 'Smt.username'),
-		'maxLimit' => 2000,
-		'limit' => 2000,
-		'order' => array(
-			'Smt.year' => 'asc'
-		)
-	);
-	
 	public function index() {
 		$Authentication = new Authentication;
 		$user = $this->CmsUser->findByUser($Authentication->Username());

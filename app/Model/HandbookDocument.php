@@ -1,6 +1,5 @@
 <?php
 class HandbookDocument extends AppModel {
-	var $useTable = 'handbook_documents';
 	var $primaryKey = 'id';
 	var $belongsTo = array(
 		'HandBookCategory' => array(

@@ -1,6 +1,5 @@
 <?php
 class IncidentUser extends AppModel {
-	var $useTable = 'incidentaccess';
 	var $primaryKey = 'id';
 	var $name = 'IncidentUser';
 	

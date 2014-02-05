@@ -1,1 +1,1 @@
-<?phpclass StaffBulletin extends AppModel {	var $useTable = 'staffbulletin';	var $primaryKey = 'id';		public $validate = array(		'title' => array(			'rule' => 'notEmpty'		),		'summary' => array(			'rule' => 'notEmpty'		),	);}
+<?phpclass StaffBulletin extends AppModel {	var $primaryKey = 'id';		public $validate = array(		'title' => array(			'rule' => 'notEmpty'		),		'summary' => array(			'rule' => 'notEmpty'		),	);}

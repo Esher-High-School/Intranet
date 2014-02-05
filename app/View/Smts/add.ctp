@@ -1,12 +1,12 @@
 <?php echo $this->Form->Create('smt', array('class' => 'form-horizontal')); ?>
 	<div class="form-group">
-		<label class="col-md-3 control-label">Username</label>
-		<div class="col-md-9">
+		<label class="col-md-2 control-label">Username</label>
+		<div class="col-md-10">
 			<?php echo $this->Form->input('username', array('label' => false, 'class' => 'form-control')); ?>
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-md-9">
+		<div class="col-md-10 col-md-offset-2">
 			<?php echo $this->Form->button('Add SMT Staff', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>

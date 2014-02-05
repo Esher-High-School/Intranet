@@ -77,10 +77,10 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<?php echo $this->Html->Link('Incident Users', array('controller' => 'IncidentUsers', 'action' => 'index')); ?>
+								<?php echo $this->Html->Link('Incident Users', array('controller' => 'incidentUsers', 'action' => 'index')); ?>
 							</li>
 							<li>
-								<?php echo $this->Html->Link('Learning Mentors', array('controller' => 'LearningMentors', 'action' => 'index')); ?>
+								<?php echo $this->Html->Link('Learning Mentors', array('controller' => 'learningMentors', 'action' => 'index')); ?>
 							</li>
 							<li>
 								<?php echo $this->Html->Link('SMT Staff', array('controller' => 'smts', 'action' => 'index')); ?>

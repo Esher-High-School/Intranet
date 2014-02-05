@@ -1,6 +1,5 @@
 <?php
 class Hod extends AppModel {
-	var $useTable = 'hod';
 	
 	public $validate = array(
 		'username' => array(

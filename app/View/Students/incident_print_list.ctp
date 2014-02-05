@@ -32,11 +32,11 @@
 					<td>
 						<?php 
 						$name = ($student['Student']['surname'] . ', ' . $student['Student']['forename']);
-						echo $this->Html->Link($name, array('controller' => 'Incidents', 'action' => 'printIncidentsSelect', $student['Student']['upn'])); ?>
+						echo $this->Html->Link($name, array('controller' => 'incidents', 'action' => 'printIncidentsSelect', $student['Student']['upn'])); ?>
 					</td>
 					<td><?php echo $student['Student']['form']; ?></td>
 					<td>
-						<?php echo $this->Html->Link('Select', array('controller' => 'Incidents', 'action' => 'printIncidentsSelect', $student['Student']['upn'])); ?>
+						<?php echo $this->Html->Link('Select', array('controller' => 'incidents', 'action' => 'printIncidentsSelect', $student['Student']['upn'])); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

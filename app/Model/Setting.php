@@ -1,6 +1,5 @@
 <?php
 class Setting extends AppModel {
-	var $useTable = 'settings';
 	var $primaryKey = 'id';
 
 	public $validate = array(

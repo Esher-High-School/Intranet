@@ -1,6 +1,5 @@
 <?php
 class Link extends AppModel {
-	var $useTable = 'menu';
 	var $primaryKey = 'id';
 	var $name = 'Link';
 	

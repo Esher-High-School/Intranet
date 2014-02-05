@@ -1,7 +1,5 @@
 <?php
 class Hoy extends AppModel {
-	var $useTable = 'hoy';
-	
 	public $validate = array(
 		'username' => array(
 			'rule' => 'notEmpty'

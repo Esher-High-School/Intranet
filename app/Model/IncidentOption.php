@@ -1,6 +1,5 @@
 <?php
 class IncidentOption extends AppModel {
-	var $useTable = 'incident_options';
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty'

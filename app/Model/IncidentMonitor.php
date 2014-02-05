@@ -1,7 +1,5 @@
 <?php
 class IncidentMonitor extends AppModel {
-	var $useTable = 'incidentextra';
-	
 	public $validate = array(
 		'username' => array(
 			'rule' => 'notEmpty'

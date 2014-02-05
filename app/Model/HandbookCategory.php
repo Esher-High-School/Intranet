@@ -1,6 +1,5 @@
 <?php
 class HandbookCategory extends AppModel {
-	var $useTable = 'handbook_categories';
 	var $primaryKey = 'id';
 
 	public $validate = array(

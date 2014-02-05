@@ -130,6 +130,8 @@
 	Router::connect('/admin/users', array('controller' => 'cmsUsers', 'action' => 'index'));
 	Router::connect('/admin/users/add', array('controller' => 'cmsUsers', 'action' => 'add'));
 	Router::connect('/admin/users/edit/*', array('controller' => 'cmsUsers', 'action' => 'edit'));
+
+	Router::connect('/admin/incidentusers', array('controller' => 'incidentUsers', 'action' => 'index'));
 	
 	Router::connect('/admin/learningmentors', array('controller' => 'learningMentors', 'action' => 'index'));
 	Router::connect('/admin/learningmentors/add', array('controller' => 'learningMentors', 'action' => 'add'));
