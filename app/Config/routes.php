@@ -126,10 +126,11 @@
 	Router::connect('/admin/tutors', array('controller' => 'tutors', 'action' => 'index'));
 	Router::connect('/admin/tutors/add', array('controller' => 'tutors', 'action' => 'add'));
 	Router::connect('/admin/tutors/edit', array('controller' => 'tutors', 'action' => 'edit'));
+	Router::connect('/admin/tutors/group/*', array('controller' => 'tutors', 'action' => 'view'));
 	
-	Router::connect('/admin/users', array('controller' => 'cmsUsers', 'action' => 'index'));
-	Router::connect('/admin/users/add', array('controller' => 'cmsUsers', 'action' => 'add'));
-	Router::connect('/admin/users/edit/*', array('controller' => 'cmsUsers', 'action' => 'edit'));
+	Router::connect('/admin/users', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/admin/users/add', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/admin/users/edit/*', array('controller' => 'users', 'action' => 'edit'));
 
 	Router::connect('/admin/incidentusers', array('controller' => 'incidentUsers', 'action' => 'index'));
 	

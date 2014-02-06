@@ -3,7 +3,7 @@ class HoysController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session', 'Security');
 	
-	var $uses = array('Hoy', 'CmsUser');
+	var $uses = array('Hoy', 'User');
 	
 	var $paginate = array(
 		'fields' => array('Hoy.id', 'Hoy.username', 'Hoy.year'),
@@ -16,9 +16,9 @@ class HoysController extends AppController {
 	
 	public function index() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Listing HoYs');
 		$data = $this->paginate('Hoy');
@@ -27,9 +27,9 @@ class HoysController extends AppController {
 	
 	public function add() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Add New Head of Year');
 		if ($this->request->is('post')) {
@@ -47,9 +47,9 @@ class HoysController extends AppController {
 	
 	public function edit($id) {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Edit Head of Year');
 		$this->Hoy->id = $id;

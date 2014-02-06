@@ -3,13 +3,23 @@ class SmtsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session', 'Security');
 	
-	var $uses = array('Smt', 'CmsUser');
+	var $uses = array('Smt', 'User');
+
+	public function beforeFilter() {
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
+	}
 	
 	public function index() {
 		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($Authentication->Username());
+		if ($user['User']['authlevel'] <2) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		
 		$this->set('title', 'Listing SMT Staff');
@@ -25,11 +35,6 @@ class SmtsController extends AppController {
 	
 	public function add() {
 		$this->set('title', 'Add SMT Staff');
-		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
 		
 		$this->set('Add New SMT Staff');
 		if ($this->request->is('post')) {
@@ -55,12 +60,6 @@ class SmtsController extends AppController {
 	}
 	
 	public function edit($id = null) {
-		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
-		
 		$this->set('title', 'Edit SMT Staff');
 		$this->Smt->id = $id;
 		if ($this->request->is('get')) {
@@ -86,12 +85,6 @@ class SmtsController extends AppController {
 	}
 	
 	public function delete($id) {
-		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
-		
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}

@@ -23,6 +23,16 @@ table.table-centered {
   margin-right: auto;
 }
 
+table.table-contents-center {
+  tbody {
+    tr {
+      td {
+        text-align: center;
+      }
+    }
+  }
+}
+
 .carousel-control {
   position: absolute;
   top: 100%;

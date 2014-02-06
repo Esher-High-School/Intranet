@@ -17,7 +17,7 @@ if (isset($title)) {
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
-		<?php if (isset($cmsuser['CmsUser'])): ?>
+		<?php if (isset($User['User'])): ?>
 			<style type="text/css" media="screen">
 				body {
 					padding-top: 51px;
@@ -32,7 +32,7 @@ if (isset($title)) {
 		<script src="/javascripts/jquery.min.js" type="text/javascript"></script>
 		<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
 		<?php 
-		if (isset($cmsuser['CmsUser'])) {
+		if (isset($User['User'])) {
 			echo $this->element('cms-navbar'); 
 		}
 		?>

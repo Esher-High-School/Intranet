@@ -3,15 +3,15 @@ class SettingsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session', 'Security');
 
-	var $uses = array('Setting', 'CmsUser');
+	var $uses = array('Setting', 'User');
 
 	public function beforeFilter() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'CmsUser', 'action' => 'accessdenied'));
-		} elseif ($cmsuser['CmsUser']['authlevel'] == 3) {
-			$this->redirect(array('controller' => 'CmsUser', 'action' => 'accessdenied'));
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
 		}
 	}
 

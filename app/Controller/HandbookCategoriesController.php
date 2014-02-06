@@ -3,8 +3,18 @@ class HandbookCategoriesController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 
+	public function beforeFilter() {
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
+	}
+
 	public function index() {
-		$this->set('title', 'Listing handbook categories');
+		$this->set('title', 'Handbook Categories');
 		$this->set('categories', $this->HandbookCategory->getAll());
 	}
 

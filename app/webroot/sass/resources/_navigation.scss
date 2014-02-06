@@ -137,6 +137,17 @@ ul.dropdown-menu {
 .navbar-inverse {
 	background: none;
 	background-image: url('/images/cms-bg.png');
+	ul.navbar-nav {
+		li {
+			a {
+				i {
+					display: inline-block;
+					width: 16px;
+					text-align: center;
+				}
+			}
+		}
+	}
 }
 
 /* Dropdowns */

@@ -3,7 +3,7 @@ class HodsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('Hod', 'Subject', 'CmsUser');
+	var $uses = array('Hod', 'Subject', 'User');
 	
 	var $paginate = array(
 		'fields' => array('Hod.id', 'Hod.username', 'Hod.dept'),
@@ -16,9 +16,9 @@ class HodsController extends AppController {
 	
 	public function beforeFilter() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser['CmsUser']['authlevel'] <2 ) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User['User']['authlevel'] <2 ) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 	}
 	

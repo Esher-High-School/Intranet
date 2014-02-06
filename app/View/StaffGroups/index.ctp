@@ -20,8 +20,8 @@ foreach($grouptypes as $grouptype): ?>
 <?php 
 $gi++;
 endforeach;
-if (isset($cmsuser['CmsUser']['user'])): ?>
-	<?php if ($cmsuser['CmsUser']['authlevel'] == 2): ?>
+if (isset($User['User']['user'])): ?>
+	<?php if ($User['User']['authlevel'] == 2): ?>
 		<p>
 			<?php echo $this->Html->Link('Add Group', array('action' => 'add')); ?>
 			&nbsp;-&nbsp;

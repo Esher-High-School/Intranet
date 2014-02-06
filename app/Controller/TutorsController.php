@@ -3,14 +3,19 @@ class TutorsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session', 'Security');
 	
-	var $uses = array('Tutor', 'Student', 'Smt', 'LearningMentor', 'CmsUser');
+	var $uses = array('Tutor', 'Student', 'Smt', 'LearningMentor', 'User');
+
+	public function beforeFilter() {
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
+	}
 	
 	public function index() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
-		}
 		$this->set('title', 'Listing Tutors');
 		$tutors[7] =  $this->Tutor->getTutors(7);
 		$tutors[8] = $this->Tutor->getTutors(8);
@@ -38,24 +43,24 @@ class TutorsController extends AppController {
 		$this->set('tutors', $data);
 	}
 	
-	public function group($id = null) {
+	public function view($id = null) {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->Tutor->id = $id;
 		$form = $this->Tutor->field('form');
 		$this->set('title', 'Tutor Group ' . $form);
 		$this->set('tutor', $this->Tutor->read());
-		$this->set('students', $this->Tutor->Student->find('all', array('conditions' => array('Student.form' => $form))));
+		$this->set('students', $this->Tutor->Student->find('all', array('conditions' => array('Student.form' => $form), 'order' => 'Student.forename ASC')));
 	}
 	
 	public function add() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Add New Tutor');
 		if ($this->request->is('post')) {
@@ -73,9 +78,9 @@ class TutorsController extends AppController {
 	
 	public function edit($id = null) {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Edit Tutor');
 		$this->Tutor->id = $id;
@@ -104,9 +109,9 @@ class TutorsController extends AppController {
 	
 	public function delete($id) {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();

@@ -3,7 +3,17 @@ class PagesController extends AppController {
 	public $helpers = array('Html', 'Form', 'Markdown.Markdown');
 	public $components = array('Session');
 
-	var $uses = array('Document', 'Page', 'CmsUser');
+	var $uses = array('Document', 'Page', 'User');
+
+	public function beforeFilter() {
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
+	}
 
 	public function index() {
 		$this->set('title', 'Pages');
@@ -29,11 +39,6 @@ class PagesController extends AppController {
 	}
 
 	public function add() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
 		$this->set('title', 'Add New Page');
 		if ($this->request->is('post')) {
 			if($this->Page->save($this->request->data)) {

@@ -1,8 +1,9 @@
-<p><?php echo $this->Html->Link('Add Category', array('action' => 'add')); ?></p>
 <table class="table table-striped table-hover table-condensed">
 	<thead>
-		<th>Name</th>
-		<th>&nbsp;</th>
+		<th width="80%">Name</th>
+		<th>
+			<?php echo $this->Html->Link('New', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?>
+		</th>
 		<th>&nbsp;</th>
 	</thead>
 	<tbody>

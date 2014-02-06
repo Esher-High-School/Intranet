@@ -1,6 +1,6 @@
 <?php echo $this->Form->create('IncidentMonitor', array('action' => 'add', 'class' => 'form-horizontal')); ?>
 	<?php echo $this->Form->input('upn', array('value' => $upn, 'type' => 'hidden')); ?>
-	<?php if (isset($cmsuser['CmsUser'])): ?>
+	<?php if (isset($User['User'])): ?>
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="inputUsername">Username</label>
 			<div class="col-md-10">

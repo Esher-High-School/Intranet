@@ -3,7 +3,7 @@ class LearningMentorsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session', 'Security');
 	
-	var $uses = array('LearningMentor', 'CmsUser');
+	var $uses = array('LearningMentor', 'User');
 	
 	var $paginate = array(
 		'fields' => array('LearningMentor.id', 'LearningMentor.username'),
@@ -16,9 +16,9 @@ class LearningMentorsController extends AppController {
 	
 	public function index() {
 		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($Authentication->Username());
+		if ($user['User']['authlevel'] <2) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Listing Learning Mentors');
 		$data = $this->paginate('LearningMentor');
@@ -27,9 +27,9 @@ class LearningMentorsController extends AppController {
 	
 	public function add() {
 		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($Authentication->Username());
+		if ($user['User']['authlevel'] <2) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		
 		$this->set('Add New Learning Mentor');
@@ -46,9 +46,9 @@ class LearningMentorsController extends AppController {
 	
 	public function edit($id = null) {
 		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($Authentication->Username());
+		if ($user['User']['authlevel'] <2) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		
 		$this->set('title', 'Edit Learning Mentor');
@@ -77,9 +77,9 @@ class LearningMentorsController extends AppController {
 	
 	public function delete($id) {
 		$Authentication = new Authentication;
-		$user = $this->CmsUser->findByUser($Authentication->Username());
-		if ($user['CmsUser']['authlevel'] <2) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($Authentication->Username());
+		if ($user['User']['authlevel'] <2) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		
 		if ($this->request->is('get')) {

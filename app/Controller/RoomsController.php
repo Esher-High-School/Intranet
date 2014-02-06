@@ -3,19 +3,20 @@ class RoomsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('Room', 'CmsUser');
+	var $uses = array('Room', 'User');
 	
 	public function beforeFilter() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
 		}
-		$this->set('cmsuser', $cmsuser);
 	}
 	
 	public function index() {
-		$this->set('title', 'Listing Rooms');
+		$this->set('title', 'Rooms');
 		$rooms = $this->Room->find('all', array('order' => 'Name ASC'));
 		$this->set('rooms', $rooms);
 	}

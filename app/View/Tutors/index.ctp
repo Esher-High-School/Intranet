@@ -15,7 +15,7 @@ foreach ($tutors as $tutors2): ?>
                 <?php foreach ($tutors2 as $tutor): ?>
                         <tr>
                                 <td width="60%"><?php echo $tutor['Tutor']['name']; ?></td>
-                                <td width="10%"><?php echo $this->Html->Link($tutor['Tutor']['form'], array('action' => 'group', $tutor['Tutor']['id'])); ?></td>
+                                <td width="10%"><?php echo $this->Html->Link($tutor['Tutor']['form'], array('action' => 'view', $tutor['Tutor']['id'])); ?></td>
                                 <td width="20%"><?php echo $tutor['Tutor']['username']; ?></td>
                                 <td>
                                         <?php

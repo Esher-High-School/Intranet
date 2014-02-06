@@ -31,7 +31,7 @@
  */
  
 class AppController extends Controller {
-	var $uses = array('CmsUser');
+	var $uses = array('User');
 	public function beforeFilter() {
 		$this->set('title', '');
 	}
@@ -61,7 +61,7 @@ class AppController extends Controller {
 		$this->set('username', $authUser['username']);
 		
 		// Load Users
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		$User = $this->User->findByUser($Authentication->Username());
 		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
 		$smt = $this->Smt->findByUsername($Authentication->Username());
 		
@@ -73,8 +73,8 @@ class AppController extends Controller {
 		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
 		
 		// Send it all to the view with this wonderful array of ifs
-		if (isset($cmsuser)) {
-			$this->set('cmsuser', $cmsuser);
+		if (isset($User)) {
+			$this->set('User', $User);
 		}
 		if (isset($learningmentor)) {
 			$this->set('learningmentor', $learningmentor);

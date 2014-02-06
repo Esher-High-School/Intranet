@@ -3,7 +3,17 @@ class PhoneExtensionsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('PhoneExtension', 'CmsUser');
+	var $uses = array('PhoneExtension', 'User');
+
+	public function beforeFilter() {
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
+	}
 	
 	public function index() {
 		$this->set('title', 'Phone Extensions');
@@ -13,11 +23,6 @@ class PhoneExtensionsController extends AppController {
 	}
 	
 	public function add() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
 		$this->set('title', 'Add Phone Extension');
 		if ($this->request->is('post')) {
 			if ($this->PhoneExtension->save($this->request->data)) {
@@ -44,11 +49,6 @@ class PhoneExtensionsController extends AppController {
 	}
 	
 	public function edit($id) {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
 		$this->set('title', 'Edit Phone Extension');
 		$this->PhoneExtension->id = $id;
 		if ($this->request->is('get')) {
@@ -74,11 +74,6 @@ class PhoneExtensionsController extends AppController {
 	}
 	
 	public function delete($id) {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		} 

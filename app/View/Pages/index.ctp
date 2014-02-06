@@ -2,7 +2,7 @@
 	<thead>
 		<th>Name</th>
 		<th>
-			<?php if (isset($cmsuser['CmsUser'])) {
+			<?php if (isset($User['User'])) {
 				echo $this->Html->Link(
 					'Add', 
 					array('action' => 'add'),
@@ -20,7 +20,7 @@
 				<?php echo $this->Html->Link($category['Page']['name'], array('action' => 'view', $category['Page']['id'])); ?>
 			</td>
 			<td>
-				<?php if(isset($cmsuser['CmsUser'])) {
+				<?php if(isset($User['User'])) {
 					echo $this->Html->Link('Edit', 
 						array(
 							'action' => 'edit', 
@@ -30,7 +30,7 @@
 				} ?>
 			</td>
 			<td>
-				<?php if (isset($cmsuser['CmsUser'])) {
+				<?php if (isset($User['User'])) {
 					echo $this->Form->postLink('Delete', 
 						array(
 							'action' => 'delete', $category['Page']['id']

@@ -4,7 +4,7 @@
 		<th>Category</th>
 		<th>Download</th>
 		<th>
-			<?php if (isset($cmsuser['CmsUser'])) {
+			<?php if (isset($User['User'])) {
 				echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs'));
 			} ?>
 		</th>
@@ -23,14 +23,14 @@
 				</td>
 				<td>
 					<?php 
-						if (isset($cmsuser['CmsUser'])) {
+						if (isset($User['User'])) {
 							echo $this->Html->Link('Edit', array('action' => 'edit', $document['Document']['id'])); 
 						}
 				?>
 				</td>
 				<td>
 					<?php
-					if (isset($cmsuser['CmsUser'])) {
+					if (isset($User['User'])) {
 						echo $this->Form->postLink(
 							'Delete', 
 							array(

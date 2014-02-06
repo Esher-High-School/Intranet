@@ -41,9 +41,9 @@
 	Router::connect('/incident/*', array('controller' => 'incidents', 'action' => 'view'));
 	
 	/* Administration Areas */
-	Router::connect('/admin/cmsusers', array('controller' => 'cmsusers', 'action' => 'index'));
-	Router::connect('/admin/cmsusers/add', array('controller' => 'cmsusers', 'action' => 'add'));
-	Router::connect('/admin/cmsusers/edit/*', array('controller' => 'cmsusers', 'action' => 'edit'));
+	Router::connect('/admin/users', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/admin/users/add', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/admin/users/edit/*', array('controller' => 'users', 'action' => 'edit'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

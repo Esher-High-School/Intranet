@@ -3,9 +3,17 @@ class HandbookDocumentsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 
-	var $uses = array('HandbookDocument', 'HandbookCategory', 'cmsuser');
+	var $uses = array('HandbookDocument', 'HandbookCategory', 'User');
 
 	public function beforeFilter() {
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
+		
 		$categories = $this->HandbookCategory->getAll();
 		$this->set('categories', $categories);	
 
@@ -78,7 +86,6 @@ class HandbookDocumentsController extends AppController {
 	}
 
 	public function add($categoryId=null) {
-		$this->authenticate();
 		$this->set('title', 'Add Handbook Document');
 		$categories = $this->HandbookCategory->getAll();
 		$this->set('categories', $categories);
@@ -112,11 +119,6 @@ class HandbookDocumentsController extends AppController {
 	}
 
 	public function edit($id) {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser = null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
-		}
 		$this->set('title', 'Edit Handbook Document');
 		$this->HandbookDocument->id = $id;
 		if ($this->request->is('get')) {
@@ -142,7 +144,6 @@ class HandbookDocumentsController extends AppController {
 	}
 
 	public function delete($id) {
-		$this->authenticate();
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
@@ -185,15 +186,6 @@ class HandbookDocumentsController extends AppController {
 			return true;
 		} else {
 			return false;
-		}
-	}
-
-	/* Authentication Magic */
-	function authenticate() {
-		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
 		}
 	}
 }

@@ -3,10 +3,16 @@ class DocumentsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('Document', 'Page', 'CmsUser');
+	var $uses = array('Document', 'Page', 'User');
 
 	public function beforeFilter() {
-
+		if (!($this->action == 'view')) {
+			$Authentication = new Authentication;
+			$User = $this->User->findByUser($Authentication->Username());
+			if (!($User['User']['authlevel']) >= 1) {
+				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			}
+		}
 	}
 
 	public function index() {
@@ -180,9 +186,9 @@ class DocumentsController extends AppController {
 	/* Authentication Magic */
 	function authenticate() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if (!isset($User['User'])) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 	}
 }

@@ -1,4 +1,4 @@
-<?php if (isset($cmsuser)): ?>
+<?php if (isset($User)): ?>
 	<span class="edit-link">
 		<?php 
 		echo $this->Html->Link(
@@ -22,7 +22,7 @@
 		<thead>
 			<th width="80%">Name</th>
 			<th> 
-				<?php if (isset($cmsuser['CmsUser'])) {
+				<?php if (isset($User['User'])) {
 					echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['Page']['id']), array('class' => 'btn btn-primary btn-xs'));
 				} ?>
 			</th>
@@ -45,7 +45,7 @@
 					</td>
 					<td>
 						<?php 
-						if (isset($cmsuser['CmsUser'])) {
+						if (isset($User['User'])) {
 							echo $this->Html->Link(
 								'Edit', 
 								array(
@@ -58,7 +58,7 @@
 					</td>
 					<td>
 						<?php
-						if (isset($cmsuser['CmsUser'])) {
+						if (isset($User['User'])) {
 							echo $this->Form->postLink(
 								'Delete', 
 								array(
@@ -86,7 +86,7 @@
 	<?php else: ?>
 		<h2>This page currently has no content.</h2>
 	<?php endif; ?>
-	<?php if(isset($cmsuser)): ?>
+	<?php if(isset($User)): ?>
 		<p class="center">
 			<?php 
 			echo $this->Html->Link(

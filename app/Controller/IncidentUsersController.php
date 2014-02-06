@@ -3,13 +3,13 @@ class IncidentUsersController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('IncidentUser', 'CmsUser');
+	var $uses = array('IncidentUser', 'User');
 	
 	public function beforeFilter() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser']['id'])) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if (!isset($User['User']['id'])) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 	}
 	
@@ -79,9 +79,9 @@ class IncidentUsersController extends AppController {
 		}
 		
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		if ($this->IncidentUser->delete($id)) {
 			$this->Session->setFlash('

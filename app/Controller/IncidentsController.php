@@ -3,7 +3,7 @@ class IncidentsController extends AppController {
 	public $helpers = array('Html', 'Form', 'Incident', 'Markdown.Markdown');
 	public $components = array('Session');
 	
-	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'CmsUser', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
+	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'User', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
 	
 	var $paginate = array(
 		'fields' => array('Incident.id', 'Incident.upn', 'Incident.problems1', 'Incident.problems2', 'Student.forename', 'Student.surname', 'Student.form'),
@@ -302,7 +302,7 @@ class IncidentsController extends AppController {
 		$Authentication = new Authentication;
 		$hoy = $this->Hoy->getHoyYears($Authentication->Username());
 		if (!isset($hoy[0])) {
-			$this->redirect(array('controller' => 'CmsUser', 'action' => 'accessdenied'));
+			$this->redirect(array('controller' => 'User', 'action' => 'accessdenied'));
 		}
 		if (isset($_POST['yearGroups'])) {
 			$this->redirect(array('action' => 'hoyHome', $_POST['yearGroups']));
@@ -351,7 +351,7 @@ class IncidentsController extends AppController {
 		$Authentication = new Authentication;
 		$hod = $this->Hod->getHodDepts($Authentication->Username());
 		if (!isset($hod[0])) {
-			$this->redirect(array('controller' => 'CmsUsers', 'action' => 'accessdenied'));
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		if (isset($_POST['department'])) {
 			$this->redirect(array('action' => 'hodHome', $_POST['department']));
@@ -373,7 +373,7 @@ class IncidentsController extends AppController {
 		if(!isset($hod[0])) {
 			if (!isset($smt['Smt']['username'])) {
 				$this->redirect(array(
-					'controller' => 'CmsUsers',
+					'controller' => 'users',
 					'action' => 'accessdenied'
 				));
 			}
@@ -628,13 +628,13 @@ class IncidentsController extends AppController {
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUsername($Authentication->Username());
 		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
+		$User = $this->User->findByUser($Authentication->Username());
 		$hoy = $this->Hoy->findByUsername($Authentication->Username());
 		$hod = $this->Hod->findByUsername($Authentication->Username());
 		/*
 		if ($smt == null) {
 			if ($learningmentor == null) {
-				if ($cmsuser == null) {
+				if ($User == null) {
 					if ($hoy == null) {
 						if ($hod == null) {
 							if ($incident['Incident']['username'] !== $Authentication->Username()) {
@@ -662,7 +662,7 @@ class IncidentsController extends AppController {
 		$this->set('student', $student);
 		$this->set('hoy', $hoy);
 		$this->set('hod', $hod);
-		$this->set('cmsuser', $cmsuser);
+		$this->set('User', $User);
 		$this->set('learningmentor', $learningmentor);
 		$this->set('smt', $smt);
 	}

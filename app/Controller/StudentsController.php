@@ -86,9 +86,9 @@ class StudentsController extends AppController {
 	
 	public function add() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if (!isset($User['User'])) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Add New Student');
 		if ($this->request->is('post')) {
@@ -111,9 +111,9 @@ class StudentsController extends AppController {
 	
 	public function edit($upn) {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if (!isset($cmsuser['CmsUser'])) {
-			$this->redirect(array('controller' => 'cmsusers', 'action' => 'accessdenied'));
+		$User = $this->User->findByUser($Authentication->Username());
+		if (!isset($User['User'])) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Edit Student');
 		$this->Student->id = $upn;

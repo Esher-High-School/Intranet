@@ -3,14 +3,14 @@ class IncidentOptionsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 	
-	var $uses = array('IncidentOption', 'CmsUser');
+	var $uses = array('IncidentOption', 'User');
 	
 	public function beforeFilter() {
 
 	}
 	
 	public function index() {
-		$this->set('title', 'Listing Incident Options');
+		$this->set('title', 'Incident Options');
 		$incidentoptions = $this->IncidentOption->find('all', 
 			array(
 				'order' => 'Name ASC'
@@ -96,16 +96,16 @@ class IncidentOptionsController extends AppController {
 	// Authentication
 	function authenticate() {
 		$Authentication = new Authentication;
-		$cmsuser = $this->CmsUser->findByUser($Authentication->Username());
-		if ($cmsuser == null) {
+		$User = $this->User->findByUser($Authentication->Username());
+		if ($User == null) {
 			$this->redirect(
 				array
 				(
-					'controller' => 'CmsUsers',
+					'controller' => 'users',
 					'action' => 'accessdenied'
 				)
 			);
 		}
-		$this->set('cmsuser', $cmsuser);
+		$this->set('User', $User);
 	}
 }

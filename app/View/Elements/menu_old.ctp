@@ -116,7 +116,7 @@ if ($access=="2") {
 	menu_item("Manage Tutors", "http://web.esherhigh.surrey.sch.uk/cake/cms/tutors/", 1);
 	menu_item("Manage HoYs", "http://web.esherhigh.surrey.sch.uk/cake/admin/hoy", 1);
 	menu_item("Manage SMT Staff", "http://web.esherhigh.surrey.sch.uk/cake/admin/smt", 1);
-	menu_item("Manage CMS Users","http://web.esherhigh.surrey.sch.uk/cake/admin/cmsusers" , 0);
+	menu_item("Manage CMS Users","http://web.esherhigh.surrey.sch.uk/cake/admin/users" , 0);
 //	menu_item("Manage SNOW!","http://web.esherhigh.surrey.sch.uk/manage_snow.php",0);
 }
 
