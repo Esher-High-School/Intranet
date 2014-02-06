@@ -12,6 +12,12 @@ class UsersController extends AppController {
 			3 => 'Thought for the Day Upload'
 		);
 		$this->set('roles', $roles);
+
+		$options = array(
+			0 => 'False',
+			1 => 'True'
+		);
+		$this->set('options', $options);
 	}
 	
 	public function index() {
@@ -36,7 +42,7 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		
-		$this->set('title', 'Add CMS user');
+		$this->set('title', 'Add User');
 		if ($this->request->is('post')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('
@@ -64,7 +70,7 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		
-		$this->set('title', 'Edit CMS User');
+		$this->set('title', 'Edit User');
 		$this->User->id = $id;
 		if ($this->request->is('get')) {
 			$this->request->data = $this->User->read();
