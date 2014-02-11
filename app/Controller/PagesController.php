@@ -6,7 +6,7 @@ class PagesController extends AppController {
 	var $uses = array('Document', 'Page', 'User');
 
 	public function beforeFilter() {
-		if (!($this->action == 'view')) {
+		if ($this->action !== 'view') {
 			$Authentication = new Authentication;
 			$User = $this->User->findByUser($Authentication->Username());
 			if (!($User['User']['authlevel']) >= 1) {

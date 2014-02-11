@@ -1,17 +1,15 @@
 <?php
 class SubjectsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
+	public $components = array('Session', 'basicAuth');
 	
 	var $uses = array('Subject', 'User');
 	
 	public function beforeFilter() {
-		if (!($this->action == 'view')) {
-			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
-				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
-			}
+		$username = $this->basicAuth->getUsername();
+		$user = $this->User->findByUser($username);
+		if (!($this->basicAuth->checkGroupMembership($user, 'Administrators'))) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 	}
 	

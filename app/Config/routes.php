@@ -131,6 +131,11 @@
 	Router::connect('/admin/users', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/admin/users/add', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/admin/users/edit/*', array('controller' => 'users', 'action' => 'edit'));
+	Router::connect('/admin/users/*', array('controller' => 'users', 'action' => 'view'));
+
+	Router::connect('/admin/groups', array('controller' => 'groups', 'action' => 'index'));
+	Router::connect('/admin/groups/add', array('controller' => 'groups', 'action' => 'add'));
+	Router::connect('/admin/groups/edit/*', array('controller' => 'groups', 'action' => 'edit'));
 
 	Router::connect('/admin/incidentusers', array('controller' => 'incidentUsers', 'action' => 'index'));
 	

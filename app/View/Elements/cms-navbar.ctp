@@ -117,9 +117,23 @@
 								<li>
 									<?php
 									echo $this->Html->Link(
-										'<i class="fa fa-users"></i> Users',
+										'<i class="fa fa-user"></i> Users',
 										array(
 											'controller' => 'users',
+											'action' => 'index'
+										),
+										array(
+											'escape' => false
+										)
+									);
+									?>
+								</li>
+								<li>
+									<?php
+									echo $this->Html->Link(
+										'<i class="fa fa-users"></i> Groups',
+										array(
+											'controller' => 'groups',
 											'action' => 'index'
 										),
 										array(
@@ -155,24 +169,10 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
+
 							<li>
-								<?php 
-								echo $this->Html->Link(
-									'<i class="fa fa-users"></i> CMS Users', 
-									array(
-										'controller' => 'users', 
-										'action' => 'index'
-									),
-									array(
-										'escape' => false
-									)
-								); 
-								?>
+								<?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
 							</li>
-							<li class="divider"></li>
-								<li>
-									<?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
-								</li>
 							<li>
 								<?php echo $this->Html->Link('Tutors', array('controller' => 'tutors', 'action' => 'index')); ?>
 							</li>

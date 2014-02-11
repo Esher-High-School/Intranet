@@ -30,6 +30,14 @@ class UsersController extends AppController {
 		$users = $this->User->getUsers();
 		$this->set('users', $users);
 	}
+
+	public function view($id) {
+		$this->User->id = $id;
+		$user = $this->User->read();
+		$this->set('user', $user);
+
+		$this->set('title', 'Viewing ' . $user['User']['user']);
+	}
 	
 	public function accessdenied() {
 		$this->set('title', 'Access Denied');
@@ -48,19 +56,22 @@ class UsersController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						CMS user added successfully.
+						User added successfully.
 					</div>
 			');
 			$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('
-					<div class="alert alert-warning">
+					<div class="alert alert-danger">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Unable to add the CMS user. Please make sure that you have filled out all fields correctly.
+						Unable to add the user. Please make sure that you have completed all fields correctly.
 					</div>
 				');
 			}
 		}
+
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 	
 	public function edit($id) {
@@ -79,19 +90,22 @@ class UsersController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						CMS user updated successfully.
+						User updated successfully.
 					</div>
 				');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash('
-					<div class="alert alert-error">
+					<div class="alert alert-danger">
 						<button class="close" data-dismiss="alert">&times;</button>
 						Unable to update the CMS user. Please make sure that you have filled out all fields correctly.
 					</div>
 				');
 			}
 		}
+
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 	
 	public function delete($id) {
@@ -107,7 +121,7 @@ class UsersController extends AppController {
 			$this->Session->setFlash('
 				<div class="alert alert-success">
 					<button class="close" data-dismiss="alert">&times;</button>
-					CMS user deleted successfully.
+					User deleted successfully.
 				</div>
 			');
 			$this->redirect(array('action' => 'index'));

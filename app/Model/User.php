@@ -1,7 +1,15 @@
 <?php
 class User extends AppModel {
-	var $useTable = 'users';
-	
+	public $hasAndBelongsToMany = array(
+		'Group' => array(
+			'className' => 'Group',
+			'joinTable' => 'groups_users',
+			'foreignKey' => 'user_id',
+			'associationForeignKey' => 'group_id',
+			'unique' => true,
+		)
+	);
+
 	public $validate = array(
 		'user' => array(
 			'rule' => 'notEmpty'

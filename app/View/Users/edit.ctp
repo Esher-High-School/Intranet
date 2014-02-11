@@ -1,21 +1,44 @@
-<?php echo $this->Form->Create('User', array('class' => 'form-horizontal', 'action' => 'edit')); ?>
-<?php echo $this->Form->input('id', array('type' => 'hidden', 'label' => false, 'class' => 'form-control')); ?>
+<?php 
+echo $this->Form->Create(
+	'User', 
+	array(
+		'class' => 'form-horizontal', 
+		'action' => 'edit'
+		)
+	); 
+?>
 	<div class="form-group">
-		<label class="col-md-3 control-label" for="user">Username</label>
-		<div class="col-md-9">
-			<?php echo $this->Form->input('user', array('label' => false, 'class' => 'form-control')); ?>
+		<label class="col-md-2 control-label" for="user">Username</label>
+		<div class="col-md-10">
+			<?php 
+			echo $this->Form->input(
+				'user', 
+				array(
+					'label' => false, 
+					'class' => 'form-control'
+				)
+			); 
+			?>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-md-3 control-label" for="authlevel">Role</label>
-		<div class="col-md-9">
-			<?php echo $this->Form->input('authlevel', array('type' => 'select', 'options' => $roles, 'label' => false, 'class' => 'form-control')); ?>
+		<label class="col-md-2 control-label" for="authlevel">Groups</label>
+		<div class="col-md-10">
+			<?php 
+			echo $this->Form->input(
+				'Group',
+				array(
+					'label' => false,
+					'class' => 'form-control'
+				)
+			);
+			?>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<div class="col-md-9">
+		<div class="col-md-10 col-md-offset-2">
 		<?php echo $this->Form->button('Save', array('type' => 'submit', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
