@@ -23,15 +23,26 @@
 
 	Router::connect('/', array('controller' => 'StaffBulletins', 'action' => 'display'));
 
+	// Pages
+	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/pages/edit/*', array('controller' => 'pages', 'action' => 'edit'));
+	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
+
+	// Documents
+	Router::connect('/documents/add', array('controller' => 'documents', 'action' => 'add'));
+	Router::connect('/documents/edit/*', array('controller' => 'documents', 'action' => 'edit'));
+	Router::connect('/documents/*', array('controller' => 'documents', 'action' => 'download'));
+
+	// Cover
 	Router::connect('/cover/*', array('controller' => 'cover', 'action' => 'index'));
 	
+	// TFD
 	Router::connect('/tfd', array('controller' => 'tfds', 'action' => 'index'));
 	
-	Router::connect('/phoneextensions', array('controller' => 'PhoneExtensions', 'action' => 'index'));
-
-	Router::connect('/documents', array('controller' => 'Documents', 'action' => 'index'));
-	Router::connect('/documents/category', array('controller' => 'DocumentCategories', 'action' => 'index'));
-	Router::connect('/documents/category/*', array('controller' => 'DocumentCategories', 'action' => 'view')); 
+	// Phone Extensions
+	Router::connect('/extensions', array('controller' => 'phoneExtensions', 'action' => 'index'));
+	Router::connect('/extensions/edit/*', array('controller' => 'phoneExtensions', 'action' => 'edit'));
+	Router::connect('/extensions/add', array('controller' => 'phoneExtensions', 'action' => 'add'));
 
 	Router::connect('/handbook', array('controller' => 'handbookDocuments', 'action' => 'home'));
 
@@ -42,6 +53,7 @@
 
 	Router::connect('/handbook/add/*', array('controller' => 'handbookDocuments', 'action' => 'add'));
 	Router::connect('/handbook/edit/*', array('controller' => 'handbookDocuments', 'action' => 'edit'));
+	Router::connect('/handbook/download/*', array('controller' => 'handbookDocuments', 'action' => 'document'));
 	Router::connect('/handbook/*', array('controller' => 'handbookDocuments', 'action' => 'view'));
 
 	/* Incident Reporting */
@@ -177,5 +189,5 @@
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.
  */
-	require CAKE . 'Config' . DS . 'routes.php';
+	//require CAKE . 'Config' . DS . 'routes.php';
 	

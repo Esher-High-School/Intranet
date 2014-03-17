@@ -1,7 +1,7 @@
 <?php
 class IncidentMonitorsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
+	public $components = array('Session', 'basicAuth');
 	
 	var $uses = array('IncidentMonitor', 'Student');
 	
@@ -13,6 +13,14 @@ class IncidentMonitorsController extends AppController {
 			'IncidentMonitor.enddate' => 'desc'
 		)
 	);
+
+	public function beforeFilter() {
+		$username = $this->basicAuth->getUsername();
+		$user = $this->User->findByUser($username);
+		if (!($this->basicAuth->checkGroupMembership($user, 'Incident Monitoring'))) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+		}
+	}
 	
 	public function index() {
 		$this->set('title', 'Listing Incident Monitoring Entries');
@@ -21,7 +29,6 @@ class IncidentMonitorsController extends AppController {
 	}
 	
 	public function add($upn=null) {
-		$Authentication = new Authentication;
 		$this->set('title', 'Monitor Student');
 		$student = $this->Student->find('first', array('conditions' => array('Student.upn' => $upn)));
 		$this->set('upn', $upn);

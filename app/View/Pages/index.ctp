@@ -19,18 +19,19 @@
 			<td width="80%">
 				<?php echo $this->Html->Link($category['Page']['name'], array('action' => 'view', $category['Page']['id'])); ?>
 			</td>
-			<td>
-				<?php if(isset($User['User'])) {
+			<?php if (isset($cmsuser)): ?>
+				<td>
+					<?php
 					echo $this->Html->Link('Edit', 
 						array(
 							'action' => 'edit', 
 							$category['Page']['id']
 						) 
-					);
-				} ?>
-			</td>
-			<td>
-				<?php if (isset($User['User'])) {
+					}
+					?>
+				</td>
+				<td>
+					<?php 
 					echo $this->Form->postLink('Delete', 
 						array(
 							'action' => 'delete', $category['Page']['id']
@@ -38,8 +39,9 @@
 						array(
 							'Are you sure you want to delete this category?')
 						);
-				} ?>
-			</td>
+					?>
+				</td>
+			<?php endif; ?>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>

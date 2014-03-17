@@ -39,6 +39,6 @@
 <?php echo $this->Form->end(); ?>
 <?php if (isset($selected_category)): ?>
 	<p>
-		<?php echo $this->Html->Link('Back to page', array('controller' => 'Pages', 'action' => 'view', $selected_category['Page']['id'])); ?>
+		<?php echo $this->Html->Link('Back to page', array('controller' => 'pages', 'action' => 'view', $selected_category['Page']['id'])); ?>
 	</p>
 <?php endif; ?>

@@ -581,15 +581,15 @@ class IncidentsController extends AppController {
 	}
 	
 	public function student($upn, $day=10, $dept=null) {
-		$hoy = $this->Hoy->getHoyYears($basicAuth->getUsername());
-		$hod = $this->Hod->getHodDepts($basicAuth->getUsername());
+		/*
+		$hoy = $this->Hoy->getHoyYears($user);
+		$hod = $this->Hod->getHodDepts($user);
 		if (!isset($hoy[0])) {
 			if (!isset($hod[0])) {
 				$this->redirect(array('controller' => 'learningmentors', 'action' => 'accessdenied'));
 			}
 		}
-		$this->set('smt', $smt);
-		$this->set('learningmentor', $learningmentor);
+		*/
 		$student = $this->Incident->Student->findByUpn($upn);
 		$this->set('student', $student);
 		$this->set('title', 'Incidents for ' . $student['Student']['forename'] . ' ' . $student['Student']['surname']);

@@ -75,7 +75,7 @@
 						);
 						?>
 					</li>
-					<?php if(isset($learningmentor['LearningMentor']['id'])): ?>
+					<?php if(isset($learningmentor)): ?>
 						<li>
 							<?php
 							echo $this->Html->Link('Learning Mentor Incidents',
@@ -87,7 +87,7 @@
 							?>
 						</li>
 					<?php endif;
-					if(isset($smt['Smt']['id'])): ?>
+					if(isset($smt)): ?>
 						<li>
 							<?php 
 							echo $this->Html->Link('SMT Incident Reporting',
@@ -169,7 +169,7 @@
 			<li>
 				<?php echo $this->Html->Link('Phone Extensions',
 					array(
-						'controller' => 'PhoneExtensions',
+						'controller' => 'phoneExtensions',
 						'action' => 'index'
 					)
 				);

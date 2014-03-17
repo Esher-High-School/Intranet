@@ -17,7 +17,7 @@ if (isset($title)) {
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
-		<?php if (isset($cmsAccess)): ?>
+		<?php if (isset($cmsuser)): ?>
 			<style type="text/css" media="screen">
 				body {
 					padding-top: 51px;
@@ -75,7 +75,7 @@ if (isset($title)) {
 			<?php
 			if ($this->params['controller'] == 'incidents') {
 				if ($this->params['action'] !== 'report') {
-					if (isset($smt['Smt'])) {
+					if (isset($smt)) {
 						echo $this->element('smtmenu', array('user' => $username));
 					}
 					if (isset($learningmentor['LearningMentor'])) {
