@@ -5,7 +5,7 @@
 	<thead>
 		<th width="10%">Ext</th>
 		<th width="85%">Name</th>
-		<?php if (isset($User)): ?>
+		<?php if (isset($admin)): ?>
 			<th class="cms-tools">
 				<?php echo $this->Html->Link('Add', 
 					array('action' => 'add'),
@@ -24,7 +24,7 @@
 				<td>
 					<?php echo $extension['PhoneExtension']['name']; ?>
 				</td>
-				<?php if (isset($User)): ?>
+				<?php if (isset($admin)): ?>
 					<td class="cms-tools">
 						<?php echo $this->Html->Link('Edit', 
 							array('action' => 'edit', $extension['PhoneExtension']['id'])

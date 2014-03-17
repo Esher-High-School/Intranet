@@ -32,6 +32,8 @@
  
 class AppController extends Controller {
 	var $uses = array('User');
+
+	public $components = array('basicAuth');
 	public function beforeFilter() {
 		$this->set('title', '');
 	}
@@ -55,22 +57,43 @@ class AppController extends Controller {
 		$this->loadModel('IncidentUser');
 		
 		// Authentication magic
-		$Authentication = new Authentication;
-		$authUser['username'] = $Authentication->Username();
-		$this->set('authUser', $authUser);
-		$this->set('username', $authUser['username']);
+		$username = $this->basicAuth->getUsername();
+		$this->set('username', $username);
+
+		$user = $this->User->findByUser($username);
 		
 		// Load Users
-		$User = $this->User->findByUser($Authentication->Username());
-		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
-		$smt = $this->Smt->findByUsername($Authentication->Username());
+		if (isset($user)) {
+			if (
+				$this->basicAuth->checkGroupMembership($user, 'Administrators')	
+			) {
+				$this->set('admin', true);
+			}
+			if (
+				$this->basicAuth->checkGroupMembership($user, 'Publisher') or
+				$this->basicAuth->checkGroupMembership($user, 'Administrators') or
+				$this->basicAuth->checkGroupMembership($user, 'Handbook Publishers')
+			) {
+				$this->set('cmsuser', true);
+			}
+			if (
+				$this->basicAuth->checkGroupMembership($user, 'Learning Mentors')
+			) {
+				$this->set('learningmentor', true);
+			}
+			if (
+				$this->basicAuth->checkGroupMembership($user, 'SMT')
+			) {
+				$this->set('smt', true);
+			}
+		}
 		
 		// Get group information
-		$hoy = $this->Hoy->getHoyYears($Authentication->Username());
+		$hoy = $this->Hoy->getHoyYears($username);
 		
-		$tutor = $this->Tutor->findByUsername($Authentication->Username());
-		$hod = $this->Hod->getHodDepts($Authentication->Username());
-		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
+		$tutor = $this->Tutor->findByUsername($username);
+		$hod = $this->Hod->getHodDepts($username);
+		$incidentuser = $this->IncidentUser->findByUsername($username);
 		
 		// Send it all to the view with this wonderful array of ifs
 		if (isset($User)) {

@@ -60,7 +60,8 @@ class IncidentsController extends AppController {
 				$this->action == 'index' or
 				$this->action == 'incidentsByYear' or
 				$this->action == 'incidentsByDepartment' or
-				$this->action == 'hoyhome'
+				$this->action == 'hoyhome' or
+				$this->action == 'formlist'
 			) {
 				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 			}
@@ -476,7 +477,6 @@ class IncidentsController extends AppController {
 		}
 
 		$this->set('users', $this->Incident->getUsers($startdate));
-		$this->set('smt', $smt);
 		$this->set('startdate', $startdate);
 	}
 	
@@ -534,11 +534,6 @@ class IncidentsController extends AppController {
 	}
 	
 	public function formlist($startdate=null, $enddate=null, $year='') {
-		$Authentication = new Authentication;
-		$smt = $this->Smt->findByUsername($Authentication->Username());
-		if ($smt == null) {
-			$this->redirect(array('controller' => 'smts', 'action' => 'accessdenied'));
-		}
 		if (isset($_POST['startDate'])) {
 			$this->redirect(array('action' => 'formList', $_POST['startDate'], $_POST['endDate'], $_POST['yearGroup']));
 		}

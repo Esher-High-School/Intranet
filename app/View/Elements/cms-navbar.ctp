@@ -3,166 +3,164 @@
 		<div class="container">
 			<a href="/" class="navbar-brand">Staff Intranet</a>
 			<ul class="nav navbar-nav pull-right">
-				<?php if (isset($User['User']['id'])): ?>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Content
-							<b class="caret"></b>
-						</a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Content
+						<b class="caret"></b>
+					</a>
 
-						<ul class="dropdown-menu">
-							<?php if ($User['User']['authlevel'] == 2 or $User['User']['authlevel'] == 1): ?>
-								<li>
-									<?php 
-									echo $this->Html->Link(
-										'<i class="fa fa-file-text-o"></i> Pages', 
-										array(
-											'controller' => 'pages', 
-											'action' => 'index'
-											),
-										array(
-											'escape' => false
-										)
-									); 
-									?>
-								</li>
-								<li>
-									<?php 
-									echo $this->Html->Link(
-										'<i class="fa fa-list-alt"></i> Staff Bulletin', 
-										array(
-											'controller' => 'staffBulletins', 
-											'action' => 'index'
-											),
-										array(
-											'escape' => false
-										)
-									); 
-									?>
-								</li>
-							<?php endif; ?>
-							<?php if ($User['User']['authlevel'] == 2 or $User['User']['authlevel'] == 1): ?>
-								<li>
-									<?php 
-									echo $this->Html->Link(
-										'<i class="fa fa-book"></i> Staff Handbook', 
-										array(
-											'controller' => 'handbookCategories', 
-											'action' => 'index'
+					<ul class="dropdown-menu">
+						<?php if (isset($cmsuser)): ?>
+							<li>
+								<?php 
+								echo $this->Html->Link(
+									'<i class="fa fa-file-text-o"></i> Pages', 
+									array(
+										'controller' => 'pages', 
+										'action' => 'index'
 										),
-										array(
-											'escape' => false
-										)
-									); ?>
-								</li>
-							<?php endif; ?>
-							<?php if ($User['User']['authlevel'] == 2): ?>
-								<li>
-									<?php 
-									echo $this->Html->Link(
-										'<i class="fa fa-link"></i> Links', 
-										array(
-											'controller' => 'links', 
-											'action' => 'index'
-										), 
-										array('escape' => false)
-									); 
-									?>
-								</li>
-							<?php endif; ?>
-							<?php if($User['User']['authlevel'] == 2): ?>
-								<li class="divider"></li>
-								<li>
-									<?php 
-									echo $this->Html->Link(
-										'<i class="fa fa-folder"></i> Subjects', 
-										array(
-											'controller' => 'subjects', 
-											'action' => 'index'
+									array(
+										'escape' => false
+									)
+								); 
+								?>
+							</li>
+							<li>
+								<?php 
+								echo $this->Html->Link(
+									'<i class="fa fa-list-alt"></i> Staff Bulletin', 
+									array(
+										'controller' => 'staffBulletins', 
+										'action' => 'index'
 										),
-										array(
-											'escape' => false
-										)
-									); 
-									?>
-								</li>
-								<li>
-									<?php 
-									echo $this->Html->Link(
-										'<i class="fa fa-location-arrow"></i> Rooms', 
-										array(
-											'controller' => 'rooms', 
-											'action' => 'index'
-										),
-										array(
-											'escape' => false
-										)
-									); 
-									?>
-								</li>
-								<li>
-									<?php echo $this->Html->Link(
-										'<i class="fa fa-list"></i> Incident Options',
-										array(
-											'controller' => 'incidentOptions',
-											'action' => 'index'
-										),
-										array(
-											'escape' => false
-										)
-									);
-									?>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<?php
-									echo $this->Html->Link(
-										'<i class="fa fa-user"></i> Users',
-										array(
-											'controller' => 'users',
-											'action' => 'index'
-										),
-										array(
-											'escape' => false
-										)
-									);
-									?>
-								</li>
-								<li>
-									<?php
-									echo $this->Html->Link(
-										'<i class="fa fa-users"></i> Groups',
-										array(
-											'controller' => 'groups',
-											'action' => 'index'
-										),
-										array(
-											'escape' => false
-										)
-									);
-									?>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<?php
-									echo $this->Html->Link(
-										'<i class="fa fa-cogs"></i> Global Settings', 
-										array(
-											'controller' => 'settings', 
-											'action' => 'index'
-										),
-										array(
-											'escape' => false
-										)
-									); 
-									?>
-								</li>
-							<?php endif; ?>
-						</ul>
-					</li>
-				<?php endif; ?>
+									array(
+										'escape' => false
+									)
+								); 
+								?>
+							</li>
+						<?php endif; ?>
+						<?php if (isset($cmsuser) or isset($handbookpublisher)): ?>
+							<li>
+								<?php 
+								echo $this->Html->Link(
+									'<i class="fa fa-book"></i> Staff Handbook', 
+									array(
+										'controller' => 'handbookCategories', 
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								); ?>
+							</li>
+						<?php endif; ?>
+						<?php if (isset($admin)): ?>
+							<li>
+								<?php 
+								echo $this->Html->Link(
+									'<i class="fa fa-link"></i> Links', 
+									array(
+										'controller' => 'links', 
+										'action' => 'index'
+									), 
+									array('escape' => false)
+								); 
+								?>
+							</li>
+						<?php endif; ?>
+						<?php if(isset($admin)): ?>
+							<li class="divider"></li>
+							<li>
+								<?php 
+								echo $this->Html->Link(
+									'<i class="fa fa-folder"></i> Subjects', 
+									array(
+										'controller' => 'subjects', 
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								); 
+								?>
+							</li>
+							<li>
+								<?php 
+								echo $this->Html->Link(
+									'<i class="fa fa-location-arrow"></i> Rooms', 
+									array(
+										'controller' => 'rooms', 
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								); 
+								?>
+							</li>
+							<li>
+								<?php echo $this->Html->Link(
+									'<i class="fa fa-list"></i> Incident Options',
+									array(
+										'controller' => 'incidentOptions',
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								);
+								?>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-user"></i> Users',
+									array(
+										'controller' => 'users',
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								);
+								?>
+							</li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-users"></i> Groups',
+									array(
+										'controller' => 'groups',
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								);
+								?>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-cogs"></i> Global Settings', 
+									array(
+										'controller' => 'settings', 
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								); 
+								?>
+							</li>
+						<?php endif; ?>
+					</ul>
+				</li>
 
-				<?php if ($User['User']['authlevel'] == 2): ?>
+				<?php if (isset($admin)): ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Users
@@ -191,39 +189,6 @@
 							</li>
 							<li>
 								<?php echo $this->Html->Link('SMT Staff', array('controller' => 'smts', 'action' => 'index')); ?>
-							</li>
-						</ul>
-					</li>
-				<?php endif; ?>
-
-				<?php if($User['User']['authlevel'] == 2): ?>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Admin
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-
-							<li class="divider">
-
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Spiceworks', 'https://eh-spiceworks'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Classlink 11', 'https://eh-cl11.esherhigh.surrey.sch.uk'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Censornet', 'http://10.18.56.9'); ?>
-							</li>
-							<li class="divider">
-
-							</li>
-							<li>
-								<?php echo $this->Html->Link('phpMyAdmin', 'http://admin.web.esherhigh.surrey.sch.uk/phpMyAdmin/'); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('phpSysInfo', 'http://admin.web.esherhigh.surrey.sch.uk/phpSysInfo/'); ?>
 							</li>
 						</ul>
 					</li>
