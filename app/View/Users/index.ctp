@@ -12,13 +12,10 @@ function tf($value) {
 }
 
 ?>
-<table class="table table-striped table-hover table-condensed table-contents-center">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
-		<th>Username</th>
+		<th width="80%">Username</th>
 		<th>Role</th>
-		<th>Incident Printing</th>
-		<th>Incident Monitoring</th>
-		<th>SMT Access</th>
 		<th><?php echo $this->Html->Link('Add', array('action' => 'add'), array('class' => 'btn btn-primary btn-xs')); ?></th>
 		<th></th>
 	</thead>
@@ -26,15 +23,8 @@ function tf($value) {
 		<?php foreach($users as $User): ?>
 			<tr>
 				<td><?php echo $User['User']['user']; ?></td>
-				<td><?php echo role($roles, $User['User']['authlevel']); ?></td>
 				<td>
-					<?php echo tf($User['User']['printing']); ?>
-				</td>
-				<td>
-					<?php echo tf($User['User']['monitoring']); ?>
-				</td>
-				<td>
-					<?php echo tf($User['User']['smt']); ?>
+					<?php echo $User['User']['authlevel']; ?>
 				</td>
 				<td>
 					<?php echo $this->Html->Link('Edit', array('action' => 'edit', $User['User']['id']), array('escape' => false)); ?>

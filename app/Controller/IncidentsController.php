@@ -14,6 +14,11 @@ class IncidentsController extends AppController {
 		)
 	);
 	
+	public function beforeFilter() {
+		$username = $this->basicAuth->getUsername();
+		$user = $this->User->findByUser($username);
+	}
+
 	public function index($startdate=null, $enddate=null, $year='') {
 		$this->set('title', 'Incident List');
 		$posted = true;
@@ -668,6 +673,7 @@ class IncidentsController extends AppController {
 	}
 
 	public function printIncidentsSelect($upn, $date1=null, $date2=null) {
+
 		$this->set('title', 'Print Incidents');
 		$student = $this->Student->findByUpn($upn);
 
@@ -698,6 +704,9 @@ class IncidentsController extends AppController {
 	}
 
 	public function printIncidents($upn, $date1, $date2) {
+		if (!$this->basicAuth->checkGroupMembership($user, 'Incident Printing'));
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+		}
 		$this->set('title', 'Incidents Printout');
 		$this->layout = 'print';
 		$incidents = $this->Incident->getStudentIncidentsByDates($upn, $date1, $date2);

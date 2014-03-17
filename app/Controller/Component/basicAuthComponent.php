@@ -5,8 +5,9 @@ class basicAuthComponent extends Component {
 	}
 
 	function checkGroupMembership($user, $group) {
-		foreach($user['Group'] as $group) {
-			if ($group['name'] == $group) {
+		$member = false;
+		foreach($user['Group'] as $uGroup) {
+			if ($uGroup['name'] == $group) {
 				$member = true;
 			}
 		}

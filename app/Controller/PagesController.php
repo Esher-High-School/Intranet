@@ -1,19 +1,20 @@
 <?php
 class PagesController extends AppController {
 	public $helpers = array('Html', 'Form', 'Markdown.Markdown');
-	public $components = array('Session');
+	public $components = array('Session', 'basicAuth');
 
 	var $uses = array('Document', 'Page', 'User');
 
 	public function beforeFilter() {
+		$username = $this->basicAuth->getUsername();
+		$user = $this->User->findByUser($username);
 		if ($this->action !== 'view') {
-			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
+			if (!($this->basicAuth->checkGroupMembership($user, 'Publishers'))) {
 				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 			}
 		}
 	}
+
 
 	public function index() {
 		$this->set('title', 'Pages');

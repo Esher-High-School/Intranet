@@ -1,12 +1,16 @@
 <?php
 class IncidentOptionsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
+	public $components = array('Session', 'basicAuth');
 	
 	var $uses = array('IncidentOption', 'User');
 	
 	public function beforeFilter() {
-
+		$username = $this->basicAuth->getUsername();
+		$user = $this->User->findByUser($username);
+		if (!($this->basicAuth->checkGroupMembership($user, 'Administrators'))) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+		}
 	}
 	
 	public function index() {
