@@ -8,13 +8,13 @@
 
 	<?php 
 	if (isset($selected_category)):
-		echo $this->Form->input('category_id', array('type' => 'hidden', 'value' => $selected_category['Page']['id'])); 
+		echo $this->Form->input('page_id', array('type' => 'hidden', 'value' => $selected_category['Page']['id'])); 
 	else:
 	?>
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="category">Category</label>
 			<div class="col-md-10">
-				<select name="data[Document][category_id]" class="form-control" required="required">
+				<select name="data[Document][page_id]" class="form-control" required="required">
 					<?php foreach($categories as $category): ?>
 						<option value="<?php echo $category['Page']['id']; ?>">
 							<?php echo $category['Page']['name']; ?>

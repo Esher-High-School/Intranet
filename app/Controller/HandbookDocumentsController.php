@@ -6,7 +6,7 @@ class HandbookDocumentsController extends AppController {
 	var $uses = array('HandbookDocument', 'HandbookCategory', 'User');
 
 	public function beforeFilter() {
-		if (!($this->action == 'view')) {
+		if (!($this->action == 'view' or $this->action == 'home' or $this->action == 'document')) {
 			$Authentication = new Authentication;
 			$User = $this->User->findByUser($Authentication->Username());
 			if (!($User['User']['authlevel']) >= 1) {

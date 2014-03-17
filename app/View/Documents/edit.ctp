@@ -13,7 +13,7 @@
 			</small>
 		</label>
 		<div class="col-md-10">
-			<select name="data[Document][category_id]" class="form-control">
+			<select name="data[Document][page_id]" class="form-control">
 				<option value="<?php echo $document_category['Page']['id']; ?>">
 					<?php echo $document_category['Page']['name']; ?>
 				</option>

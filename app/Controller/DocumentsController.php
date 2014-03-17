@@ -39,7 +39,7 @@ class DocumentsController extends AppController {
 						Your document has been added successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'pages', 'action' => 'view', $this->request->data['Document']['category_id']));
+				$this->redirect(array('controller' => 'pages', 'action' => 'view', $this->request->data['Document']['page_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-danger">
@@ -59,7 +59,7 @@ class DocumentsController extends AppController {
 		if ($this->request->is('get')) {
 			$categories = $this->Page->getPages();
 			$this->request->data = $this->Document->read();
-			$category_id = $this->request->data['Document']['category_id'];
+			$category_id = $this->request->data['Document']['page_id'];
 			$document_category = $this->Page->findById($category_id);
 			$this->set('document_category', $document_category);
 			$this->set('categories', $categories);
@@ -71,7 +71,7 @@ class DocumentsController extends AppController {
 						Document updated successfully.
 					</div>
 				');
-				$this->redirect(array('controller' => 'pages', 'action' => 'view', $document['Document']['category_id']));
+				$this->redirect(array('controller' => 'pages', 'action' => 'view', $document['Document']['page_id']));
 			} else {
 				$this->Session->setFlash('
 					<div class="alert alert-error">
@@ -141,7 +141,7 @@ class DocumentsController extends AppController {
 		}
 		$this->Document->id = $id;
 		$document = $this->Document->read();
-		$category = $document['Document']['category_id'];
+		$category = $document['Document']['page_id'];
 		if ($this->deleteFile($id) && $this->Document->delete($id)) {
 			$this->Session->setFlash('
 				<div class="alert alert-success">
@@ -151,7 +151,7 @@ class DocumentsController extends AppController {
 			');
 			$this->redirect(array('controller' => 'pages', 'action' => 'view', $category));
 		} else {
-			die('File did not delete');
+			die('File could not be deleted. Please contact ICT support. ');
 		}
 	}
 
@@ -160,7 +160,7 @@ class DocumentsController extends AppController {
 		$file = $this->data['Document']['document'];
 		if ($file['error'] == UPLOAD_ERR_OK) {
 			$id = String::uuid();
-			$category = $this->data['Document']['category_id'];
+			$category = $this->data['Document']['page_id'];
 			if (move_uploaded_file($file['tmp_name'], APP.'Uploads'.DS.$id)) {
 				$this->request->data['Document']['document'] = $id;
 				$this->request->data['Document']['filename'] = $file['name'];
