@@ -17,7 +17,12 @@ if (isset($title)) {
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
-		<?php if (isset($cmsuser)): ?>
+		<?php 
+		if (
+			isset($ugroups['Publishers']) or
+			isset($ugroups['Administrators'])
+		): 
+		?>
 			<style type="text/css" media="screen">
 				body {
 					padding-top: 51px;
@@ -31,8 +36,11 @@ if (isset($title)) {
 	<body>
 		<script src="/javascripts/jquery.min.js" type="text/javascript"></script>
 		<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
-		<?php 
-		if (isset($cmsuser)) {
+		<?php
+		if (
+			isset($ugroups['Publishers']) or
+			isset($ugroups['Administrators'])
+		) {
 			echo $this->element('cms-navbar'); 
 		}
 		?>
@@ -61,14 +69,16 @@ if (isset($title)) {
 		?>
 
 		<div class="page-title container">
-			<h1>
-				<?php echo $title; ?>
-				<?php if (isset($subtitle)): ?>
-					<small>
-						<?php echo $subtitle; ?>
-					</small>
-				<?php endif; ?>
-			</h1>
+			<?php if (isset($title)): ?>
+				<h1>
+					<?php echo $title; ?>
+					<?php if (isset($subtitle)): ?>
+						<small>
+							<?php echo $subtitle; ?>
+						</small>
+					<?php endif; ?>
+				</h1>
+			<?php endif; ?>
 		</div>
 
 		<div class="main-container">

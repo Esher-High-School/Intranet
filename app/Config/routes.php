@@ -29,8 +29,6 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
 
 	// Documents
-	Router::connect('/documents/add', array('controller' => 'documents', 'action' => 'add'));
-	Router::connect('/documents/edit/*', array('controller' => 'documents', 'action' => 'edit'));
 	Router::connect('/documents/*', array('controller' => 'documents', 'action' => 'download'));
 
 	// Cover
@@ -106,6 +104,7 @@
 	Router::connect('/cms/pages/add', array('controller' => 'pages', 'action' => 'add'));
 	Router::connect('/cms/pages/edit/*', array('controller' => 'pages', 'action' => 'edit'));
 
+	Router::connect('/cms/documents/edit/*', array('controller' => 'documents', 'action' => 'edit'));
 	Router::connect('/cms/documents/add', array('controller' => 'documents', 'action' => 'add'));
 	Router::connect('/cms/documents/add/*', array('controller' => 'documents', 'action' => 'add')); 
 	

@@ -75,7 +75,7 @@
 						);
 						?>
 					</li>
-					<?php if(isset($learningmentor)): ?>
+					<?php if(isset($ugroups['Learning Mentors'])): ?>
 						<li>
 							<?php
 							echo $this->Html->Link('Learning Mentor Incidents',
@@ -87,7 +87,7 @@
 							?>
 						</li>
 					<?php endif;
-					if(isset($smt)): ?>
+					if(isset($ugroups['SMT'])): ?>
 						<li>
 							<?php 
 							echo $this->Html->Link('SMT Incident Reporting',
@@ -111,7 +111,7 @@
 							?>
 						</li>
 					<?php endif;
-					if (isset($tutors['Tutors']['id'])): ?>
+					if (isset($tutor['Tutors']['id'])): ?>
 					?>
 						<li>
 							<?php
@@ -137,8 +137,7 @@
 						</li>
 					<?php
 					endif; 
-					if (isset($incidentuser['IncidentUser'])):
-						if($incidentuser['IncidentUser']['monitoring'] == 1):
+					if (isset($ugroups['Incident Monitoring'])):
 					?>
 							<li>
 								<?php echo $this->Html->Link('Monitor Students',
@@ -149,20 +148,20 @@
 								);
 								?>
 							</li>
-						<?php endif;
-						if ($incidentuser['IncidentUser']['printing'] == 1): ?>
-							<li>
-								<?php
-								echo $this->Html->Link('Incident Report Printout',
-									array(
-										'controller' => 'students',
-										'action' => 'incidentPrintList'
-									)
-								);
-								?>
-							</li>
-						<?php
-						endif;
+					<?php
+					endif;
+					if (isset($ugroups['Incident Printing'])): ?>
+						<li>
+							<?php
+							echo $this->Html->Link('Incident Report Printout',
+								array(
+									'controller' => 'students',
+									'action' => 'incidentPrintList'
+								)
+							);
+							?>
+						</li>
+					<?php
 					endif; ?>
 				</ul>
 			</li>

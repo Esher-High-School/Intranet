@@ -5,7 +5,10 @@
 	<thead>
 		<th width="10%">Ext</th>
 		<th width="85%">Name</th>
-		<?php if (isset($admin)): ?>
+		<?php if (
+			isset($ugroups['Administrators']) or
+			isset($ugroups['Publishers'])
+		): ?>
 			<th class="cms-tools">
 				<?php echo $this->Html->Link('Add', 
 					array('action' => 'add'),
@@ -13,6 +16,7 @@
 				);
 				?>
 			</th>
+			<th>&nbsp;</th>
 		<?php endif; ?>
 	</thead>
 	<tbody>
@@ -24,7 +28,12 @@
 				<td>
 					<?php echo $extension['PhoneExtension']['name']; ?>
 				</td>
-				<?php if (isset($admin)): ?>
+				<?php 
+				if (
+					isset($ugroups['Administrators']) or
+					isset($ugroups['Publishers'])
+				): 
+				?>
 					<td class="cms-tools">
 						<?php echo $this->Html->Link('Edit', 
 							array('action' => 'edit', $extension['PhoneExtension']['id'])

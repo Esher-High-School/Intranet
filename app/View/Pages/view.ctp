@@ -1,4 +1,9 @@
-<?php if (isset($cmsuser)): ?>
+<?php
+ if (
+	isset($ugroups['Publishers']) or
+	isset($ugroups['Administrators'])
+	): 
+	?>
 	<span class="edit-link">
 		<?php 
 		echo $this->Html->Link(
@@ -21,12 +26,17 @@
 	<table class="table table-striped table-hover table-condensed">
 		<thead>
 			<th width="80%">Name</th>
-			<th> 
-				<?php if (isset($cmsuser)) {
-					echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['Page']['id']), array('class' => 'btn btn-primary btn-xs'));
-				} ?>
-			</th>
-			<th></th>
+			<?php
+			if (
+				isset($ugroups['Publishers']) or
+				isset($ugroups['Administrators'])
+			):
+			?>
+				<th> 
+					<?php echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['Page']['id']), array('class' => 'btn btn-primary btn-xs')); ?>
+				</th>
+				<th></th>
+			<?php endif; ?>
 		</thead>
 		<tbody>
 			<?php foreach($documents as $document): ?>
@@ -43,9 +53,14 @@
 						); 
 						?>
 					</td>
-					<td>
-						<?php 
-						if (isset($cmsuser)) {
+					<?php 
+					if (
+						isset($ugroups['Publishers']) or
+						isset($ugroups['Administrators'])
+					):
+					?>
+						<td>
+							<?php 
 							echo $this->Html->Link(
 								'Edit', 
 								array(
@@ -53,12 +68,10 @@
 									'action' => 'edit', 
 									$document['Document']['id'])
 							);
-						}
-						?>
-					</td>
-					<td>
-						<?php
-						if (isset($cmsuser)) {
+							?>
+						</td>
+						<td>
+							<?php
 							echo $this->Form->postLink(
 								'Delete', 
 								array(
@@ -69,9 +82,9 @@
 									'Are you sure you want to delete this document?'
 									)
 								); 
-						}
-						?>
-					</td>
+							?>
+						</td>
+					<?php endif; ?>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
@@ -86,7 +99,11 @@
 	<?php else: ?>
 		<h2>This page currently has no content.</h2>
 	<?php endif; ?>
-	<?php if(isset($cmsuser)): ?>
+	<?php 
+	if(
+		isset($ugroups['Publishers']) or
+		isset($ugroups['Administrators'])
+		): ?>
 		<p class="center">
 			<?php 
 			echo $this->Html->Link(

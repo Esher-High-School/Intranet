@@ -61,62 +61,32 @@ class AppController extends Controller {
 		$this->set('username', $username);
 
 		$user = $this->User->findByUser($username);
-		
-		// Load Users
-		if (isset($user)) {
-			if (
-				$this->basicAuth->checkGroupMembership($user, 'Administrators')	
-			) {
-				$this->set('admin', true);
-			}
-			if (
-				$this->basicAuth->checkGroupMembership($user, 'Publisher') or
-				$this->basicAuth->checkGroupMembership($user, 'Administrators') or
-				$this->basicAuth->checkGroupMembership($user, 'Handbook Publishers')
-			) {
-				$this->set('cmsuser', true);
-			}
-			if (
-				$this->basicAuth->checkGroupMembership($user, 'Learning Mentors')
-			) {
-				$this->set('learningmentor', true);
-			}
-			if (
-				$this->basicAuth->checkGroupMembership($user, 'SMT')
-			) {
-				$this->set('smt', true);
+
+		$ugroups['NoGroup'] = true;
+
+		if (isset($user['Group'])) {
+			foreach ($user['Group'] as $ugroup) {
+				$ugroups[$ugroup['name']] = true;
 			}
 		}
+		$this->set('ugroups', $ugroups);
 		
 		// Get group information
+		$hoy = null;
+		$tutor = null;
+		$hod = null;
 		$hoy = $this->Hoy->getHoyYears($username);
-		
 		$tutor = $this->Tutor->findByUsername($username);
 		$hod = $this->Hod->getHodDepts($username);
-		$incidentuser = $this->IncidentUser->findByUsername($username);
 		
 		// Send it all to the view with this wonderful array of ifs
 		if (isset($User)) {
 			$this->set('User', $User);
 		}
-		if (isset($learningmentor)) {
-			$this->set('learningmentor', $learningmentor);
-		}
-		if (isset($smt)) {
-			$this->set('smt', $smt);
-		}
-		if (isset($hoy)) {
-			$this->set('hoy', $hoy);
-		}
-		if (isset($tutor)) {
-			$this->set('tutor', $tutor);
-		}
-		if (isset($hod)) {
-			$this->set('hod', $hod);
-		}
-		if (isset($incidentuser)) {
-			$this->set('incidentuser', $incidentuser);
-		}
+
+		$this->set('hoy', $hoy);
+		$this->set('tutor', $tutor);
+		$this->set('hod', $hod);
 		
 		// Navigation related magic
 		$links = $this->Link->getSidebarLinks();

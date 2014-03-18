@@ -10,7 +10,12 @@
 					</a>
 
 					<ul class="dropdown-menu">
-						<?php if (isset($cmsuser)): ?>
+						<?php 
+						if (
+							isset($ugroups['Publishers']) or
+							isset($ugroups['Administrators'])
+						): 
+							?>
 							<li>
 								<?php 
 								echo $this->Html->Link(
@@ -39,8 +44,6 @@
 								); 
 								?>
 							</li>
-						<?php endif; ?>
-						<?php if (isset($cmsuser) or isset($handbookpublisher)): ?>
 							<li>
 								<?php 
 								echo $this->Html->Link(
@@ -55,7 +58,7 @@
 								); ?>
 							</li>
 						<?php endif; ?>
-						<?php if (isset($admin)): ?>
+						<?php if (isset($ugroups['Administrators'])): ?>
 							<li>
 								<?php 
 								echo $this->Html->Link(
@@ -68,8 +71,6 @@
 								); 
 								?>
 							</li>
-						<?php endif; ?>
-						<?php if(isset($admin)): ?>
 							<li class="divider"></li>
 							<li>
 								<?php 
@@ -160,7 +161,7 @@
 					</ul>
 				</li>
 
-				<?php if (isset($admin)): ?>
+				<?php if (isset($ugroups['Administrators'])): ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Users
