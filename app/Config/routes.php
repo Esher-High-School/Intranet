@@ -29,6 +29,7 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
 
 	// Documents
+	Router::connect('/documents', array('controller' => 'documents', 'action' => 'index'));
 	Router::connect('/documents/*', array('controller' => 'documents', 'action' => 'download'));
 
 	// Cover
