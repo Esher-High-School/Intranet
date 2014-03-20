@@ -3,7 +3,7 @@ class IncidentsController extends AppController {
 	public $helpers = array('Html', 'Form', 'Incident', 'Markdown.Markdown');
 	public $components = array('Session', 'basicAuth');
 
-	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'LearningMentor', 'Tutor', 'User', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
+	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Tutor', 'User', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
 
 	var $paginate = array(
 		'fields' => array('Incident.id', 'Incident.upn', 'Incident.problems1', 'Incident.problems2', 'Student.forename', 'Student.surname', 'Student.form'),
