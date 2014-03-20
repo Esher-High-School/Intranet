@@ -1,28 +1,29 @@
 <?php
 class HandbookDocumentsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
+	public $components = array('Session', 'basicAuth');
 
 	var $uses = array('HandbookDocument', 'HandbookCategory', 'User');
 
 	public function beforeFilter() {
 		if (!($this->action == 'view' or $this->action == 'home' or $this->action == 'document')) {
-			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
+			$user = $this->User->findByUser($this->basicAuth->getUsername());
+			if (!$this->basicAuth->checkGroupMembership($user, 'Handbook Publishers')) {
 				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+			} else {
+				$this->set('username', $username);
 			}
 		}
-		
+
 		$categories = $this->HandbookCategory->getAll();
-		$this->set('categories', $categories);	
+		$this->set('categories', $categories);
 
 		foreach ($categories as $category) {
 			$cdocuments[$category['HandbookCategory']['id']] = array(
 				$this->HandbookDocument->find(
-					'all', 
+					'all',
 					array(
-						'order' => 'HandbookDocument.name ASC', 
+						'order' => 'HandbookDocument.name ASC',
 						'conditions' => array(
 							'category' => $category['HandbookCategory']['id']
 						)
@@ -56,7 +57,7 @@ class HandbookDocumentsController extends AppController {
 		$document = $this->HandbookDocument->read();
 		$this->set('title', $document['HandbookDocument']['name']);
 		$documentPath = ('../Uploads/' . $document['HandbookDocument']['document']);
-		if (file_exists($documentPath)) {	
+		if (file_exists($documentPath)) {
 			$this->set('exists', true);
 		} else {
 			$this->set('exists', false);
@@ -128,7 +129,7 @@ class HandbookDocumentsController extends AppController {
 				$this->Session->setFlash('
 					<div class="alert alert-success">
 						<button class="close" data-dismiss="alert">&times;</button>
-						Handbook document updated successfully. 
+						Handbook document updated successfully.
 					</div>
 				');
 				$this->redirect(array('controller' => 'handbookCategories', 'action' => 'view', $this->request->data['HandbookDocument']['category']));

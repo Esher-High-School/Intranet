@@ -1,29 +1,30 @@
 <?php
 class DocumentsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
-	
+	public $components = array('Session', 'basicAuth');
+
 	var $uses = array('Document', 'Page', 'User');
 
 	public function beforeFilter() {
 		if (!($this->action == 'download')) {
 			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
+			$user = $this->User->findByUser($this->basicAuth->getUsername());
+			if (!(
+				$this->basicAuth->checkGroupMembership($user, 'Publishers') or
+				$this->basicAuth->checkGroupMembership($user, 'Administrators')
+			)) {
 				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 			}
 		}
 	}
 
 	public function index() {
-		$this->authenticate();
 		$this->set('title', 'All Documents');
 		$documents = $this->Document->find('all');
 		$this->set('documents', $documents);
 	}
-	
+
 	public function add($category_id=null) {
-		$this->authenticate();
 		$this->set('title', 'Add New Document');
 		$categories = $this->Page->getPages();
 		$this->set('categories', $categories);
@@ -52,7 +53,6 @@ class DocumentsController extends AppController {
 	}
 
 	public function edit($id) {
-		$this->authenticate();
 		$this->set('title', 'Edit Document');
 		$this->Document->id = $id;
 		$document = $this->Document->read();
@@ -115,9 +115,9 @@ class DocumentsController extends AppController {
 			$this->response->header('Content-Disposition', 'inline');
 			return $this->response;
 		} else {
-			$this->response->file('Uploads'.DS.$document['Document']['document'], 
+			$this->response->file('Uploads'.DS.$document['Document']['document'],
 				array(
-					'download' => true, 
+					'download' => true,
 					'name' => $filename
 				)
 			);
@@ -135,7 +135,6 @@ class DocumentsController extends AppController {
 	}
 
 	public function delete($id) {
-		$this->authenticate();
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
@@ -183,12 +182,4 @@ class DocumentsController extends AppController {
 		}
 	}
 
-	/* Authentication Magic */
-	function authenticate() {
-		$Authentication = new Authentication;
-		$User = $this->User->findByUser($Authentication->Username());
-		if (!isset($User['User'])) {
-			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
-		}
-	}
 }

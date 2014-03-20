@@ -1,20 +1,17 @@
 <?php
 class TutorsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session', 'Security');
-	
+	public $components = array('Session', 'Security', 'basicAuth');
+
 	var $uses = array('Tutor', 'Student', 'Smt', 'LearningMentor', 'User');
 
 	public function beforeFilter() {
-		if (!($this->action == 'view')) {
-			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
-				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
-			}
+		$User = $this->basicAuth->getUsername();
+		if ($this->basicAuth->checkGroupMembership($this->basicAuth->getUsername(), 'Administrators')) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 	}
-	
+
 	public function index() {
 		$this->set('title', 'Listing Tutors');
 		$tutors[7] =  $this->Tutor->getTutors(7);
@@ -25,7 +22,7 @@ class TutorsController extends AppController {
 
 		$this->set('tutors', $tutors);
 	}
-	
+
 	public function incidentindex() {
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUser($Authentication->Username());
@@ -42,7 +39,7 @@ class TutorsController extends AppController {
 		$data = $this->paginate('Tutor');
 		$this->set('tutors', $data);
 	}
-	
+
 	public function view($id = null) {
 		$Authentication = new Authentication;
 		$User = $this->User->findByUser($Authentication->Username());
@@ -55,7 +52,7 @@ class TutorsController extends AppController {
 		$this->set('tutor', $this->Tutor->read());
 		$this->set('students', $this->Tutor->Student->find('all', array('conditions' => array('Student.form' => $form), 'order' => 'Student.forename ASC')));
 	}
-	
+
 	public function add() {
 		$Authentication = new Authentication;
 		$User = $this->User->findByUser($Authentication->Username());
@@ -75,7 +72,7 @@ class TutorsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function edit($id = null) {
 		$Authentication = new Authentication;
 		$User = $this->User->findByUser($Authentication->Username());
@@ -106,7 +103,7 @@ class TutorsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function delete($id) {
 		$Authentication = new Authentication;
 		$User = $this->User->findByUser($Authentication->Username());
@@ -126,5 +123,5 @@ class TutorsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 	}
-	
+
 }

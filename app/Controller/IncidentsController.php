@@ -2,9 +2,9 @@
 class IncidentsController extends AppController {
 	public $helpers = array('Html', 'Form', 'Incident', 'Markdown.Markdown');
 	public $components = array('Session', 'basicAuth');
-	
-	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'Smt', 'LearningMentor', 'Tutor', 'User', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
-	
+
+	var $uses = array('Incident', 'Student', 'Room', 'Subject', 'IncidentOption', 'LearningMentor', 'Tutor', 'User', 'Hoy', 'Hod', 'IncidentMonitor', 'IncidentUser');
+
 	var $paginate = array(
 		'fields' => array('Incident.id', 'Incident.upn', 'Incident.problems1', 'Incident.problems2', 'Student.forename', 'Student.surname', 'Student.form'),
 		'maxLimit' => 1000,
@@ -13,7 +13,7 @@ class IncidentsController extends AppController {
 			'Incident.date' => 'desc'
 		)
 	);
-	
+
 	public function beforeFilter() {
 		// Authentication magic
 		$username = $this->basicAuth->getUsername();
@@ -98,15 +98,15 @@ class IncidentsController extends AppController {
 		$incident = $this->Incident->getIncidents($startdate, $enddate, $year);
 		$this->set('incidents', $incident);
 	}
-	
+
 	public function report($upn=null) {
 		if ($upn == null) {
 			$this->redirect(array('controller' => 'students', 'action' => 'incidentFormList'));
 		}
-		
+
 		$Authentication = new Authentication;
 		$this->set('username', $Authentication->Username());
-		
+
 		$this->set('title', 'Incident Reporting');
 		// If form is submitted, process it
 		if ($this->request->is('post')) {
@@ -121,7 +121,7 @@ class IncidentsController extends AppController {
 				');
 			}
 		}
-		
+
 		// Times
 		$times = array(
 			0 => 'N/A',
@@ -138,7 +138,7 @@ class IncidentsController extends AppController {
 			11 => 'Period 5',
 			12 => 'After School'
 		);
-		
+
 		// Action Taken
 		$action = array(
 			0 => 'Spoken to outside of lesson',
@@ -153,13 +153,13 @@ class IncidentsController extends AppController {
 			9 => 'Referred to SLT - Level 4',
 			10 => 'Internet access removed'
 		);
-		
+
 		// Retrieving Data
 		$student = $this->Student->findByUpn($upn);
 		$subjects = $this->Subject->getSubjects();
 		$rooms = $this->Room->find('all', array('order' => 'name ASC'));
 		$incidentoptions = $this->IncidentOption->findOptions();
-		
+
 		// Sending data to the view
 		$this->set('student', $student);
 		$this->set('times', $times);
@@ -168,7 +168,7 @@ class IncidentsController extends AppController {
 		$this->set('options', $incidentoptions);
 		$this->set('actions', $action);
 	}
-	
+
 	public function reportSubmit() {
 		if ($this->request->is('post')) {
 			if ($this->Incident->save($this->request->data)) {
@@ -183,12 +183,12 @@ class IncidentsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function reportEmail($id) {
 		// Authentication
 		$Authentication = new Authentication;
 		$username = $Authentication->Username();
-		
+
 		//Load incident + staff info
 		$incident = $this->Incident->findById($id);
 		$hoys = $this->Hoy->getHoysForYear($incident['Student']['year']);
@@ -199,10 +199,10 @@ class IncidentsController extends AppController {
 			$hods = null;
 		}
 		$monitors = $this->IncidentMonitor->find('all', array('conditions' => array(
-			'IncidentMonitor.upn' => $incident['Student']['upn'], 
+			'IncidentMonitor.upn' => $incident['Student']['upn'],
 			'enddate >' => date('Y-m-d', strtotime('now'))
 		)));
-		
+
 		// Email Template
 		$emailTemplate = ('
 <p>A new incident report form was submitted.</p>
@@ -215,9 +215,9 @@ class IncidentsController extends AppController {
 
 <p><strong>Action Taken:</strong> ' . $incident['Incident']['action'] . '</p>
 
-<p><strong>View Full Details:</strong> http://web.esherhigh.surrey.sch.uk/incident/' . $incident['Incident']['id'] . '</p>	
+<p><strong>View Full Details:</strong> http://web.esherhigh.surrey.sch.uk/incident/' . $incident['Incident']['id'] . '</p>
 		');
-		
+
 		// Email Sender
 		$Email = new CakeEmail();
 		$Email->config('default');
@@ -226,7 +226,7 @@ class IncidentsController extends AppController {
 		$Email->subject('Incident Report Form: ' . $incident['Student']['forename'] . ' ' . $incident['Student']['surname']);
 		$Email->emailFormat('both');
 		$Email->send($emailTemplate);
-		
+
 		// Email HoDs
 		if ($hods !== null) {
 			foreach($hods as $hod):
@@ -236,7 +236,7 @@ class IncidentsController extends AppController {
 				$Email->send($emailTemplate);
 			endforeach;
 		}
-		
+
 		// Email HoYs
 		if ($hoys !== null) {
 			foreach($hoys as $hoy):
@@ -246,7 +246,7 @@ class IncidentsController extends AppController {
 				$Email->send($emailTemplate);
 			endforeach;
 		}
-		
+
 		// Email Tutor(s)
 		if ($tutors !== null) {
 			foreach($tutors as $tutor) {
@@ -256,7 +256,7 @@ class IncidentsController extends AppController {
 				$Email->send($emailTemplate);
 			}
 		}
-		
+
 		// Email Monitors
 		if ($monitors !== null) {
 			foreach ($monitors as $monitor):
@@ -266,7 +266,7 @@ class IncidentsController extends AppController {
 				$Email->send($emailTemplate);
 			endforeach;
 		}
-		
+
 		$this->Session->setFlash('
 			<div class="alert alert-success">
 				<button class="close" data-dismiss="alert">&times;</button>
@@ -275,33 +275,27 @@ class IncidentsController extends AppController {
 			</div>
 		');
 		$this->redirect(array('controller' => 'students', 'action' => 'incidentFormList'));
-		
+
 
 	}
-	
+
 	public function incidentsByYear($year, $day = 5) {
 		$this->set('title', 'Viewing incidents by year group');
-		
+
 		if ($day == 'all') {
 			$day = '10000';
 		}
-		
+
 		$this->set('year', $year);
 		$this->set('incidents', $this->Incident->getYearIncidents($year, $day));
 		$this->set('days', $day);
 	}
-	
+
 	public function learningmentorhome() {
-		$Authentication = new Authentication;
-		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
-		if ($learningmentor == null) {
-			$this->redirect(array('controller' => 'learningmentors', 'action' => 'accessdenied'));
-		}
-		$this->set('learningmentor', $learningmentor);
 		$this->set('title', 'Learning Mentor Home');
 		$recent = $this->paginate('Incident');
 		$this->set('recent', $this->Incident->latest());
-		
+
 		$yr[7] = $this->Incident->top(7);
 		$yr[8] = $this->Incident->top(8);
 		$yr[9] = $this->Incident->top(9);
@@ -309,14 +303,14 @@ class IncidentsController extends AppController {
 		$yr[11] = $this->Incident->top(11);
 		$this->set('yr', $yr);
 	}
-	
+
 	public function smthome() {
 		$this->set('title', 'Incident Statistics');
 		$this->set('recent', $this->Incident->latest());
-		
+
 		$top5 = $this->Incident->top();
 		$this->Set('top5', $top5);
-		
+
 		$yr[7] = $this->Incident->top(7);
 		$yr[8] = $this->Incident->top(8);
 		$yr[9] = $this->Incident->top(9);
@@ -324,7 +318,7 @@ class IncidentsController extends AppController {
 		$yr[11] = $this->Incident->top(11);
 		$this->set('yr', $yr);
 	}
-	
+
 	public function hoyHome($startdate=null, $enddate=null, $year=null) {
 		$hoy = $this->Hoy->getHoyYears($this->basicAuth->getUsername())[0];
 		if (isset($_POST['yearGroups'])) {
@@ -336,12 +330,19 @@ class IncidentsController extends AppController {
 		$this->set('title', 'My Year Group');
 		$this->set('hoy', $hoy);
 
+		$user = $this->User->findByUser($this->basicAuth->getUsername());
+		if ($this->basicAuth->checkGroupMembership($user, 'SMT')) {
+			$this->set('smt', true);
+		} else {
+			$this->set('smt', false);
+		}
+
 		if (isset($_POST['startDate'])) {
 			$this->redirect(
 				array(
-					'action' => 'hoyHome', 
-					$_POST['startDate'], 
-					$_POST['endDate'], 
+					'action' => 'hoyHome',
+					$_POST['startDate'],
+					$_POST['endDate'],
 					$_POST['yearGroup']
 				)
 			);
@@ -369,7 +370,7 @@ class IncidentsController extends AppController {
 			$this->set('year', $displayYear);
 		}
 	}
-	
+
 	public function hodHome($dept=null) {
 		$Authentication = new Authentication;
 		$hod = $this->Hod->getHodDepts($Authentication->Username());
@@ -388,7 +389,7 @@ class IncidentsController extends AppController {
 		$this->set('students', $students);
 		$this->set('dept', $dept);
 	}
-	
+
 	public function deptStudent($dept, $upn) {
 		$Authentication = new Authentication;
 		$smt = $this->Smt->findByUsername($Authentication->Username());
@@ -408,14 +409,9 @@ class IncidentsController extends AppController {
 		$this->set('incidents', $incidents);
 		$this->set('dept', $dept);
 	}
-	
+
 	public function deptList($day=1) {
-		$Authentication = new Authentication;
-		$smt = $this->Smt->findByUsername($Authentication->Username());
-		$hod = $this->Hod->getHodDepts($Authentication->Username());
-		if ($smt == null) {
-			$this->redirect(array('controller' => 'smts', 'action' => 'accessdenied'));
-		}
+		$hod = $this->Hod->getHodDepts($this->basicAuth->getUsername());
 		if ($day == 'all') {
 			$day = date('10000');
 		}
@@ -425,15 +421,14 @@ class IncidentsController extends AppController {
 		} else {
 			$viewday['text']='days';
 		}
-		$this->set('smt', $smt);
 		$this->set('hod', $hod);
 		$this->set('day', $viewday);
 		$this->set('title', 'Incidents by Department');
 		$this->set('departments', $this->Incident->getDepartments($day));
 	}
-	
+
 	public function incidentsByDepartment($dept=null, $day=1) {
-		$hod = $this->Hod->getHodDepts($basicAuth->getUsername());
+		$hod = $this->Hod->getHodDepts($this->basicAuth->getUsername());
 		if(!isset($hod[0])) {
 			$this->redirect(array('controller' => 'smts', 'action' => 'accessdenied'));
 		}
@@ -443,7 +438,15 @@ class IncidentsController extends AppController {
 		if ($day == 'all') {
 			$day = date('10000');
 		}
-		$this->set('smt', $smt);
+
+		$username = $this->basicAuth->getUsername();
+		$this->set('username', $username);
+		$user = $this->User->findByUser($username);
+		if ($this->basicAuth->checkGroupMembership($user, 'SMT')) {
+			$this->set('smt', true);
+		} else {
+			$this->set('smt', false);
+		}
 		if ($dept==null) {
 			if (isset($hod[0])) {
 				$dept = $hod[0]['Hod']['dept'];
@@ -453,9 +456,7 @@ class IncidentsController extends AppController {
 		}
 		$this->set('day', $day);
 		$this->set('title', $dept . ' Incidents');
-		$this->set('username', $Authentication->Username());
-		
-		$this->set('departments', $this->Hod->getHodDepts($Authentication->Username()));
+		$this->set('departments', $this->Hod->getHodDepts($username));
 		$data = $this->Incident->getDepartmentIncidents($dept);
 		$this->set('dept', $dept);
 		$this->set('incidents', $data);
@@ -479,7 +480,7 @@ class IncidentsController extends AppController {
 		$this->set('users', $this->Incident->getUsers($startdate));
 		$this->set('startdate', $startdate);
 	}
-	
+
 	public function incidentsByUser($user=null) {
 		if ($user==null) {
 			$this->redirect(array('action' => 'users'));
@@ -495,16 +496,8 @@ class IncidentsController extends AppController {
 		$incidents = $this->Incident->getUserIncidents($user);
 		$this->set('incidents', $incidents);
 	}
-	
+
 	public function years($startdate=null, $enddate=null) {
-		$Authentication = new Authentication;
-		$smt = $this->Smt->findByUsername($Authentication->Username());
-		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
-		if ($smt == null) {
-			if ($learningmentor == null) {
-				$this->redirect(array('controller' => 'learningmentors', 'action' => 'accessdenied'));
-			}
-		}
 		if (isset($_POST['startDate'])) {
 			$this->redirect(array('action' => 'years', $_POST['startDate'], $_POST['endDate']));
 		}
@@ -523,16 +516,13 @@ class IncidentsController extends AppController {
 			$enddate = date('Y-m-d');
 			$posted = false;
 		}
-		
-		$this->set('smt', $smt);
-		$this->set('learningmentor', $learningmentor);
 		$this->set('title', 'Year Groups');
 		$this->set('startdate', $startdate);
 		$this->set('enddate', $enddate);
 		$groups = $this->Incident->getYearGroups($startdate, $enddate);
 		$this->set('groups', $groups);
 	}
-	
+
 	public function formlist($startdate=null, $enddate=null, $year='') {
 		if (isset($_POST['startDate'])) {
 			$this->redirect(array('action' => 'formList', $_POST['startDate'], $_POST['endDate'], $_POST['yearGroup']));
@@ -552,8 +542,7 @@ class IncidentsController extends AppController {
 			$enddate = date('Y-m-d');
 			$posted = false;
 		}
-		
-		$this->set('smt', $smt);
+
 		$this->set('title', 'Listing tutor groups');
 		$this->set('startdate', $startdate);
 		$this->set('enddate', $enddate);
@@ -561,17 +550,11 @@ class IncidentsController extends AppController {
 		$groups = $this->Incident->getTutorGroups($startdate, $enddate, $year);
 		$this->set('groups', $groups);
 	}
-	
+
 	public function form($group, $day='all') {
-		$Authentication = new Authentication;
-		$smt = $this->Smt->findByUsername($Authentication->Username());
-		if ($smt == null) {
-			$this->redirect(array('controller' => 'smts', 'action' => 'accessdenied'));
-		}
-		$this->set('smt', $smt);
 		$this->set('form', $group);
 		$this->set('title', 'Viewing incidents by tutor group');
-		
+
 		if ($day == 'all') {
 			$day = '10000';
 		}
@@ -579,17 +562,8 @@ class IncidentsController extends AppController {
 		$this->set('incidents', $this->Incident->getTutorGroupIncidents($group, $day));
 		$this->set('days', $day);
 	}
-	
+
 	public function student($upn, $day=10, $dept=null) {
-		/*
-		$hoy = $this->Hoy->getHoyYears($user);
-		$hod = $this->Hod->getHodDepts($user);
-		if (!isset($hoy[0])) {
-			if (!isset($hod[0])) {
-				$this->redirect(array('controller' => 'learningmentors', 'action' => 'accessdenied'));
-			}
-		}
-		*/
 		$student = $this->Incident->Student->findByUpn($upn);
 		$this->set('student', $student);
 		$this->set('title', 'Incidents for ' . $student['Student']['forename'] . ' ' . $student['Student']['surname']);
@@ -612,53 +586,36 @@ class IncidentsController extends AppController {
 		$this->set('days', $day);
 		$this->set('incidents', $incidents);
 	}
-	
+
 	public function view($id = null) {
 		if ($id == null) {
 			throw new NotFoundException;
 		}
 		$this->set('title', 'Viewing incident #' . $id);
 		// Authentication
-		$Authentication = new Authentication;
-		$smt = $this->Smt->findByUsername($Authentication->Username());
-		$learningmentor = $this->LearningMentor->findByUsername($Authentication->Username());
-		$User = $this->User->findByUser($Authentication->Username());
-		$hoy = $this->Hoy->findByUsername($Authentication->Username());
-		$hod = $this->Hod->findByUsername($Authentication->Username());
-		/*
-		if ($smt == null) {
-			if ($learningmentor == null) {
-				if ($User == null) {
-					if ($hoy == null) {
-						if ($hod == null) {
-							if ($incident['Incident']['username'] !== $Authentication->Username()) {
-								$this->redirect(array('controller' => 'smt', 'action' => 'accessdenied'));
-							}
-						}
-					}
-				}
-			}
-		}
-		*/
-		
+		$username = $this->basicAuth->getUsername();
+		$User = $this->User->findByUser($username);
+		$smt = $this->basicAuth->checkGroupMembership($User, 'SMT');
+		$hoy = $this->Hoy->findByUsername($username);
+		$hod = $this->Hod->findByUsername($username);
+
 		// Retrieving data
 		$this->Incident->id = $id;
 		$this->Incident->Student->upn = $this->Incident->upn;
 		$incident = $this->Incident->read();
 		$student = $this->Student->read();
-		
+
 		if (!isset($incident['Incident']['upn'])) {
 			throw new NotFoundException;
 		}
-		
+
 		// Sending data to view
 		$this->set('incident', $incident);
 		$this->set('student', $student);
+		$this->set('smt', $smt);
 		$this->set('hoy', $hoy);
 		$this->set('hod', $hod);
 		$this->set('User', $User);
-		$this->set('learningmentor', $learningmentor);
-		$this->set('smt', $smt);
 	}
 
 	public function printIncidentsSelect($upn, $date1=null, $date2=null) {

@@ -4,7 +4,7 @@ img {
 /* Carousel */
 #sbCarousel {
 	border: 0;
-	
+
 }
 
 table.sbCarousel-table {
@@ -229,7 +229,7 @@ a.pagination-text {
     margin-left: auto;
     margin-right: auto;
     width: auto;
-  
+
 }
 
 /* Forms */
@@ -242,4 +242,8 @@ textarea, .form-control, select {
 
 select {
   padding: 0;
+}
+
+.popover {
+  text-align: left;
 }

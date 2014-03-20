@@ -13,9 +13,6 @@ class User extends AppModel {
 	public $validate = array(
 		'user' => array(
 			'rule' => 'notEmpty'
-		),
-		'authlevel' => array(
-			'rule' => 'notEmpty'
 		)
 	);
 

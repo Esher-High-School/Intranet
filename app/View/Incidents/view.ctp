@@ -4,7 +4,7 @@
 			<strong>Reported by</strong>
 		</td>
 		<td colspan="3">
-			<?php 
+			<?php
 			echo $this->Incident->usernameFormat($incident['Incident']['username']);
 			if (isset($smt)):
 			?>
@@ -94,13 +94,13 @@
 	</tr>
 </table>
 <?php
-if(isset($smt)): ?>
+if($smt): ?>
 	<div class="actions">
 		<h4>Actions</h4>
 		<?php
 		echo $this->Form->postLink('Delete', array(
 				'action' => 'delete',
-				$incident['Incident']['id'], 
+				$incident['Incident']['id'],
 				'class' => 'danger'
 			),
 			array(

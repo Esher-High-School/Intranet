@@ -1,13 +1,18 @@
 <?php
 class HandbookCategoriesController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
+	public $components = array('Session', 'basicAuth');
+
+	var $uses = array('HandbookDocument', 'HandbookCategory', 'User');
 
 	public function beforeFilter() {
-		if (!($this->action == 'view')) {
-			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
+		if (!($this->action == 'view' or $this->action == 'home' or $this->action == 'document')) {
+			$username = $this->basicAuth->getUsername();
+			$user = $this->User->findByUser($username);
+			if (!(
+				$this->basicAuth->checkGroupMembership($user, 'Handbook Publishers') or
+				$this->basicAuth->checkGroupMembership($user, 'Administrators')
+			)) {
 				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 			}
 		}

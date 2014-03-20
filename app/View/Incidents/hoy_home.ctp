@@ -16,25 +16,33 @@
                 <label class="col-md-2 control-label" for="inputYear">Year Group</label>
                 <div class="col-md-10">
                         <select name="yearGroup" class="form-control">
-                                <?php if ($posted == true) { ?>
-                                <option value="<?php echo $year; ?>">
-                                        <?php
-                                                if (is_numeric($year)) {
-                                                        echo ('Year ' . $year);
-                                                } elseif($year == 'any') {
-                                                        echo ('All Years');
-                                                } else {
-                                                        echo ($year);
-                                                }
-                                        ?>
-                                </option>
-                                <?php } ?>
-                                <option value="any">All Years</option>
-                                <option value="7">Year 7</option>
-                                <option value="8">Year 8</option>
-                                <option value="9">Year 9</option>
-                                <option value="10">Year 10</option>
-                                <option value="11">Year 11</option>
+                                <?php if ($posted == true): ?>
+                                  <option value="<?php echo $year; ?>">
+                                          <?php
+                                                  if (is_numeric($year)) {
+                                                          echo ('Year ' . $year);
+                                                  } elseif($year == 'any') {
+                                                          echo ('All Years');
+                                                  } else {
+                                                          echo ($year);
+                                                  }
+                                          ?>
+                                  </option>
+                                <?php endif; ?>
+                                <?php if ($smt): ?>
+                                  <option value="any">All Years</option>
+                                  <option value="7">Year 7</option>
+                                  <option value="8">Year 8</option>
+                                  <option value="9">Year 9</option>
+                                  <option value="10">Year 10</option>
+                                  <option value="11">Year 11</option>
+                                <?php else: ?>
+                                    <?php foreach($hoy as $hoy): ?>
+                                      <option value="<?php echo $hoy['Hoy']['year']; ?>">
+                                        <?php echo $hoy['Hoy']['year']; ?>
+                                      </option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                         </select>
                 </div>
         </div>
@@ -80,5 +88,5 @@
 			</tr>
 		<?php endforeach; ?>
 	</tbody>
-	
+
 </table>

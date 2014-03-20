@@ -17,11 +17,11 @@ if (isset($title)) {
 		<!--[if lt IE 9]>
 			<script src="dist/html5shiv.js"></script>
 		<![endif]-->
-		<?php 
+		<?php
 		if (
 			isset($ugroups['Publishers']) or
 			isset($ugroups['Administrators'])
-		): 
+		):
 		?>
 			<style type="text/css" media="screen">
 				body {
@@ -41,7 +41,7 @@ if (isset($title)) {
 			isset($ugroups['Publishers']) or
 			isset($ugroups['Administrators'])
 		) {
-			echo $this->element('cms-navbar'); 
+			echo $this->element('cms-navbar');
 		}
 		?>
 
@@ -85,7 +85,7 @@ if (isset($title)) {
 			<?php
 			if ($this->params['controller'] == 'incidents') {
 				if ($this->params['action'] !== 'report') {
-					if (isset($smt)) {
+					if (isset($ugroups['SMT'])) {
 						echo $this->element('smtmenu', array('user' => $username));
 					}
 					if (isset($learningmentor['LearningMentor'])) {
