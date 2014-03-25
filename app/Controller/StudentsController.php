@@ -1,23 +1,25 @@
 <?php
 class StudentsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
-	
+	public $components = array('Session', 'basicAuth');
+
+	var $uses = array('Student', 'User');
+
 	var $paginate = array(
 		'fields' => array('Student.surname', 'Student.forename', 'Student.DOB', 'Student.sex', 'Student.adno', 'Student.upn', 'Student.year', 'Student.form', 'Student.postcode', 'Student.sen', 'Student.onroll'),
 		'maxLimit' => 2000,
-		'limit' => 2000, 
+		'limit' => 2000,
 		'order' => array(
 			'Student.year' => 'asc',
 			'Student.surname' => 'asc'
 		)
 	);
-	
+
 	public function index($year = null) {
 		if ($year == null ) {
 			$this->redirect(array('action' => 'years'));
 		}
-		$this->set('title', 'Listing Students in Year' . $year);
+		$this->set('title', 'Listing Students in Year ' . $year);
 		$this->paginate = array(
 			'conditions' => array('Student.year' => $year),
 			'limit' => 2000,
@@ -27,7 +29,7 @@ class StudentsController extends AppController {
 		$this->set('students', $data);
 		$this->set('year', $year);
 	}
-	
+
 	public function incidentFormList($year=null) {
 		$this->set('title', 'Incident Reporting');
 		if ($year !== null) {
@@ -36,58 +38,41 @@ class StudentsController extends AppController {
 			$this->set('students', $students);
 		}
 	}
-	
+
 	public function incidentMonitoringList($year=null) {
-		$Authentication = new Authentication;
-		$this->loadModel('IncidentUser');
-		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
-		if (isset($incidentuser['IncidentUser']['id'])) {
-			if ($incidentuser['IncidentUser']['monitoring'] == 1) {
-				$this->set('title', 'Incident Monitoring');
-				if ($year !== null) {
-					$this->set('year', $year);
-					$students = $this->Student->yearGroup($year);
-					$this->set('students', $students);
-				}
-			} else {
-				$this->redirect(array('controller' => 'IncidentUsers', 'action' => 'accessdenied'));
-			}
-		} else {
-			$this->redirect(array('controller' => 'IncidentUsers', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($this->basicAuth->getUsername());
+		if (!$this->basicAuth->checkGroupMembership($user, 'Incident Monitoring')) {
+			$this->redirect(array('controller' => 'users', array('accessdenied')));
 		}
-		
+		$this->set('title', 'Incident Monitoring');
+		if ($year !== null) {
+			$this->set('year', $year);
+			$students = $this->Student->yearGroup($year);
+			$this->set('students', $students);
+		}
+	}
+
+	public function incidentPrintList($year=null) {
+		$user = $this->User->findByUser($this->basicAuth->getUsername());
+		if (!$this->basicAuth->checkGroupMembership($user, 'Incident Printing')) {
+			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+		}
+		$this->set('title', 'Incident Printing');
+		if ($year !== null) {
+			$this->set('year', $year);
+			$students = $this->Student->yearGroup($year);
+			$this->set('students', $students);
+		}
+	}
+
+	public function years() {
+		$this->set('title', 'Select Year Group');
 
 	}
-	
-	public function incidentPrintList($year=null) {
-		$Authentication = new Authentication;
-		$this->loadModel('IncidentUser');
-		$incidentuser = $this->IncidentUser->findByUsername($Authentication->Username());
-		if (isset($incidentuser['IncidentUser']['id'])) {
-			if ($incidentuser['IncidentUser']['printing'] == 1) {
-				$this->set('title', 'Incident Printing');
-				if ($year !== null) {
-					$this->set('year', $year);
-					$students = $this->Student->yearGroup($year);
-					$this->set('students', $students);
-				}
-			} else {
-				$this->redirect(array('controller' => 'IncidentUsers', 'action' => 'accessdenied'));
-			}
-		} else {
-			$this->redirect(array('controller' => 'IncidentUsers', 'action' => 'accessdenied'));
-		}
-	}
-	
-	public function years() {
-		$this->set('title', 'Select Yeargroup');
-		
-	}
-	
+
 	public function add() {
-		$Authentication = new Authentication;
-		$User = $this->User->findByUser($Authentication->Username());
-		if (!isset($User['User'])) {
+		$user = $this->User->findByUser($this->basicAuth->getUsername());
+		if (!$this->basicAuth->checkGroupMembership($user, 'Administrators')) {
 			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Add New Student');
@@ -108,11 +93,10 @@ class StudentsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function edit($upn) {
-		$Authentication = new Authentication;
-		$User = $this->User->findByUser($Authentication->Username());
-		if (!isset($User['User'])) {
+		$user = $this->User->findByUser($this->basicAuth->getUsername());
+		if (!$this->basicAuth->checkGroupMembership($user, 'Administrators')) {
 			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 		}
 		$this->set('title', 'Edit Student');
@@ -155,7 +139,7 @@ class StudentsController extends AppController {
 		}
 	*/
 	}
-	
+
 	public function delete($upn = null) {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
@@ -170,20 +154,20 @@ class StudentsController extends AppController {
 			$this->redirect(array('controller' => 'tutors', 'action' => 'index'));
 		}
 	}
-	
+
 	public function search() {
 		$searchtype = $_POST['searchtype'];
 		$value = $_POST['searchstudent'];
 		$results = $this->Student->find('all', array('fields' => array(
 			'Student.upn',
-			'Student.surname', 
-			'Student.forename', 
-			'Student.postcode', 
+			'Student.surname',
+			'Student.forename',
+			'Student.postcode',
 			'Student.adno',
 			'Student.form'
 		),
 		'order' => 'Student.surname ASC',
-		'conditions' => array($searchtype . ' ' . 'LIKE' => '%' . $value . '%') 
+		'conditions' => array($searchtype . ' ' . 'LIKE' => '%' . $value . '%')
 		));
 	}
 }

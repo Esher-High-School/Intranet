@@ -1,22 +1,3 @@
-<?php 
-function onRoll($onroll) {
-	if (strtoupper($onroll) == 'Y') {
-		echo ('<i class="icon-ok-sign mi"></i>');
-	} elseif(strtoupper($onroll) == 'N') {
-		echo ('<i class="icon-remove-sign mi"></i>');
-	}
-}
-
-function Sen($sen) {
-	if ($sen == "No Special Educational Need") {
-		echo ('N/A');
-	} elseif ($sen == '') {
-		echo ('N/A');
-	} else {
-		echo ($sen);
-	}
-}
-?>
 <table class="table table-striped table-hover table-condensed table-students">
 	<thead>
 		<th>Surname</th>

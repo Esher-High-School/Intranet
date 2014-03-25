@@ -10,46 +10,46 @@
 					</a>
 
 					<ul class="dropdown-menu">
-						<?php 
+						<?php
 						if (
 							isset($ugroups['Publishers']) or
 							isset($ugroups['Administrators'])
-						): 
+						):
 							?>
 							<li>
-								<?php 
+								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-file-text-o"></i> Pages', 
+									'<i class="fa fa-file-text-o"></i> Pages',
 									array(
-										'controller' => 'pages', 
+										'controller' => 'pages',
 										'action' => 'index'
 										),
 									array(
 										'escape' => false
 									)
-								); 
+								);
 								?>
 							</li>
 							<li>
-								<?php 
+								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-list-alt"></i> Staff Bulletin', 
+									'<i class="fa fa-list-alt"></i> Staff Bulletin',
 									array(
-										'controller' => 'staffBulletins', 
+										'controller' => 'staffBulletins',
 										'action' => 'index'
 										),
 									array(
 										'escape' => false
 									)
-								); 
+								);
 								?>
 							</li>
 							<li>
-								<?php 
+								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-book"></i> Staff Handbook', 
+									'<i class="fa fa-book"></i> Staff Handbook',
 									array(
-										'controller' => 'handbookCategories', 
+										'controller' => 'handbookCategories',
 										'action' => 'index'
 									),
 									array(
@@ -60,44 +60,58 @@
 						<?php endif; ?>
 						<?php if (isset($ugroups['Administrators'])): ?>
 							<li>
-								<?php 
+								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-link"></i> Links', 
+									'<i class="fa fa-link"></i> Links',
 									array(
-										'controller' => 'links', 
+										'controller' => 'links',
 										'action' => 'index'
-									), 
+									),
 									array('escape' => false)
-								); 
+								);
 								?>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<?php 
+								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-folder"></i> Subjects', 
+									'<i class="fa fa-user"></i> Students',
 									array(
-										'controller' => 'subjects', 
-										'action' => 'index'
+										'controller' => 'students',
+										'action' => 'years'
 									),
 									array(
 										'escape' => false
 									)
-								); 
+								);
 								?>
 							</li>
 							<li>
-								<?php 
+								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-location-arrow"></i> Rooms', 
+									'<i class="fa fa-folder"></i> Subjects',
 									array(
-										'controller' => 'rooms', 
+										'controller' => 'subjects',
 										'action' => 'index'
 									),
 									array(
 										'escape' => false
 									)
-								); 
+								);
+								?>
+							</li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-location-arrow"></i> Rooms',
+									array(
+										'controller' => 'rooms',
+										'action' => 'index'
+									),
+									array(
+										'escape' => false
+									)
+								);
 								?>
 							</li>
 							<li>
@@ -146,15 +160,15 @@
 							<li>
 								<?php
 								echo $this->Html->Link(
-									'<i class="fa fa-cogs"></i> Global Settings', 
+									'<i class="fa fa-cogs"></i> Global Settings',
 									array(
-										'controller' => 'settings', 
+										'controller' => 'settings',
 										'action' => 'index'
 									),
 									array(
 										'escape' => false
 									)
-								); 
+								);
 								?>
 							</li>
 						<?php endif; ?>
@@ -169,9 +183,6 @@
 						</a>
 						<ul class="dropdown-menu">
 
-							<li>
-								<?php echo $this->Html->Link('Students', array('controller' => 'students', 'action' => 'years')); ?>
-							</li>
 							<li>
 								<?php echo $this->Html->Link('Tutors', array('controller' => 'tutors', 'action' => 'index')); ?>
 							</li>
