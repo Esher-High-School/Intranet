@@ -1,26 +1,25 @@
 <?php
 class RoomsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
-	
+	public $components = array('Session', 'basicAuth');
+
 	var $uses = array('Room', 'User');
-	
+
 	public function beforeFilter() {
 		if (!($this->action == 'view')) {
-			$Authentication = new Authentication;
-			$User = $this->User->findByUser($Authentication->Username());
-			if (!($User['User']['authlevel']) >= 1) {
+			$user = $this->User->findByUser($this->basicAuth->getUsername());
+			if (!$this->basicAuth->checkGroupMembership($user, 'Administrators')) {
 				$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
 			}
 		}
 	}
-	
+
 	public function index() {
 		$this->set('title', 'Rooms');
 		$rooms = $this->Room->find('all', array('order' => 'Name ASC'));
 		$this->set('rooms', $rooms);
 	}
-	
+
 	public function add() {
 		$this->set('title', 'Add Room');
 		if ($this->request->is('post')) {
@@ -43,7 +42,7 @@ class RoomsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function edit($id) {
 		$this->set('title', 'Edit Room');
 		$this->Room->id = $id;
@@ -68,7 +67,7 @@ class RoomsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function delete($id) {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();

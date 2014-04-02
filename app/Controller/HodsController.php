@@ -1,10 +1,10 @@
 <?php
 class HodsController extends AppController {
 	public $helpers = array('Html', 'Form');
-	public $components = array('Session');
-	
+	public $components = array('Session', 'basicAuth');
+
 	var $uses = array('Hod', 'Subject', 'User');
-	
+
 	var $paginate = array(
 		'fields' => array('Hod.id', 'Hod.username', 'Hod.dept'),
 		'maxLimit' => 2000,
@@ -13,24 +13,23 @@ class HodsController extends AppController {
 			'Hod.dept' => 'asc'
 		)
 	);
-	
+
 	public function beforeFilter() {
-		$Authentication = new Authentication;
-		$User = $this->User->findByUser($Authentication->Username());
-		if ($User['User']['authlevel'] <2 ) {
-			$this->redirect(array('controller' => 'users', 'action' => 'accessdenied'));
+		$user = $this->User->findByUser($this->basicAuth->getUsername());
+		if (!$this->basicAuth->checkGroupMembership($user, 'Administrators')) {
+			$this->redirect(array('controller' => 'users', 'actions' => 'hods'));
 		}
 	}
-	
+
 	public function index() {
 		$this->set('title', 'Listing HoDs');
 		$data = $this->paginate('Hod');
 		$this->set('hods', $data);
 	}
-	
+
 	public function add() {
 		$this->set('title', 'Add Head of Department');
-		
+
 		$subjects = $this->Subject->getSubjects();
 		$this->set('subjects', $subjects);
 
@@ -56,7 +55,7 @@ class HodsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function edit($id = null) {
 		$this->set('title', 'Edit Head of Department');
 
@@ -86,7 +85,7 @@ class HodsController extends AppController {
 			}
 		}
 	}
-	
+
 	public function delete($id) {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
@@ -100,6 +99,6 @@ class HodsController extends AppController {
 			');
 			$this->redirect(array('action' => 'index'));
 		}
-		
+
 	}
 }

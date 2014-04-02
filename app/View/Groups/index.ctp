@@ -1,10 +1,9 @@
-<table class="table table-striped table-hover table-condensed table-contents-center">
+<table class="table table-striped table-hover table-condensed table-centered">
 	<thead>
 		<tr>
 			<th width="60%">Name</th>
-			<th>Users</th>
 			<th>
-				<?php 
+				<?php
 				echo $this->Html->Link(
 					'<i class="fa fa-plus-circle"></i> New',
 					array(
@@ -25,9 +24,6 @@
 			<tr>
 				<td>
 					<?php echo $group['Group']['name']; ?>
-				</td>
-				<td>
-					&nbsp;
 				</td>
 				<td>
 					<?php
