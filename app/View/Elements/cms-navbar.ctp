@@ -5,17 +5,15 @@
 			<ul class="nav navbar-nav pull-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						Content
-						<b class="caret"></b>
+						Content <b class="caret"></b>
 					</a>
-
 					<ul class="dropdown-menu">
 						<?php
 						if (
 							isset($ugroups['Publishers']) or
 							isset($ugroups['Administrators'])
 						):
-							?>
+						?>
 							<li>
 								<?php
 								echo $this->Html->Link(
@@ -57,8 +55,6 @@
 									)
 								); ?>
 							</li>
-						<?php endif; ?>
-						<?php if (isset($ugroups['Administrators'])): ?>
 							<li>
 								<?php
 								echo $this->Html->Link(
@@ -71,7 +67,16 @@
 								);
 								?>
 							</li>
-							<li class="divider"></li>
+						<?php endif; ?>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Admin
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<?php if (isset($ugroups['Administrators'])): ?>
 							<li>
 								<?php
 								echo $this->Html->Link(
@@ -86,6 +91,49 @@
 								);
 								?>
 							</li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-users"></i> Tutors',
+									array(
+										'controller' => 'tutors',
+										'action' => 'index',
+									),
+									array(
+										'escape' => false
+									)
+								);
+								?>
+							</li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-users"></i> Department Heads',
+									array(
+										'controller' => 'hods',
+										'action' => 'index',
+									),
+									array(
+										'escape' => false
+									)
+								);
+								?>
+							</li>
+							<li>
+								<?php
+								echo $this->Html->Link(
+									'<i class="fa fa-users"></i> Year Heads',
+									array(
+										'controller' => 'hoys',
+										'action' => 'index'
+									),
+									array(
+											'escape' => false
+									)
+								);
+								?>
+							</li>
+							<li class="divider"></li>
 							<li>
 								<?php
 								echo $this->Html->Link(
@@ -174,37 +222,6 @@
 						<?php endif; ?>
 					</ul>
 				</li>
-
-				<?php if (isset($ugroups['Administrators'])): ?>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Users
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-
-							<li>
-								<?php echo $this->Html->Link('Tutors', array('controller' => 'tutors', 'action' => 'index')); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Department Heads', array('controller' => 'hods', 'action' => 'index')); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Year Heads', array('controller' => 'hoys', 'action' => 'index')); ?>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<?php echo $this->Html->Link('Incident Users', array('controller' => 'incidentUsers', 'action' => 'index')); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('Learning Mentors', array('controller' => 'learningMentors', 'action' => 'index')); ?>
-							</li>
-							<li>
-								<?php echo $this->Html->Link('SMT Staff', array('controller' => 'smts', 'action' => 'index')); ?>
-							</li>
-						</ul>
-					</li>
-				<?php endif; ?>
 			</ul>
 		</div>
 	</div>

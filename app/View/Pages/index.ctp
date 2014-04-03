@@ -10,10 +10,10 @@
 			<th>
 				<?php
 				echo $this->Html->Link(
-					'Add', 
+					'New', 
 					array('action' => 'add'),
 					array('class' => 'btn btn-primary btn-xs')
-				); 
+				);
 				?>
 			</th>
 			<th>&nbsp;</th>
@@ -31,20 +31,20 @@
 			): ?>
 				<td>
 					<?php
-					echo $this->Html->Link('Edit', 
+					echo $this->Html->Link('Edit',
 						array(
-							'action' => 'edit', 
+							'action' => 'edit',
 							$category['Page']['id']
-						)); 
-					
+						));
+
 					?>
 				</td>
 				<td>
-					<?php 
-					echo $this->Form->postLink('Delete', 
+					<?php
+					echo $this->Form->postLink('Delete',
 						array(
 							'action' => 'delete', $category['Page']['id']
-							), 
+							),
 						array(
 							'Are you sure you want to delete this category?')
 						);

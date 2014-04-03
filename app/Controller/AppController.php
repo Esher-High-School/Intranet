@@ -29,7 +29,7 @@
  * @package       app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
- 
+
 class AppController extends Controller {
 	var $uses = array('User');
 
@@ -37,7 +37,7 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		$this->set('title', '');
 	}
-	
+
 	public function beforeRender() {
 		//Global Settings
 		$this->loadModel('Setting');
@@ -55,7 +55,7 @@ class AppController extends Controller {
 		$this->loadModel('Tutor');
 		$this->loadModel('Hod');
 		$this->loadModel('IncidentUser');
-		
+
 		// Authentication magic
 		$username = $this->basicAuth->getUsername();
 		$this->set('username', $username);
@@ -70,7 +70,7 @@ class AppController extends Controller {
 			}
 		}
 		$this->set('ugroups', $ugroups);
-		
+
 		// Get group information
 		$hoy = null;
 		$tutor = null;
@@ -78,7 +78,7 @@ class AppController extends Controller {
 		$hoy = $this->Hoy->getHoyYears($username);
 		$tutor = $this->Tutor->findByUsername($username);
 		$hod = $this->Hod->getHodDepts($username);
-		
+
 		// Send it all to the view with this wonderful array of ifs
 		if (isset($User)) {
 			$this->set('User', $User);
@@ -87,13 +87,13 @@ class AppController extends Controller {
 		$this->set('hoy', $hoy);
 		$this->set('tutor', $tutor);
 		$this->set('hod', $hod);
-		
+
 		// Navigation related magic
-		$links = $this->Link->getSidebarLinks();
-		$this->set('links', $links);
+		$sidebarLinks = $this->Link->getSidebarLinks();
+		$this->set('sidebarLinks', $sidebarLinks);
 
 		$menu = $this->Link->getHeaderLinks();
-		$this->set('headerlinks', $menu); 
+		$this->set('headerlinks', $menu);
 
 		$pages = $this->Page->getPages();
 		$this->set('pages', $pages);

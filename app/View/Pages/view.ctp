@@ -2,10 +2,10 @@
  if (
 	isset($ugroups['Publishers']) or
 	isset($ugroups['Administrators'])
-	): 
+	):
 	?>
 	<span class="edit-link">
-		<?php 
+		<?php
 		echo $this->Html->Link(
 			'Edit',
 			array(
@@ -32,8 +32,8 @@
 				isset($ugroups['Administrators'])
 			):
 			?>
-				<th> 
-					<?php echo $this->Html->Link('Add', array('controller' => 'documents', 'action' => 'add', $category['Page']['id']), array('class' => 'btn btn-primary btn-xs')); ?>
+				<th>
+					<?php echo $this->Html->Link('Upload', array('controller' => 'documents', 'action' => 'add', $category['Page']['id']), array('class' => 'btn btn-primary btn-xs')); ?>
 				</th>
 				<th></th>
 			<?php endif; ?>
@@ -42,30 +42,30 @@
 			<?php foreach($documents as $document): ?>
 				<tr>
 					<td>
-						<?php 
-						echo $this->Html->Link($document['Document']['name'], 
+						<?php
+						echo $this->Html->Link($document['Document']['name'],
 							array(
-								'controller' => 'documents', 
-								'action' => 'download', 
-								$document['Document']['id'], 
+								'controller' => 'documents',
+								'action' => 'download',
+								$document['Document']['id'],
 								$document['Document']['filename']
 							)
-						); 
+						);
 						?>
 					</td>
-					<?php 
+					<?php
 					if (
 						isset($ugroups['Publishers']) or
 						isset($ugroups['Administrators'])
 					):
 					?>
 						<td>
-							<?php 
+							<?php
 							echo $this->Html->Link(
-								'Edit', 
+								'Edit',
 								array(
-									'controller' => 'documents', 
-									'action' => 'edit', 
+									'controller' => 'documents',
+									'action' => 'edit',
 									$document['Document']['id'])
 							);
 							?>
@@ -73,15 +73,15 @@
 						<td>
 							<?php
 							echo $this->Form->postLink(
-								'Delete', 
+								'Delete',
 								array(
-									'controller' => 'Documents', 
-									'action' => 'delete', 
-									$document['Document']['id']), 
+									'controller' => 'Documents',
+									'action' => 'delete',
+									$document['Document']['id']),
 								array(
 									'Are you sure you want to delete this document?'
 									)
-								); 
+								);
 							?>
 						</td>
 					<?php endif; ?>
@@ -99,13 +99,13 @@
 	<?php else: ?>
 		<h2>This page currently has no content.</h2>
 	<?php endif; ?>
-	<?php 
+	<?php
 	if(
 		isset($ugroups['Publishers']) or
 		isset($ugroups['Administrators'])
 		): ?>
 		<p class="center">
-			<?php 
+			<?php
 			echo $this->Html->Link(
 				'Upload Document',
 				array(
