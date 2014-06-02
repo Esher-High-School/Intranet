@@ -1,3 +1,22 @@
+<?php
+$disabledDate = strtotime('24 May 2014');
+if (date('y-m-d') > date('y-m-d', $disabledDate)):
+?>
+	<div class="alert alert-danger">
+		<h4>Incident Reporting Disabled</h4>
+		<p>
+			Incident reporting via the staff intranet has now been disabled. From now on, please report behaviour incidents via PARS.
+		</p>
+		<p>
+			If you have any issues accessing PARS, please contact ICT support via the helpdesk.
+		</p>
+	</div>
+<?php
+else:
+?>
+<div class="alert alert-danger">
+	<strong>Reminder:</strong> From the 2nd of June, all new bevahiour incidents must be logged using PARS instead of the intranet. Incident logging will be disabled on the staff intranet at the end of this week.
+</div>
 <p>Before you submit an incident report, keep in mind:</p>
 <p>An individual report must be completed for each student with unacceptable behaviour.</p>
 <p>Information on this form must be factual and describe the incident and/or action taken. This is not the place to express opinions.</p>
@@ -23,7 +42,7 @@
 		</li>
 	</ul>
 </div>
-<?php if (isset($year)) { ?>
+<?php if (isset($year)): ?>
 	<h4>Select Student</h4>
 	<table class="table table-striped table-condensed table-hover">
 		<thead>
@@ -35,7 +54,7 @@
 			<?php foreach ($students as $student): ?>
 				<tr>
 					<td>
-						<?php 
+						<?php
 						$name = ($student['Student']['surname'] . ', ' . $student['Student']['forename']);
 						echo $this->Html->Link($name, array('controller' => 'incidents', 'action' => 'report', $student['Student']['upn'])); ?>
 					</td>
@@ -47,4 +66,5 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-<?php } ?>
+<?php endif;
+endif; ?>

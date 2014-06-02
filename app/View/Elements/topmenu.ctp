@@ -53,7 +53,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<?php echo $this->Html->Link('ICT Support', 'http://10.18.56.36/SupportDeskSSP/Main.aspx'); ?>
+						<?php echo $this->Html->Link('ICT Support', 'http://10.18.56.36/RSDPortal'); ?>
 					</li>
 					<li>
 						<?php echo $this->Html->Link('Premises', 'http://10.18.56.38/supportdeskssp/Main.aspx'); ?>
@@ -173,6 +173,9 @@
 					)
 				);
 				?>
+			</li>
+			<li>
+				<?php echo $this->Html->Link('PARS', 'http://pars.esherhigh.surrey.sch.uk'); ?>
 			</li>
 		</ul>
 	</div>
