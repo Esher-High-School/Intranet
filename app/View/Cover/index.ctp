@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
 		<ul class="nav navbar-nav">
-			<li><a href="#" class="navbar-brand"><?php echo date('F'); ?></a></li>
+			<li><a href="#" class="navbar-brand"><?php echo $month; ?></a></li>
 		</ul>
 		<ul class="nav navbar-nav pull-right">
 			<?php foreach ($days as $day): ?>
