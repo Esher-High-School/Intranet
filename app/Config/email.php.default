@@ -44,22 +44,22 @@ class EmailConfig {
 
 	public $default = array(
 		'transport' => 'Mail',
-		'from' => 'administrator@esherhigh.surrey.sch.uk',
-		'host' => 'eh-mail01.esherhigh.surrey.sch.uk',
-		'username' => 'administrator@esherhigh.surrey.sch.uk',
-		'password' => 'V00525v00525'
+		'from' => 'administrator@example.com',
+		'host' => 'mail-server.example.com',
+		'username' => 'administrator@example.com',
+		'password' => 'password',
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
 	);
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('administrator@esherhigh.surrey.sch.uk' => 'My Site'),
+		'from' => array('Address' => 'My Site'),
 		'host' => 'localhost',
 		'port' => 25,
 		'timeout' => 30,
 		'username' => 'administrator',
-		'password' => 'V00525v00525?',
+		'password' => 'Password',
 		'client' => null,
 		'log' => false,
 		//'charset' => 'utf-8',
