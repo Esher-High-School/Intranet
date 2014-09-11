@@ -8,8 +8,8 @@
 				<ul class="dropdown-menu">
 					<?php foreach($pages as $page): ?>
 						<li>
-							<?php 
-							echo $this->Html->Link($page['Page']['name'], 
+							<?php
+							echo $this->Html->Link($page['Page']['name'],
 								array(
 									'controller' => 'pages',
 									'action' => 'view',
@@ -31,7 +31,7 @@
 				<ul class="dropdown-menu">
 					<?php foreach($headerlinks as $link): ?>
 						<li>
-							<?php 
+							<?php
 							echo $this->Html->Link(
 								$link['Link']['menu'],
 								$link['Link']['link']
@@ -41,8 +41,8 @@
 					<?php endforeach; ?>
 				</ul>
 			<li>
-				
-				<?php echo $this->Html->Link('Cover', '/cover'); ?>
+
+				<?php echo $this->Html->Link('Cover', '/coverfiles'); ?>
 			</li>
 			<li>
 				<?php echo $this->Html->Link('Handbook', '/handbook'); ?>
@@ -67,7 +67,7 @@
 				<ul class="dropdown-menu">
 					<li>
 						<?php
-						echo $this->Html->Link('Incident Form', 
+						echo $this->Html->Link('Incident Form',
 							array(
 								'controller' => 'students',
 								'action' => 'incidentFormList'
@@ -89,7 +89,7 @@
 					<?php endif;
 					if(isset($ugroups['SMT'])): ?>
 						<li>
-							<?php 
+							<?php
 							echo $this->Html->Link('SMT Incident Reporting',
 								array(
 									'controller' => 'incidents',
@@ -101,7 +101,7 @@
 					<?php endif;
 					if (isset($hoy[0])): ?>
 						<li>
-							<?php 
+							<?php
 							echo $this->Html->Link('My Year Group',
 								array(
 									'controller' => 'incidents',
@@ -136,7 +136,7 @@
 							?>
 						</li>
 					<?php
-					endif; 
+					endif;
 					if (isset($ugroups['Incident Monitoring'])):
 					?>
 							<li>

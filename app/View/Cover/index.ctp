@@ -6,6 +6,9 @@
 		<ul class="nav navbar-nav pull-right">
 			<?php foreach ($days as $day): ?>
 				<li>
+					<?php
+					echo $this->Html->Link(date('dmy', strtotime($day)), array('controller' => 'cover', 'action' => 'index', $week, $day)); 
+					?>
 					<a href="/cover/<?php echo date('dmy', strtotime($day)); ?>"><?php echo date('l jS', strtotime($day)); ?></a>
 				</li>
 			<?php endforeach; ?>

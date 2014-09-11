@@ -3,7 +3,7 @@ class CoverController extends AppController {
 	public $helpers = array('Html');
 	public $components = array('Session');
 
-	public function index($date=null, $week=null) {
+	public function index($week=null, $date=null) {
 		$this->set('title', 'Cover');
 
 		$currentDay = date('l');
@@ -26,6 +26,12 @@ class CoverController extends AppController {
 			$day[$i] = date('y-m-d', strtotime($monday . '+' . $i . ' day'));
 			$i++;
 		}
+
+		if ($week==null) {
+			$week = 0;
+		}
+
+		$this->set('week', $week);
 
 		$this->set('days', $day);
 
