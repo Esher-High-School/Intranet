@@ -53,7 +53,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<?php echo $this->Html->Link('ICT Support', 'http://10.18.56.36/RSDPortal'); ?>
+					   <a href="#" data-toggle="modal" data-target="#myModal">ICT Support</a>
 					</li>
 					<li>
 						<?php echo $this->Html->Link('Premises', 'http://10.18.56.38/supportdeskssp/Main.aspx'); ?>
@@ -180,3 +180,25 @@
 		</ul>
 	</div>
 </nav>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">ICT Support Helpdesk</h4>
+			</div>
+			<div class="modal-body">
+				<p>
+					There is currently an issue with the Richmond Helpdesk software that prevents the helpdesk from working correctly using Google Chrome.
+				</p>
+				<p>
+					<strong>Please use Internet Explorer to access the helpdesk for the time being</strong>.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<a href="http://10.18.56.36/RSDPortal/" class="btn btn-primary">Continue to Helpdesk</a>
+			</div>
+		</div>
+	</div>
+</div>
