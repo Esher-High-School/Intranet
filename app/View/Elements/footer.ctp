@@ -1,7 +1,7 @@
 			</div>
 		</div>
 		<footer>
-			<div class="container">	
+			<div class="container">
 				<div class="row">
 					<div class="col-md-6 left">
 						<span class="heading">
@@ -16,20 +16,6 @@
 				</div>
 			</div>
 		</footer>
-		<nav class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">
-						<?php 
-						echo $this->Html->Link('Pages', array(
-								'controller' => 'Pages',
-								'action' => 'index'
-							)
-						);
-						?>
-					</div>
-				</div>
-			</div>
-		</nav>
+
 	</body>
 </html>
