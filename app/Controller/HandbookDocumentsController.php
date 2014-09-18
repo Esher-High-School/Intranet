@@ -6,6 +6,7 @@ class HandbookDocumentsController extends AppController {
 	var $uses = array('HandbookDocument', 'HandbookCategory', 'User');
 
 	public function beforeFilter() {
+		$username = $this->basicAuth->getUsername();
 		if (!($this->action == 'view' or $this->action == 'home' or $this->action == 'document')) {
 			$user = $this->User->findByUser($this->basicAuth->getUsername());
 			if (!$this->basicAuth->checkGroupMembership($user, 'Handbook Publishers')) {
