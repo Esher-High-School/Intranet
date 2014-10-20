@@ -10,7 +10,7 @@
 			<th>
 				<?php
 				echo $this->Html->Link(
-					'New', 
+					'New',
 					array('action' => 'add'),
 					array('class' => 'btn btn-primary btn-xs')
 				);
@@ -44,10 +44,7 @@
 					echo $this->Form->postLink('Delete',
 						array(
 							'action' => 'delete', $category['Page']['id']
-							),
-						array(
-							'Are you sure you want to delete this category?')
-						);
+						));
 					?>
 				</td>
 			<?php endif; ?>

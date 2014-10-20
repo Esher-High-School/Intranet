@@ -25,6 +25,7 @@
 
 	// Pages
 	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/pages/delete/*', array('controller' => 'pages', 'action' => 'delete'));
 	Router::connect('/pages/edit/*', array('controller' => 'pages', 'action' => 'edit'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'view'));
 
