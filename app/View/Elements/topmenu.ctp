@@ -41,6 +41,9 @@
 					<?php endforeach; ?>
 				</ul>
 			<li>
+				<?php echo $this->Html->Link('Safeguarding', '/handbook/310'); ?>
+			</li>
+			<li>
 
 				<?php echo $this->Html->Link('Cover', '/coverfiles'); ?>
 			</li>
@@ -60,6 +63,7 @@
 					</li>
 				</ul>
 			</li>
+			<?php /*
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					Incident Reporting <b class="caret"></b>
@@ -165,6 +169,7 @@
 					endif; ?>
 				</ul>
 			</li>
+			*/ ?>
 			<li>
 				<?php echo $this->Html->Link('Phone Extensions',
 					array(
